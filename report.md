@@ -243,6 +243,11 @@
 
 ### 2.3.3. Empathy Mapping
 
+En esta sección se muestra el **mapa de empatía**, una herramienta clave para 
+entender con mayor profundidad lo que nuestros usuarios piensan, sienten 
+y necesitan. Gracias a este análisis, podemos detectar oportunidades concretas 
+para mejorar su experiencia.
+
 
 
 ### 2.3.4. As-is Scenario Mapping
