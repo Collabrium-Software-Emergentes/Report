@@ -217,7 +217,29 @@
 
 ### 2.3.2. User Task Matrix
 
+#### A. Segmento 1: Coordinadores o Líderes de Grupo
 
+| Tarea | Frecuencia | Severidad |
+|-------|-----------|-----------|
+| Seleccionar integrantes del equipo y definir objetivo común | Alta | Media |
+| Establecer grupos de trabajo y programar horarios | Baja | Alta |
+| Organizar reuniones a través de diferentes canales de comunicación | Media | Media |
+| Distribuir y asignar responsabilidades entre los miembros | Alta | Alta |
+| Monitorear el progreso y actualizar estado de avances | Alta | Alta |
+| Compilar y centralizar información de todos los participantes | Alta | Alta |
+| Analizar resultados finales e identificar áreas de mejora | Media | Baja |
+
+#### B. Segmento 2: Miembros del Equipo o Grupo
+
+| Tarea | Frecuencia | Severidad |
+|-------|-----------|-----------|
+| Comprender los objetivos y el alcance del proyecto asignado | Baja | Media |
+| Revisar y cumplir con los horarios y pautas establecidas | Alta | Alta |
+| Participar activamente en reuniones de coordinación y seguimiento | Media | Alta |
+| Ejecutar las tareas designadas conforme al cronograma establecido | Alta | Alta |
+| Informar regularmente al líder sobre el progreso de sus actividades | Alta | Alta |
+| Compartir resultados, hallazgos y documentación con el equipo | Media | Media |
+| Proporcionar retroalimentación para identificar mejoras continuas | Baja | Media |
 
 ### 2.3.3. Empathy Mapping
 
