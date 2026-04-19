@@ -205,11 +205,15 @@
 
 ## 2.3. Needfinding
 
-
-
 ### 2.3.1. User Personas
 
+#### A. User Persona: Coordinador de equipos
 
+![Miguel Persona](./assets/userPersonas/miguel.png)
+
+#### B. User Persona: Miembro de equipo
+
+![Gabriela Persona](./assets/userPersonas/gabriela.png)
 
 ### 2.3.2. User Task Matrix
 
