@@ -248,6 +248,12 @@ entender con mayor profundidad lo que nuestros usuarios piensan, sienten
 y necesitan. Gracias a este análisis, podemos detectar oportunidades concretas 
 para mejorar su experiencia.
 
+#### A. Empathy Map: Coordinador de equipos
+
+![Miguel Empathy Map](./assets/empathyMaps/miguel.png)
+
+#### B. Empathy Map: Miembro de equipo
+
 
 
 ### 2.3.4. As-is Scenario Mapping
