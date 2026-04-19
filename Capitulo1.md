@@ -44,7 +44,7 @@ eficiente y en armonía.</span>
 <th><mark>Descripción:</mark></th>
 </tr>
 <tr>
-<th style="text-align: center;"><img src="media/image2.jpg"
+<th style="text-align: center;"><img src="media/image1.jpg"
 style="width:1.67188in;height:2.96712in" /></th>
 <th style="text-align: left;"><p><mark>Jhon Danny Guerrero Vasquez -
 U202116246</mark></p>
@@ -58,20 +58,20 @@ comprometido con la integración continua en los aportes de cada
 integrante de mi equipo.</mark></p></th>
 </tr>
 <tr>
-<th><mark>foto</mark></th>
-<th style="text-align: left;"><mark>….</mark></th>
+<th></th>
+<th style="text-align: left;"></th>
 </tr>
 <tr>
-<th style="text-align: center;"><mark>foto</mark></th>
-<th style="text-align: left;"><mark>….</mark></th>
+<th style="text-align: center;"></th>
+<th style="text-align: left;"></th>
 </tr>
 <tr>
-<th><mark>foto</mark></th>
-<th style="text-align: left;"><mark>…</mark></th>
+<th></th>
+<th style="text-align: left;"></th>
 </tr>
 <tr>
-<th><mark>foto</mark></th>
-<th style="text-align: left;"><mark>…</mark></th>
+<th></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
@@ -362,4 +362,70 @@ mejorar la eficiencia del trabajo en conjunto.</span>
 
 #### <span class="mark">1.2.3.4. Lean UX Canvas</span>
 
-<img src="media/image1.jpg" style="width:6.26772in;height:3.94444in" />
+<img src="media/image2.jpg" style="width:6.26772in;height:3.94444in" />
+
+## **<span class="mark">1.3. Segmento objetivo</span>** 
+
+<span class="mark">Segmento Objetivo \#1: Coordinadores o Líderes de
+Grupo</span>
+
+<span class="mark">Este grupo incluye a personas que asumen la
+responsabilidad de organizar y gestionar las actividades dentro de un
+equipo o grupo. Pueden ser líderes de proyectos, responsables de
+logística en voluntariados, administradores de espacios compartidos,
+docentes coordinadores o encargados de comunidades (vecinales,
+académicas o laborales). Estas personas buscan una herramienta que les
+permita distribuir tareas, planificar actividades, hacer seguimiento del
+cumplimiento y facilitar la comunicación interna. Características
+clave:</span>
+
+- <span class="mark">Edad: 25 a 60 años</span>
+
+  - <span class="mark">Género: Ambos</span>
+
+  - <span class="mark">Contexto: Trabajo en equipo (laboral, educativo,
+    comunitario o institucional)</span>
+
+  - <span class="mark">Ocupación: Líderes de proyectos, jefes de equipo,
+    coordinadores, docentes, voluntarios, emprendedores</span>
+
+  - <span class="mark">Uso de tecnología: Usuarios activos de
+    plataformas colaborativas y herramientas de gestión de tareas (como
+    Trello, Notion, Slack, etc.)</span>
+
+  - <span class="mark">Necesidades: Distribuir responsabilidades,
+    establecer fechas límite, tener visibilidad del progreso del equipo,
+    mejorar la coordinación y reducir fricciones en la organización
+    diaria.</span>
+
+<span class="mark">Segmento Objetivo \#2: Miembros del Equipo o
+Grupo</span>
+
+<span class="mark">Corresponde a las personas que forman parte activa de
+un grupo con tareas y roles específicos, pero que no necesariamente
+tienen funciones administrativas. Incluye desde colaboradores de un
+proyecto, estudiantes de un curso, miembros de una comunidad, hasta
+empleados de una pequeña empresa. Este grupo busca mantenerse al tanto
+de sus responsabilidades, recibir recordatorios, y colaborar de forma
+clara y organizada con los demás. Características clave:</span>
+
+- <span class="mark">Edad: 13 a 60 años</span>
+
+  - <span class="mark">Género: Ambos</span>
+
+  - <span class="mark">Contexto: Participación activa en un grupo
+    organizado (laboral, educativo, social, comunitario, voluntariado,
+    etc.)</span>
+
+  - <span class="mark">Ocupación: Colaboradores, estudiantes,
+    asistentes, voluntarios, trabajadores, participantes de redes de
+    apoyo</span>
+
+  - <span class="mark">Uso de tecnología: Habitualmente usan apps
+    móviles, redes sociales, herramientas de trabajo remoto o
+    colaboración básica</span>
+
+  - <span class="mark">Necesidades: Consultar tareas, recibir
+    recordatorios, gestionar su tiempo dentro del equipo, proponer
+    cambios o ajustes, y mantenerse alineados con los objetivos
+    grupales.</span>
