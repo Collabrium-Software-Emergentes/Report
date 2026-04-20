@@ -384,7 +384,38 @@ Finalmente se dividio cada evento en comandos, eventos, agregados, vistas y enti
 
 ### 4.2.3. Domain Message Flows Modeling
 
+Como siguiente paso se buscó interconectar los bounded contexts encontrados en la sección anterior, para esto se buscó encontrar los eventos que se comunican entre los distintos contextos.
 
+**Gestión de grupos y notificaciones:** 
+Al generar una invitación de grupo se envía una notificación al usuario invitado, y al aceptar la invitación se envía una notificación al creador del grupo.
+
+[![Gestion-de-grupos-y-notificaciones.png](https://i.postimg.cc/vm5SyYDM/Gestion-de-grupos-y-notificaciones.png)](https://postimg.cc/McKYb8yr)
+
+**Gestión de tareas y notificaciones:** 
+Al crear una tarea se envía una notificación al usuario asignado, y al cumplir la tarea se envía una notificación al creador de la tarea.
+
+[![Gestion-de-tareas-y-notificaciones.png](https://i.postimg.cc/Kc0pxsc1/Gestion-de-tareas-y-notificaciones.png)](https://postimg.cc/kDtvysbC)
+
+**Notificaciones y Solicitudes y Validaciones:** 
+Al crear una solicitud de validación se envía una notificación al usuario asignado, y al aceptar la solicitud se envía una notificación al creador de la solicitud.
+
+[![Solicitudes-y-validaciones-y-Notificaciones-1.png](https://i.postimg.cc/5075dTB7/Solicitudes-y-validaciones-y-Notificaciones-1.png)](https://postimg.cc/Q97Kc6n1)
+
+Al momento de marcarse tareas como completadas o no completadas se envía una notificación al coordinador. Al asignar reprogramar tareas se enviará notificaciones al usuario antiguo y al nuevo usuario al que pertenece la tarea. Al modificar(actualizar, reprogramar o eliminar) tareas se enviará una notificación a todos los involucrados (coordinadores e integrantes).
+
+[![Solicitudes-y-validaciones-y-Notificaciones-2.png](https://i.postimg.cc/xjBxXNHV/Solicitudes-y-validaciones-y-Notificaciones-2.png)](https://postimg.cc/Z0FFgRVw)
+
+[![Solicitudes-y-validaciones-y-Notificaciones-3.png](https://i.postimg.cc/yNfnsDBf/Solicitudes-y-validaciones-y-Notificaciones-3.png)](https://postimg.cc/4K9p1NYt)
+
+**Solicitudes y Validadciones y Análitica y reportes:** Al validarse si se completó o no una tarea se crean o modifican las estadísticas de progreso grupal.
+
+[![Solicitudes-y-validaciones-y-Analitica-y-reportes.png](https://i.postimg.cc/K8SP2nTG/Solicitudes-y-validaciones-y-Analitica-y-reportes.png)](https://postimg.cc/XpLGKBxm)
+
+Finalmente se muestra una captura global de la arquitectura del sistema, donde se puede ver la interacción entre los distintos componentes y como se comunican entre ellos.
+
+[![Domain-Message-Flows-Modeling.png](https://i.postimg.cc/tRnDGRcm/Domain-Message-Flows-Modeling.png)](https://postimg.cc/ThGnrxfr)
+
+Enlace del Miro board sobre el que se trabajo: https://miro.com/app/board/uXjVHf1ECEI=/?share_link_id=687998549144
 
 ### 4.2.4. Bounded Context Canvases
 
