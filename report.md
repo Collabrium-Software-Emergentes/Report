@@ -335,6 +335,12 @@ A continuación se muestra con detalle las líneas de acción creadas:
 
 [![Incumplimiento-de-tareas.png](https://i.postimg.cc/G3PZ809x/Incumplimiento-de-tareas.png)](https://postimg.cc/w3vWZGX1)
 
+Una vez creadas las líneas de acción se buscó encontrar los "pain points", solo se tuvo que modificar la línea de acción de creación de grupo. 
+
+**Creación de grupo**
+
+[![Creacion-de-Grupo-V2.png](https://i.postimg.cc/bwdy9Ytj/Creacion-de-Grupo-V2.png)](https://postimg.cc/LJKFHpDy)
+
 ### 4.2.3. Domain Message Flows Modeling
 
 
