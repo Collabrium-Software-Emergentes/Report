@@ -366,6 +366,16 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 * Diseñar funcionalidades específicas para grupos no empresariales.
 * Expandirse hacia **equipos híbridos** que combinan familia, trabajo y estudio.
 
+**3. Estrategia de Humanización y Cercanía de Marca**
+
+**Objetivo:** Generar confianza mediante una comunicación cercana y una experiencia positiva.
+
+**Tácticas:**
+
+* Brindar **soporte rápido y empático**.
+* Utilizar un **lenguaje simple y humano**, evitando tecnicismos.
+* Posicionarse como una plataforma cercana, a diferencia del enfoque corporativo de otros competidores.
+
 ## 2.2. Entrevistas
 
 
