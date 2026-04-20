@@ -376,6 +376,18 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 * Utilizar un **lenguaje simple y humano**, evitando tecnicismos.
 * Posicionarse como una plataforma cercana, a diferencia del enfoque corporativo de otros competidores.
 
+**4. Estrategia de Precio Accesible y Transparente**
+
+**Objetivo:** Captar usuarios que buscan soluciones completas a bajo costo.
+
+**Tácticas:**
+
+* Ofrecer un **plan gratuito funcional** y un **premium accesible**.
+* Aplicar descuentos para sectores educativos y organizaciones sin fines de lucro.
+* Incluir funcionalidades clave sin obligar a cambiar de plan constantemente.
+
+---
+
 ## 2.2. Entrevistas
 
 
