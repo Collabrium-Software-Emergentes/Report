@@ -177,7 +177,67 @@
 
 ## 2.1. Competidores
 
+En esta sección se expone un estudio de los principales actores que compiten con nuestra startup, enfocándonos en aquellos que cuentan con modelos digitales similares o que, aunque no sean idénticos, ofrecen soluciones que coinciden en parte con la propuesta de SynHome. Se consideran tanto competidores directos, ubicados en el mismo segmento, como indirectos, que abarcan aspectos relacionados con la organización de actividades, planificación y coordinación colaborativa.
 
+---
+
+**1. Asana**
+
+<img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/>
+
+**Descripción:**
+
+Asana es una plataforma orientada a la gestión de proyectos que permite a los equipos estructurar tareas, asignar responsables y monitorear el avance de sus proyectos. Dispone de diversas visualizaciones, como listas y tableros Kanban, lo que facilita su adaptación a distintas dinámicas de trabajo.
+
+**Características principales:**
+
+* **Proyectos y tareas** estructurados en listas y tableros tipo Kanban.
+* **Subtareas y relaciones de dependencia** para organizar procesos de trabajo.
+* **Colaboración**: asignación de responsabilidades, comentarios y archivos.
+* **Alertas y recordatorios** mediante correo electrónico y la aplicación.
+* **Monitoreo e informes** del progreso (gráficos y porcentajes).
+* **Integraciones** con herramientas como Slack, Google Drive y Microsoft Teams.
+* **Aplicación móvil** intuitiva que permite gestionar tareas y colaborar.
+
+---
+
+**2. FamilyWall**
+
+<img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="FamilyWall" width="200"/>
+
+**Descripción:**
+
+FamilyWall es una solución digital orientada al entorno familiar que reúne múltiples funcionalidades en una sola plataforma. Su diseño amigable y visual la hace adecuada para familias con integrantes de distintas edades.
+
+**Principales características:**
+
+* **Listas colaborativas** de tareas y compras.
+* **Geolocalización en tiempo real**, útil para ubicar a los miembros de la familia.
+* **Sistema de mensajería** privada y grupal.
+* **Espacio compartido multimedia** para fotos y videos familiares.
+
+---
+
+**3. ClickUp**
+
+<img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="ClickUp" width="200"/>
+
+**Descripción:**
+
+ClickUp es una herramienta integral que combina funcionalidades de gestión de tareas, documentación, metas y más. Se destaca por su alto nivel de personalización y su capacidad de adaptarse a diversos flujos de trabajo.
+
+**Características principales:**
+
+* **Estructura jerárquica adaptable**: espacios, carpetas, listas y tareas.
+* **Diversas vistas**: lista, tablero, cronograma y carga de trabajo.
+* **Registro de tiempo** incorporado.
+* **Documentación interna**, notas y wikis colaborativos.
+* **Automatizaciones configurables**.
+* **Comentarios con menciones** y edición colaborativa.
+* **Plantillas reutilizables** para proyectos y tareas.
+* **Aplicación móvil** completa, aunque puede resultar compleja para nuevos usuarios.
+
+---
 
 ### 2.1.1. Análisis competitivo
 
