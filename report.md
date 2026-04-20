@@ -419,7 +419,35 @@ Enlace del Miro board sobre el que se trabajo: https://miro.com/app/board/uXjVHf
 
 ### 4.2.4. Bounded Context Canvases
 
+En esta sección se desarrolla la descomposición estratégica del dominio a través de la elaboración de los Bounded Context Canvases, con el propósito de identificar y delimitar áreas funcionalmente coherentes dentro del sistema. Dicha práctica constituye una parte esencial del enfoque de Domain-Driven Design (DDD), dado que permite clarificar los límites semánticos y técnicos entre las distintas porciones del sistema, reduciendo la complejidad y favoreciendo la evolución independiente de cada componente.
 
+El equipo ha definido previamente un conjunto de contextos delimitados candidatos, ordenados de acuerdo con su importancia funcional y estratégica. Con base en esta priorización, se procede al diseño iterativo de los Bounded Context Canvases. Cada canvas incorpora los siguientes elementos clave:
+
+- **Context Overview Definition:** para comprender el propósito y el alcance del contexto.
+- **Business Rules Distillation & Ubiquitous Language Capture:** para identificar las reglas de negocio fundamentales y establecer un lenguaje común entre los actores involucrados y los desarrolladores.
+- **Capability Analysis y Capability Layering:** para entender las capacidades funcionales que ofrece el contexto y, si resulta necesario, organizarlas en capas.
+- **Dependencies Capture:** para reconocer las relaciones con otros contextos y sus posibles implicaciones.
+- **Design Critique:** para revisar y perfeccionar el diseño propuesto desde una perspectiva crítica y colaborativa.
+
+**Gestión de grupos**
+
+[![Gestion-de-grupos-Canvas.png](https://i.postimg.cc/7LVP6yQj/Gestion-de-grupos-Canvas.png)](https://postimg.cc/GB4n76Rj)
+
+**Gestión de tareas**
+
+[![Gestion-de-tareas-Canvas.png](https://i.postimg.cc/1z9Pbj5v/Gestion-de-tareas-Canvas.png)](https://postimg.cc/xXFWzgmm)
+
+**Solicitudes y Validaciones**
+
+[![Solicitudes-y-Validaciones-Canvas.png](https://i.postimg.cc/5NgMLmmX/Solicitudes-y-Validaciones-Canvas.png)](https://postimg.cc/VdJTcnpw)
+
+**Notificaciones**
+
+[![Notificaciones-Canvas.png](https://i.postimg.cc/QdNhyzMH/Notificaciones-Canvas.png)](https://postimg.cc/7fRFCm0k)
+
+**Análitica y reportes**
+
+[![Analitica-y-reportes-Canvas.png](https://i.postimg.cc/26hs6d6L/Analitica-y-reportes-Canvas.png)](https://postimg.cc/G837gyvb)
 
 ### 4.2.5. Context Mapping
 
