@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c76df42-abab-4c15-8575-f951f8e601f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/empathyMaps/gabriela.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/userPersonas/gabriela.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/userPersonas/gabriela.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +19,7 @@
     </persistenceIdMap>
   </component>
   <component name="CopilotUserSelectedChatMode">
-    <option name="chatModeId" value="Ask" />
+    <option name="chatModeId" value="Agent" />
   </component>
   <component name="CopilotUserSelectedModel">
     <selectedModels>
@@ -102,7 +100,7 @@
       <workItem from="1776568346643" duration="5247000" />
       <workItem from="1776579417430" duration="708000" />
       <workItem from="1776580698348" duration="2118000" />
-      <workItem from="1776714436337" duration="5419000" />
+      <workItem from="1776714436337" duration="6422000" />
     </task>
     <servers />
   </component>
