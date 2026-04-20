@@ -357,6 +357,15 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 * Incluir **tutoriales interactivos** y ayuda contextual dentro de la plataforma.
 * Destacar frente a Asana y ClickUp con el mensaje: *“No necesitas ser experto para organizarte”*.
 
+**2. Estrategia de Enfoque en Nichos Desatendidos**
+
+**Objetivo:** Dirigirse a segmentos como estudiantes, voluntarios y comunidades.
+
+**Tácticas:**
+
+* Diseñar funcionalidades específicas para grupos no empresariales.
+* Expandirse hacia **equipos híbridos** que combinan familia, trabajo y estudio.
+
 ## 2.2. Entrevistas
 
 
