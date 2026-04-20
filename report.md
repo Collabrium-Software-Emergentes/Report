@@ -241,7 +241,108 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 
 ### 2.1.1. Análisis competitivo
 
-
+<table> 
+  <tr>
+    <th colspan="6"> Competitive Analysis Landscape </th>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">¿Por qué llevar acabo este análisis? </td>
+    <td colspan="4"> Pregunta </td>
+  </tr>
+  <tr>
+    <td colspan="4"> Este análisis se realiza para comprender el entorno competitivo, identificar a los actores del mercado, tomar decisiones estratégicas de desarrollo y construir una propuesta de valor sólida. </td>
+  </tr>
+  <tr>
+    <td colspan="2"> Productos </td>
+    <td style="text-align: center;"> <div>SynHub</div> <img src="./images/chapter-2/synhub.png" alt="SynHub" width="200"/> </td>
+    <td style="text-align: center;"> <div>Asana</div> <img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/> </td>
+    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="Picniic" width="200"/> </td>
+    <td style="text-align: center;"> <div>ClickUp</div> <img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="clickup" width="200"/> </td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil</td>
+    <td>Overview</td>
+    <td>SynHub es una solución digital colaborativa creada para apoyar la organización y gestión de actividades en distintos tipos de grupos, ya sean académicos, laborales o sociales.</td>
+    <td>Herramienta enfocada en la gestión de proyectos y tareas que facilita la organización, el seguimiento y la planificación mediante diferentes vistas como listas y tableros Kanban.</td>
+    <td>FamilyWall es una plataforma orientada a la organización familiar, que permite coordinar tareas, comunicaciones y contenido multimedia en un solo entorno.</td>
+    <td>ClickUp es una solución integral que reúne herramientas para la gestión de tareas, documentos y objetivos, destacando por su alto nivel de personalización.</td>
+  </tr>
+  <tr>
+    <td>Ventaja competitiva ¿Qué valor ofrece a los clientes? </td>
+    <td>Fomenta la corresponsabilidad mediante funciones como seguimiento de tareas, validación de cumplimiento y reportes visuales con gráficos.</td>
+    <td>Destaca por su facilidad de uso e interfaz intuitiva, permitiendo una rápida adopción por parte de los equipos. Sus múltiples integraciones amplían su funcionalidad.</td>
+    <td>Contribuye a mejorar la comunicación familiar mediante chats y actualizaciones compartidas.</td>
+    <td>Su alto grado de personalización y la integración de múltiples funciones en una sola plataforma resultan atractivos para equipos que buscan centralizar herramientas.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil de Marketing</td>
+    <td>Mercado Objetivo</td>
+    <td>Equipos académicos y universitarios, así como grupos que requieren herramientas flexibles, accesibles y fáciles de usar.</td>
+    <td>Organizaciones de cualquier tamaño que buscan optimizar la gestión de proyectos, desde startups hasta grandes empresas.</td>
+    <td>Familias que necesitan una plataforma unificada para organizar actividades y compartir información.</td>
+    <td>Empresas y equipos que requieren soluciones completas y altamente personalizables para gestionar sus proyectos.</td>
+  </tr>
+  <tr>
+    <td>Estrategias de Marketing</td>
+    <td>Modelo freemium: ofrecer una versión gratuita funcional y motivar la transición a planes premium con características adicionales.</td>
+    <td>Uso de contenido educativo como guías y webinars para atraer usuarios, junto con una versión gratuita que incentiva la conversión a planes pagos.</td>
+    <td>Implementación de pruebas gratuitas para impulsar la adopción de la plataforma.</td>
+    <td>Enfoque en destacar su versatilidad mediante contenido educativo, testimonios y comparaciones con otras herramientas.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Perfil de Producto</td>
+    <td>Productos & Servicios</td>
+    <td>Gestión de tareas compartidas y organización de responsabilidades dentro del hogar o equipo.</td>
+    <td>Gestión de proyectos con vistas personalizadas, integraciones con herramientas externas y seguimiento del progreso.</td>
+    <td>Funciones de listas, mensajería y compartición de contenido multimedia.</td>
+    <td>Gestión de tareas y proyectos con múltiples vistas, documentación colaborativa, control de tiempo y automatizaciones.</td>
+  </tr>
+  <tr>
+    <td>Precios & Costos</td>
+    <td>Plan gratuito y plan premium con un costo de $6.99 por usuario al mes.</td>
+    <td>Versión gratuita con funciones básicas y planes premium: $13.49 mensual o $10.99 mensual en plan anual.</td>
+    <td>Plan premium de $4.99 mensual o $29.99 anual con funcionalidades adicionales.</td>
+    <td>Versión gratuita y plan Unlimited: $9 mensual o $10.99 mensual en plan anual.</td>
+  </tr>
+  <tr>
+    <td>Canales de distribución</td>
+    <td>Aplicaciones móviles disponibles en Android e iOS.</td>
+    <td>Acceso mediante web y aplicaciones móviles en iOS y Android.</td>
+    <td>Disponible en App Store y Google Play.</td>
+    <td>Disponible tanto en web como en aplicaciones móviles.</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Análisis SWOT</td>
+  </tr>
+  <tr>
+    <td>Fortalezas</td>
+    <td>Adaptabilidad a diferentes contextos y tipos de equipos.</td>
+    <td>Interfaz sencilla e intuitiva.</td>
+    <td>Amplio conjunto de funciones para la gestión familiar.</td>
+    <td>Gran flexibilidad y capacidad de personalización.</td>
+  </tr>
+  <tr>
+    <td>Debilidades</td>
+    <td>Falta de posicionamiento y reconocimiento en el mercado.</td>
+    <td>Restricciones en la personalización de procesos complejos.</td>
+    <td>Limitaciones importantes en la versión gratuita.</td>
+    <td>Complejidad inicial debido a la cantidad de funcionalidades.</td>
+  </tr>
+  <tr>
+    <td>Oportunidades</td>
+    <td>Ingresar a nichos poco atendidos por soluciones complejas.</td>
+    <td>Expansión hacia mercados emergentes.</td>
+    <td>Crecimiento en el ámbito educativo.</td>
+    <td>Desarrollo en sectores que requieren soluciones específicas.</td>
+  </tr>
+  <tr>
+    <td>Amenazas</td>
+    <td>Competidores grandes podrían ofrecer versiones más económicas.</td>
+    <td>Incremento de la competencia en herramientas de gestión.</td>
+    <td>Limitaciones en integraciones con otras plataformas.</td>
+    <td>Competencia con herramientas más especializadas y simples.</td>
+  </tr>
+</table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
