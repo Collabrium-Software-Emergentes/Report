@@ -341,6 +341,25 @@ Una vez creadas las líneas de acción se buscó encontrar los "pain points", so
 
 [![Creacion-de-Grupo-V2.png](https://i.postimg.cc/bwdy9Ytj/Creacion-de-Grupo-V2.png)](https://postimg.cc/LJKFHpDy)
 
+Una vez terminadas las líneas de acción se buscó encontrar los "pivotal point", los cuales son eventos que pueden cambiar el flujo de la aplicación.
+Los pivotal point encontrados fueron:
+
+- La creación de un grupo
+- La creación de una tarea
+- La modificación de una tarea
+- La asignación de una tarea
+- Acciones que requieran enviar notificaciones
+- El cumplimiento de tareas
+- El incumplimiento de tareas
+
+Gracias a encontrar los pivotal points se pudo identificar como los distintos eventos formaban parte de distintos contextos, los cuales son:
+
+- Gestión de grupos
+- Notificaciones
+- Gestión de tareas
+- Análitica y reportes
+- Solicitudes y Validaciones
+
 ### 4.2.3. Domain Message Flows Modeling
 
 
