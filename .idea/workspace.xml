@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c76df42-abab-4c15-8575-f951f8e601f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/empathyMaps/miguel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/empathyMaps/gabriela.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/userPersonas/gabriela.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/userPersonas/gabriela.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,19 +62,21 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feature/needfinding",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/david/OneDrive/Escritorio/Trabajo Arquitectura/Report/assets/empathyMappings",
+    "last_opened_file_path": "C:/Users/david/OneDrive/Escritorio/Trabajo Arquitectura/Report/assets/userPersonas",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\david\OneDrive\Escritorio\Trabajo Arquitectura\Report\assets\empathyMappings" />
       <recent name="C:\Users\david\OneDrive\Escritorio\Trabajo Arquitectura\Report\assets\userPersonas" />
+      <recent name="C:\Users\david\OneDrive\Escritorio\Trabajo Arquitectura\Report\assets\empathyMaps" />
+      <recent name="C:\Users\david\OneDrive\Escritorio\Trabajo Arquitectura\Report\assets\empathyMappings" />
     </key>
   </component>
   <component name="RunManager">
@@ -98,7 +101,8 @@
       <updated>1776568344891</updated>
       <workItem from="1776568346643" duration="5247000" />
       <workItem from="1776579417430" duration="708000" />
-      <workItem from="1776580698348" duration="1921000" />
+      <workItem from="1776580698348" duration="2118000" />
+      <workItem from="1776714436337" duration="5419000" />
     </task>
     <servers />
   </component>

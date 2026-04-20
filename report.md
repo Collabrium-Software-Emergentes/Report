@@ -209,11 +209,11 @@
 
 #### A. User Persona: Coordinador de equipos
 
-![Miguel Persona](./assets/userPersonas/miguel.png)
+![Miguel Persona](assets/userPersonas/miguel.png)
 
 #### B. User Persona: Miembro de equipo
 
-![Gabriela Persona](./assets/userPersonas/gabriela.png)
+![Gabriela Persona](assets/userPersonas/gabriela.png)
 
 ### 2.3.2. User Task Matrix
 
@@ -250,13 +250,84 @@ para mejorar su experiencia.
 
 #### A. Empathy Map: Coordinador de equipos
 
-![Miguel Empathy Map](./assets/empathyMaps/miguel.png)
+![Miguel Empathy Map](assets/empathyMaps/miguel.png)
 
 #### B. Empathy Map: Miembro de equipo
 
-
+![Gabriela Empathy Map](assets/empathyMaps/gabriela.png)
 
 ### 2.3.4. As-is Scenario Mapping
+
+En esta sección se estructuran los escenarios actuales (As-Is) 
+diferenciados por cada segmento objetivo, detallando para cada 
+fase las actividades concretas que realizan, sus reflexiones 
+internas y sus estados emocionales durante el proceso.
+
+#### A. As-is Segmento 1: Coordinador de equipos
+
+<table>
+<tr style="background-color: #4472C4; color: white;">
+  <th>Fases</th>
+  <th>Configuración Inicial</th>
+  <th>Asignación de Responsabilidades</th>
+  <th>Monitoreo Continuo</th>
+  <th>Cierre y Evaluación</th>
+</tr>
+<tr>
+  <td><strong>Doing (Acciones)</strong></td>
+  <td>Utiliza herramientas básicas como WhatsApp, Excel o documentos físicos para seleccionar miembros del equipo e intentar organizar tareas iniciales. Coordina reuniones a través de múltiples canales de comunicación.</td>
+  <td>Distribuye tareas de forma manual y proporciona cronogramas. Debe recordar constantemente a los miembros sus responsabilidades y seguir el estado de cada tarea asignada.</td>
+  <td>Consulta individualmente a cada miembro sobre avances. Realiza ajustes en cronogramas sobre la marcha. Gestiona conversaciones dispersas en múltiples plataformas.</td>
+  <td>Recopila información fragmentada de diferentes fuentes para evaluar resultados. Intenta extraer lecciones aprendidas sin métricas claras de desempeño.</td>
+</tr>
+<tr>
+  <td><strong>Thinking (Pensamientos)</strong></td>
+  <td>"¿Cómo logro que todos entiendan sus roles?" "Espero poder coordinar de manera efectiva."</td>
+  <td>"¿Entenderán realmente lo que se espera?" "¿Cuándo debo hacer seguimiento?"</td>
+  <td>"¿Todos están realmente cumpliendo?" "¿Vamos en la dirección correcta?" "El desorden de información es un problema."</td>
+  <td>"¿Tengo todos los datos necesarios?" "¿Resultó bien o mal?" "¿Qué puedo mejorar para próximas veces?"</td>
+</tr>
+<tr>
+  <td><strong>Feeling (Sentimientos)</strong></td>
+  <td>😟 Preocupación por la falta de respuesta inicial. 😰 Ansiedad por la carga de trabajo.</td>
+  <td>😤 Desorganización por múltiples responsabilidades. ⚠️ Presión por cumplir con todos.</td>
+  <td>😊 Satisfacción por el seguimiento constante. 😕 Inseguridad sobre si todo va bien. ⚡ Estrés por resultados variables.</td>
+  <td>😞 Desilusión por resultados inconsistentes. 😤 Frustración por no tener métricas claras.</td>
+</tr>
+</table>
+
+#### B. As-is Segmento 2: Miembro de equipo
+
+<table>
+<tr style="background-color: #70AD47; color: white;">
+  <th>Fases</th>
+  <th>Recepción de Tareas</th>
+  <th>Gestión del Tiempo</th>
+  <th>Participación y Comunicación</th>
+  <th>Cierre y Aprendizaje</th>
+</tr>
+<tr>
+  <td><strong>Doing (Acciones)</strong></td>
+  <td>Recibe tareas a través de múltiples canales (WhatsApp, correos, mensajería verbal). No dispone de un horario unificado ni claridad sobre plazos comunes para todos los miembros del equipo.</td>
+  <td>Batalla constante por recordar cronogramas, fechas de entrega y compromisos. Gestiona recordatorios personales sin sincronización con el equipo.</td>
+  <td>Comunica su progreso mediante mensajes informales o cuando le preguntan. Espera confirmación sobre si está cumpliendo adecuadamente. Se cuestiona si debería informar más frecuentemente.</td>
+  <td>Entrega las tareas completadas de forma aislada. No recibe retroalimentación clara ni sabe si cumplió con las expectativas.</td>
+</tr>
+<tr>
+  <td><strong>Thinking (Pensamientos)</strong></td>
+  <td>"¿Hasta cuándo tengo para hacer esto?" "¿Dónde estaba la información?" "¿Quién más debería saberlo?"</td>
+  <td>"No tengo claro cuántas tareas tengo pendientes." "Ojalá no me olvide de esto." "¿De verdad es para hoy?"</td>
+  <td>"¿Quién está en esta tarea conmigo?" "¿No quiero parecer que no hago nada." "Espero que alguien me ayude a aclarar."</td>
+  <td>"¿Resultó bien lo que hice?" "¿Valió la pena el esfuerzo?" "¿Debería haber hecho algo diferente?"</td>
+</tr>
+<tr>
+  <td><strong>Feeling (Sentimientos)</strong></td>
+  <td>😕 Confundido por información dispersa. 😞 Poco motivado al inicio.</td>
+  <td>😐 Inseguro sobre cronogramas. 😰 Ansioso por olvidar fechas.</td>
+  <td>😐 Inseguro sobre su contribución. 😔 Culpable por no comunicar más. 😐 Preocupado por no cumplir.</td>
+  <td>😕 Desconectado de los resultados. 😞 Desmotivado para repetir la experiencia.</td>
+</tr>
+</table>
 
 
 
