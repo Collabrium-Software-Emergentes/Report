@@ -394,7 +394,31 @@ En esta sección se plantea el diseño, registro y análisis de entrevistas diri
 
 ### 2.2.1. Diseño de entrevistas
 
+**1. Entrevista para el Coordinador o Líder de Grupo**
 
+* Preguntas principales:
+
+1.¿Podrías contarme un poco sobre ti? (edad, ocupación, lugar de residencia, estado civil)
+
+2.¿A qué tipo de grupo o equipos perteneces o lideras actualmente?
+
+3.¿Cuál es tu rol dentro de ese grupo?
+
+* -Preguntas complementarias:
+
+4.¿Con qué frecuencia se reúnen o interactúan?
+
+5.Cuántas personas conforman el grupo o equipo que lideras?
+
+6.¿Qué herramientas o plataformas digitales utilizas para coordinar al equipo?
+
+7.¿Sueles tener problemas con la puntualidad, comunicación o cumplimiento?
+
+8.¿Qué dispositivos usas más frecuentemente para organizarte (móvil, laptop, tablet)?
+
+9.¿Usas redes sociales, apps colaborativas o agendas digitales?
+
+10.¿Qué valoras más en una herramienta para organizar a tu equipo?
 
 ### 2.2.2. Registro de entrevistas
 
