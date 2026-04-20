@@ -360,6 +360,28 @@ Gracias a encontrar los pivotal points se pudo identificar como los distintos ev
 - Análitica y reportes
 - Solicitudes y Validaciones
 
+Finalmente se dividio cada evento en comandos, eventos, agregados, vistas y entidades, los cuales son los siguientes:
+
+**Gestión de grupos**
+
+[![Gestion-de-grupos-Desglose.png](https://i.postimg.cc/3JBvSZxD/Gestion-de-grupos-Desglose.png)](https://postimg.cc/nCXrMB7H)
+
+**Notificaciones**
+
+[![Notificaciones-Desglose.png](https://i.postimg.cc/PfbpJMZL/Notificaciones-Desglose.png)](https://postimg.cc/XXJ7Dds3)
+
+**Gestión de tareas**
+
+[![Gestion-de-tareas-Desglose.png](https://i.postimg.cc/yd4xYJ8G/Gestion-de-tareas-Desglose.png)](https://postimg.cc/d76w5VdR)
+
+**Análitica y reportes**
+
+[![Metricas-Desglose.png](https://i.postimg.cc/P50r2LYd/Metricas-Desglose.png)](https://postimg.cc/tstjg4Bc)
+
+**Solicitudes y Validaciones**
+
+[![Solicitudes-y-Validaciones-Desglose.png](https://i.postimg.cc/D0C7sm7z/Solicitudes-y-Validaciones-Desglose.png)](https://postimg.cc/BPKWfSLW)
+
 ### 4.2.3. Domain Message Flows Modeling
 
 
