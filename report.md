@@ -420,6 +420,32 @@ En esta sección se plantea el diseño, registro y análisis de entrevistas diri
 
 10.¿Qué valoras más en una herramienta para organizar a tu equipo?
 
+**2. Entrevista para el Miembro del Equipo o Grupo**
+
+* Preguntas principales:
+
+1.¿Podrías contarme un poco sobre ti? (edad, ocupación, lugar de residencia, estado civil)
+
+2.¿A qué tipo de grupo o equipo perteneces actualmente?
+
+3.¿Cuál es tu rol dentro del grupo? (por ejemplo: participante, colaborador, voluntario)
+
+* Preguntas complementarias:
+
+4.¿Qué tipo de tareas realizas habitualmente?
+
+5.¿Qué herramientas o plataformas digitales utilizas para conocer tus actividades en el equipo?
+
+6.¿Cómo te enteras de tus responsabilidades dentro del grupo?
+
+7.¿Qué cosas te molestan o dificultan al trabajar en grupo?
+
+8.¿Qué tipo de apps o plataformas te gustan más? (Ej: fáciles de usar, visuales, rápidas)
+
+9.¿Usas más el celular o la computadora para tus tareas diarias?
+
+10.¿Qué tipo de apps o plataformas te gustan más? (Ej: fáciles de usar, visuales, rápidas)
+
 ### 2.2.2. Registro de entrevistas
 
 
