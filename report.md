@@ -448,11 +448,52 @@ En esta sección se plantea el diseño, registro y análisis de entrevistas diri
 
 ### 2.2.2. Registro de entrevistas
 
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
 
 
 ### 2.2.3. Análisis de entrevistas
 
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
 
+ENLACE
+
+A continuación, se detallan los principales resultados de las entrevistas dirigidas a los coordinadores de grupo:
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 1</td>
+      <td> <img src="" alt="interview 1" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Melany Paitan</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Lima Cercado</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:15 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 02:40</td>
+    </tr>
+  </tbody>
+</table>
+
+
+A continuación, se exponen los aspectos más relevantes obtenidos de las entrevistas realizadas a los miembros del grupo:
 
 ## 2.3. Needfinding
 
