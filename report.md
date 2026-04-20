@@ -309,7 +309,31 @@ La sesión fue planificada estratégicamente con una duración comprendida entre
 
 ### 4.2.2. Candidate Context Discovery
 
+Una vez concluida la sesión de Event Storming, se llevó a cabo un análisis detallado de los eventos identificados con el propósito de descubrir los contextos candidatos potencialmente relevantes para el dominio del problema. Dicho análisis consistió en la identificación de patrones y relaciones entre los eventos, así como en la evaluación de su impacto sobre el sistema. Como resultado, se establecieron agrupaciones de eventos pertenecientes a un mismo proceso de acción dentro de la aplicación.
 
+[![Candidate Context Discovery](https://i.postimg.cc/wjMcpNSf/image.png)](https://postimg.cc/5XcF5X9L)
+
+A continuación se muestra con detalle las líneas de acción creadas:
+
+**Creación de grupo**
+
+[![Creacion-de-grupo.png](https://i.postimg.cc/SR5QYwxm/Creacion-de-grupo.png)](https://postimg.cc/vxrwp2nK)
+
+**Asignación de tareas**
+
+[![Asignacion-de-tareas.png](https://i.postimg.cc/Xv7vhKmj/Asignacion-de-tareas.png)](https://postimg.cc/hX6gQmK6)
+
+**Modificación de tareas**
+
+[![Modificacion-de-tareas.png](https://i.postimg.cc/cHtdyFc5/Modificacion-de-tareas.png)](https://postimg.cc/tZbKFtwh)
+
+**Cumplimiento de tareas**
+
+[![Cumplimiento-de-tareas.png](https://i.postimg.cc/3rgHX4fb/Cumplimiento-de-tareas.png)](https://postimg.cc/bdNM8JhQ)
+
+**Incumplimiento de tareas**
+
+[![Incumplimiento-de-tareas.png](https://i.postimg.cc/G3PZ809x/Incumplimiento-de-tareas.png)](https://postimg.cc/w3vWZGX1)
 
 ### 4.2.3. Domain Message Flows Modeling
 
