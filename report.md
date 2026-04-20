@@ -346,7 +346,16 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
+**1. Estrategia de Diferenciación por Simplicidad y Usabilidad**
 
+**Objetivo:** Posicionar a SynHub como la alternativa más sencilla, intuitiva y accesible para todo tipo de grupos.
+
+**Tácticas:**
+
+* Crear una **interfaz clara y visual**, fácil de navegar incluso para usuarios sin experiencia.
+* Implementar un **onboarding ágil** (menos de 2 minutos para empezar).
+* Incluir **tutoriales interactivos** y ayuda contextual dentro de la plataforma.
+* Destacar frente a Asana y ClickUp con el mensaje: *“No necesitas ser experto para organizarte”*.
 
 ## 2.2. Entrevistas
 
