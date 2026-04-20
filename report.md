@@ -390,7 +390,7 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
 
 ## 2.2. Entrevistas
 
-
+En esta sección se plantea el diseño, registro y análisis de entrevistas dirigidas a los segmentos objetivo.
 
 ### 2.2.1. Diseño de entrevistas
 
