@@ -22,13 +22,13 @@
 
 ## Integrantes
 
-| Nombres                           | Código     |
-| --------------------------------- | ---------- |
-| Acuña Tomas, Diego Rolin          | u202221436 |
-| Gomez Hurtado, Miguel Angel       | u202220294 |
-| Guerrero Vasquez, Jhon Danny      |            |
-| Paitan Pumacahua, Max Anthony     |            |
-| Paiva Quispe, Josue Gonzalo       |            |
+| Nombres                       | Código     |
+|-------------------------------|------------|
+| Acuña Tomas, Diego Rolin      | u202221436 |
+| Gomez Hurtado, Miguel Angel   | u202220294 |
+| Guerrero Vasquez, Jhon Danny  |            |
+| Paitan Pumacahua, Max Anthony |            |
+| Paiva Quispe, Josue Gonzalo   | U202119095 |
 
 ---
 
@@ -125,7 +125,7 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 **Criterio:** *Capacidad de comunicarse efectivamente con un rango de audiencias.*
 
-En el siguiente cuadro se describe las accionesrealizadas y enunciados de conclusiones
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones
 por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET –
 EAC - Student Outcome 3.
 
@@ -147,7 +147,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
@@ -176,7 +176,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
