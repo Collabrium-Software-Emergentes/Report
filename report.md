@@ -467,7 +467,9 @@ La arquitectura del sistema se organiza en tres niveles. En primer lugar, el Con
 
 ### 4.3.1. Software Architecture System Landscape Diagram
 
+El Context Diagram muestra a SynHub (el sistema central) interactuando con sus usuarios principales —el Miembro y el Líder— quienes utilizan la aplicación para gestionar actividades, mientras que SynHub se integra con Gemini, Cloudinary y Sendgrid. Este diagrama enfatiza las relaciones externas del sistema, sin detallar componentes internos, destacando cómo los actores clave (usuarios y servicios externos) se conectan con la plataforma principal para intercambiar información.
 
+[![Context.png](https://i.postimg.cc/8PCwZCPb/Context.png)](https://postimg.cc/14LptsFg)
 
 ### 4.3.2. Software Architecture Context Level Diagrams
 
