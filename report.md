@@ -310,7 +310,14 @@ Desde el punto de vista arquitectónico, el diseño prioriza:
 
 #### 4.1.2.3. Constraints
 
-
+| Factor | Constraint (restricción posible para la aplicación) |
+|--------|--------------------------------------------------|
+| Topología de la red | Si la red tiene alta latencia o está segmentada, las notificaciones in-app y la sincronización de tareas podrían retrasarse. **Ejemplo:** un miembro marcó una tarea como completada (US-007), pero el líder no recibió la notificación inmediatamente debido a problemas de red. |
+| Uso de un proveedor de base de datos | Si solo se puede usar un tipo específico de base de datos, puede limitar la optimización de consultas complejas. **Ejemplo:** generar un reporte de productividad individual (US-015) puede tardar más si la base de datos no soporta consultas avanzadas de agregación eficientemente. |
+| Entorno web / móvil | Configuraciones restrictivas podrían bloquear correos o integraciones externas. **Ejemplo:** las notificaciones por email (US-010) no llegan a los usuarios, porque el servidor de correo está bloqueado por el firewall de la red corporativa. |
+| Servidores (hardware, sistema operativo) | Servidores con recursos limitados pueden causar lentitud en operaciones intensivas. **Ejemplo:** al generar gráficos de carga de trabajo por miembro (US-027), la visualización se retrasa cuando varios líderes acceden al dashboard simultáneamente. |
+| Uso de software de terceros o tecnología particular | Dependencias de librerías externas puede generar incompatibilidades futuras. **Ejemplo:** el módulo de gráficos de barras (US-012 y US-013) deja de renderizar correctamente después de actualizar la versión de las librerías involucradas. |
+| Cumplimiento de normas existentes | La aplicación debe cumplir con las políticas internas de la empresa sobre auditoría y registro de acciones de los usuarios. **Ejemplo:** cada actualización de estado de tarea (US-007) debe registrarse con el fin de tener un seguimiento. |
 
 ### 4.1.3. Architectural Drivers Backlog
 
