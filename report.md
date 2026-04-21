@@ -177,30 +177,363 @@
 
 ## 2.1. Competidores
 
+En esta sección se expone un estudio de los principales actores que compiten con nuestra startup, enfocándonos en aquellos que cuentan con modelos digitales similares o que, aunque no sean idénticos, ofrecen soluciones que coinciden en parte con la propuesta de SynHome. Se consideran tanto competidores directos, ubicados en el mismo segmento, como indirectos, que abarcan aspectos relacionados con la organización de actividades, planificación y coordinación colaborativa.
 
+---
+
+**1. Asana**
+
+<img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/>
+
+**Descripción:**
+
+Asana es una plataforma orientada a la gestión de proyectos que permite a los equipos estructurar tareas, asignar responsables y monitorear el avance de sus proyectos. Dispone de diversas visualizaciones, como listas y tableros Kanban, lo que facilita su adaptación a distintas dinámicas de trabajo.
+
+**Características principales:**
+
+* **Proyectos y tareas** estructurados en listas y tableros tipo Kanban.
+* **Subtareas y relaciones de dependencia** para organizar procesos de trabajo.
+* **Colaboración**: asignación de responsabilidades, comentarios y archivos.
+* **Alertas y recordatorios** mediante correo electrónico y la aplicación.
+* **Monitoreo e informes** del progreso (gráficos y porcentajes).
+* **Integraciones** con herramientas como Slack, Google Drive y Microsoft Teams.
+* **Aplicación móvil** intuitiva que permite gestionar tareas y colaborar.
+
+---
+
+**2. FamilyWall**
+
+<img src="https://i.ibb.co/zVscqS8y/familywall.png" alt="FamilyWall" width="200"/>
+
+**Descripción:**
+
+FamilyWall es una solución digital orientada al entorno familiar que reúne múltiples funcionalidades en una sola plataforma. Su diseño amigable y visual la hace adecuada para familias con integrantes de distintas edades.
+
+**Principales características:**
+
+* **Listas colaborativas** de tareas y compras.
+* **Geolocalización en tiempo real**, útil para ubicar a los miembros de la familia.
+* **Sistema de mensajería** privada y grupal.
+* **Espacio compartido multimedia** para fotos y videos familiares.
+
+---
+
+**3. ClickUp**
+
+<img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="ClickUp" width="200"/>
+
+**Descripción:**
+
+ClickUp es una herramienta integral que combina funcionalidades de gestión de tareas, documentación, metas y más. Se destaca por su alto nivel de personalización y su capacidad de adaptarse a diversos flujos de trabajo.
+
+**Características principales:**
+
+* **Estructura jerárquica adaptable**: espacios, carpetas, listas y tareas.
+* **Diversas vistas**: lista, tablero, cronograma y carga de trabajo.
+* **Registro de tiempo** incorporado.
+* **Documentación interna**, notas y wikis colaborativos.
+* **Automatizaciones configurables**.
+* **Comentarios con menciones** y edición colaborativa.
+* **Plantillas reutilizables** para proyectos y tareas.
+* **Aplicación móvil** completa, aunque puede resultar compleja para nuevos usuarios.
+
+---
 
 ### 2.1.1. Análisis competitivo
 
-
+<table> 
+  <tr>
+    <th colspan="6"> Competitive Analysis Landscape </th>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">¿Por qué llevar acabo este análisis? </td>
+    <td colspan="4"> Pregunta </td>
+  </tr>
+  <tr>
+    <td colspan="4"> Este análisis se realiza para comprender el entorno competitivo, identificar a los actores del mercado, tomar decisiones estratégicas de desarrollo y construir una propuesta de valor sólida. </td>
+  </tr>
+  <tr>
+    <td colspan="2"> Productos </td>
+    <td style="text-align: center;"> <div>SynHub</div> <img src="https://i.ibb.co/23FVNcpw/synhub.png" alt="SynHub" width="200"/> </td>
+    <td style="text-align: center;"> <div>Asana</div> <img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/> </td>
+    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.ibb.co/zVscqS8y/familywall.png" alt="FamilyWall" width="200"/> </td>
+    <td style="text-align: center;"> <div>ClickUp</div> <img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="clickup" width="200"/> </td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil</td>
+    <td>Overview</td>
+    <td>SynHub es una solución digital colaborativa creada para apoyar la organización y gestión de actividades en distintos tipos de grupos, ya sean académicos, laborales o sociales.</td>
+    <td>Herramienta enfocada en la gestión de proyectos y tareas que facilita la organización, el seguimiento y la planificación mediante diferentes vistas como listas y tableros Kanban.</td>
+    <td>FamilyWall es una plataforma orientada a la organización familiar, que permite coordinar tareas, comunicaciones y contenido multimedia en un solo entorno.</td>
+    <td>ClickUp es una solución integral que reúne herramientas para la gestión de tareas, documentos y objetivos, destacando por su alto nivel de personalización.</td>
+  </tr>
+  <tr>
+    <td>Ventaja competitiva ¿Qué valor ofrece a los clientes? </td>
+    <td>Fomenta la corresponsabilidad mediante funciones como seguimiento de tareas, validación de cumplimiento y reportes visuales con gráficos.</td>
+    <td>Destaca por su facilidad de uso e interfaz intuitiva, permitiendo una rápida adopción por parte de los equipos. Sus múltiples integraciones amplían su funcionalidad.</td>
+    <td>Contribuye a mejorar la comunicación familiar mediante chats y actualizaciones compartidas.</td>
+    <td>Su alto grado de personalización y la integración de múltiples funciones en una sola plataforma resultan atractivos para equipos que buscan centralizar herramientas.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil de Marketing</td>
+    <td>Mercado Objetivo</td>
+    <td>Equipos académicos y universitarios, así como grupos que requieren herramientas flexibles, accesibles y fáciles de usar.</td>
+    <td>Organizaciones de cualquier tamaño que buscan optimizar la gestión de proyectos, desde startups hasta grandes empresas.</td>
+    <td>Familias que necesitan una plataforma unificada para organizar actividades y compartir información.</td>
+    <td>Empresas y equipos que requieren soluciones completas y altamente personalizables para gestionar sus proyectos.</td>
+  </tr>
+  <tr>
+    <td>Estrategias de Marketing</td>
+    <td>Modelo freemium: ofrecer una versión gratuita funcional y motivar la transición a planes premium con características adicionales.</td>
+    <td>Uso de contenido educativo como guías y webinars para atraer usuarios, junto con una versión gratuita que incentiva la conversión a planes pagos.</td>
+    <td>Implementación de pruebas gratuitas para impulsar la adopción de la plataforma.</td>
+    <td>Enfoque en destacar su versatilidad mediante contenido educativo, testimonios y comparaciones con otras herramientas.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Perfil de Producto</td>
+    <td>Productos & Servicios</td>
+    <td>Gestión de tareas compartidas y organización de responsabilidades dentro del hogar o equipo.</td>
+    <td>Gestión de proyectos con vistas personalizadas, integraciones con herramientas externas y seguimiento del progreso.</td>
+    <td>Funciones de listas, mensajería y compartición de contenido multimedia.</td>
+    <td>Gestión de tareas y proyectos con múltiples vistas, documentación colaborativa, control de tiempo y automatizaciones.</td>
+  </tr>
+  <tr>
+    <td>Precios & Costos</td>
+    <td>Plan gratuito y plan premium con un costo de $6.99 por usuario al mes.</td>
+    <td>Versión gratuita con funciones básicas y planes premium: $13.49 mensual o $10.99 mensual en plan anual.</td>
+    <td>Plan premium de $4.99 mensual o $29.99 anual con funcionalidades adicionales.</td>
+    <td>Versión gratuita y plan Unlimited: $9 mensual o $10.99 mensual en plan anual.</td>
+  </tr>
+  <tr>
+    <td>Canales de distribución</td>
+    <td>Aplicaciones móviles disponibles en Android e iOS.</td>
+    <td>Acceso mediante web y aplicaciones móviles en iOS y Android.</td>
+    <td>Disponible en App Store y Google Play.</td>
+    <td>Disponible tanto en web como en aplicaciones móviles.</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Análisis SWOT</td>
+  </tr>
+  <tr>
+    <td>Fortalezas</td>
+    <td>Adaptabilidad a diferentes contextos y tipos de equipos.</td>
+    <td>Interfaz sencilla e intuitiva.</td>
+    <td>Amplio conjunto de funciones para la gestión familiar.</td>
+    <td>Gran flexibilidad y capacidad de personalización.</td>
+  </tr>
+  <tr>
+    <td>Debilidades</td>
+    <td>Falta de posicionamiento y reconocimiento en el mercado.</td>
+    <td>Restricciones en la personalización de procesos complejos.</td>
+    <td>Limitaciones importantes en la versión gratuita.</td>
+    <td>Complejidad inicial debido a la cantidad de funcionalidades.</td>
+  </tr>
+  <tr>
+    <td>Oportunidades</td>
+    <td>Ingresar a nichos poco atendidos por soluciones complejas.</td>
+    <td>Expansión hacia mercados emergentes.</td>
+    <td>Crecimiento en el ámbito educativo.</td>
+    <td>Desarrollo en sectores que requieren soluciones específicas.</td>
+  </tr>
+  <tr>
+    <td>Amenazas</td>
+    <td>Competidores grandes podrían ofrecer versiones más económicas.</td>
+    <td>Incremento de la competencia en herramientas de gestión.</td>
+    <td>Limitaciones en integraciones con otras plataformas.</td>
+    <td>Competencia con herramientas más especializadas y simples.</td>
+  </tr>
+</table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
+**1. Estrategia de Diferenciación por Simplicidad y Usabilidad**
 
+**Objetivo:** Posicionar a SynHub como la alternativa más sencilla, intuitiva y accesible para todo tipo de grupos.
+
+**Tácticas:**
+
+* Crear una **interfaz clara y visual**, fácil de navegar incluso para usuarios sin experiencia.
+* Implementar un **onboarding ágil** (menos de 2 minutos para empezar).
+* Incluir **tutoriales interactivos** y ayuda contextual dentro de la plataforma.
+* Destacar frente a Asana y ClickUp con el mensaje: *“No necesitas ser experto para organizarte”*.
+
+**2. Estrategia de Enfoque en Nichos Desatendidos**
+
+**Objetivo:** Dirigirse a segmentos como estudiantes, voluntarios y comunidades.
+
+**Tácticas:**
+
+* Diseñar funcionalidades específicas para grupos no empresariales.
+* Expandirse hacia **equipos híbridos** que combinan familia, trabajo y estudio.
+
+**3. Estrategia de Humanización y Cercanía de Marca**
+
+**Objetivo:** Generar confianza mediante una comunicación cercana y una experiencia positiva.
+
+**Tácticas:**
+
+* Brindar **soporte rápido y empático**.
+* Utilizar un **lenguaje simple y humano**, evitando tecnicismos.
+* Posicionarse como una plataforma cercana, a diferencia del enfoque corporativo de otros competidores.
+
+**4. Estrategia de Precio Accesible y Transparente**
+
+**Objetivo:** Captar usuarios que buscan soluciones completas a bajo costo.
+
+**Tácticas:**
+
+* Ofrecer un **plan gratuito funcional** y un **premium accesible**.
+* Aplicar descuentos para sectores educativos y organizaciones sin fines de lucro.
+* Incluir funcionalidades clave sin obligar a cambiar de plan constantemente.
+
+---
 
 ## 2.2. Entrevistas
 
-
+En esta sección se plantea el diseño, registro y análisis de entrevistas dirigidas a los segmentos objetivo.
 
 ### 2.2.1. Diseño de entrevistas
 
+**1. Entrevista para el Coordinador o Líder de Grupo**
 
+* Preguntas principales:
+
+1.¿Podrías contarme un poco sobre ti? (edad, ocupación, lugar de residencia, estado civil)
+
+2.¿A qué tipo de grupo o equipos perteneces o lideras actualmente?
+
+3.¿Cuál es tu rol dentro de ese grupo?
+
+* -Preguntas complementarias:
+
+4.¿Con qué frecuencia se reúnen o interactúan?
+
+5.Cuántas personas conforman el grupo o equipo que lideras?
+
+6.¿Qué herramientas o plataformas digitales utilizas para coordinar al equipo?
+
+7.¿Sueles tener problemas con la puntualidad, comunicación o cumplimiento?
+
+8.¿Qué dispositivos usas más frecuentemente para organizarte (móvil, laptop, tablet)?
+
+9.¿Usas redes sociales, apps colaborativas o agendas digitales?
+
+10.¿Qué valoras más en una herramienta para organizar a tu equipo?
+
+**2. Entrevista para el Miembro del Equipo o Grupo**
+
+* Preguntas principales:
+
+1.¿Podrías contarme un poco sobre ti? (edad, ocupación, lugar de residencia, estado civil)
+
+2.¿A qué tipo de grupo o equipo perteneces actualmente?
+
+3.¿Cuál es tu rol dentro del grupo? (por ejemplo: participante, colaborador, voluntario)
+
+* Preguntas complementarias:
+
+4.¿Qué tipo de tareas realizas habitualmente?
+
+5.¿Qué herramientas o plataformas digitales utilizas para conocer tus actividades en el equipo?
+
+6.¿Cómo te enteras de tus responsabilidades dentro del grupo?
+
+7.¿Qué cosas te molestan o dificultan al trabajar en grupo?
+
+8.¿Qué tipo de apps o plataformas te gustan más? (Ej: fáciles de usar, visuales, rápidas)
+
+9.¿Usas más el celular o la computadora para tus tareas diarias?
+
+10.¿Qué tipo de apps o plataformas te gustan más? (Ej: fáciles de usar, visuales, rápidas)
 
 ### 2.2.2. Registro de entrevistas
 
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en los siguientes enlaces:
 
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 1</td>
+      <td> <img src="https://i.ibb.co/Q77YqSjd/interview-Melany.png" alt="interview 1" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Melany Paitan</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Lima Cercado</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:15 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 02:40</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 2</td>
+      <td> <img src="https://i.postimg.cc/PxvP4x6Q/Entrevista-Diego-Lider.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Diego Alonso Quispe Flores</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Villa el Salvador</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>08:09 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 08:09</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 2.2.3. Análisis de entrevistas
 
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
+
+URL:
+
+**Segmento Objetivo 1: Coordinadores o Líderes de Grupo**
+
+* **Demografía:** La edad promedio de los coordinadores entrevistados es de 25 años, con todos los participantes trabajando en campos relacionados con la tecnología. Esto indica un perfil demográfico juvenil en roles de liderazgo dentro de entornos tecnológicos.
+* **Tamaño del equipo:** Los coordinadores gestionan equipos de tamaños variados, habiendo un líder que supervisa un equipo de seis miembros. Esto sugiere una preferencia por equipos de tamaño pequeño a mediano para una gestión efectiva.
+* **Frecuencia de comunicación:** Todos los coordinadores reportaron participar en reuniones o interacciones diarias, lo que destaca un enfoque estructurado de comunicación que fomenta la alineación del equipo. Esta comunicación constante es crucial para el éxito del proyecto.
+* **Frecuencia de comunicación:** Todos los coordinadores reportaron participar en reuniones o interacciones diarias, lo que destaca un enfoque estructurado de comunicación que fomenta la alineación del equipo. Esta comunicación constante es crucial para el éxito del proyecto.
+
+**Segmento Objetivo 2: Miembros del Equipo o Grupo**
+
+* **Preferencias de comunicación:** El 67 % de los miembros del equipo prefiere una combinación de comunicación presencial y digital, con un fuerte énfasis en interacciones en tiempo real para la resolución de problemas. Esto refleja la necesidad de flexibilidad en los métodos de comunicación.
+* **Estrategias de compromiso:** El 67 % de los miembros del equipo mencionó el uso de materiales creativos, como infografías y presentaciones, para mejorar el compromiso y la comprensión dentro del equipo. Esto sugiere que se valoran los métodos de comunicación innovadores.
+* **Herramientas de gestión de tareas:** Todos los miembros del equipo informaron utilizar herramientas que les permiten seguir sus tareas de forma visual, lo que indica una preferencia universal por ayudas visuales para monitorear el progreso y mantener la motivación.
 
 
 ## 2.3. Needfinding
