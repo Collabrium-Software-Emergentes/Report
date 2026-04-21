@@ -487,6 +487,39 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   <tbody>
     <tr>
       <td>Entrevista 2</td>
+      <td> <img src="assets/chapter2/entrevista2.png" alt="interview 1" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Xavier Hager</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Santiago de Surco</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:27</td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 03:27</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 2</td>
       <td> <img src="https://i.postimg.cc/PxvP4x6Q/Entrevista-Diego-Lider.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
