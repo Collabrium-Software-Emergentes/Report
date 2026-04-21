@@ -235,6 +235,14 @@
 
 ## 3.1. To-Be Scenario Mapping
 
+**Segmento objetivo: Líderes de equipos de trabajo**
+
+<img src="assets/chapter3/to-be.png" alt="cc-alerting" width="800">
+
+
+**Segmento Objetivo: Miembros de equipos de trabajo**
+
+<img src="assets/chapter3/to-be2.png" alt="cc-alerting" width="800">
 
 
 ## 3.2. User Stories
@@ -324,6 +332,7 @@ Con base en las épicas definidas se formularon las siguientes historias de usua
 
 ## 3.3. Impact Mapping
 
+<img src="assets/chapter3/impact-mapping.png" alt="cc-alerting" width="800">
 
 
 ## 3.4. Product Backlog
