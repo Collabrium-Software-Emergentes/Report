@@ -314,7 +314,17 @@ Desde el punto de vista arquitectónico, el diseño prioriza:
 
 ### 4.1.3. Architectural Drivers Backlog
 
+# 4.3. Architectural Drivers Backlog
 
+En esta iteración, el equipo priorizó los drivers de **usabilidad** y **mantenibilidad**, orientando el diseño hacia un componente de asignación de tareas que permita crear, asignar y dar seguimiento a tareas por usuario de manera intuitiva, manteniendo responsabilidades desacopladas para facilitar la evolución del sistema.
+
+| Driver ID | Título de Driver | Descripción | Importancia (Stakeholders) | Impacto (Technical Complexity) |
+|---|---|---|---|---|
+| AD-01 | Usabilidad | El componente de asignación de tareas debe permitir la creación, asignación y seguimiento de tareas de forma simple, clara e intuitiva para los usuarios. | Alto | Medio |
+| AD-02 | Mantenibilidad | El componente debe diseñarse con responsabilidades desacopladas para facilitar mantenimiento, pruebas y evolución del sistema. | Alto | Alto |
+| AD-03 | Gestión de tareas por usuario | El sistema debe soportar la administración y seguimiento de tareas asignadas a cada usuario dentro del grupo. | Alto | Medio |
+| AD-04 | Separación de responsabilidades | La arquitectura debe dividir interfaz, lógica de negocio y acceso a datos para reducir acoplamiento. | Alto | Alto |
+| AD-05 | Consistencia de datos | La asignación y actualización de tareas debe preservar integridad y coherencia en estados y responsables. | Alto | Medio |
 
 ### 4.1.4. Architectural Design Decisions
 
