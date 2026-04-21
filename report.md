@@ -450,16 +450,6 @@ En esta sección se plantea el diseño, registro y análisis de entrevistas diri
 
 En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en los siguientes enlaces:
 
-
-
-### 2.2.3. Análisis de entrevistas
-
-En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
-
-ENLACE
-
-A continuación, se detallan los principales resultados de las entrevistas dirigidas a los coordinadores de grupo:
-
 <table cellpadding="8" cellspacing="0">
   <tbody>
     <tr>
@@ -493,8 +483,58 @@ A continuación, se detallan los principales resultados de las entrevistas dirig
   </tbody>
 </table>
 
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 2</td>
+      <td> <img src="https://i.postimg.cc/PxvP4x6Q/Entrevista-Diego-Lider.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Diego Alonso Quispe Flores</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Villa el Salvador</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>08:09 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 08:09</td>
+    </tr>
+  </tbody>
+</table>
 
-A continuación, se exponen los aspectos más relevantes obtenidos de las entrevistas realizadas a los miembros del grupo:
+### 2.2.3. Análisis de entrevistas
+
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
+
+URL:
+
+**Segmento Objetivo 1: Coordinadores o Líderes de Grupo**
+
+* **Demografía:** La edad promedio de los coordinadores entrevistados es de 25 años, con todos los participantes trabajando en campos relacionados con la tecnología. Esto indica un perfil demográfico juvenil en roles de liderazgo dentro de entornos tecnológicos.
+* **Tamaño del equipo:** Los coordinadores gestionan equipos de tamaños variados, habiendo un líder que supervisa un equipo de seis miembros. Esto sugiere una preferencia por equipos de tamaño pequeño a mediano para una gestión efectiva.
+* **Frecuencia de comunicación:** Todos los coordinadores reportaron participar en reuniones o interacciones diarias, lo que destaca un enfoque estructurado de comunicación que fomenta la alineación del equipo. Esta comunicación constante es crucial para el éxito del proyecto.
+* **Frecuencia de comunicación:** Todos los coordinadores reportaron participar en reuniones o interacciones diarias, lo que destaca un enfoque estructurado de comunicación que fomenta la alineación del equipo. Esta comunicación constante es crucial para el éxito del proyecto.
+
+**Segmento Objetivo 2: Miembros del Equipo o Grupo**
+
+* **Preferencias de comunicación:** El 67 % de los miembros del equipo prefiere una combinación de comunicación presencial y digital, con un fuerte énfasis en interacciones en tiempo real para la resolución de problemas. Esto refleja la necesidad de flexibilidad en los métodos de comunicación.
+* **Estrategias de compromiso:** El 67 % de los miembros del equipo mencionó el uso de materiales creativos, como infografías y presentaciones, para mejorar el compromiso y la comprensión dentro del equipo. Esto sugiere que se valoran los métodos de comunicación innovadores.
+* **Herramientas de gestión de tareas:** Todos los miembros del equipo informaron utilizar herramientas que les permiten seguir sus tareas de forma visual, lo que indica una preferencia universal por ayudas visuales para monitorear el progreso y mantener la motivación.
+
 
 ## 2.3. Needfinding
 
