@@ -486,13 +486,13 @@ El propósito del Context Mapping radica en facilitar una arquitectura de softwa
 
 | Destino (Downstream)       | Origen (Upstream)           | Tipo de Relación | ¿OHS? | Comentario                                                              |
 | -------------------------- | --------------------------- | ----------------- | ------ | ----------------------------------------------------------------------- |
-| Analítica y Reportes      | Gestión de Grupos          | Customer/Supplier | No     | Expone info grupal                                                      |
-| Solicitudes y Validaciones | Gestión de Grupos          | Customer/Supplier | Si     | Se nutre de los datos de los integrantres                               |
-| Gestión de Tareas         | Gestión de Grupos          | Customer/Supplier | No     | Obtiene información de los integrantes de grupo                        |
-| Gestión de Tareas         | Solicitudes y Validaciones  | Partnership       | No     | Comparte información entre sí de las tareas                           |
-| Analítica y Reportes      | Gestión de Tareas          | Customer/Supplier | Si     | Se nutre de la información de las tareas para elaborar reportes        |
-| Analítica y Reportes      | Solicitudes y Validaciones  | Customer/Supplier | No     | Otiene la infomración de actualización de cmabios y solicitudes       |
-| Notificaciones             | Grupos, solicitudes, tareas | Partnership       | No     | Emite notificaciones según instrucciones de los demás bounded context |
+| Métricas      | Líderes         | Customer/Supplier | No     | Expone información grupal                                                      |
+| Solicitudes | Líderes          | Customer/Supplier | Si     | Se nutre de los datos de los integrantres                               |
+| Tareas        | Líderes       | Customer/Supplier | No     | Obtiene información de los integrantes de grupo                        |
+| Tareas       | Solicitudes | Partnership       | No     | Comparte información entre sí de las tareas                           |
+| Métricas     | Tareas     | Customer/Supplier | Si     | Se nutre de la información de las tareas para elaborar reportes        |
+| Métricas     | Solicitudes  | Customer/Supplier | No     | Obtiene la infomración de actualización de cambios y solicitudes       |
+| Notificaciones             | Líderes, Solicitudes, Tareas | Partnership       | No     | Emite notificaciones según instrucciones de los demás bounded context |
 
 ## 4.3. Software Architecture
 
