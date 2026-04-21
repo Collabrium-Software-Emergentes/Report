@@ -205,27 +205,157 @@
 
 ## 2.3. Needfinding
 
-
-
 ### 2.3.1. User Personas
 
+#### A. User Persona: Coordinador de equipos
 
+![Miguel Persona](assets/userPersonas/miguel.png)
+
+#### B. User Persona: Miembro de equipo
+
+![Gabriela Persona](assets/userPersonas/gabriela.png)
 
 ### 2.3.2. User Task Matrix
 
+#### A. Segmento 1: Coordinadores o Líderes de Grupo
 
+| Tarea | Frecuencia | Severidad |
+|-------|-----------|-----------|
+| Seleccionar integrantes del equipo y definir objetivo común | Alta | Media |
+| Establecer grupos de trabajo y programar horarios | Baja | Alta |
+| Organizar reuniones a través de diferentes canales de comunicación | Media | Media |
+| Distribuir y asignar responsabilidades entre los miembros | Alta | Alta |
+| Monitorear el progreso y actualizar estado de avances | Alta | Alta |
+| Compilar y centralizar información de todos los participantes | Alta | Alta |
+| Analizar resultados finales e identificar áreas de mejora | Media | Baja |
+
+#### B. Segmento 2: Miembros del Equipo o Grupo
+
+| Tarea | Frecuencia | Severidad |
+|-------|-----------|-----------|
+| Comprender los objetivos y el alcance del proyecto asignado | Baja | Media |
+| Revisar y cumplir con los horarios y pautas establecidas | Alta | Alta |
+| Participar activamente en reuniones de coordinación y seguimiento | Media | Alta |
+| Ejecutar las tareas designadas conforme al cronograma establecido | Alta | Alta |
+| Informar regularmente al líder sobre el progreso de sus actividades | Alta | Alta |
+| Compartir resultados, hallazgos y documentación con el equipo | Media | Media |
+| Proporcionar retroalimentación para identificar mejoras continuas | Baja | Media |
 
 ### 2.3.3. Empathy Mapping
 
+En esta sección se muestra el **mapa de empatía**, una herramienta clave para 
+entender con mayor profundidad lo que nuestros usuarios piensan, sienten 
+y necesitan. Gracias a este análisis, podemos detectar oportunidades concretas 
+para mejorar su experiencia.
 
+#### A. Empathy Map: Coordinador de equipos
+
+![Miguel Empathy Map](assets/empathyMaps/miguel.png)
+
+#### B. Empathy Map: Miembro de equipo
+
+![Gabriela Empathy Map](assets/empathyMaps/gabriela.png)
 
 ### 2.3.4. As-is Scenario Mapping
 
+En esta sección se estructuran los escenarios actuales (As-Is) 
+diferenciados por cada segmento objetivo, detallando para cada 
+fase las actividades concretas que realizan, sus reflexiones 
+internas y sus estados emocionales durante el proceso.
+
+#### A. As-is Segmento 1: Coordinador de equipos
+
+<table>
+<tr style="background-color: #4472C4; color: white;">
+  <th>Fases</th>
+  <th>Configuración Inicial</th>
+  <th>Asignación de Responsabilidades</th>
+  <th>Monitoreo Continuo</th>
+  <th>Cierre y Evaluación</th>
+</tr>
+<tr>
+  <td><strong>Doing (Acciones)</strong></td>
+  <td>Utiliza herramientas básicas como WhatsApp, Excel o documentos físicos para seleccionar miembros del equipo e intentar organizar tareas iniciales. Coordina reuniones a través de múltiples canales de comunicación.</td>
+  <td>Distribuye tareas de forma manual y proporciona cronogramas. Debe recordar constantemente a los miembros sus responsabilidades y seguir el estado de cada tarea asignada.</td>
+  <td>Consulta individualmente a cada miembro sobre avances. Realiza ajustes en cronogramas sobre la marcha. Gestiona conversaciones dispersas en múltiples plataformas.</td>
+  <td>Recopila información fragmentada de diferentes fuentes para evaluar resultados. Intenta extraer lecciones aprendidas sin métricas claras de desempeño.</td>
+</tr>
+<tr>
+  <td><strong>Thinking (Pensamientos)</strong></td>
+  <td>"¿Cómo logro que todos entiendan sus roles?" "Espero poder coordinar de manera efectiva."</td>
+  <td>"¿Entenderán realmente lo que se espera?" "¿Cuándo debo hacer seguimiento?"</td>
+  <td>"¿Todos están realmente cumpliendo?" "¿Vamos en la dirección correcta?" "El desorden de información es un problema."</td>
+  <td>"¿Tengo todos los datos necesarios?" "¿Resultó bien o mal?" "¿Qué puedo mejorar para próximas veces?"</td>
+</tr>
+<tr>
+  <td><strong>Feeling (Sentimientos)</strong></td>
+  <td>😟 Preocupación por la falta de respuesta inicial. 😰 Ansiedad por la carga de trabajo.</td>
+  <td>😤 Desorganización por múltiples responsabilidades. ⚠️ Presión por cumplir con todos.</td>
+  <td>😊 Satisfacción por el seguimiento constante. 😕 Inseguridad sobre si todo va bien. ⚡ Estrés por resultados variables.</td>
+  <td>😞 Desilusión por resultados inconsistentes. 😤 Frustración por no tener métricas claras.</td>
+</tr>
+</table>
+
+#### B. As-is Segmento 2: Miembro de equipo
+
+<table>
+<tr style="background-color: #70AD47; color: white;">
+  <th>Fases</th>
+  <th>Recepción de Tareas</th>
+  <th>Gestión del Tiempo</th>
+  <th>Participación y Comunicación</th>
+  <th>Cierre y Aprendizaje</th>
+</tr>
+<tr>
+  <td><strong>Doing (Acciones)</strong></td>
+  <td>Recibe tareas a través de múltiples canales (WhatsApp, correos, mensajería verbal). No dispone de un horario unificado ni claridad sobre plazos comunes para todos los miembros del equipo.</td>
+  <td>Batalla constante por recordar cronogramas, fechas de entrega y compromisos. Gestiona recordatorios personales sin sincronización con el equipo.</td>
+  <td>Comunica su progreso mediante mensajes informales o cuando le preguntan. Espera confirmación sobre si está cumpliendo adecuadamente. Se cuestiona si debería informar más frecuentemente.</td>
+  <td>Entrega las tareas completadas de forma aislada. No recibe retroalimentación clara ni sabe si cumplió con las expectativas.</td>
+</tr>
+<tr>
+  <td><strong>Thinking (Pensamientos)</strong></td>
+  <td>"¿Hasta cuándo tengo para hacer esto?" "¿Dónde estaba la información?" "¿Quién más debería saberlo?"</td>
+  <td>"No tengo claro cuántas tareas tengo pendientes." "Ojalá no me olvide de esto." "¿De verdad es para hoy?"</td>
+  <td>"¿Quién está en esta tarea conmigo?" "¿No quiero parecer que no hago nada." "Espero que alguien me ayude a aclarar."</td>
+  <td>"¿Resultó bien lo que hice?" "¿Valió la pena el esfuerzo?" "¿Debería haber hecho algo diferente?"</td>
+</tr>
+<tr>
+  <td><strong>Feeling (Sentimientos)</strong></td>
+  <td>😕 Confundido por información dispersa. 😞 Poco motivado al inicio.</td>
+  <td>😐 Inseguro sobre cronogramas. 😰 Ansioso por olvidar fechas.</td>
+  <td>😐 Inseguro sobre su contribución. 😔 Culpable por no comunicar más. 😐 Preocupado por no cumplir.</td>
+  <td>😕 Desconectado de los resultados. 😞 Desmotivado para repetir la experiencia.</td>
+</tr>
+</table>
 
 
 ## 2.4. Ubiquitous Language
 
+A continuación se presenta el glosario de términos y conceptos del dominio de negocio de SynHub. Este lenguaje 
+ubiquo es compartido por todos los miembros del equipo y stakeholders para garantizar una comunicación clara 
+y sin ambigüedad.
 
+| Término | Definición |
+|---------|-----------|
+| **Group (Grupo)** | Unidad de colaboración formada por un conjunto de personas con un objetivo común. Los grupos pueden tener naturaleza académica, laboral o comunitaria. Cada grupo tiene un ciclo de vida propio que incluye su creación, actividad y eventual eliminación o archivo. |
+| **Leader (Líder)** | Integrante del grupo que asume la responsabilidad de organizar las actividades, crear y asignar tareas, gestionar invitaciones y validar el trabajo de los demás miembros. El líder tiene permisos extendidos dentro del grupo. |
+| **Member (Miembro)** | Persona que pertenece a un grupo y tiene tareas o responsabilidades asignadas. Puede consultar sus tareas, actualizar su estado, enviar solicitudes y recibir notificaciones, pero no tiene permisos administrativos sobre el grupo. |
+| **Task (Tarea)** | Unidad de trabajo que el líder crea y asigna a uno o más miembros del grupo. Toda tarea tiene un responsable, una descripción y una fecha límite, y atraviesa distintos estados a lo largo de su ciclo de vida. |
+| **Task Status (Estado de Tarea)** | Condición actual en la que se encuentra una tarea dentro de su ciclo de vida. Los estados posibles son: En progreso, En revisión, Completada, Vencida y Cancelada. |
+| **Assignment (Asignación)** | Acción mediante la cual el líder vincula una tarea a un miembro específico del grupo, estableciendo quién es el responsable de su ejecución y la fecha límite correspondiente. |
+| **Due Date (Fecha Límite)** | Fecha y hora máxima establecida para que un miembro complete una tarea. Pasada esta fecha sin completarse, la tarea pasa automáticamente al estado Vencida. |
+| **Invitation (Invitación)** | Solicitud formal enviada por un líder a un usuario para que se una a su grupo. El usuario recibe una notificación y puede aceptar o rechazar la invitación. |
+| **Approval Request (Solicitud de Aprobación)** | Petición que realiza un miembro al marcar una tarea como completada, para que el líder la revise y valide. Mientras aguarda revisión, la tarea entra en estado En revisión. |
+| **Extension Request (Solicitud de Extensión de Plazo)** | Petición formal de un miembro al líder para ampliar la fecha límite de una tarea, acompañada de un motivo justificado. El líder puede aceptarla o rechazarla. |
+| **Validation (Validación)** | Acción mediante la cual el líder aprueba o rechaza una tarea enviada para revisión. Si se aprueba, la tarea queda definitivamente Completada; si se rechaza, regresa a En progreso con comentarios de feedback. |
+| **Notification (Notificación)** | Aviso automático generado por el sistema ante eventos relevantes del dominio, como asignaciones de tareas, vencimientos de plazos, resultados de validaciones o cambios de estado. Puede entregarse dentro de la aplicación (in-app) o por correo electrónico. |
+| **Productivity Dashboard (Panel de Productividad)** | Vista visual que consolida métricas de desempeño individual y grupal, permitiendo al líder conocer la carga de trabajo por miembro, la distribución de estados de tareas y el cumplimiento general del grupo. |
+| **Productivity Metrics (Métricas de Productividad)** | Indicadores cuantitativos del desempeño de los miembros y del grupo en conjunto. Incluyen: número de tareas completadas, tasa de aprobación en primera revisión, tareas vencidas y solicitudes de extensión realizadas. |
+| **Validation History (Histórico de Validaciones)** | Registro cronológico de todas las aprobaciones y rechazos realizados por el líder sobre las tareas del grupo. Permite identificar patrones de calidad y seguimiento individual por miembro. |
+| **Workload Balance (Equilibrio de Carga)** | Distribución equitativa de tareas entre los miembros de un grupo, de modo que ningún integrante concentre una cantidad desproporcionada de responsabilidades. Es un valor central en la propuesta de SynHub. |
+| **Co-responsibility (Corresponsabilidad)** | Principio que implica que todos los integrantes de un grupo comparten activamente el compromiso de cumplir con sus responsabilidades para el logro de los objetivos comunes. |
+| **Group Lifecycle (Ciclo de Vida del Grupo)** | Conjunto de etapas por las que atraviesa un grupo desde su creación hasta su eliminación o archivo. Incluye: creación, incorporación de miembros, asignación de tareas, seguimiento, y cierre o archivo. |
 
 ---
 
