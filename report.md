@@ -467,17 +467,31 @@ La arquitectura del sistema se organiza en tres niveles. En primer lugar, el Con
 
 ### 4.3.1. Software Architecture System Landscape Diagram
 
+
+
+### 4.3.2. Software Architecture Context Level Diagrams
+
 El Context Diagram muestra a SynHub (el sistema central) interactuando con sus usuarios principales —el Miembro y el Líder— quienes utilizan la aplicación para gestionar actividades, mientras que SynHub se integra con Gemini, Cloudinary y Sendgrid. Este diagrama enfatiza las relaciones externas del sistema, sin detallar componentes internos, destacando cómo los actores clave (usuarios y servicios externos) se conectan con la plataforma principal para intercambiar información.
 
 [![Context.png](https://i.postimg.cc/8PCwZCPb/Context.png)](https://postimg.cc/14LptsFg)
 
-### 4.3.2. Software Architecture Context Level Diagrams
-
-
-
 ### 4.3.3. Software Architecture Container Level Diagrams
 
+El diagrama de contenedores de **SynHub** propone una arquitectura de microservicios robusta y altamente desacoplada, fundamentada en la especialización de responsabilidades. En la capa de acceso, el **API Gateway** unifica la interacción del usuario final, delegando la localización física de los componentes al **Discovery Server**, lo cual permite un despliegue dinámico y escalable. La lógica de negocio se fragmenta en contenedores independientes —tales como IAM, Groups, Tasks, Requests, Metrics, Cloudinary, Email y AI Service—, algunos con persistencia de datos propia, garantizando un aislamiento óptimo. La comunicación síncrona mediante **REST/HTTPS** asegura una respuesta inmediata en operaciones críticas, mientras que la integración asíncrona a través del **Broker (RabbitMQ)** mediante el protocolo **AMQP** permite gestionar eventos de forma eficiente, desacoplando los servicios y fortaleciendo la resiliencia del sistema ante posibles fallos. Finalmente, la externalización de servicios complejos como **Gemini** para procesamiento de lenguaje, **Cloudinary** para gestión multimedia y **SendGrid** para notificaciones, consolida a SynHub como una plataforma moderna que aprovecha un ecosistema de servicios especializados para optimizar la experiencia de gestión de tareas.
 
+[![Container.png](https://i.postimg.cc/8kLsxds6/Container.png)](https://postimg.cc/8sP166Rp)
+
+Parte del usuario:
+
+[![Container-P1.png](https://i.postimg.cc/HntYn27R/Container-P1.png)](https://postimg.cc/N25qPRDk)
+
+Parte de microservicios principales:
+
+[![Container-P2.png](https://i.postimg.cc/0N7L9NSQ/Container-P2.png)](https://postimg.cc/WDb9nTXL)
+
+Parte de servicios externos:
+
+[![Container-P3.png](https://i.postimg.cc/8PqKsSNn/Container-P3.png)](https://postimg.cc/Ln3B0Gqz)
 
 ### 4.3.4. Software Architecture Deployment Diagrams
 
