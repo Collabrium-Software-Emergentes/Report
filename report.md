@@ -519,7 +519,40 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
 <table cellpadding="8" cellspacing="0">
   <tbody>
     <tr>
-      <td>Entrevista 2</td>
+      <td>Entrevista 3</td>
+      <td> <img src="https://i.postimg.cc/c1DyBSgL/integrante3.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Andrés Coca</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Lima Metropolitana</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>06:10 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 06:10</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 4</td>
       <td> <img src="https://i.postimg.cc/PxvP4x6Q/Entrevista-Diego-Lider.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
@@ -545,6 +578,72 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
     <tr>
       <td>Minuto de Inicio</td>
       <td>00:00 - 08:09</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 5</td>
+      <td> <img src="https://i.postimg.cc/TYSzBJcG/lider2.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Fabio De la Cruz</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Villa el Salvador</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:17 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 03:17</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 6</td>
+      <td> <img src="https://i.postimg.cc/pLFwv509/lider3.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Briggite Herrera Aguirre</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Los Olivos</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>04:34 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 04:34</td>
     </tr>
   </tbody>
 </table>
