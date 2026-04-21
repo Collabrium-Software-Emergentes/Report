@@ -497,4 +497,16 @@ Parte de servicios externos:
 
 ### 4.3.4. Software Architecture Deployment Diagrams
 
+El diagrama de despliegue, integrado en el nivel más físico del modelo C4 y en el estándar UML, es la representación técnica de la arquitectura de sistema sobre su infraestructura de ejecución. Su propósito fundamental es describir cómo los componentes de software (artefactos) se asignan, configuran y distribuyen en los nodos de hardware o entornos virtuales (como servidores, contenedores o servicios en la nube).
 
+Este diagrama detalla la topología de la red, las dependencias entre los componentes de software y su ubicación física o lógica, permitiendo comprender la escalabilidad, la disponibilidad y la resiliencia del sistema en el entorno de producción. En esencia, actúa como el puente definitivo entre el diseño lógico del software y la realidad operativa, ilustrando el despliegue físico de los servicios, bases de datos y herramientas de soporte que conforman la solución.
+
+[![Deployment.png](https://i.postimg.cc/nrtVHL0K/Deployment.png)](https://postimg.cc/1nJ1Byx4)
+
+Parte de interacción de usuarios:
+
+[![Deployment-P1.png](https://i.postimg.cc/sXCCWNSw/Deployment-P1.png)](https://postimg.cc/ns2WbT3D)
+
+Parte de microservicios:
+
+[![Deployment-P2.png](https://i.postimg.cc/3R1fwSZ6/Deployment-P2.png)](https://postimg.cc/ygJyQTtX)
