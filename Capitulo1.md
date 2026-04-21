@@ -72,12 +72,26 @@ modernas. Me considero una persona curiosa y proactiva, con una visión
 optimista del futuro tecnológico.</mark></p></th>
 </tr>
 <tr>
-<th style="text-align: center;"></th>
-<th style="text-align: left;"></th>
+<th style="text-align: center;"><img src="./media/image3.jpg"
+style="width:2.01042in;height:2.35417in" /></th>
+<th style="text-align: left;"><p><mark>Paitan Pumacahua, Max Anthony -
+U201314454</mark></p>
+<p><mark>Soy Max Anthony y tengo 29 años. Estoy retomando Ingeniería de
+Software como segunda carrera, ya que siempre tuvo ello como objetivo;
+en la actualidad, me encuentro cursando el noveno ciclo. Entre mis
+habilidades están: Ágil capacidad de análisis -tanto individual como
+también en colectivo-, empático en un contexto determinado -tomando
+decisiones de manera sensata-, y puedo ser tanto gestor como un
+participante activo dentro de un grupo de trabajo.</mark></p></th>
 </tr>
 <tr>
-<th></th>
-<th style="text-align: left;"></th>
+<th><img src="./media/image4.jpg"
+style="width:2.09375in;height:2.81852in" /></th>
+<th style="text-align: left;"><p><mark>Josue Gonzalo Paiva Quispe -
+U202119095</mark></p>
+<p><mark>Soy estudiante de Ingeniería de Software, me encuentro cursando
+el 8vo ciclo y realizando prácticas pre profesionales como fullstack
+junior web developer</mark></p></th>
 </tr>
 <tr>
 <th></th>
@@ -372,7 +386,7 @@ mejorar la eficiencia del trabajo en conjunto.</span>
 
 #### <span class="mark">1.2.3.4. Lean UX Canvas</span>
 
-<img src="./media/image3.jpg"
+<img src="./media/image5.jpg"
 style="width:6.26772in;height:3.94444in" />
 
 ## **<span class="mark">1.3. Segmento objetivo</span>** 
