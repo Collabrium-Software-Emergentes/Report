@@ -354,66 +354,60 @@ Los pivotal point encontrados fueron:
 
 Gracias a encontrar los pivotal points se pudo identificar como los distintos eventos formaban parte de distintos contextos, los cuales son:
 
-- Gestión de grupos
+- Líderes
 - Notificaciones
-- Gestión de tareas
-- Análitica y reportes
-- Solicitudes y Validaciones
+- Tareas
+- Métricas
+- Solicitudes
 
 Finalmente se dividio cada evento en comandos, eventos, agregados, vistas y entidades, los cuales son los siguientes:
 
-**Gestión de grupos**
+**Líderes**
 
-[![Gestion-de-grupos-Desglose.png](https://i.postimg.cc/3JBvSZxD/Gestion-de-grupos-Desglose.png)](https://postimg.cc/nCXrMB7H)
+[![Lideres.png](https://i.postimg.cc/bNst2fdD/Lideres.png)](https://postimg.cc/7fr6pc3w)
 
 **Notificaciones**
 
-[![Notificaciones-Desglose.png](https://i.postimg.cc/PfbpJMZL/Notificaciones-Desglose.png)](https://postimg.cc/XXJ7Dds3)
+[![Notificaciones.png](https://i.postimg.cc/vTDc958M/Notificaciones.png)](https://postimg.cc/xNDfVJbF)
 
-**Gestión de tareas**
+**Tareas**
 
-[![Gestion-de-tareas-Desglose.png](https://i.postimg.cc/yd4xYJ8G/Gestion-de-tareas-Desglose.png)](https://postimg.cc/d76w5VdR)
+[![Tareas.png](https://i.postimg.cc/MGDTF9vJ/Tareas.png)](https://postimg.cc/TyKfyqVt)
 
-**Análitica y reportes**
+**Métricas**
 
-[![Metricas-Desglose.png](https://i.postimg.cc/P50r2LYd/Metricas-Desglose.png)](https://postimg.cc/tstjg4Bc)
+[![Metricas.png](https://i.postimg.cc/qvHvBP3F/Metricas.png)](https://postimg.cc/N5bcpPb8)
 
-**Solicitudes y Validaciones**
+**Solicitudes**
 
-[![Solicitudes-y-Validaciones-Desglose.png](https://i.postimg.cc/D0C7sm7z/Solicitudes-y-Validaciones-Desglose.png)](https://postimg.cc/BPKWfSLW)
+[![Solicitudes.png](https://i.postimg.cc/RFhMb9k7/Solicitudes.png)](https://postimg.cc/jwV0DVd2)
 
 ### 4.2.3. Domain Message Flows Modeling
 
 Como siguiente paso se buscó interconectar los bounded contexts encontrados en la sección anterior, para esto se buscó encontrar los eventos que se comunican entre los distintos contextos.
 
-**Gestión de grupos y notificaciones:** 
+**Líderes y Notificaciones:** 
 Al generar una invitación de grupo se envía una notificación al usuario invitado, y al aceptar la invitación se envía una notificación al creador del grupo.
 
-[![Gestion-de-grupos-y-notificaciones.png](https://i.postimg.cc/vm5SyYDM/Gestion-de-grupos-y-notificaciones.png)](https://postimg.cc/McKYb8yr)
+[![Lideres-y-Notificaciones.png](https://i.postimg.cc/8cHg1YQq/Lideres-y-Notificaciones.png)](https://postimg.cc/H8VhzBL2)
 
-**Gestión de tareas y notificaciones:** 
+**Tareas y Notificaciones:** 
 Al crear una tarea se envía una notificación al usuario asignado, y al cumplir la tarea se envía una notificación al creador de la tarea.
 
-[![Gestion-de-tareas-y-notificaciones.png](https://i.postimg.cc/Kc0pxsc1/Gestion-de-tareas-y-notificaciones.png)](https://postimg.cc/kDtvysbC)
+[![Tareas-y-Notificaciones.png](https://i.postimg.cc/htX6wvvj/Tareas-y-Notificaciones.png)](https://postimg.cc/tsHBnXhQ)
 
-**Notificaciones y Solicitudes y Validaciones:** 
-Al crear una solicitud de validación se envía una notificación al usuario asignado, y al aceptar la solicitud se envía una notificación al creador de la solicitud.
-
-[![Solicitudes-y-validaciones-y-Notificaciones-1.png](https://i.postimg.cc/5075dTB7/Solicitudes-y-validaciones-y-Notificaciones-1.png)](https://postimg.cc/Q97Kc6n1)
-
+**Notificaciones y Solicitudes:** 
 Al momento de marcarse tareas como completadas o no completadas se envía una notificación al coordinador. Al asignar reprogramar tareas se enviará notificaciones al usuario antiguo y al nuevo usuario al que pertenece la tarea. Al modificar(actualizar, reprogramar o eliminar) tareas se enviará una notificación a todos los involucrados (coordinadores e integrantes).
 
-[![Solicitudes-y-validaciones-y-Notificaciones-2.png](https://i.postimg.cc/xjBxXNHV/Solicitudes-y-validaciones-y-Notificaciones-2.png)](https://postimg.cc/Z0FFgRVw)
+[![Notificaciones-y-Solicitudes.png](https://i.postimg.cc/yx6rTY2W/Notificaciones-y-Solicitudes.png)](https://postimg.cc/VrTRf1fc)
 
-[![Solicitudes-y-validaciones-y-Notificaciones-3.png](https://i.postimg.cc/yNfnsDBf/Solicitudes-y-validaciones-y-Notificaciones-3.png)](https://postimg.cc/4K9p1NYt)
+**Solicitudes y Métricas:** Al validarse si se completó o no una tarea se crean o modifican las estadísticas de progreso grupal.
 
-**Solicitudes y Validadciones y Análitica y reportes:** Al validarse si se completó o no una tarea se crean o modifican las estadísticas de progreso grupal.
-
-[![Solicitudes-y-validaciones-y-Analitica-y-reportes.png](https://i.postimg.cc/K8SP2nTG/Solicitudes-y-validaciones-y-Analitica-y-reportes.png)](https://postimg.cc/XpLGKBxm)
+[![Solicitudes-y-Metricas.png](https://i.postimg.cc/3wMScZP5/Solicitudes-y-Metricas.png)](https://postimg.cc/ZWcx96bV)
 
 Finalmente se muestra una captura global de la arquitectura del sistema, donde se puede ver la interacción entre los distintos componentes y como se comunican entre ellos.
 
-[![Domain-Message-Flows-Modeling.png](https://i.postimg.cc/tRnDGRcm/Domain-Message-Flows-Modeling.png)](https://postimg.cc/ThGnrxfr)
+[![Totalidad.png](https://i.postimg.cc/CxKSKw1h/Totalidad.png)](https://postimg.cc/BXRdY9Hk)
 
 Enlace del Miro board sobre el que se trabajo: https://miro.com/app/board/uXjVHf1ECEI=/?share_link_id=687998549144
 
@@ -429,25 +423,25 @@ El equipo ha definido previamente un conjunto de contextos delimitados candidato
 - **Dependencies Capture:** para reconocer las relaciones con otros contextos y sus posibles implicaciones.
 - **Design Critique:** para revisar y perfeccionar el diseño propuesto desde una perspectiva crítica y colaborativa.
 
-**Gestión de grupos**
+**Líderes - Canvas**
 
-[![Gestion-de-grupos-Canvas.png](https://i.postimg.cc/7LVP6yQj/Gestion-de-grupos-Canvas.png)](https://postimg.cc/GB4n76Rj)
+[![Lideres-Canvas.png](https://i.postimg.cc/QCWKwc29/Lideres-Canvas.png)](https://postimg.cc/RJ40nJV4)
 
-**Gestión de tareas**
+**Tareas - Canvas**
 
-[![Gestion-de-tareas-Canvas.png](https://i.postimg.cc/1z9Pbj5v/Gestion-de-tareas-Canvas.png)](https://postimg.cc/xXFWzgmm)
+[![Tareas-Canvas.png](https://i.postimg.cc/j5DhqnVP/Tareas-Canvas.png)](https://postimg.cc/fthdBLRR)
 
-**Solicitudes y Validaciones**
+**Solicitudes - Canvas**
 
-[![Solicitudes-y-Validaciones-Canvas.png](https://i.postimg.cc/5NgMLmmX/Solicitudes-y-Validaciones-Canvas.png)](https://postimg.cc/VdJTcnpw)
+[![Solicitudes-Canvas.png](https://i.postimg.cc/65JhwQYF/Solicitudes-Canvas.png)](https://postimg.cc/LhDP3mdV)
 
-**Notificaciones**
+**Notificaciones - Canvas**
 
-[![Notificaciones-Canvas.png](https://i.postimg.cc/QdNhyzMH/Notificaciones-Canvas.png)](https://postimg.cc/7fRFCm0k)
+[![Notificaciones-Canvas.png](https://i.postimg.cc/8zwdhmNz/Notificaciones-Canvas.png)](https://postimg.cc/rD0tTWDB)
 
-**Análitica y reportes**
+**Métricas - Canvas**
 
-[![Analitica-y-reportes-Canvas.png](https://i.postimg.cc/26hs6d6L/Analitica-y-reportes-Canvas.png)](https://postimg.cc/G837gyvb)
+[![Metricas-Canvas.png](https://i.postimg.cc/fLSxQ4X0/Metricas-Canvas.png)](https://postimg.cc/KkFKtH0Z)
 
 ### 4.2.5. Context Mapping
 
@@ -455,7 +449,7 @@ El Context Mapping constituye una técnica fundamental dentro del enfoque estrat
 
 El propósito del Context Mapping radica en facilitar una arquitectura de software más modular, mantenible y alineada con el dominio del negocio, permitiendo que cada contexto evolucione de manera autónoma sin generar acoplamientos innecesarios. Esta representación también respalda la toma de decisiones relativas a integraciones, responsabilidades y coordinación entre equipos.
 
-[![Context-Mapping.png](https://i.postimg.cc/JhPyFJmR/Context-Mapping.png)](https://postimg.cc/WDqbFdhy)
+[![Context-Mapping.png](https://i.postimg.cc/m2y7sycw/Context-Mapping.png)](https://postimg.cc/nCMXK7Gj)
 
 | Destino (Downstream)       | Origen (Upstream)           | Tipo de Relación | ¿OHS? | Comentario                                                              |
 | -------------------------- | --------------------------- | ----------------- | ------ | ----------------------------------------------------------------------- |
