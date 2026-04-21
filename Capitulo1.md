@@ -44,7 +44,7 @@ eficiente y en armonía.</span>
 <th><mark>Descripción:</mark></th>
 </tr>
 <tr>
-<th style="text-align: center;"><img src="media/image1.jpg"
+<th style="text-align: center;"><img src="./media/image1.jpg"
 style="width:1.67188in;height:2.96712in" /></th>
 <th style="text-align: left;"><p><mark>Jhon Danny Guerrero Vasquez -
 U202116246</mark></p>
@@ -58,8 +58,18 @@ comprometido con la integración continua en los aportes de cada
 integrante de mi equipo.</mark></p></th>
 </tr>
 <tr>
-<th></th>
-<th style="text-align: left;"></th>
+<th><img src="./media/image2.jpg"
+style="width:2.08333in;height:2.15278in" /></th>
+<th style="text-align: left;"><p><mark>Acuña Tomas, Diego Rolin -
+U202221436</mark></p>
+<p><mark>Soy estudiante de Ingeniería de Software en la UPC, actualmente
+cursando el octavo ciclo. Durante mi formación académica he adquirido
+sólidos conocimientos en múltiples lenguajes de programación y
+frameworks, desarrollando competencias especializadas en frontend,
+backend y bases de datos. Me interesa especialmente contribuir a
+proyectos de código abierto, como Angular, Spring y otras herramientas
+modernas. Me considero una persona curiosa y proactiva, con una visión
+optimista del futuro tecnológico.</mark></p></th>
 </tr>
 <tr>
 <th style="text-align: center;"></th>
@@ -362,7 +372,8 @@ mejorar la eficiencia del trabajo en conjunto.</span>
 
 #### <span class="mark">1.2.3.4. Lean UX Canvas</span>
 
-<img src="media/image2.jpg" style="width:6.26772in;height:3.94444in" />
+<img src="./media/image3.jpg"
+style="width:6.26772in;height:3.94444in" />
 
 ## **<span class="mark">1.3. Segmento objetivo</span>** 
 
