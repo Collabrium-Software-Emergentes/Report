@@ -142,7 +142,7 @@ EAC - Student Outcome 3.
       <td>
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
@@ -162,8 +162,8 @@ EAC - Student Outcome 3.
         <br><br>
       </td>
       <td>
-        <strong>TB1</strong> <br>
-        Se hizo esto
+        <strong>TB1</strong><br>
+        Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.
       </td>
     </tr>
     <tr>
@@ -171,7 +171,7 @@ EAC - Student Outcome 3.
       <td>
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
@@ -191,8 +191,8 @@ EAC - Student Outcome 3.
         <br><br>
       </td>
       <td>
-        <strong>TB1</strong> <br>
-        Se hizo esto
+        <strong>TB1</strong><br>
+        Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.
       </td>
     </tr>
   </tbody>
