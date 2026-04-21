@@ -423,44 +423,220 @@ y sin ambigüedad.
 
 ## 4.2. Strategic-Level Domain-Driven Design
 
+En esta sección se presenta el enfoque adoptado para la toma de decisiones estratégicas en el desarrollo del sistema, aplicando los principios del Domain-Driven Design (DDD). El objetivo principal consistió en identificar y establecer los límites naturales del dominio, descomponiendo la solución en contextos delimitados (Bounded Contexts).
 
+Para llevar a cabo dicha descomposición, el equipo empleó herramientas colaborativas clave, tales como el Event Storming, que permite mapear y visualizar de manera dinámica los flujos de eventos, comandos y actores dentro del dominio; y el Bounded Context Canvas, utilizado para definir los elementos esenciales de cada contexto, incluyendo objetivos, modelos, responsabilidades y relaciones con otros contextos.
+
+Dicho proceso estratégico permite no solo estructurar el sistema de forma más coherente, sino también alinear las decisiones técnicas con los objetivos de negocio, facilitando la comunicación entre los distintos actores involucrados en el desarrollo del proyecto.
 
 ### 4.2.1. EventStorming
 
+En esta sección se expone y justifica el proceso de EventStorming ejecutado por el equipo, con el fin de construir una aproximación inicial al modelado general del dominio del problema. Dicha técnica, centrada en la identificación de eventos relevantes dentro del sistema, facilita la captura del conocimiento colectivo de los participantes y promueve conversaciones fundamentales acerca del comportamiento esperado del sistema ante diversos escenarios.
 
+La sesión fue planificada estratégicamente con una duración comprendida entre una y dos horas. Durante esta actividad, se emplearon notas adhesivas digitales para representar eventos y comandos, lo que permite una exploración visual e iterativa del flujo de trabajo.
+
+[![EventStorming](https://i.postimg.cc/pXfjDrxc/image.png)](https://postimg.cc/2V53Yz1n)
 
 ### 4.2.2. Candidate Context Discovery
 
+Una vez concluida la sesión de Event Storming, se llevó a cabo un análisis detallado de los eventos identificados con el propósito de descubrir los contextos candidatos potencialmente relevantes para el dominio del problema. Dicho análisis consistió en la identificación de patrones y relaciones entre los eventos, así como en la evaluación de su impacto sobre el sistema. Como resultado, se establecieron agrupaciones de eventos pertenecientes a un mismo proceso de acción dentro de la aplicación.
 
+[![Candidate Context Discovery](https://i.postimg.cc/wjMcpNSf/image.png)](https://postimg.cc/5XcF5X9L)
+
+A continuación se muestra con detalle las líneas de acción creadas:
+
+**Creación de grupo**
+
+[![Creacion-de-grupo.png](https://i.postimg.cc/SR5QYwxm/Creacion-de-grupo.png)](https://postimg.cc/vxrwp2nK)
+
+**Asignación de tareas**
+
+[![Asignacion-de-tareas.png](https://i.postimg.cc/Xv7vhKmj/Asignacion-de-tareas.png)](https://postimg.cc/hX6gQmK6)
+
+**Modificación de tareas**
+
+[![Modificacion-de-tareas.png](https://i.postimg.cc/cHtdyFc5/Modificacion-de-tareas.png)](https://postimg.cc/tZbKFtwh)
+
+**Cumplimiento de tareas**
+
+[![Cumplimiento-de-tareas.png](https://i.postimg.cc/3rgHX4fb/Cumplimiento-de-tareas.png)](https://postimg.cc/bdNM8JhQ)
+
+**Incumplimiento de tareas**
+
+[![Incumplimiento-de-tareas.png](https://i.postimg.cc/G3PZ809x/Incumplimiento-de-tareas.png)](https://postimg.cc/w3vWZGX1)
+
+Una vez creadas las líneas de acción se buscó encontrar los "pain points", solo se tuvo que modificar la línea de acción de creación de grupo. 
+
+**Creación de grupo**
+
+[![Creacion-de-Grupo-V2.png](https://i.postimg.cc/bwdy9Ytj/Creacion-de-Grupo-V2.png)](https://postimg.cc/LJKFHpDy)
+
+Una vez terminadas las líneas de acción se buscó encontrar los "pivotal point", los cuales son eventos que pueden cambiar el flujo de la aplicación.
+Los pivotal point encontrados fueron:
+
+- La creación de un grupo
+- La creación de una tarea
+- La modificación de una tarea
+- La asignación de una tarea
+- Acciones que requieran enviar notificaciones
+- El cumplimiento de tareas
+- El incumplimiento de tareas
+
+Gracias a encontrar los pivotal points se pudo identificar como los distintos eventos formaban parte de distintos contextos, los cuales son:
+
+- Líderes
+- Notificaciones
+- Tareas
+- Métricas
+- Solicitudes
+
+Finalmente se dividio cada evento en comandos, eventos, agregados, vistas y entidades, los cuales son los siguientes:
+
+**Líderes**
+
+[![Lideres.png](https://i.postimg.cc/bNst2fdD/Lideres.png)](https://postimg.cc/7fr6pc3w)
+
+**Notificaciones**
+
+[![Notificaciones.png](https://i.postimg.cc/vTDc958M/Notificaciones.png)](https://postimg.cc/xNDfVJbF)
+
+**Tareas**
+
+[![Tareas.png](https://i.postimg.cc/MGDTF9vJ/Tareas.png)](https://postimg.cc/TyKfyqVt)
+
+**Métricas**
+
+[![Metricas.png](https://i.postimg.cc/qvHvBP3F/Metricas.png)](https://postimg.cc/N5bcpPb8)
+
+**Solicitudes**
+
+[![Solicitudes.png](https://i.postimg.cc/RFhMb9k7/Solicitudes.png)](https://postimg.cc/jwV0DVd2)
 
 ### 4.2.3. Domain Message Flows Modeling
 
+Como siguiente paso se buscó interconectar los bounded contexts encontrados en la sección anterior, para esto se buscó encontrar los eventos que se comunican entre los distintos contextos.
 
+**Líderes y Notificaciones:** 
+Al generar una invitación de grupo se envía una notificación al usuario invitado, y al aceptar la invitación se envía una notificación al creador del grupo.
+
+[![Lideres-y-Notificaciones.png](https://i.postimg.cc/8cHg1YQq/Lideres-y-Notificaciones.png)](https://postimg.cc/H8VhzBL2)
+
+**Tareas y Notificaciones:** 
+Al crear una tarea se envía una notificación al usuario asignado, y al cumplir la tarea se envía una notificación al creador de la tarea.
+
+[![Tareas-y-Notificaciones.png](https://i.postimg.cc/htX6wvvj/Tareas-y-Notificaciones.png)](https://postimg.cc/tsHBnXhQ)
+
+**Notificaciones y Solicitudes:** 
+Al momento de marcarse tareas como completadas o no completadas se envía una notificación al coordinador. Al asignar reprogramar tareas se enviará notificaciones al usuario antiguo y al nuevo usuario al que pertenece la tarea. Al modificar(actualizar, reprogramar o eliminar) tareas se enviará una notificación a todos los involucrados (coordinadores e integrantes).
+
+[![Notificaciones-y-Solicitudes.png](https://i.postimg.cc/yx6rTY2W/Notificaciones-y-Solicitudes.png)](https://postimg.cc/VrTRf1fc)
+
+**Solicitudes y Métricas:** Al validarse si se completó o no una tarea se crean o modifican las estadísticas de progreso grupal.
+
+[![Solicitudes-y-Metricas.png](https://i.postimg.cc/3wMScZP5/Solicitudes-y-Metricas.png)](https://postimg.cc/ZWcx96bV)
+
+Finalmente se muestra una captura global de la arquitectura del sistema, donde se puede ver la interacción entre los distintos componentes y como se comunican entre ellos.
+
+[![Totalidad.png](https://i.postimg.cc/CxKSKw1h/Totalidad.png)](https://postimg.cc/BXRdY9Hk)
+
+Enlace del Miro board sobre el que se trabajo: https://miro.com/app/board/uXjVHf1ECEI=/?share_link_id=687998549144
 
 ### 4.2.4. Bounded Context Canvases
 
+En esta sección se desarrolla la descomposición estratégica del dominio a través de la elaboración de los Bounded Context Canvases, con el propósito de identificar y delimitar áreas funcionalmente coherentes dentro del sistema. Dicha práctica constituye una parte esencial del enfoque de Domain-Driven Design (DDD), dado que permite clarificar los límites semánticos y técnicos entre las distintas porciones del sistema, reduciendo la complejidad y favoreciendo la evolución independiente de cada componente.
 
+El equipo ha definido previamente un conjunto de contextos delimitados candidatos, ordenados de acuerdo con su importancia funcional y estratégica. Con base en esta priorización, se procede al diseño iterativo de los Bounded Context Canvases. Cada canvas incorpora los siguientes elementos clave:
+
+- **Context Overview Definition:** para comprender el propósito y el alcance del contexto.
+- **Business Rules Distillation & Ubiquitous Language Capture:** para identificar las reglas de negocio fundamentales y establecer un lenguaje común entre los actores involucrados y los desarrolladores.
+- **Capability Analysis y Capability Layering:** para entender las capacidades funcionales que ofrece el contexto y, si resulta necesario, organizarlas en capas.
+- **Dependencies Capture:** para reconocer las relaciones con otros contextos y sus posibles implicaciones.
+- **Design Critique:** para revisar y perfeccionar el diseño propuesto desde una perspectiva crítica y colaborativa.
+
+**Líderes - Canvas**
+
+[![Lideres-Canvas.png](https://i.postimg.cc/QCWKwc29/Lideres-Canvas.png)](https://postimg.cc/RJ40nJV4)
+
+**Tareas - Canvas**
+
+[![Tareas-Canvas.png](https://i.postimg.cc/j5DhqnVP/Tareas-Canvas.png)](https://postimg.cc/fthdBLRR)
+
+**Solicitudes - Canvas**
+
+[![Solicitudes-Canvas.png](https://i.postimg.cc/65JhwQYF/Solicitudes-Canvas.png)](https://postimg.cc/LhDP3mdV)
+
+**Notificaciones - Canvas**
+
+[![Notificaciones-Canvas.png](https://i.postimg.cc/8zwdhmNz/Notificaciones-Canvas.png)](https://postimg.cc/rD0tTWDB)
+
+**Métricas - Canvas**
+
+[![Metricas-Canvas.png](https://i.postimg.cc/fLSxQ4X0/Metricas-Canvas.png)](https://postimg.cc/KkFKtH0Z)
 
 ### 4.2.5. Context Mapping
 
+El Context Mapping constituye una técnica fundamental dentro del enfoque estratégico del Domain-Driven Design (DDD), pues permite visualizar y comprender el modo en que interactúan los distintos contextos delimitados (Bounded Contexts) en un sistema complejo. Mediante esta herramienta, se identifican las relaciones, dependencias y límites de comunicación entre contextos, definiendo con claridad los flujos de información, los tipos de colaboración (tales como Customer/Supplier, Conformist, Partnership o Anticorruption Layer) y el empleo de patrones como Open Host Service.
 
+El propósito del Context Mapping radica en facilitar una arquitectura de software más modular, mantenible y alineada con el dominio del negocio, permitiendo que cada contexto evolucione de manera autónoma sin generar acoplamientos innecesarios. Esta representación también respalda la toma de decisiones relativas a integraciones, responsabilidades y coordinación entre equipos.
+
+[![Context-Mapping.png](https://i.postimg.cc/m2y7sycw/Context-Mapping.png)](https://postimg.cc/nCMXK7Gj)
+
+| Destino (Downstream)       | Origen (Upstream)           | Tipo de Relación | ¿OHS? | Comentario                                                              |
+| -------------------------- | --------------------------- | ----------------- | ------ | ----------------------------------------------------------------------- |
+| Analítica y Reportes      | Gestión de Grupos          | Customer/Supplier | No     | Expone info grupal                                                      |
+| Solicitudes y Validaciones | Gestión de Grupos          | Customer/Supplier | Si     | Se nutre de los datos de los integrantres                               |
+| Gestión de Tareas         | Gestión de Grupos          | Customer/Supplier | No     | Obtiene información de los integrantes de grupo                        |
+| Gestión de Tareas         | Solicitudes y Validaciones  | Partnership       | No     | Comparte información entre sí de las tareas                           |
+| Analítica y Reportes      | Gestión de Tareas          | Customer/Supplier | Si     | Se nutre de la información de las tareas para elaborar reportes        |
+| Analítica y Reportes      | Solicitudes y Validaciones  | Customer/Supplier | No     | Otiene la infomración de actualización de cmabios y solicitudes       |
+| Notificaciones             | Grupos, solicitudes, tareas | Partnership       | No     | Emite notificaciones según instrucciones de los demás bounded context |
 
 ## 4.3. Software Architecture
 
-
+La arquitectura del sistema se organiza en tres niveles. En primer lugar, el Context Diagram define las interacciones externas entre SynHub —núcleo del sistema—, sus usuarios (Miembro y Líder) y servicios externos como Cloudinarym, Gemini y Sendgrid. En segundo lugar, el Container Diagram descompone SynHub en módulos fundamentales (Mobile App, API REST, PostgreSQL y Landing Page), especificando sus responsabilidades y los mecanismos de comunicación interna. Finalmente, el Deployment Diagram detalla el despliegue físico y en la nube de estos componentes, abarcando servidores, dispositivos móviles y conexiones con APIs externas. En conjunto, estos diagramas garantizan un diseño escalable, integrado y adecuadamente estructurado.
 
 ### 4.3.1. Software Architecture System Landscape Diagram
 
+El System Landscape diagrama representa el nivel inicial y de mayor abstracción en el modelo C4, diseñado para ofrecer una visión panorámica de la infraestructura tecnológica dentro de un contexto organizacional o de negocio. Este esquema articula la posición de un sistema de software específico en relación con otros sistemas externos, usuarios finales y actores institucionales, facilitando la identificación de dependencias, puntos de integración y límites del ecosistema completo. Su función principal es comunicar el alcance del proyecto a audiencias técnicas y no técnicas, estableciendo un marco de referencia que permite comprender el rol funcional y la interoperabilidad de la solución desarrollada dentro de un entorno complejo.
 
+[![Landscape.png](https://i.postimg.cc/VL9jjrt6/Landscape.png)](https://postimg.cc/SJs24KDF)
 
 ### 4.3.2. Software Architecture Context Level Diagrams
 
+El Context Diagram muestra a SynHub (el sistema central) interactuando con sus usuarios principales —el Miembro y el Líder— quienes utilizan la aplicación para gestionar actividades, mientras que SynHub se integra con Gemini, Cloudinary y Sendgrid. Este diagrama enfatiza las relaciones externas del sistema, sin detallar componentes internos, destacando cómo los actores clave (usuarios y servicios externos) se conectan con la plataforma principal para intercambiar información.
 
+[![Context.png](https://i.postimg.cc/8PCwZCPb/Context.png)](https://postimg.cc/14LptsFg)
 
 ### 4.3.3. Software Architecture Container Level Diagrams
 
+El diagrama de contenedores de **SynHub** propone una arquitectura de microservicios robusta y altamente desacoplada, fundamentada en la especialización de responsabilidades. En la capa de acceso, el **API Gateway** unifica la interacción del usuario final, delegando la localización física de los componentes al **Discovery Server**, lo cual permite un despliegue dinámico y escalable. La lógica de negocio se fragmenta en contenedores independientes —tales como IAM, Groups, Tasks, Requests, Metrics, Cloudinary, Email y AI Service—, algunos con persistencia de datos propia, garantizando un aislamiento óptimo. La comunicación síncrona mediante **REST/HTTPS** asegura una respuesta inmediata en operaciones críticas, mientras que la integración asíncrona a través del **Broker (RabbitMQ)** mediante el protocolo **AMQP** permite gestionar eventos de forma eficiente, desacoplando los servicios y fortaleciendo la resiliencia del sistema ante posibles fallos. Finalmente, la externalización de servicios complejos como **Gemini** para procesamiento de lenguaje, **Cloudinary** para gestión multimedia y **SendGrid** para notificaciones, consolida a SynHub como una plataforma moderna que aprovecha un ecosistema de servicios especializados para optimizar la experiencia de gestión de tareas.
 
+[![Container.png](https://i.postimg.cc/8kLsxds6/Container.png)](https://postimg.cc/8sP166Rp)
+
+Parte del usuario:
+
+[![Container-P1.png](https://i.postimg.cc/HntYn27R/Container-P1.png)](https://postimg.cc/N25qPRDk)
+
+Parte de microservicios principales:
+
+[![Container-P2.png](https://i.postimg.cc/0N7L9NSQ/Container-P2.png)](https://postimg.cc/WDb9nTXL)
+
+Parte de servicios externos:
+
+[![Container-P3.png](https://i.postimg.cc/8PqKsSNn/Container-P3.png)](https://postimg.cc/Ln3B0Gqz)
 
 ### 4.3.4. Software Architecture Deployment Diagrams
 
+El diagrama de despliegue, integrado en el nivel más físico del modelo C4 y en el estándar UML, es la representación técnica de la arquitectura de sistema sobre su infraestructura de ejecución. Su propósito fundamental es describir cómo los componentes de software (artefactos) se asignan, configuran y distribuyen en los nodos de hardware o entornos virtuales (como servidores, contenedores o servicios en la nube).
 
+Este diagrama detalla la topología de la red, las dependencias entre los componentes de software y su ubicación física o lógica, permitiendo comprender la escalabilidad, la disponibilidad y la resiliencia del sistema en el entorno de producción. En esencia, actúa como el puente definitivo entre el diseño lógico del software y la realidad operativa, ilustrando el despliegue físico de los servicios, bases de datos y herramientas de soporte que conforman la solución.
+
+[![Deployment.png](https://i.postimg.cc/nrtVHL0K/Deployment.png)](https://postimg.cc/1nJ1Byx4)
+
+Parte de interacción de usuarios:
+
+[![Deployment-P1.png](https://i.postimg.cc/sXCCWNSw/Deployment-P1.png)](https://postimg.cc/ns2WbT3D)
+
+Parte de microservicios:
+
+[![Deployment-P2.png](https://i.postimg.cc/3R1fwSZ6/Deployment-P2.png)](https://postimg.cc/ygJyQTtX)
