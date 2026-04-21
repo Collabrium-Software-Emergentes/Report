@@ -520,7 +520,7 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   <tbody>
     <tr>
       <td>Entrevista 3</td>
-      <td> <img src="https://i.postimg.cc/c1DyBSgL/integrante3.png" alt="interview 2" width="400"/> </td>
+      <td> <img src="https://i.ibb.co/bRWK4wSv/integrante3.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
       <td>Nombre Entrevistado</td>
@@ -586,7 +586,7 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   <tbody>
     <tr>
       <td>Entrevista 5</td>
-      <td> <img src="https://i.postimg.cc/TYSzBJcG/lider2.png" alt="interview 2" width="400"/> </td>
+      <td> <img src="https://i.ibb.co/tMMGnmZz/lider2.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
       <td>Nombre Entrevistado</td>
@@ -619,7 +619,7 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   <tbody>
     <tr>
       <td>Entrevista 6</td>
-      <td> <img src="https://i.postimg.cc/pLFwv509/lider3.png" alt="interview 2" width="400"/> </td>
+      <td> <img src="https://i.ibb.co/k20CTyzC/lider3.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
       <td>Nombre Entrevistado</td>
