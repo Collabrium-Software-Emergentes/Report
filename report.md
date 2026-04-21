@@ -261,6 +261,17 @@
 
 ### 4.1.1. Design Purpose
 
+El propósito del diseño de la aplicación es proporcionar una plataforma integral para la gestión de grupos, miembros, tareas, notificaciones, reportes y procesos de validación, asegurando una experiencia de usuario consistente y funcional para ambos segmentos.
+
+La aplicación tiene como objetivo principal facilitar la colaboración, la asignación de responsabilidades y el seguimiento de avances en equipos de trabajo, ofreciendo funcionalidades que van desde la organización de grupos y distribución de tareas, hasta la generación de métricas y reportes.
+
+## Enfoque Arquitectónico
+
+Desde el punto de vista arquitectónico, el diseño prioriza:
+
+- **Escalabilidad:** Soportando un número elevado de usuarios, grupos y transacciones.
+- **Seguridad:** Gestionando accesos y roles mediante autenticación y control de permisos.
+- **Disponibilidad:** Asegura que la plataforma tenga una accesibilidad del 99% con mínimas interrupciones en la gestión de tareas y notificaciones.
 
 
 ### 4.1.2. Attribute-Driven Design Inputs
@@ -269,11 +280,33 @@
 
 #### 4.1.2.1. Primary Functionality (Primary User Stories)
 
+| Requisito Funcional         | US - ID | Título                                        |
+|-----------------------------|---------|-----------------------------------------------|
+| Gestión de grupos           | US-001  | Creación de grupo                             |
+| Gestión de grupos           | US-002  | Envío de invitaciones                         |
+| Gestión de Tareas           | US-004  | Creación de tareas                            |
+| Gestión de Tareas           | US-005  | Asignación de tareas                          |
+| Gestión de Tareas           | US-007  | Actualización de estado                       |
+| Notificaciones Inteligentes | US-009  | Notificaciones in-app                         |
+| Notificaciones Inteligentes | US-010  | Notificaciones por email                      |
+| Analíticas y Reportes       | US-012  | Gráfico de distribución de tareas             |
+| Analíticas y Reportes       | US-015  | Reporte de productividad individual           |
+| Solicitudes y Validaciones  | US-016  | Solicitud de aprobación de tarea              |
+| Solicitudes y Validaciones  | US-017  | Validación de tareas                          |
+| Gestión de Usuarios         | US-025  | Configuración de preferencias de notificación |
 
 
 #### 4.1.2.2. Quality attribute Scenarios
 
-
+| ID   | Atributo de calidad | Fuente                                      | Estímulo                                         | Medioambiente                                         | Artefacto                               | Respuesta                                            | Medida                                                        |
+|------|---------------------|---------------------------------------------|--------------------------------------------------|-------------------------------------------------------|-----------------------------------------|------------------------------------------------------|---------------------------------------------------------------|
+| QA-1 | Disponibilidad      | Usuario que desea acceder a sus tareas      | Solicita ver la lista de tareas en tiempo real   | Aplicación en horario normal con tráfico promedio     | Servicio de gestión de tareas           | La aplicación devuelve la lista completa sin errores | Tiempo de respuesta < 2s y 99% de disponibilidad del servicio |
+| QA-2 | Interoperabilidad   | Usuario que recibe notificaciones por email | Configurar preferencias de notificación          | Sistema conectado a la red, servicio de correo activo | Servicio de notificaciones inteligentes | Notificación enviada y recibida correctamente        | Porcentaje de emails entregados correctamente = 100%          |
+| QA-3 | Modificabilidad     | Equipo de desarrollo                        | Agrega un nuevo tipo de gráfico de productividad | Entorno de desarrollo con datos de prueba             | Servicio de reportes y dashboards       | Nuevo gráfico integrado sin afectar funcionalidades  | Integración < 2 días y pruebas unitarias exitosas             |
+| QA-4 | Performance         | Usuario genera reporte                      | Solicita reporte con gran volumen de datos       | Aplicación bajo carga alta                            | Servicio de generación de reportes      | Reporte generado correctamente con todos los datos   | Tiempo de generación < 10s                                    |
+| QA-5 | Seguridad           | Usuario o atacante externo                  | Intento de acceso sin permisos                   | Aplicación y red funcionando normalmente              | Servicio de autenticación y usuarios    | Acceso bloqueado y registrado en logs                | 100% de accesos no autorizados bloqueados + logs generados    |
+| QA-6 | Testeabilidad       | Equipo de QA                                | Ejecuta pruebas de creación de grupos y tareas   | Entorno de pruebas controlado                         | Servicios de gestión de grupos y tareas | Resultados registrados y reproducibles               | Cobertura de pruebas > 90%                                    |
+| QA-7 | Usabilidad          | Usuario final                               | Intenta crear o editar grupo o tarea             | App móvil funcionando                                 | Interfaz de usuario                     | Usuario completa operación sin confusión             | Tiempo promedio < 2 min por operación                         |
 
 #### 4.1.2.3. Constraints
 
