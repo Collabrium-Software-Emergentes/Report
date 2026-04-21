@@ -254,9 +254,9 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
   </tr>
   <tr>
     <td colspan="2"> Productos </td>
-    <td style="text-align: center;"> <div>SynHub</div> <img src="./images/chapter-2/synhub.png" alt="SynHub" width="200"/> </td>
+    <td style="text-align: center;"> <div>SynHub</div> <img src="https://i.postimg.cc/FF8Th0rp/synhub.png" alt="SynHub" width="200"/> </td>
     <td style="text-align: center;"> <div>Asana</div> <img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/> </td>
-    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="Picniic" width="200"/> </td>
+    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="FamilyWall" width="200"/> </td>
     <td style="text-align: center;"> <div>ClickUp</div> <img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="clickup" width="200"/> </td>
   </tr>
   <tr>
