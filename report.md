@@ -553,7 +553,7 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
 
 En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
 
-URL:
+URL: https://1drv.ms/v/c/9fed6c4f629930aa/IQA_ZEu7K2-7RrQH7CcVA6CFAYyE1I6TyF9RFQiOzFxuHDg?e=McVfoR
 
 **Segmento Objetivo 1: Coordinadores o Líderes de Grupo**
 
