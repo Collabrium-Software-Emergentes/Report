@@ -314,8 +314,6 @@ Desde el punto de vista arquitectónico, el diseño prioriza:
 
 ### 4.1.3. Architectural Drivers Backlog
 
-# 4.3. Architectural Drivers Backlog
-
 En esta iteración, hemos priorizado los drivers de **usabilidad** y **mantenibilidad**, orientando el diseño hacia un componente de asignación de tareas que permita crear, asignar y dar seguimiento a tareas por usuario de manera intuitiva, manteniendo responsabilidades desacopladas para facilitar la evolución del sistema.
 
 | Driver ID | Título de Driver | Descripción | Importancia (Stakeholders) | Impacto (Technical Complexity) |
@@ -410,7 +408,111 @@ El equipo evaluó decisiones arquitectónicas para el componente de asignación 
 
 ### 4.1.5. Quality Attribute Scenario Refinements
 
+<table>
+  <tr>
+    <td colspan="3"><strong>Scenario Refinement for Scenario 1</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Scenario(s):</strong></td>
+    <td>Usabilidad en la asignación de tareas</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Business Goals:</strong></td>
+    <td>Facilitar la adopción del sistema y mejorar la experiencia del usuario al crear, asignar y revisar tareas.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Relevant Quality Attributes:</strong></td>
+    <td>Usabilidad</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><strong>Stimulus:</strong></td>
+    <td>El usuario necesita crear, asignar o revisar una tarea dentro del sistema.</td>
+  </tr>
+  <tr>
+    <td rowspan="5"><strong>Scenario Components</strong></td>
+    <td><strong>Stimulus Source:</strong></td>
+    <td>Usuario autenticado</td>
+  </tr>
+  <tr>
+    <td><strong>Environment:</strong></td>
+    <td>Operación normal del sistema</td>
+  </tr>
+  <tr>
+    <td><strong>Artifact (if Known)</strong></td>
+    <td>Componente de asignación de tareas</td>
+  </tr>
+  <tr>
+    <td><strong>Response:</strong></td>
+    <td>El sistema permite realizar la acción de forma clara, rápida e intuitiva, mostrando retroalimentación inmediata.</td>
+  </tr>
+  <tr>
+    <td><strong>Response Measure:</strong></td>
+    <td>El usuario completa la acción en pocos pasos, sin errores y sin necesidad de ayuda externa.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Questions:</strong></td>
+    <td>¿Cuántos pasos se requieren para asignar una tarea?<br>¿Qué feedback recibe el usuario?<br>¿Qué acciones deben ser visibles?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Issues:</strong></td>
+    <td>No se han definido métricas exactas de tiempo o interacción.<br>Falta detallar validaciones de interfaz.</td>
+  </tr>
+</table>
 
+<br>
+
+<table>
+  <tr>
+    <td colspan="3"><strong>Scenario Refinement for Scenario 2</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Scenario(s):</strong></td>
+    <td>Mantenibilidad del componente de tareas</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Business Goals:</strong></td>
+    <td>Permitir cambios futuros en el sistema sin afectar otros módulos.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Relevant Quality Attributes:</strong></td>
+    <td>Mantenibilidad</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><strong>Stimulus:</strong></td>
+    <td>Se requiere modificar la lógica del componente de tareas (nuevas reglas o funcionalidades).</td>
+  </tr>
+  <tr>
+    <td rowspan="5"><strong>Scenario Components</strong></td>
+    <td><strong>Stimulus Source:</strong></td>
+    <td>Desarrollador</td>
+  </tr>
+  <tr>
+    <td><strong>Environment:</strong></td>
+    <td>Mantenimiento o evolución del sistema</td>
+  </tr>
+  <tr>
+    <td><strong>Artifact (if Known)</strong></td>
+    <td>Componente de asignación de tareas</td>
+  </tr>
+  <tr>
+    <td><strong>Response:</strong></td>
+    <td>El cambio se realiza de manera localizada sin afectar otros componentes.</td>
+  </tr>
+  <tr>
+    <td><strong>Response Measure:</strong></td>
+    <td>Bajo impacto en otros módulos y facilidad de pruebas tras el cambio.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Questions:</strong></td>
+    <td>¿Cómo se separan las responsabilidades?<br>¿Qué cambios futuros se esperan?<br>¿Qué partes deben estar desacopladas?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Issues:</strong></td>
+    <td>No están definidos completamente los límites entre capas.<br>Falta estrategia de pruebas para cambios futuros.</td>
+  </tr>
+</table>
 
 ## 4.2. Strategic-Level Domain-Driven Design
 
