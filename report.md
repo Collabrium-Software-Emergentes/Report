@@ -316,7 +316,7 @@ Desde el punto de vista arquitectónico, el diseño prioriza:
 
 # 4.3. Architectural Drivers Backlog
 
-En esta iteración, el equipo priorizó los drivers de **usabilidad** y **mantenibilidad**, orientando el diseño hacia un componente de asignación de tareas que permita crear, asignar y dar seguimiento a tareas por usuario de manera intuitiva, manteniendo responsabilidades desacopladas para facilitar la evolución del sistema.
+En esta iteración, hemos priorizado los drivers de **usabilidad** y **mantenibilidad**, orientando el diseño hacia un componente de asignación de tareas que permita crear, asignar y dar seguimiento a tareas por usuario de manera intuitiva, manteniendo responsabilidades desacopladas para facilitar la evolución del sistema.
 
 | Driver ID | Título de Driver | Descripción | Importancia (Stakeholders) | Impacto (Technical Complexity) |
 |---|---|---|---|---|
@@ -328,7 +328,85 @@ En esta iteración, el equipo priorizó los drivers de **usabilidad** y **manten
 
 ### 4.1.4. Architectural Design Decisions
 
+El equipo evaluó decisiones arquitectónicas para el componente de asignación de tareas, considerando como drivers principales la <strong>usabilidad</strong> y la <strong>mantenibilidad</strong>. El objetivo fue definir una solución que permita crear, asignar y dar seguimiento a tareas por usuario, manteniendo una estructura desacoplada y fácil de evolucionar.
 
+<table>
+  <tr>
+    <td rowspan="2"><strong>Driver ID</strong></td>
+    <td rowspan="2"><strong>Título de Driver</strong></td>
+    <td colspan="2"><strong>Pattern 1: Arquitectura en Capas</strong></td>
+    <td colspan="2"><strong>Pattern 2: MVC</strong></td>
+    <td colspan="2"><strong>Pattern 3: Event-Driven</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+  </tr>
+
+  <tr>
+    <td>AD-01</td>
+    <td>Usabilidad</td>
+    <td>Permite interfaces claras separando responsabilidades</td>
+    <td>No gestiona interacción en tiempo real por sí sola</td>
+    <td>Organiza bien la interacción UI</td>
+    <td>Puede centrarse demasiado en la interfaz</td>
+    <td>Permite actualización dinámica</td>
+    <td>Aumenta complejidad innecesaria</td>
+  </tr>
+
+  <tr>
+    <td>AD-02</td>
+    <td>Mantenibilidad</td>
+    <td>Bajo acoplamiento y alta modularidad</td>
+    <td>Puede volverse rígida si se diseña mal</td>
+    <td>Estructura simple</td>
+    <td>No escala bien en backend complejo</td>
+    <td>Desacopla componentes</td>
+    <td>Difícil de depurar</td>
+  </tr>
+
+  <tr>
+    <td>AD-03</td>
+    <td>Gestión de tareas por usuario</td>
+    <td>Facilita reglas de negocio</td>
+    <td>Mayor estructura inicial</td>
+    <td>Adecuado para CRUD</td>
+    <td>Menor claridad en lógica compleja</td>
+    <td>Útil para eventos derivados</td>
+    <td>No ideal como base principal</td>
+  </tr>
+
+  <tr>
+    <td>AD-04</td>
+    <td>Separación de responsabilidades</td>
+    <td>Alta</td>
+    <td>Requiere disciplina</td>
+    <td>Media</td>
+    <td>Menos estructurada</td>
+    <td>Alta</td>
+    <td>No cubre toda la arquitectura</td>
+  </tr>
+
+  <tr>
+    <td>AD-05</td>
+    <td>Consistencia de datos</td>
+    <td>Centraliza validaciones</td>
+    <td>Puede requerir coordinación</td>
+    <td>Simple</td>
+    <td>Riesgo de mezclar lógica</td>
+    <td>Útil en procesos asíncronos</td>
+    <td>Complica consistencia inmediata</td>
+  </tr>
+
+</table>
+
+<br>
+
+<p><strong>Decisión:</strong> Hemos seleccionado la <strong>Arquitectura en Capas</strong> como patrón principal por su alta mantenibilidad y separación de responsabilidades. Se complementa con <strong>Event-Driven</strong> para notificaciones y eventos derivados.</p>
 
 ### 4.1.5. Quality Attribute Scenario Refinements
 
