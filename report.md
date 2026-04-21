@@ -203,7 +203,7 @@ Asana es una plataforma orientada a la gestión de proyectos que permite a los e
 
 **2. FamilyWall**
 
-<img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="FamilyWall" width="200"/>
+<img src="https://i.ibb.co/zVscqS8y/familywall.png" alt="FamilyWall" width="200"/>
 
 **Descripción:**
 
@@ -254,9 +254,9 @@ ClickUp es una herramienta integral que combina funcionalidades de gestión de t
   </tr>
   <tr>
     <td colspan="2"> Productos </td>
-    <td style="text-align: center;"> <div>SynHub</div> <img src="https://i.postimg.cc/FF8Th0rp/synhub.png" alt="SynHub" width="200"/> </td>
+    <td style="text-align: center;"> <div>SynHub</div> <img src="https://i.ibb.co/23FVNcpw/synhub.png" alt="SynHub" width="200"/> </td>
     <td style="text-align: center;"> <div>Asana</div> <img src="https://avatars.slack-edge.com/2024-09-05/7707480927360_791cc0c5cdf5b6720b21_512.png" alt="Asana" width="200"/> </td>
-    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.postimg.cc/0jHsLYyQ/familywall.png" alt="FamilyWall" width="200"/> </td>
+    <td style="text-align: center;"> <div>FamilyWall</div> <img src="https://i.ibb.co/zVscqS8y/familywall.png" alt="FamilyWall" width="200"/> </td>
     <td style="text-align: center;"> <div>ClickUp</div> <img src="https://i.postimg.cc/MHrSh7pw/clickup.webp" alt="clickup" width="200"/> </td>
   </tr>
   <tr>
@@ -448,7 +448,8 @@ En esta sección se plantea el diseño, registro y análisis de entrevistas diri
 
 ### 2.2.2. Registro de entrevistas
 
-En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
+En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en los siguientes enlaces:
+
 
 
 ### 2.2.3. Análisis de entrevistas
@@ -463,7 +464,7 @@ A continuación, se detallan los principales resultados de las entrevistas dirig
   <tbody>
     <tr>
       <td>Entrevista 1</td>
-      <td> <img src="" alt="interview 1" width="400"/> </td>
+      <td> <img src="https://i.ibb.co/Q77YqSjd/interview-Melany.png" alt="interview 1" width="400"/> </td>
     </tr>
     <tr>
       <td>Nombre Entrevistado</td>
