@@ -467,7 +467,9 @@ La arquitectura del sistema se organiza en tres niveles. En primer lugar, el Con
 
 ### 4.3.1. Software Architecture System Landscape Diagram
 
+El System Landscape diagrama representa el nivel inicial y de mayor abstracción en el modelo C4, diseñado para ofrecer una visión panorámica de la infraestructura tecnológica dentro de un contexto organizacional o de negocio. Este esquema articula la posición de un sistema de software específico en relación con otros sistemas externos, usuarios finales y actores institucionales, facilitando la identificación de dependencias, puntos de integración y límites del ecosistema completo. Su función principal es comunicar el alcance del proyecto a audiencias técnicas y no técnicas, estableciendo un marco de referencia que permite comprender el rol funcional y la interoperabilidad de la solución desarrollada dentro de un entorno complejo.
 
+[![Landscape.png](https://i.postimg.cc/VL9jjrt6/Landscape.png)](https://postimg.cc/SJs24KDF)
 
 ### 4.3.2. Software Architecture Context Level Diagrams
 
