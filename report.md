@@ -118,7 +118,85 @@
 
 ## Student Outcome
 
+El curso contribuye al cumplimiento del Student Outcome ABET:
 
+**ABET – EAC - Student Outcome 3**
+
+**Criterio:** *Capacidad de comunicarse efectivamente con un rango de audiencias.*
+
+En el siguiente cuadro se describe las accionesrealizadas y enunciados de conclusiones
+por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET –
+EAC - Student Outcome 3.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left;">Criterio específico</th>
+      <th style="text-align: left;">Acciones realizadas</th>
+      <th style="text-align: left;">Conclusiones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
+      <td>
+        <strong>Gomez Hurtado, Miguel Angel</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Paiva Quispe, Josue Gonzalo</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Guerrero Vasquez, Jhon Danny</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Paitan Pumacahua, Max Anthony</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Acuña Tomas, Diego Rolin</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+      </td>
+      <td>
+        <strong>TB1</strong> <br>
+        Se hizo esto
+      </td>
+    </tr>
+    <tr>
+      <td>2. Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
+      <td>
+        <strong>Gomez Hurtado, Miguel Angel</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Paiva Quispe, Josue Gonzalo</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Guerrero Vasquez, Jhon Danny</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Paitan Pumacahua, Max Anthony</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+        <strong>Acuña Tomas, Diego Rolin</strong>
+        <br> <em>TB1</em> <br>
+        Hice esto
+        <br><br>
+      </td>
+      <td>
+        <strong>TB1</strong> <br>
+        Se hizo esto
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
