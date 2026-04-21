@@ -24,7 +24,7 @@
 
 | Nombres                           | Código     |
 | --------------------------------- | ---------- |
-| Acuña Tomas, Diego Rolin          |            |
+| Acuña Tomas, Diego Rolin          | u202221436 |
 | Gomez Hurtado, Miguel Angel       | u202220294 |
 | Guerrero Vasquez, Jhon Danny      |            |
 | Paitan Pumacahua, Max Anthony     |            |
@@ -52,17 +52,18 @@
 ## Contenido
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
-- [Curso: Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
-- [NRC](#nrc)
-- [Profesor: Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
-- [Ingeniería de Software](#ingeniería-de-software)
-- [Informe de Trabajo Final](#informe-de-trabajo-final)
-- [Nombre del Startup: Collabrium](#nombre-del-startup-collabrium)
-- [Nombre del producto: SynHub](#nombre-del-producto-synhub)
-- [Integrantes](#integrantes)
-- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
-- [Project Report Collaboration Insights](#project-report-collaboration-insights)
-- [Student Outcome](#student-outcome)
+    - [**Curso:** Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
+    - [**NRC:**](#nrc)
+    - [**Profesor:** Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
+    - [**Ingeniería de Software**](#ingeniería-de-software)
+  - [Informe de Trabajo Final](#informe-de-trabajo-final)
+    - [**Nombre del Startup:** Collabrium](#nombre-del-startup-collabrium)
+    - [**Nombre del producto:** SynHub](#nombre-del-producto-synhub)
+  - [Integrantes](#integrantes)
+  - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+  - [Project Report Collaboration Insights](#project-report-collaboration-insights)
+  - [Contenido](#contenido)
+  - [Student Outcome](#student-outcome)
 - [1. Capítulo I: Introducción](#1-capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
@@ -75,7 +76,7 @@
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-- [2. Capítulo II: Requirements Elicitation & Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
+- [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
@@ -158,7 +159,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.
         <br><br>
       </td>
       <td>
