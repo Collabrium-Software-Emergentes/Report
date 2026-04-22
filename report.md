@@ -162,62 +162,64 @@ eficiente y en armonía.</span>
 </colgroup>
 <thead>
 <tr>
-<th><mark>Integrante</mark></th>
-<th><mark>Descripción:</mark></th>
+<th>Integrante</th>
+<th>Descripción:</th>
 </tr>
 <tr>
 <th style="text-align: center;"><img src="./media/image1.jpg"
 style="width:1.67188in;height:2.96712in" /></th>
-<th style="text-align: left;"><p><mark>Jhon Danny Guerrero Vasquez -
-U202116246</mark></p>
-<p><mark>Soy ingeniero de software especializado en backend con Java y
+<th style="text-align: left;"><p>Jhon Danny Guerrero Vasquez -
+U202116246</p>
+<p>>Soy ingeniero de software especializado en backend con Java y
 frameworks como Spring. Me enfoco en crear microservicios escalables y
 eficientes, aplicando programación reactiva con Spring WebFlux. Tengo
 experiencia en diseño de APIs RESTful y optimización de bases de datos
 como MySQL y PostgreSQL. Además, implementó pruebas unitarias y sigo
 metodologías Agile para garantizar la calidad del código. Estoy
 comprometido con la integración continua en los aportes de cada
-integrante de mi equipo.</mark></p></th>
+integrante de mi equipo.</p></th>
 </tr>
 <tr>
 <th><img src="./media/image2.jpg"
 style="width:2.08333in;height:2.15278in" /></th>
-<th style="text-align: left;"><p><mark>Acuña Tomas, Diego Rolin -
-U202221436</mark></p>
-<p><mark>Soy estudiante de Ingeniería de Software en la UPC, actualmente
+<th style="text-align: left;"><p>Acuña Tomas, Diego Rolin -
+U202221436</p>
+<p>Soy estudiante de Ingeniería de Software en la UPC, actualmente
 cursando el octavo ciclo. Durante mi formación académica he adquirido
 sólidos conocimientos en múltiples lenguajes de programación y
 frameworks, desarrollando competencias especializadas en frontend,
 backend y bases de datos. Me interesa especialmente contribuir a
 proyectos de código abierto, como Angular, Spring y otras herramientas
 modernas. Me considero una persona curiosa y proactiva, con una visión
-optimista del futuro tecnológico.</mark></p></th>
+optimista del futuro tecnológico.</p></th>
 </tr>
 <tr>
 <th style="text-align: center;"><img src="./media/image3.jpg"
 style="width:2.01042in;height:2.35417in" /></th>
-<th style="text-align: left;"><p><mark>Paitan Pumacahua, Max Anthony -
-U201314454</mark></p>
-<p><mark>Soy Max Anthony y tengo 29 años. Estoy retomando Ingeniería de
+<th style="text-align: left;"><p>Paitan Pumacahua, Max Anthony -
+U201314454</p>
+<p>Soy Max Anthony y tengo 29 años. Estoy retomando Ingeniería de
 Software como segunda carrera, ya que siempre tuvo ello como objetivo;
 en la actualidad, me encuentro cursando el noveno ciclo. Entre mis
 habilidades están: Ágil capacidad de análisis -tanto individual como
 también en colectivo-, empático en un contexto determinado -tomando
 decisiones de manera sensata-, y puedo ser tanto gestor como un
-participante activo dentro de un grupo de trabajo.</mark></p></th>
+participante activo dentro de un grupo de trabajo.</p></th>
 </tr>
 <tr>
 <th><img src="./media/image4.jpg"
 style="width:2.09375in;height:2.81852in" /></th>
-<th style="text-align: left;"><p><mark>Josue Gonzalo Paiva Quispe -
-U202119095</mark></p>
-<p><mark>Soy estudiante de Ingeniería de Software, me encuentro cursando
+<th style="text-align: left;"><p>Josue Gonzalo Paiva Quispe -
+U202119095</p>
+<p>Soy estudiante de Ingeniería de Software, me encuentro cursando
 el 8vo ciclo y realizando prácticas pre profesionales como fullstack
-junior web developer</mark></p></th>
+junior web developer</p></th>
 </tr>
 <tr>
-<th></th>
-<th style="text-align: left;"></th>
+<th><img src="https://i.postimg.cc/fTbbZs0N/Miguel.png"
+style="width:2.09375in;height:3.2in" /></th>
+<th style="text-align: left;"><p>Miguel Angel Gomez Hurtado - U202220294</p>
+<p>Tengo 24 años y estoy estudiando la carrera de Ingeniería Informática. Me encuentro en mi octavo ciclo en la UPC Sede San Miguel. Soy una persona académica y siempre estoy abierto al diálogo. Me apasiona mi carrera y siempre estoy dispuesto a aprender sobre este curso para brindar a mis futuros usuarios un buen producto acorde a sus necesidades.</p></th></th>
 </tr>
 </thead>
 <tbody>
