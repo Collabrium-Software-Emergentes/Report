@@ -212,7 +212,7 @@ style="width:2.09375in;height:2.81852in" /></th>
 <th style="text-align: left;"><p><mark>Josue Gonzalo Paiva Quispe -
 U202119095</mark></p>
 <p><mark>Soy estudiante de Ingeniería de Software, me encuentro cursando
-el 8vo ciclo y realizando prácticas per profesionales como fullstack
+el 8vo ciclo y realizando prácticas pre profesionales como fullstack
 junior web developer</mark></p></th>
 </tr>
 <tr>
