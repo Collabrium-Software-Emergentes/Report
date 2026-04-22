@@ -189,7 +189,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Realicé el Needfinding junto al análisis de los User Persona
         <br><br>
       </td>
       <td>
