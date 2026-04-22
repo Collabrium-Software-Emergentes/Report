@@ -22,13 +22,13 @@
 
 ## Integrantes
 
-| Nombres                           | Código     |
-| --------------------------------- | ---------- |
-| Acuña Tomas, Diego Rolin          |            |
-| Gomez Hurtado, Miguel Angel       | u202220294 |
-| Guerrero Vasquez, Jhon Danny      | u202116246 |
-| Paitan Pumacahua, Max Anthony     |            |
-| Paiva Quispe, Josue Gonzalo       |            |
+| Nombres                       | Código     |
+|-------------------------------|------------|
+| Acuña Tomas, Diego Rolin      | u202221436 |
+| Gomez Hurtado, Miguel Angel   | u202220294 |
+| Guerrero Vasquez, Jhon Danny  | U202116246 |
+| Paitan Pumacahua, Max Anthony | U201314454 |
+| Paiva Quispe, Josue Gonzalo   | U202119095 |
 
 ---
 
@@ -47,22 +47,24 @@
 
 ## Project Report Collaboration Insights
 
+TB1:
 
 
 ## Contenido
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
-- [Curso: Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
-- [NRC](#nrc)
-- [Profesor: Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
-- [Ingeniería de Software](#ingeniería-de-software)
-- [Informe de Trabajo Final](#informe-de-trabajo-final)
-- [Nombre del Startup: Collabrium](#nombre-del-startup-collabrium)
-- [Nombre del producto: SynHub](#nombre-del-producto-synhub)
-- [Integrantes](#integrantes)
-- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
-- [Project Report Collaboration Insights](#project-report-collaboration-insights)
-- [Student Outcome](#student-outcome)
+    - [**Curso:** Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
+    - [**NRC:**](#nrc)
+    - [**Profesor:** Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
+    - [**Ingeniería de Software**](#ingeniería-de-software)
+  - [Informe de Trabajo Final](#informe-de-trabajo-final)
+    - [**Nombre del Startup:** Collabrium](#nombre-del-startup-collabrium)
+    - [**Nombre del producto:** SynHub](#nombre-del-producto-synhub)
+  - [Integrantes](#integrantes)
+  - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+  - [Project Report Collaboration Insights](#project-report-collaboration-insights)
+  - [Contenido](#contenido)
+  - [Student Outcome](#student-outcome)
 - [1. Capítulo I: Introducción](#1-capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
@@ -75,7 +77,7 @@
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-- [2. Capítulo II: Requirements Elicitation & Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
+- [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
@@ -118,7 +120,85 @@
 
 ## Student Outcome
 
+El curso contribuye al cumplimiento del Student Outcome ABET:
 
+**ABET – EAC - Student Outcome 3**
+
+**Criterio:** *Capacidad de comunicarse efectivamente con un rango de audiencias.*
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones
+por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET –
+EAC - Student Outcome 3.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left;">Criterio específico</th>
+      <th style="text-align: left;">Acciones realizadas</th>
+      <th style="text-align: left;">Conclusiones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
+      <td>
+        <strong>Gomez Hurtado, Miguel Angel</strong>
+        <br> <em>TB1</em> <br>
+        Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.
+        <br><br>
+        <strong>Paiva Quispe, Josue Gonzalo</strong>
+        <br> <em>TB1</em> <br>
+        Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.
+        <br><br>
+        <strong>Guerrero Vasquez, Jhon Danny</strong>
+        <br> <em>TB1</em> <br>
+        Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.
+        <br><br>
+        <strong>Paitan Pumacahua, Max Anthony</strong>
+        <br> <em>TB1</em> <br>
+        Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.
+        <br><br>
+        <strong>Acuña Tomas, Diego Rolin</strong>
+        <br> <em>TB1</em> <br>
+        Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.
+        <br><br>
+      </td>
+      <td>
+        <strong>TB1</strong><br>
+        Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.
+      </td>
+    </tr>
+    <tr>
+      <td>2. Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerarquicos, en el marco del desarrollo de un proyecto en ingeniería.</td>
+      <td>
+        <strong>Gomez Hurtado, Miguel Angel</strong>
+        <br> <em>TB1</em> <br>
+        Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.
+        <br><br>
+        <strong>Paiva Quispe, Josue Gonzalo</strong>
+        <br> <em>TB1</em> <br>
+        Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.
+        <br><br>
+        <strong>Guerrero Vasquez, Jhon Danny</strong>
+        <br> <em>TB1</em> <br>
+        En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.
+        <br><br>
+        <strong>Paitan Pumacahua, Max Anthony</strong>
+        <br> <em>TB1</em> <br>
+        Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.
+        <br><br>
+        <strong>Acuña Tomas, Diego Rolin</strong>
+        <br> <em>TB1</em> <br>
+        Realicé el Needfinding junto al análisis de los User Persona
+        <br><br>
+      </td>
+      <td>
+        <strong>TB1</strong><br>
+        Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 # **<span class="mark">Capítulo I: Introducción</span>** 
