@@ -49,6 +49,13 @@
 
 TB1:
 
+[![Pulse-TB1.png](https://i.postimg.cc/HkSrGxLc/Pulse-TB1.png)](https://postimg.cc/nXDFBnBp)
+
+[![Commits-TB1.png](https://i.postimg.cc/PqprBQcQ/Commits-TB1.png)](https://postimg.cc/VSw8tnzJ)
+
+[![Network-P1-TB1.png](https://i.postimg.cc/VkTzBb6H/Network-P1-TB1.png)](https://postimg.cc/rD16qs5S)
+
+[![Network-P2-TB1.png](https://i.postimg.cc/X7YWRgBX/Network-P2-TB1.png)](https://postimg.cc/Sj3H8Crp)
 
 ## Contenido
 
