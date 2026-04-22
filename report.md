@@ -1969,3 +1969,29 @@ Parte de interacción de usuarios:
 Parte de microservicios:
 
 [![Deployment-P2.png](https://i.postimg.cc/3R1fwSZ6/Deployment-P2.png)](https://postimg.cc/ygJyQTtX)
+
+Anexo:
+
+- GitHub: https://github.com/Collabrium-Software-Emergentes
+
+- Canvas: https://canva.link/qvdo2sy5j3oymb7
+
+- Report - Performance: https://docs.google.com/document/d/18V974bb9GybqhA7cpCk94X6QIRLjTvi7B1Cv5N9ZJnw/edit?usp=sharing
+
+- Miro (DDD): https://miro.com/app/board/uXjVHf1ECEI=/?share_link_id=812951195114
+
+- Diagram.net (C4): https://drive.google.com/file/d/1jl_4TdoMJSv2vXRpoh0_K3uaoTB0I73m/view?usp=sharing
+
+Bibliografía:
+
+- 5W2H Explained: The Framework for Clear Problem Definition. (2025, 6 junio). Mete Kilic. https://metekilic.com/2025/04/08/5w2h-explained-the-framework-for-clear-problem-definition/ 
+
+- A Simple Introduction to Lean UX. (2025, 25 septiembre). The Interaction Design Foundation. https://www.interaction-design.org/literature/article/a-simple-introduction-to-lean-ux 
+
+- Drivers arquitectónicos | Genially. (2022, 19 octubre). Genially. https://view.genially.com/634f74940d7fc70018ed2a69/presentation-drivers-arquitectonicos 
+
+- Gutiérrez, J. (2024, 3 diciembre). Patrones de Arquitectura: Guía de inicio. DEV Community. https://dev.to/goaqidev/patrones-de-arquitectura-guia-de-inicio-53ha 
+
+- Microservices. (s. f.). Amazon Web Services, Inc. https://aws.amazon.com/microservices/ 
+
+- Reference | Cucumber. (2025). https://cucumber.io/docs/gherkin/reference/
