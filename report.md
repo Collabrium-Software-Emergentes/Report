@@ -156,7 +156,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
@@ -185,7 +185,7 @@ EAC - Student Outcome 3.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
-        Hice esto
+        Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
