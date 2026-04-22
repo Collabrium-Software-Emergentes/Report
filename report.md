@@ -488,6 +488,72 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   <tbody>
     <tr>
       <td>Entrevista 2</td>
+      <td> <img src="assets/chapter2/entrevista2.png" alt="interview 1" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Xavier Hager</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Santiago de Surco</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:27</td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 03:27</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 3</td>
+      <td> <img src="https://i.ibb.co/bRWK4wSv/integrante3.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Andrés Coca</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Lima Metropolitana</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Estudiante</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>06:10 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 06:10</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 4</td>
       <td> <img src="https://i.postimg.cc/PxvP4x6Q/Entrevista-Diego-Lider.png" alt="interview 2" width="400"/> </td>
     </tr>
     <tr>
@@ -517,11 +583,77 @@ En esta sección se recopilan y resumen las ideas y hallazgos más relevantes ob
   </tbody>
 </table>
 
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 5</td>
+      <td> <img src="https://i.ibb.co/tMMGnmZz/lider2.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Fabio De la Cruz</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Villa el Salvador</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>03:17 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 03:17</td>
+    </tr>
+  </tbody>
+</table>
+
+<table cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>Entrevista 6</td>
+      <td> <img src="https://i.ibb.co/k20CTyzC/lider3.png" alt="interview 2" width="400"/> </td>
+    </tr>
+    <tr>
+      <td>Nombre Entrevistado</td>
+      <td>Briggite Herrera Aguirre</td>
+    </tr>
+    <tr>
+      <td>Edad</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>Distrito</td>
+      <td>Los Olivos</td>
+    </tr>
+    <tr>
+      <td>Ocupacion</td>
+      <td>Líder de equipo</td>
+    </tr>
+    <tr>
+      <td>Duración Entrevista</td>
+      <td>04:34 </td>
+    </tr>
+    <tr>
+      <td>Minuto de Inicio</td>
+      <td>00:00 - 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
 ### 2.2.3. Análisis de entrevistas
 
 En esta sección se recopilan y resumen las ideas y hallazgos más relevantes obtenidos de las entrevistas realizadas tanto a coordinadores como a miembros de grupo. La información completa, incluidas las grabaciones de cada entrevista, está disponible en el siguiente enlace:
 
-URL:
+URL: https://1drv.ms/v/c/9fed6c4f629930aa/IQA_ZEu7K2-7RrQH7CcVA6CFAYyE1I6TyF9RFQiOzFxuHDg?e=McVfoR
 
 **Segmento Objetivo 1: Coordinadores o Líderes de Grupo**
 
