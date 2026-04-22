@@ -2001,6 +2001,8 @@ Anexo:
 
 - Diagram.net (C4): https://drive.google.com/file/d/1jl_4TdoMJSv2vXRpoh0_K3uaoTB0I73m/view?usp=sharing
 
+- TB1 - Vídeo Grupal: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQB_b05rwjo5QaGLdPw1yLh1AXde_eUvygY6fsJVKK0_R8g?e=9bOPov&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
 Bibliografía:
 
 - 5W2H Explained: The Framework for Clear Problem Definition. (2025, 6 junio). Mete Kilic. https://metekilic.com/2025/04/08/5w2h-explained-the-framework-for-clear-problem-definition/ 
