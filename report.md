@@ -999,6 +999,17 @@ A continuación se presenta el backlog de producto con las historias de usuario 
 
 ### 4.1.1. Design Purpose
 
+El propósito del diseño de la aplicación es proporcionar una plataforma integral para la gestión de grupos, miembros, tareas, notificaciones, reportes y procesos de validación, asegurando una experiencia de usuario consistente y funcional para ambos segmentos.
+
+La aplicación tiene como objetivo principal facilitar la colaboración, la asignación de responsabilidades y el seguimiento de avances en equipos de trabajo, ofreciendo funcionalidades que van desde la organización de grupos y distribución de tareas, hasta la generación de métricas y reportes.
+
+## Enfoque Arquitectónico
+
+Desde el punto de vista arquitectónico, el diseño prioriza:
+
+- **Escalabilidad:** Soportando un número elevado de usuarios, grupos y transacciones.
+- **Seguridad:** Gestionando accesos y roles mediante autenticación y control de permisos.
+- **Disponibilidad:** Asegura que la plataforma tenga una accesibilidad del 99% con mínimas interrupciones en la gestión de tareas y notificaciones.
 
 
 ### 4.1.2. Attribute-Driven Design Inputs
@@ -1007,27 +1018,246 @@ A continuación se presenta el backlog de producto con las historias de usuario 
 
 #### 4.1.2.1. Primary Functionality (Primary User Stories)
 
+| Requisito Funcional         | US - ID | Título                                        |
+|-----------------------------|---------|-----------------------------------------------|
+| Gestión de grupos           | US-001  | Creación de grupo                             |
+| Gestión de grupos           | US-002  | Envío de invitaciones                         |
+| Gestión de Tareas           | US-004  | Creación de tareas                            |
+| Gestión de Tareas           | US-005  | Asignación de tareas                          |
+| Gestión de Tareas           | US-007  | Actualización de estado                       |
+| Notificaciones Inteligentes | US-009  | Notificaciones in-app                         |
+| Notificaciones Inteligentes | US-010  | Notificaciones por email                      |
+| Analíticas y Reportes       | US-012  | Gráfico de distribución de tareas             |
+| Analíticas y Reportes       | US-015  | Reporte de productividad individual           |
+| Solicitudes y Validaciones  | US-016  | Solicitud de aprobación de tarea              |
+| Solicitudes y Validaciones  | US-017  | Validación de tareas                          |
+| Gestión de Usuarios         | US-025  | Configuración de preferencias de notificación |
 
 
 #### 4.1.2.2. Quality attribute Scenarios
 
-
+| ID   | Atributo de calidad | Fuente                                      | Estímulo                                         | Medioambiente                                         | Artefacto                               | Respuesta                                            | Medida                                                        |
+|------|---------------------|---------------------------------------------|--------------------------------------------------|-------------------------------------------------------|-----------------------------------------|------------------------------------------------------|---------------------------------------------------------------|
+| QA-1 | Disponibilidad      | Usuario que desea acceder a sus tareas      | Solicita ver la lista de tareas en tiempo real   | Aplicación en horario normal con tráfico promedio     | Servicio de gestión de tareas           | La aplicación devuelve la lista completa sin errores | Tiempo de respuesta < 2s y 99% de disponibilidad del servicio |
+| QA-2 | Interoperabilidad   | Usuario que recibe notificaciones por email | Configurar preferencias de notificación          | Sistema conectado a la red, servicio de correo activo | Servicio de notificaciones inteligentes | Notificación enviada y recibida correctamente        | Porcentaje de emails entregados correctamente = 100%          |
+| QA-3 | Modificabilidad     | Equipo de desarrollo                        | Agrega un nuevo tipo de gráfico de productividad | Entorno de desarrollo con datos de prueba             | Servicio de reportes y dashboards       | Nuevo gráfico integrado sin afectar funcionalidades  | Integración < 2 días y pruebas unitarias exitosas             |
+| QA-4 | Performance         | Usuario genera reporte                      | Solicita reporte con gran volumen de datos       | Aplicación bajo carga alta                            | Servicio de generación de reportes      | Reporte generado correctamente con todos los datos   | Tiempo de generación < 10s                                    |
+| QA-5 | Seguridad           | Usuario o atacante externo                  | Intento de acceso sin permisos                   | Aplicación y red funcionando normalmente              | Servicio de autenticación y usuarios    | Acceso bloqueado y registrado en logs                | 100% de accesos no autorizados bloqueados + logs generados    |
+| QA-6 | Testeabilidad       | Equipo de QA                                | Ejecuta pruebas de creación de grupos y tareas   | Entorno de pruebas controlado                         | Servicios de gestión de grupos y tareas | Resultados registrados y reproducibles               | Cobertura de pruebas > 90%                                    |
+| QA-7 | Usabilidad          | Usuario final                               | Intenta crear o editar grupo o tarea             | App móvil funcionando                                 | Interfaz de usuario                     | Usuario completa operación sin confusión             | Tiempo promedio < 2 min por operación                         |
 
 #### 4.1.2.3. Constraints
 
-
+| Factor | Constraint (restricción posible para la aplicación) |
+|--------|--------------------------------------------------|
+| Topología de la red | Si la red tiene alta latencia o está segmentada, las notificaciones in-app y la sincronización de tareas podrían retrasarse. **Ejemplo:** un miembro marcó una tarea como completada (US-007), pero el líder no recibió la notificación inmediatamente debido a problemas de red. |
+| Uso de un proveedor de base de datos | Si solo se puede usar un tipo específico de base de datos, puede limitar la optimización de consultas complejas. **Ejemplo:** generar un reporte de productividad individual (US-015) puede tardar más si la base de datos no soporta consultas avanzadas de agregación eficientemente. |
+| Entorno web / móvil | Configuraciones restrictivas podrían bloquear correos o integraciones externas. **Ejemplo:** las notificaciones por email (US-010) no llegan a los usuarios, porque el servidor de correo está bloqueado por el firewall de la red corporativa. |
+| Servidores (hardware, sistema operativo) | Servidores con recursos limitados pueden causar lentitud en operaciones intensivas. **Ejemplo:** al generar gráficos de carga de trabajo por miembro (US-027), la visualización se retrasa cuando varios líderes acceden al dashboard simultáneamente. |
+| Uso de software de terceros o tecnología particular | Dependencias de librerías externas puede generar incompatibilidades futuras. **Ejemplo:** el módulo de gráficos de barras (US-012 y US-013) deja de renderizar correctamente después de actualizar la versión de las librerías involucradas. |
+| Cumplimiento de normas existentes | La aplicación debe cumplir con las políticas internas de la empresa sobre auditoría y registro de acciones de los usuarios. **Ejemplo:** cada actualización de estado de tarea (US-007) debe registrarse con el fin de tener un seguimiento. |
 
 ### 4.1.3. Architectural Drivers Backlog
 
+En esta iteración, hemos priorizado los drivers de **usabilidad** y **mantenibilidad**, orientando el diseño hacia un componente de asignación de tareas que permita crear, asignar y dar seguimiento a tareas por usuario de manera intuitiva, manteniendo responsabilidades desacopladas para facilitar la evolución del sistema.
 
+| Driver ID | Título de Driver | Descripción | Importancia (Stakeholders) | Impacto (Technical Complexity) |
+|---|---|---|---|---|
+| AD-01 | Usabilidad | El componente de asignación de tareas debe permitir la creación, asignación y seguimiento de tareas de forma simple, clara e intuitiva para los usuarios. | Alto | Medio |
+| AD-02 | Mantenibilidad | El componente debe diseñarse con responsabilidades desacopladas para facilitar mantenimiento, pruebas y evolución del sistema. | Alto | Alto |
+| AD-03 | Gestión de tareas por usuario | El sistema debe soportar la administración y seguimiento de tareas asignadas a cada usuario dentro del grupo. | Alto | Medio |
+| AD-04 | Separación de responsabilidades | La arquitectura debe dividir interfaz, lógica de negocio y acceso a datos para reducir acoplamiento. | Alto | Alto |
+| AD-05 | Consistencia de datos | La asignación y actualización de tareas debe preservar integridad y coherencia en estados y responsables. | Alto | Medio |
 
 ### 4.1.4. Architectural Design Decisions
 
+El equipo evaluó decisiones arquitectónicas para el componente de asignación de tareas, considerando como drivers principales la <strong>usabilidad</strong> y la <strong>mantenibilidad</strong>. El objetivo fue definir una solución que permita crear, asignar y dar seguimiento a tareas por usuario, manteniendo una estructura desacoplada y fácil de evolucionar.
 
+<table>
+  <tr>
+    <td rowspan="2"><strong>Driver ID</strong></td>
+    <td rowspan="2"><strong>Título de Driver</strong></td>
+    <td colspan="2"><strong>Pattern 1: Arquitectura en Capas</strong></td>
+    <td colspan="2"><strong>Pattern 2: MVC</strong></td>
+    <td colspan="2"><strong>Pattern 3: Event-Driven</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+    <td><strong>Pro</strong></td>
+    <td><strong>Con</strong></td>
+  </tr>
+
+  <tr>
+    <td>AD-01</td>
+    <td>Usabilidad</td>
+    <td>Permite interfaces claras separando responsabilidades</td>
+    <td>No gestiona interacción en tiempo real por sí sola</td>
+    <td>Organiza bien la interacción UI</td>
+    <td>Puede centrarse demasiado en la interfaz</td>
+    <td>Permite actualización dinámica</td>
+    <td>Aumenta complejidad innecesaria</td>
+  </tr>
+
+  <tr>
+    <td>AD-02</td>
+    <td>Mantenibilidad</td>
+    <td>Bajo acoplamiento y alta modularidad</td>
+    <td>Puede volverse rígida si se diseña mal</td>
+    <td>Estructura simple</td>
+    <td>No escala bien en backend complejo</td>
+    <td>Desacopla componentes</td>
+    <td>Difícil de depurar</td>
+  </tr>
+
+  <tr>
+    <td>AD-03</td>
+    <td>Gestión de tareas por usuario</td>
+    <td>Facilita reglas de negocio</td>
+    <td>Mayor estructura inicial</td>
+    <td>Adecuado para CRUD</td>
+    <td>Menor claridad en lógica compleja</td>
+    <td>Útil para eventos derivados</td>
+    <td>No ideal como base principal</td>
+  </tr>
+
+  <tr>
+    <td>AD-04</td>
+    <td>Separación de responsabilidades</td>
+    <td>Alta</td>
+    <td>Requiere disciplina</td>
+    <td>Media</td>
+    <td>Menos estructurada</td>
+    <td>Alta</td>
+    <td>No cubre toda la arquitectura</td>
+  </tr>
+
+  <tr>
+    <td>AD-05</td>
+    <td>Consistencia de datos</td>
+    <td>Centraliza validaciones</td>
+    <td>Puede requerir coordinación</td>
+    <td>Simple</td>
+    <td>Riesgo de mezclar lógica</td>
+    <td>Útil en procesos asíncronos</td>
+    <td>Complica consistencia inmediata</td>
+  </tr>
+
+</table>
+
+<br>
+
+<p><strong>Decisión:</strong> Hemos seleccionado la <strong>Arquitectura en Capas</strong> como patrón principal por su alta mantenibilidad y separación de responsabilidades. Se complementa con <strong>Event-Driven</strong> para notificaciones y eventos derivados.</p>
 
 ### 4.1.5. Quality Attribute Scenario Refinements
 
+<table>
+  <tr>
+    <td colspan="3"><strong>Scenario Refinement for Scenario 1</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Scenario(s):</strong></td>
+    <td>Usabilidad en la asignación de tareas</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Business Goals:</strong></td>
+    <td>Facilitar la adopción del sistema y mejorar la experiencia del usuario al crear, asignar y revisar tareas.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Relevant Quality Attributes:</strong></td>
+    <td>Usabilidad</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><strong>Stimulus:</strong></td>
+    <td>El usuario necesita crear, asignar o revisar una tarea dentro del sistema.</td>
+  </tr>
+  <tr>
+    <td rowspan="5"><strong>Scenario Components</strong></td>
+    <td><strong>Stimulus Source:</strong></td>
+    <td>Usuario autenticado</td>
+  </tr>
+  <tr>
+    <td><strong>Environment:</strong></td>
+    <td>Operación normal del sistema</td>
+  </tr>
+  <tr>
+    <td><strong>Artifact (if Known)</strong></td>
+    <td>Componente de asignación de tareas</td>
+  </tr>
+  <tr>
+    <td><strong>Response:</strong></td>
+    <td>El sistema permite realizar la acción de forma clara, rápida e intuitiva, mostrando retroalimentación inmediata.</td>
+  </tr>
+  <tr>
+    <td><strong>Response Measure:</strong></td>
+    <td>El usuario completa la acción en pocos pasos, sin errores y sin necesidad de ayuda externa.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Questions:</strong></td>
+    <td>¿Cuántos pasos se requieren para asignar una tarea?<br>¿Qué feedback recibe el usuario?<br>¿Qué acciones deben ser visibles?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Issues:</strong></td>
+    <td>No se han definido métricas exactas de tiempo o interacción.<br>Falta detallar validaciones de interfaz.</td>
+  </tr>
+</table>
 
+<br>
+
+<table>
+  <tr>
+    <td colspan="3"><strong>Scenario Refinement for Scenario 2</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Scenario(s):</strong></td>
+    <td>Mantenibilidad del componente de tareas</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Business Goals:</strong></td>
+    <td>Permitir cambios futuros en el sistema sin afectar otros módulos.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Relevant Quality Attributes:</strong></td>
+    <td>Mantenibilidad</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><strong>Stimulus:</strong></td>
+    <td>Se requiere modificar la lógica del componente de tareas (nuevas reglas o funcionalidades).</td>
+  </tr>
+  <tr>
+    <td rowspan="5"><strong>Scenario Components</strong></td>
+    <td><strong>Stimulus Source:</strong></td>
+    <td>Desarrollador</td>
+  </tr>
+  <tr>
+    <td><strong>Environment:</strong></td>
+    <td>Mantenimiento o evolución del sistema</td>
+  </tr>
+  <tr>
+    <td><strong>Artifact (if Known)</strong></td>
+    <td>Componente de asignación de tareas</td>
+  </tr>
+  <tr>
+    <td><strong>Response:</strong></td>
+    <td>El cambio se realiza de manera localizada sin afectar otros componentes.</td>
+  </tr>
+  <tr>
+    <td><strong>Response Measure:</strong></td>
+    <td>Bajo impacto en otros módulos y facilidad de pruebas tras el cambio.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Questions:</strong></td>
+    <td>¿Cómo se separan las responsabilidades?<br>¿Qué cambios futuros se esperan?<br>¿Qué partes deben estar desacopladas?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Issues:</strong></td>
+    <td>No están definidos completamente los límites entre capas.<br>Falta estrategia de pruebas para cambios futuros.</td>
+  </tr>
+</table>
 
 ## 4.2. Strategic-Level Domain-Driven Design
 
@@ -1191,13 +1421,13 @@ El propósito del Context Mapping radica en facilitar una arquitectura de softwa
 
 | Destino (Downstream)       | Origen (Upstream)           | Tipo de Relación | ¿OHS? | Comentario                                                              |
 | -------------------------- | --------------------------- | ----------------- | ------ | ----------------------------------------------------------------------- |
-| Analítica y Reportes      | Gestión de Grupos          | Customer/Supplier | No     | Expone info grupal                                                      |
-| Solicitudes y Validaciones | Gestión de Grupos          | Customer/Supplier | Si     | Se nutre de los datos de los integrantres                               |
-| Gestión de Tareas         | Gestión de Grupos          | Customer/Supplier | No     | Obtiene información de los integrantes de grupo                        |
-| Gestión de Tareas         | Solicitudes y Validaciones  | Partnership       | No     | Comparte información entre sí de las tareas                           |
-| Analítica y Reportes      | Gestión de Tareas          | Customer/Supplier | Si     | Se nutre de la información de las tareas para elaborar reportes        |
-| Analítica y Reportes      | Solicitudes y Validaciones  | Customer/Supplier | No     | Otiene la infomración de actualización de cmabios y solicitudes       |
-| Notificaciones             | Grupos, solicitudes, tareas | Partnership       | No     | Emite notificaciones según instrucciones de los demás bounded context |
+| Métricas      | Líderes         | Customer/Supplier | No     | Expone información grupal                                                      |
+| Solicitudes | Líderes          | Customer/Supplier | Si     | Se nutre de los datos de los integrantres                               |
+| Tareas        | Líderes       | Customer/Supplier | No     | Obtiene información de los integrantes de grupo                        |
+| Tareas       | Solicitudes | Partnership       | No     | Comparte información entre sí de las tareas                           |
+| Métricas     | Tareas     | Customer/Supplier | Si     | Se nutre de la información de las tareas para elaborar reportes        |
+| Métricas     | Solicitudes  | Customer/Supplier | No     | Obtiene la infomración de actualización de cambios y solicitudes       |
+| Notificaciones             | Líderes, Solicitudes, Tareas | Partnership       | No     | Emite notificaciones según instrucciones de los demás bounded context |
 
 ## 4.3. Software Architecture
 
