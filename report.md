@@ -26,7 +26,7 @@
 |-------------------------------|------------|
 | Acuña Tomas, Diego Rolin      | u202221436 |
 | Gomez Hurtado, Miguel Angel   | u202220294 |
-| Guerrero Vasquez, Jhon Danny  | U20211624 |
+| Guerrero Vasquez, Jhon Danny  | U202116246 |
 | Paitan Pumacahua, Max Anthony | U201314454 |
 | Paiva Quispe, Josue Gonzalo   | U202119095 |
 
