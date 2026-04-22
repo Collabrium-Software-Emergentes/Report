@@ -1977,6 +1977,18 @@ Parte de microservicios:
 
 [![Deployment-P2.png](https://i.postimg.cc/3R1fwSZ6/Deployment-P2.png)](https://postimg.cc/ygJyQTtX)
 
+## Conclusiones
+
+- Se logró definir claramente el perfil de la startup y la problemática a resolver, estableciendo una propuesta de solución alineada a las necesidades del usuario.
+
+- Se aplicaron herramientas de Lean UX que permitieron validar supuestos, identificar segmentos objetivo y estructurar una solución centrada en el usuario.
+
+- Se realizó un adecuado levantamiento y análisis de requerimientos mediante entrevistas, permitiendo comprender las necesidades reales y comportamientos de los usuarios.
+
+- Se definieron y organizaron los requerimientos del sistema a través de historias de usuario y backlog, asegurando coherencia y trazabilidad en el desarrollo del proyecto.
+
+- Se diseñó la arquitectura del software a nivel estratégico, considerando atributos de calidad, restricciones y decisiones de diseño orientadas a una solución escalable y eficiente.
+
 Anexo:
 
 - GitHub: https://github.com/Collabrium-Software-Emergentes
