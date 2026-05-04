@@ -2106,7 +2106,38 @@ Parte de microservicios:
 
 ### 5.2.1. Domain Layer
 
+El bounded context **Groups Management** es responsable de la gestión de grupos colaborativos dentro de la plataforma SynHub. Este contexto maneja la creación de grupos, invitaciones a miembros y asignación de líderes.
 
+#### Aggregate Root: `Group`
+
+**Descripción:** Representa un grupo colaborativo dentro de la plataforma. Es el aggregate root principal de este bounded context. Contiene un código único de invitación, un líder, una descripción, una imagen y el conteo actual de miembros.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `code` | GroupCode | Private | Value Object con validación propia (9 caracteres alfanuméricos). No puede ser nulo. |
+| `name` | String | Private | No puede ser nulo. Define el nombre visible del grupo. |
+| `description` | String | Private | No puede ser nulo. Texto descriptivo del grupo (formato largo). |
+| `imgUrl` | ImgUrl | Private | Value Object. No puede ser nulo ni estar en blanco. |
+| `leader` | Leader | Private | Relación OneToOne. Un grupo tiene exactamente un líder. |
+| `memberCount` | Integer | Private | No puede ser nulo. Comienza en 0. No puede ser negativo. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Group(name, description, imgUrl, leader, code)` | Group | Public | Constructor que crea un nuevo grupo. Inicializa `memberCount = 0`. |
+| `updateInformation(UpdateGroupCommand)` | void | Public | Actualiza nombre, descripción o imagen. Solo modifica los campos que vienen en el comando. |
+| `increaseMemberCount()` | void | Public | Incrementa en 1 el conteo de miembros. |
+| `decreaseMemberCount()` | void | Public | Decrementa en 1 el conteo de miembros. |
+
+##### Invariantes de negocio
+
+- El código del grupo (`code`) debe ser único en todo el sistema.
+- `memberCount` nunca puede ser negativo (se controla mediante métodos específicos).
+- Al crear un grupo, `memberCount` comienza en 0 (el líder aún no cuenta como miembro hasta que se une explícitamente).
 
 ### 5.2.2. Interface Layer
 
