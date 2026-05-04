@@ -44,10 +44,11 @@
 | ------- | ----- | ----- | --------------------------- |
 | 0.1 | 2026-04-14 | Miguel Gomez | Creación de la primera versión del documento |
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
+| 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva |  |
 
 ## Project Report Collaboration Insights
 
-TB1:
+### TB1:
 
 [![Pulse-TB1.png](https://i.postimg.cc/HkSrGxLc/Pulse-TB1.png)](https://postimg.cc/nXDFBnBp)
 
@@ -56,6 +57,10 @@ TB1:
 [![Network-P1-TB1.png](https://i.postimg.cc/VkTzBb6H/Network-P1-TB1.png)](https://postimg.cc/rD16qs5S)
 
 [![Network-P2-TB1.png](https://i.postimg.cc/X7YWRgBX/Network-P2-TB1.png)](https://postimg.cc/Sj3H8Crp)
+
+### TB2:
+
+
 
 ## Contenido
 
@@ -124,6 +129,76 @@ TB1:
     - [4.3.2. Software Architecture Context Level Diagrams](#432-software-architecture-context-level-diagrams)
     - [4.3.3. Software Architecture Container Level Diagrams](#433-software-architecture-container-level-diagrams)
     - [4.3.4. Software Architecture Deployment Diagrams](#434-software-architecture-deployment-diagrams)
+- [5. Capítulo V: Tactical-Level Software Design](#5-capítulo-v-tactical-level-software-design)
+  - [5.1. Bounded Context: Iam](#51-bounded-context-iam)
+    - [5.1.1. Domain Layer](#511-domain-layer)
+    - [5.1.2. Interface Layer](#512-interface-layer)
+    - [5.1.3. Application Layer](#513-application-layer)
+    - [5.1.4. Infrastructure Layer](#514-infrastructure-layer)
+    - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams)
+    - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
+    - [5.1.7. Bounded Context Domain Layer Class Diagrams](#517-bounded-context-domain-layer-class-diagrams)
+    - [5.1.8. Bounded Context Database Design Diagram](#518-bounded-context-database-design-diagram)
+  - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
+    - [5.2.1. Domain Layer](#521-domain-layer)
+    - [5.2.2. Interface Layer](#522-interface-layer)
+    - [5.2.3. Application Layer](#523-application-layer)
+    - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
+    - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
+    - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
+    - [5.2.7. Bounded Context Domain Layer Class Diagrams](#527-bounded-context-domain-layer-class-diagrams)
+    - [5.2.8. Bounded Context Database Design Diagram](#528-bounded-context-database-design-diagram)
+  - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
+    - [5.3.1. Domain Layer](#531-domain-layer)
+    - [5.3.2. Interface Layer](#532-interface-layer)
+    - [5.3.3. Application Layer](#533-application-layer)
+    - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+    - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
+    - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
+    - [5.3.7. Bounded Context Domain Layer Class Diagrams](#537-bounded-context-domain-layer-class-diagrams)
+    - [5.3.8. Bounded Context Database Design Diagram](#538-bounded-context-database-design-diagram)
+  - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
+    - [5.4.1. Domain Layer](#541-domain-layer)
+    - [5.4.2. Interface Layer](#542-interface-layer)
+    - [5.4.3. Application Layer](#543-application-layer)
+    - [5.4.4. Infrastructure Layer](#544-infrastructure-layer)
+    - [5.4.5. Bounded Context Software Architecture Component Level Diagrams](#545-bounded-context-software-architecture-component-level-diagrams)
+    - [5.4.6. Bounded Context Software Architecture Code Level Diagrams](#546-bounded-context-software-architecture-code-level-diagrams)
+    - [5.4.7. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
+    - [5.4.8. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
+  - [5.5. Bounded Context: Metrics](#55-bounded-context-metrics)
+    - [5.5.1. Domain Layer](#551-domain-layer)
+    - [5.5.2. Interface Layer](#552-interface-layer)
+    - [5.5.3. Application Layer](#553-application-layer)
+    - [5.5.4. Infrastructure Layer](#554-infrastructure-layer)
+    - [5.5.5. Bounded Context Software Architecture Component Level Diagrams](#555-bounded-context-software-architecture-component-level-diagrams)
+    - [5.5.6. Bounded Context Software Architecture Code Level Diagrams](#556-bounded-context-software-architecture-code-level-diagrams)
+    - [5.5.7. Bounded Context Domain Layer Class Diagrams](#557-bounded-context-domain-layer-class-diagrams)
+    - [5.5.8. Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
+  - [5.6. Bounded Context: Notifications](#56-bounded-context-notifications)
+    - [5.6.1. Domain Layer](#561-domain-layer)
+    - [5.6.2. Interface Layer](#562-interface-layer)
+    - [5.6.3. Application Layer](#563-application-layer)
+    - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
+    - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
+    - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
+    - [5.6.7. Bounded Context Domain Layer Class Diagrams](#567-bounded-context-domain-layer-class-diagrams)
+    - [5.6.8. Bounded Context Database Design Diagram](#568-bounded-context-database-design-diagram)
+- [6. Capítulo VI: Solution UX Design](#6-capítulo-vi-solution-ux-design)
+  - [6.1. Style Guidelines](#61-style-guidelines)
+    - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
+    - [6.1.2. Web, Mobile & Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+  - [6.2. Information Architecture](#62-information-architecture)
+    - [6.2.1. Labeling Systems](#621-labeling-systems)
+    - [6.2.2. Searching Systems](#622-searching-systems)
+    - [6.2.3. SEO Tags and Meta Tags](#623-seo-tags-and-meta-tags)
+    - [6.2.4. Navigation Systems](#624-navigation-systems)
+  - [6.3. Landing Page UI Design](#63-landing-page-ui-design)
+    - [6.3.1. Landing Page Wireframe](#631-landing-page-wireframe)
+    - [6.3.2. Landing Page Mock-up](#632-landing-page-mock-up)
+  - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
+    - [6.4.1. Applications Wireframes](#641-applications-wireframes)
+    - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
 
 ## Student Outcome
 
@@ -151,28 +226,34 @@ EAC - Student Outcome 3.
       <td>
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
-        Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.
+        Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
-        Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.
+        Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
-        Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.
+        Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
-        Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.
+        Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
-        Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.
+        Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.<br>
+        <br> <em>TB2</em>
         <br><br>
       </td>
       <td>
         <strong>TB1</strong><br>
-        Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.
+        Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.<br>
+        <br> <strong>TB2</strong> <br>
       </td>
     </tr>
     <tr>
@@ -180,28 +261,34 @@ EAC - Student Outcome 3.
       <td>
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
-        Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.
+        Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
-        Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.
+        Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
-        En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.
+        En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
-        Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.
+        Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.<br>
+        <br> <em>TB2</em> <br>
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
-        Realicé el Needfinding junto al análisis de los User Persona
+        Realicé el Needfinding junto al análisis de los User Persona<br>
+        <br> <em>TB2</em>
         <br><br>
       </td>
       <td>
         <strong>TB1</strong><br>
-        Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.
+        Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.<br>
+        <br> <strong>TB2</strong> <br>
       </td>
     </tr>
   </tbody>
@@ -1977,7 +2064,267 @@ Parte de microservicios:
 
 [![Deployment-P2.png](https://i.postimg.cc/3R1fwSZ6/Deployment-P2.png)](https://postimg.cc/ygJyQTtX)
 
+# 5. Capítulo V: Tactical-Level Software Design
+
+## 5.1. Bounded Context: Iam
+
+
+
+### 5.1.1. Domain Layer
+
+
+
+### 5.1.2. Interface Layer
+
+
+
+### 5.1.3. Application Layer
+
+
+
+### 5.1.4. Infrastructure Layer
+
+
+
+### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.1.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.1.8. Bounded Context Database Design Diagram
+
+
+
+## 5.2. Bounded Context: Groups
+
+### 5.2.1. Domain Layer
+
+
+
+### 5.2.2. Interface Layer
+
+
+
+### 5.2.3. Application Layer
+
+
+
+### 5.2.4. Infrastructure Layer
+
+
+
+### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.2.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.2.8. Bounded Context Database Design Diagram
+
+
+
+## 5.3. Bounded Context: Tasks
+
+### 5.3.1. Domain Layer
+
+
+
+### 5.3.2. Interface Layer
+
+
+
+### 5.3.3. Application Layer
+
+
+
+### 5.3.4. Infrastructure Layer
+
+
+
+### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.3.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.3.8. Bounded Context Database Design Diagram
+
+
+
+## 5.4. Bounded Context: Requests
+
+### 5.4.1. Domain Layer
+
+
+
+### 5.4.2. Interface Layer
+
+
+
+### 5.4.3. Application Layer
+
+
+
+### 5.4.4. Infrastructure Layer
+
+
+
+### 5.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.4.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.4.8. Bounded Context Database Design Diagram
+
+
+
+## 5.5. Bounded Context: Metrics
+
+### 5.5.1. Domain Layer
+
+
+
+### 5.5.2. Interface Layer
+
+
+
+### 5.5.3. Application Layer
+
+
+
+### 5.5.4. Infrastructure Layer
+
+
+
+### 5.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.5.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.5.8. Bounded Context Database Design Diagram
+
+
+
+## 5.6. Bounded Context: Notifications
+
+### 5.6.1. Domain Layer
+
+
+
+### 5.6.2. Interface Layer
+
+
+
+### 5.6.3. Application Layer
+
+
+
+### 5.6.4. Infrastructure Layer
+
+
+
+### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
+
+
+
+### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+
+
+### 5.6.7. Bounded Context Domain Layer Class Diagrams
+
+
+
+### 5.6.8. Bounded Context Database Design Diagram
+
+
+
+# Capítulo VI: Solution UX Design
+
+## 6.1. Style Guidelines
+
+### 6.1.1. General Style Guidelines
+
+
+
+### 6.1.2. Web, Mobile & Devices Style Guidelines
+
+
+
+## 6.2. Information Architecture
+
+### 6.2.1. Labeling Systems
+
+
+
+### 6.2.2. Searching Systems
+
+
+
+### 6.2.3. SEO Tags and Meta Tags
+
+
+
+### 6.2.4. Navigation Systems
+
+
+
+## 6.3. Landing Page UI Design
+
+### 6.3.1. Landing Page Wireframe
+
+
+
+### 6.3.2. Landing Page Mock-up
+
+
+
+## 6.4. Applications UX/UI Design
+
+### 6.4.1. Applications Wireframes
+
+
+
+### 6.4.2. Applications Wireflow Diagrams
+
+
+
 ## Conclusiones
+
+### TB1:
 
 - Se logró definir claramente el perfil de la startup y la problemática a resolver, estableciendo una propuesta de solución alineada a las necesidades del usuario.
 
@@ -1988,6 +2335,15 @@ Parte de microservicios:
 - Se definieron y organizaron los requerimientos del sistema a través de historias de usuario y backlog, asegurando coherencia y trazabilidad en el desarrollo del proyecto.
 
 - Se diseñó la arquitectura del software a nivel estratégico, considerando atributos de calidad, restricciones y decisiones de diseño orientadas a una solución escalable y eficiente.
+
+### TB2:
+-
+
+-
+
+-
+
+-
 
 Anexo:
 
