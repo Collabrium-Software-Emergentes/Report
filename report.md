@@ -2139,6 +2139,125 @@ El bounded context **Groups Management** es responsable de la gestión de grupos
 - `memberCount` nunca puede ser negativo (se controla mediante métodos específicos).
 - Al crear un grupo, `memberCount` comienza en 0 (el líder aún no cuenta como miembro hasta que se une explícitamente).
 
+---
+
+#### Aggregate Root: `Invitation`
+
+**Descripción:** Representa una invitación enviada a un usuario para que se una a un grupo. Permite rastrear qué invitaciones están pendientes y a qué grupo pertenecen.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `memberId` | MemberId | Private | Value Object. Puede ser nulo (invitación pendiente sin usuario asignado). Si existe, debe ser > 0. |
+| `group` | Group | Private | Relación ManyToOne. No puede ser nulo. Una invitación siempre pertenece a un grupo existente. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Invitation(memberId, group)` | Invitation | Public | Constructor que crea una nueva invitación. |
+| `Invitation()` | Invitation | Public | Constructor por defecto (requerido por JPA). |
+
+##### Invariantes de negocio
+
+- Una invitación debe estar asociada a un `Group` válido (no nulo).
+
+---
+
+#### Aggregate Root: `Leader`
+
+**Descripción:** Representa al líder de un grupo. Encapsula métricas de rendimiento como el tiempo promedio de solución de solicitudes y la cantidad de solicitudes resueltas.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `averageSolutionTime` | Time | Private | Inicializado en 0 (00:00:00). Representa el tiempo promedio en resolver solicitudes. |
+| `solvedRequests` | Integer | Private | Inicializado en 0. No puede ser negativo. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Leader()` | Leader | Public | Constructor por defecto. Inicializa `averageSolutionTime = new Time(0)` y `solvedRequests = 0`. |
+
+##### Invariantes de negocio
+
+- `solvedRequests` nunca puede ser negativo.
+- El líder se asocia a un único grupo mediante la relación `@OneToOne` en el aggregate `Group`.
+
+---
+
+#### Value Object: `GroupCode`
+
+**Descripción:** Código alfanumérico único que identifica a un grupo. Se utiliza para invitaciones y acceso rápido al grupo.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `code` | String | Private | Longitud exacta de 9 caracteres. Solo permite dígitos (0-9) y letras mayúsculas (A-Z). |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `GroupCode(code)` | GroupCode | Public | Constructor. Valida formato y longitud. Lanza excepción si no cumple. |
+| `random()` | GroupCode | Public static | Factory method. Genera un código aleatorio válido usando `SecureRandom`. |
+
+##### Invariantes
+
+- El código debe tener exactamente 9 caracteres.
+- Solo caracteres permitidos: `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
+
+---
+
+#### Value Object: `ImgUrl`
+
+**Descripción:** Representa la URL de la imagen asociada a un grupo (avatar, banner, etc.).
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `imgUrl` | String | Private | No puede ser nulo ni estar en blanco. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `ImgUrl(imgUrl)` | ImgUrl | Public | Constructor. Valida que la URL no sea nula ni vacía. Lanza excepción si no cumple. |
+
+##### Invariantes
+
+- La URL no puede ser `null`, vacía (`""`) ni contener solo espacios en blanco.
+
+---
+
+#### Value Object: `MemberId`
+
+**Descripción:** Identificador numérico de un miembro dentro del sistema. Se utiliza en invitaciones para referenciar al usuario invitado.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | Long | Private | No puede ser nulo. Debe ser mayor a 0. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `MemberId(value)` | MemberId | Public | Constructor. Valida que `value` no sea nulo ni negativo. Lanza excepción si no cumple. |
+
+##### Invariantes
+
+- `value` no puede ser `null`.
+- `value` debe ser mayor a 0.
+
 ### 5.2.2. Interface Layer
 
 
