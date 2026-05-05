@@ -2669,6 +2669,46 @@ Estas interfaces definen los **puertos** que la capa de aplicación utiliza para
 
 ### 5.2.4. Infrastructure Layer
 
+#### Persistencia (JPA Repositories)
+
+##### 1. `GroupRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Group`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByLeaderId(leaderId)` | Busca el grupo asociado a un líder específico |
+| `existsByCode(code)` | Verifica si ya existe un grupo con el código dado |
+| `findByCode(code)` | Busca un grupo por su código único |
+
+---
+
+##### 2. `InvitationRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Invitation`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByMemberId(memberId)` | Busca la invitación asociada a un miembro |
+| `findByGroup_Id(groupId)` | Lista todas las invitaciones de un grupo |
+| `existsByMemberId(memberId)` | Verifica si un miembro ya tiene una invitación activa |
+
+---
+
+##### 3. `LeaderRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Leader`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findById(id)` | Busca un líder por su ID |
+
 
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
