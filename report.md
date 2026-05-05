@@ -2637,7 +2637,35 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 | `GetLeaderByIdQuery` | Obtiene un líder por su ID |
 | `GetLeaderByUsernameQuery` | Obtiene un líder por su nombre de usuario, validando rol en IAM |
 
+#### Clients / Ports (Interfaces hacia Infraestructura)
 
+Estas interfaces definen los **puertos** que la capa de aplicación utiliza para comunicarse con servicios externos (otros microservicios). Las implementaciones concretas residen en la capa de infraestructura, respetando el principio de inversión de dependencias.
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio de IAM (Identity and Access Management).
+
+**Métodos:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `fetchUserByUsername(username, authHeader)` | Obtiene un usuario por su nombre de usuario |
+| `fetchUserByMemberId(memberId, authHeader)` | Obtiene un usuario por su ID de miembro |
+
+---
+
+##### 2. `TasksServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio de Tasks (gestión de tareas).
+
+**Métodos:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `fetchMemberByMemberId(memberId)` | Obtiene un miembro por su ID |
+| `fetchMemberByUsername(username, authHeader)` | Obtiene un miembro por su nombre de usuario |
+| `fetchMembersByGroupId(groupId, authHeader)` | Obtiene todos los miembros de un grupo |
+| `fetchTasksByGroupId(groupId, authHeader)` | Obtiene todas las tareas de un grupo |
 
 ### 5.2.4. Infrastructure Layer
 
