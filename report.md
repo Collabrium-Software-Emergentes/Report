@@ -2510,6 +2510,72 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 
 ### 5.2.3. Application Layer
 
+#### Command Services
+
+##### 1. `GroupCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de grupos (crear, actualizar, eliminar, gestionar miembros).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupRepository` | `GroupRepository` | Repositorio para persistir agregados `Group` |
+| `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
+| `tasksEventPublisher` | `TasksEventPublisher` | Publicador de eventos hacia el contexto de Tasks |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateGroupCommand` | Crea un nuevo grupo asociado a un líder | Genera `GroupCode` aleatorio único, persiste el grupo |
+| `UpdateGroupCommand` | Actualiza información de un grupo existente | Obtiene grupo por líder, ejecuta `updateInformation()` |
+| `DeleteGroupCommand` | Elimina un grupo | Valida existencia, elimina de la base de datos |
+| `RemoveMemberFromGroupCommand` | Elimina un miembro del grupo | Ejecuta `decreaseMemberCount()`, publica evento `memberRemoved` |
+| `LeaveGroupCommand` | Un miembro abandona un grupo | Ejecuta `decreaseMemberCount()` |
+
+---
+
+##### 2. `InvitationCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de invitaciones a grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationRepository` | `InvitationRepository` | Repositorio para persistir invitaciones |
+| `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
+| `leaderRepository` | `LeaderRepository` | Repositorio para validar líderes |
+| `tasksEventPublisher` | `TasksEventPublisher` | Publicador de eventos hacia el contexto de Tasks |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateInvitationCommand` | Crea una nueva invitación | Valida existencia del grupo y que el miembro no tenga invitación previa |
+| `CancelInvitationCommand` | Cancela una invitación existente | Valida que el miembro sea propietario de la invitación |
+| `RejectInvitationCommand` | Rechaza una invitación (líder) | Valida que el líder sea dueño del grupo, elimina invitación |
+| `AcceptInvitationCommand` | Acepta una invitación (líder) | Valida líder, ejecuta `increaseMemberCount()`, publica evento `invitationAccepted`, elimina invitación |
+
+---
+
+##### 3. `LeaderCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la creación de líderes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderRepository` | `LeaderRepository` | Repositorio para persistir líderes |
+| `iamEventPublisher` | `IamEventPublisher` | Publicador de eventos hacia el contexto de IAM |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateLeaderCommand` | Crea un nuevo líder | Persiste el líder, publica evento `leaderCreatedSuccessfully` hacia IAM |
 
 
 ### 5.2.4. Infrastructure Layer
