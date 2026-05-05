@@ -2734,7 +2734,102 @@ Clases de configuración técnicas que definen beans y parámetros de infraestru
 | :--- | :--- | :--- |
 | `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
 
+#### Mensajería (Messaging)
 
+La capa de infraestructura de mensajería maneja la comunicación asíncrona con otros microservicios a través de RabbitMQ. Se divide en dos responsabilidades:
+
+- **Publishers:** Envían eventos desde Groups hacia otros contextos (IAM, Tasks).
+- **Listeners (Consumidores):** Reciben eventos desde otros contextos y ejecutan los comandos correspondientes.
+
+##### Publishers
+
+###### 1. `IamEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de IAM a través de RabbitMQ.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
+
+**Métodos:**
+
+| Método | Evento | Descripción |
+| :--- | :--- | :--- |
+| `publishLeaderCreatedSuccessfully(userId, leaderId, avgTime, solvedRequests)` | `LeaderCreatedSuccessfullyEvent` | Notifica a IAM que un líder fue creado exitosamente en Groups |
+
+---
+
+###### 2. `TasksEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de Tasks a través de RabbitMQ.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
+
+**Métodos:**
+
+| Método | Evento | Descripción |
+| :--- | :--- | :--- |
+| `publishInvitationAccepted(groupId, memberId)` | `AcceptInvitationEvent` | Notifica a Tasks que una invitación fue aceptada y el miembro se unió al grupo |
+| `publishMemberRemoved(groupId, memberId)` | `RemoveMemberEvent` | Notifica a Tasks que un miembro fue eliminado del grupo |
+
+---
+
+##### Listeners (Consumidores)
+
+###### 1. `LeaderCreatedEventListener`
+
+**Propósito:** Escucha eventos de creación de líder provenientes del contexto de IAM y crea el líder en el contexto de Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderCommandService` | `LeaderCommandService` | Servicio de aplicación para ejecutar comandos de líder |
+
+**Evento esperado:** `LeaderCreatedEvent`
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId` del evento |
+| Comando ejecutado | `CreateLeaderCommand` con el `userId` |
+| Resultado | El líder es creado en el contexto de Groups |
+
+---
+
+##### 2. `MemberLeftEventListener`
+
+**Propósito:** Escucha eventos de miembros que abandonan un grupo, provenientes del contexto de Tasks, y actualiza el conteo de miembros en Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupCommandService` | `GroupCommandService` | Servicio de aplicación para ejecutar comandos de grupo |
+
+**Evento esperado:** `MemberLeftEvent`
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `memberId` y `groupId` del evento |
+| Comando ejecutado | `LeaveGroupCommand(memberId, groupId)` |
+| Resultado | El contador de miembros del grupo (`memberCount`) se decrementa |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría | Componentes | Cantidad |
+| :--- | :--- | :--- |
+| **JPA Repositories** | `GroupRepository`, `InvitationRepository`, `LeaderRepository` | 3 |
+| **Configuración** | `RabbitMQConfig`, `WebClientConfig` | 2 |
+| **Messaging (Publishers)** | `IamEventPublisher`, `TasksEventPublisher` | 2 |
+| **Messaging (Listeners)** | `LeaderCreatedEventListener`, `MemberLeftEventListener` | 2 |
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
