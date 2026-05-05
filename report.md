@@ -2388,6 +2388,126 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 | `InvitationResource` | Response | Salida | Invitación con grupo y miembro |
 | `InvitationMemberResource` | Response | Salida | Miembro dentro de una invitación |
 
+#### Controllers
+
+##### 1. `GroupController`
+
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con grupos. Este controlador solo maneja peticiones de lectura, separando las responsabilidades de escritura (commands) en `LeaderGroupController`.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/groups/{groupId}` | Obtiene un grupo por su ID | `groupQueryService.handle(GetGroupByIdQuery)` |
+| `GET` | `/api/v1/groups/search?code={code}` | Busca un grupo por su código único | `groupQueryService.handle(GetGroupByCodeQuery)` |
+| `GET` | `/api/v1/groups/members` | Obtiene todos los miembros del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `GET` | `/api/v1/groups/tasks` | Obtiene todas las tareas asociadas al grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+
+---
+
+##### 2. `InvitationController`
+
+**Propósito:** Gestiona operaciones de creación, consulta y cancelación de invitaciones a grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationQueryService` | `InvitationQueryService` | Servicio de dominio para ejecutar consultas sobre invitaciones |
+| `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para consultar grupos |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/invitations/groups/{groupId}` | Crea una nueva invitación para un grupo | `invitationCommandService.handle(CreateInvitationCommand)` |
+| `GET` | `/api/v1/invitations/group` | Obtiene todas las invitaciones del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)`<br>`invitationQueryService.handle(GetInvitationsByGroupIdQuery)` |
+| `DELETE` | `/api/v1/invitations/member` | Cancela la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)`<br>`invitationCommandService.handle(CancelInvitationCommand)` |
+| `GET` | `/api/v1/invitations/member` | Obtiene la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)` |
+
+---
+
+##### 3. `LeaderController`
+
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con líderes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para ejecutar consultas sobre líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/leader/{leaderId}` | Obtiene las métricas de rendimiento de un líder por su ID | `leaderQueryService.handle(GetLeaderByIdQuery)` |
+| `GET` | `/api/v1/leader/details` | Obtiene la información completa del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)` |
+
+---
+
+##### 4. `LeaderGroupController`
+
+**Propósito:** Gestiona operaciones de escritura (commands) y consulta relacionadas con grupos, ejecutadas exclusivamente por líderes autenticados.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
+| `groupCommandService` | `GroupCommandService` | Servicio de dominio para ejecutar comandos sobre grupos |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/leader/group` | Crea un nuevo grupo asociado al líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(CreateGroupCommand)` |
+| `PUT` | `/api/v1/leader/group` | Actualiza la información del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(UpdateGroupCommand)` |
+| `DELETE` | `/api/v1/leader/group` | Elimina el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(DeleteGroupCommand)` |
+| `GET` | `/api/v1/leader/group` | Obtiene el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `DELETE` | `/api/v1/leader/group/members/{memberId}` | Elimina un miembro del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(RemoveMemberFromGroupCommand)` |
+
+---
+
+##### 5. `LeaderInvitationController`
+
+**Propósito:** Gestiona el procesamiento de invitaciones (aceptar o rechazar) por parte de líderes autenticados.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `PATCH` | `/api/v1/group/invitations/{invitationId}?accept={boolean}` | Acepta o rechaza una invitación (por defecto `false`) | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`invitationCommandService.handle(AcceptInvitationCommand)` o `invitationCommandService.handle(RejectInvitationCommand)` |
+
+---
+
+#### Resumen de Controllers
+
+| Controller | Base Path | Propósito principal |
+| :--- | :--- | :--- |
+| `GroupController` | `/api/v1/groups` | Consultas públicas de grupos, miembros y tareas |
+| `InvitationController` | `/api/v1/invitations` | Gestión completa de invitaciones (CRUD) |
+| `LeaderController` | `/api/v1/leader` | Consultas de líderes y sus métricas |
+| `LeaderGroupController` | `/api/v1/leader/group` | Gestión de grupos por el líder (escritura y consulta) |
+| `LeaderInvitationController` | `/api/v1/group/invitations` | Procesamiento de invitaciones por el líder |
+
 ### 5.2.3. Application Layer
 
 
