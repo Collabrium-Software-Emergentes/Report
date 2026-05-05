@@ -2577,6 +2577,67 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 | :--- | :--- | :--- |
 | `CreateLeaderCommand` | Crea un nuevo líder | Persiste el líder, publica evento `leaderCreatedSuccessfully` hacia IAM |
 
+---
+
+#### Query Services
+
+##### 1. `GroupQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetGroupByIdQuery` | Obtiene un grupo por su ID |
+| `GetGroupByCodeQuery` | Busca un grupo por su código único |
+| `GetGroupByLeaderIdQuery` | Obtiene el grupo asociado a un líder |
+| `GetGroupByMemberIdQuery` | Obtiene el grupo de un miembro (pendiente de implementación) |
+
+---
+
+##### 2. `InvitationQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con invitaciones.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationRepository` | `InvitationRepository` | Repositorio para consultar invitaciones |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetInvitationByMemberIdQuery` | Obtiene la invitación de un miembro específico |
+| `GetInvitationsByGroupIdQuery` | Obtiene todas las invitaciones de un grupo |
+
+##### 3. `LeaderQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con líderes, incluyendo integración con el contexto de IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
+| `iamServiceClient` | `IamServiceClient` | Puerto para consultar información de usuarios en IAM |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetLeaderByIdQuery` | Obtiene un líder por su ID |
+| `GetLeaderByUsernameQuery` | Obtiene un líder por su nombre de usuario, validando rol en IAM |
+
+
 
 ### 5.2.4. Infrastructure Layer
 
