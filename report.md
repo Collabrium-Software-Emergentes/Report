@@ -2709,6 +2709,31 @@ Estas interfaces definen los **puertos** que la capa de aplicación utiliza para
 | :--- | :--- |
 | `findById(id)` | Busca un líder por su ID |
 
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `RabbitMQConfig`
+
+**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ para la comunicación asíncrona entre microservicios.
+
+**Exchanges definidos:**
+
+| Exchange | Propósito |
+| :--- | :--- |
+| `iam-events-exchange` | Recibe eventos provenientes del contexto de IAM |
+| `tasks-events-exchange` | Envía eventos hacia el contexto de Tasks |
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente WebClient con balanceo de carga para comunicación síncrona entre microservicios.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+
 
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
