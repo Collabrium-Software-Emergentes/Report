@@ -2260,7 +2260,133 @@ El bounded context **Groups Management** es responsable de la gestión de grupos
 
 ### 5.2.2. Interface Layer
 
+#### Recursos de entrada (Request)
 
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura.
+
+##### `CreateGroupResource`
+
+**Propósito:** Transporta los datos necesarios para crear un nuevo grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nombre del grupo |
+| `imgUrl` | String | URL de la imagen del grupo |
+| `description` | String | Descripción detallada del grupo |
+
+---
+
+##### `UpdateGroupResource`
+
+**Propósito:** Transporta los datos para actualizar un grupo existente.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nuevo nombre del grupo |
+| `imgUrl` | String | Nueva URL de la imagen |
+| `description` | String | Nueva descripción |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `GroupResource`
+
+**Propósito:** Devuelve la información completa de un grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del grupo |
+| `name` | String | Nombre del grupo |
+| `imgUrl` | String | URL de la imagen |
+| `description` | String | Descripción del grupo |
+| `code` | String | Código alfanumérico único (9 caracteres) para invitaciones |
+| `memberCount` | Integer | Número actual de miembros en el grupo |
+
+---
+
+##### `LeaderResource`
+
+**Propósito:** Devuelve la información completa de un líder, incluyendo datos personales y métricas de rendimiento.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `username` | String | Nombre de usuario del líder |
+| `name` | String | Nombre del líder |
+| `surname` | String | Apellido del líder |
+| `imgUrl` | String | URL de la foto de perfil |
+| `email` | String | Correo electrónico |
+| `averageSolutionTime` | String | Tiempo promedio de solución de solicitudes (formato HH:MM:SS) |
+| `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
+
+---
+
+##### `LeaderDetailsResource`
+
+**Propósito:** Devuelve únicamente las métricas de rendimiento de un líder (versión simplificada).
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del líder |
+| `averageSolutionTime` | String | Tiempo promedio de solución (formato HH:MM:SS) |
+| `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
+
+---
+
+##### `GroupMemberResource`
+
+**Propósito:** Representa la información básica de un miembro dentro de un grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
+
+##### `InvitationMemberResource`
+
+**Propósito:** Información del miembro destinatario de una invitación (versión anidada dentro de `InvitationResource`).
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
+
+##### `InvitationResource`
+
+**Propósito:** Representa una invitación a un grupo, incluyendo información del miembro invitado y del grupo destino.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la invitación |
+| `member` | `InvitationMemberResource` | Miembro invitado (puede ser nulo para invitaciones públicas) |
+| `group` | `GroupResource` | Grupo al que se invita |
+
+---
+
+#### Resumen de recursos
+
+| Recurso | Tipo | Dirección | Propósito principal |
+| :--- | :--- | :--- | :--- |
+| `CreateGroupResource` | Request | Entrada | Crear un nuevo grupo |
+| `UpdateGroupResource` | Request | Entrada | Actualizar un grupo existente |
+| `GroupResource` | Response | Salida | Representación completa de un grupo |
+| `LeaderResource` | Response | Salida | Información completa del líder |
+| `LeaderDetailsResource` | Response | Salida | Métricas de rendimiento del líder |
+| `GroupMemberResource` | Response | Salida | Información básica de un miembro |
+| `InvitationResource` | Response | Salida | Invitación con grupo y miembro |
+| `InvitationMemberResource` | Response | Salida | Miembro dentro de una invitación |
 
 ### 5.2.3. Application Layer
 
