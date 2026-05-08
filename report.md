@@ -146,8 +146,8 @@
     - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
     - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
     - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
-    - [5.2.7. Bounded Context Domain Layer Class Diagrams](#527-bounded-context-domain-layer-class-diagrams)
-    - [5.2.8. Bounded Context Database Design Diagram](#528-bounded-context-database-design-diagram)
+      - [5.2.6.1 Bounded Context Domain Layer Class Diagrams](#5261-bounded-context-domain-layer-class-diagrams)
+      - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
     - [5.3.2. Interface Layer](#532-interface-layer)
@@ -2833,17 +2833,23 @@ La capa de infraestructura de mensajería maneja la comunicación asíncrona con
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
+Se visualiza el diagrama de componentes de manera general:
 
+[![Diagrama-de-componentes-Groups.png](https://i.postimg.cc/yx4vrGR4/Diagrama-de-componentes-Groups.png)](https://postimg.cc/dk62h4n4)
+
+Se muestra de manera más detallada cada parte del diagrama de componentes:
+
+[![Componentes-Groups-1.png](https://i.postimg.cc/BnQNyHXr/Componentes-Groups-1.png)](https://postimg.cc/nCgv9sK2)
+
+[![Componentes-Groups-2.png](https://i.postimg.cc/50vmvmRT/Componentes-Groups-2.png)](https://postimg.cc/5Y4vW81S)
 
 ### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
 
-
-
-### 5.2.7. Bounded Context Domain Layer Class Diagrams
+#### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
 
 
 
-### 5.2.8. Bounded Context Database Design Diagram
+#### 5.2.6.2 Bounded Context Database Design Diagram
 
 
 
