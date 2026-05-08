@@ -2138,19 +2138,686 @@ Parte de microservicios:
 
 ## 5.3. Bounded Context: Tasks
 
+
 ### 5.3.1. Domain Layer
 
+El bounded context Tasks Management es responsable de la gestión de tareas colaborativas dentro de la plataforma SynHub. Este contexto maneja la creación de tareas, asignación de responsables, actualización de estados y seguimiento del tiempo de ejecución de cada tarea.
+
+#### Aggregate Root: `Task`
+
+Descripción: Representa una tarea dentro de la plataforma. Es el aggregate root principal de este bounded context. Contiene información sobre el título, descripción, estado, fecha límite, miembro asignado y métricas relacionadas al progreso de la tarea.
+
+| Atributo          | Tipo           | Visibilidad | Invariante / Regla de negocio                                                                       |
+| :---------------- | :------------- | :---------- | :-------------------------------------------------------------------------------------------------- |
+| `id`              | Long           | Private     | Heredado de `AuditableAbstractAggregateRoot`. Autogenerado y único.                                 |
+| `title`           | String         | Private     | No puede ser nulo. Representa el título de la tarea.                                                |
+| `description`     | String         | Private     | No puede ser nulo. Contiene la descripción detallada de la tarea.                                   |
+| `status`          | TaskStatus     | Private     | Enumerado (`IN_PROGRESS`, `COMPLETED`, `ON_HOLD`, `EXPIRED`). Se inicializa en `IN_PROGRESS`.       |
+| `dueDate`         | OffsetDateTime | Private     | No puede ser nulo. Representa la fecha límite de la tarea.                                          |
+| `member`          | Member         | Private     | Relación ManyToOne. Representa el miembro asignado a la tarea. Puede ser nulo inicialmente.         |
+| `groupId`         | GroupId        | Private     | Value Object embebido. Representa el grupo al que pertenece la tarea.                               |
+| `timesRearranged` | Integer        | Private     | No puede ser nulo. Inicia en 0. Cuenta las veces que una tarea vuelve a estado `IN_PROGRESS`.       |
+| `timePassed`      | Long           | Private     | No puede ser nulo. Inicia en 0. Almacena el tiempo acumulado transcurrido hasta completar la tarea. |
+
+##### Métodos
+| Método                                          | Retorno | Visibilidad | Descripción                                                                                                                           |
+| :---------------------------------------------- | :------ | :---------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `Task()`                                        | Task    | Public      | Constructor por defecto. Inicializa `status = IN_PROGRESS` y `timesRearranged = 0`.                                                   |
+| `Task(CreateTaskCommand command)`               | Task    | Public      | Constructor que crea una nueva tarea utilizando la información del comando recibido.                                                  |
+| `updateStatus(UpdateTaskStatusCommand command)` | void    | Public      | Actualiza el estado de la tarea y registra métricas relacionadas al tiempo y reorganización de la tarea.                              |
+| `updateTask(UpdateTaskCommand command)`         | void    | Public      | Actualiza el título, descripción y fecha límite de la tarea. También actualiza automáticamente el estado según la nueva fecha límite. |
+
+##### Invariantes de negocio
+* Toda tarea debe tener un `title`, `description` y `dueDate` válidos.
+* El estado inicial de una tarea siempre es `IN_PROGRESS`.
+* `timesRearranged` nunca puede ser negativo.
+* Cuando una tarea cambia de `IN_PROGRESS` a `COMPLETED`, se calcula y almacena el tiempo transcurrido en `timePassed`.
+* Si una tarea cambia desde `COMPLETED`, `ON_HOLD` o `EXPIRED` hacia `IN_PROGRESS`, se incrementa `timesRearranged`.
+* Si la nueva `dueDate` es anterior a la fecha actual, la tarea automáticamente cambia su estado a `EXPIRED`.
+* Una tarea pertenece únicamente a un grupo mediante `groupId`.
+* Una tarea puede estar asignada a un único `Member`.
+* `timePassed` debe representar únicamente el tiempo acumulado válido de ejecución de la tarea.
+
+
+#### Aggregate Root: `Member`
+
+Descripción: Representa un miembro perteneciente a un grupo colaborativo dentro de la plataforma SynHub. Este aggregate root administra la relación entre los miembros y las tareas asignadas.
+
+| Atributo  | Tipo       | Visibilidad | Invariante / Regla de negocio                                                                                                    |
+| :-------- | :--------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| `id`      | Long       | Private     | Heredado de `AuditableAbstractAggregateRoot`. Autogenerado y único.                                                              |
+| `tasks`   | List<Task> | Private     | Relación OneToMany. Contiene las tareas asignadas al miembro. Puede estar vacía, pero nunca debe contener referencias inválidas. |
+| `groupId` | GroupId    | Private     | Value Object embebido. Representa el grupo al que pertenece el miembro. No puede ser nulo.                                       |
+
+##### Métodos
+| Método                                | Retorno | Visibilidad | Descripción                                                                                        |
+| :------------------------------------ | :------ | :---------- | :------------------------------------------------------------------------------------------------- |
+| `Member()`                            | Member  | Public      | Constructor por defecto requerido por JPA.                                                         |
+| `Member(CreateMemberCommand command)` | Member  | Public      | Constructor que crea un nuevo miembro utilizando la información del comando recibido.              |
+| `addTask(Task task)`                  | void    | Public      | Asigna una tarea al miembro y establece la relación bidireccional con la tarea.                    |
+| `removeTask(Task task)`               | void    | Public      | Elimina una tarea del miembro y rompe la relación bidireccional con la tarea.                      |
+| `clearTasks()`                        | void    | Public      | Elimina todas las tareas asignadas al miembro y limpia las referencias bidireccionales existentes. |
+
+##### Invariantes de negocio
+* Un miembro puede tener múltiples tareas asignadas.
+* Toda tarea asignada a un miembro debe mantener correctamente la relación bidireccional con `Task`.
+* Al remover una tarea, la referencia al `Member` dentro de `Task` debe establecerse en `null`.
+* Al ejecutar `clearTasks()`, ninguna tarea debe conservar referencias al miembro anterior.
+* Un miembro pertenece únicamente a un grupo mediante `groupId`.
+* La colección `tasks` no debe contener referencias inválidas o duplicadas.
+
+#### Value Object: `GroupId`
+
+**Descripción:** Identificador único que representa el grupo al que pertenece una entidad dentro del bounded context Tasks Management.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante                              |
+| :------- | :--- | :---------- | :-------------------------------------- |
+| `value`  | Long | Private     | No puede ser nulo y debe ser mayor a 0. |
+
+##### Métodos
+
+| Método           | Retorno | Visibilidad | Descripción                                                                           |
+| :--------------- | :------ | :---------- | :------------------------------------------------------------------------------------ |
+| `GroupId(value)` | GroupId | Public      | Constructor del record. Valida que el identificador no sea nulo ni menor o igual a 0. |
+
+##### Invariantes
+
+* `value` no puede ser nulo.
+* `value` debe ser mayor a 0.
+* El identificador representa un grupo válido dentro del sistema.
+
+---
+
+#### Value Object: `TaskStatus`
+
+**Descripción:** Enumeración que representa los posibles estados de una tarea dentro de la plataforma.
+
+##### Valores
+
+| Valor         | Descripción                                                |
+| :------------ | :--------------------------------------------------------- |
+| `ON_HOLD`     | La tarea se encuentra temporalmente pausada.               |
+| `IN_PROGRESS` | La tarea está actualmente en progreso.                     |
+| `COMPLETED`   | La tarea fue completada correctamente.                     |
+| `DONE`        | Estado finalizado alternativo definido dentro del sistema. |
+| `EXPIRED`     | La tarea excedió su fecha límite.                          |
+
+##### Métodos
+
+| Método               | Retorno    | Visibilidad   | Descripción                                                                                                            |
+| :------------------- | :--------- | :------------ | :--------------------------------------------------------------------------------------------------------------------- |
+| `fromString(status)` | TaskStatus | Public static | Convierte un texto en un valor válido del enum ignorando mayúsculas/minúsculas. Lanza excepción si el valor no existe. |
+
+##### Invariantes
+
+* El estado de una tarea solo puede ser uno de los valores definidos en `TaskStatus`.
+* `fromString(status)` debe recibir un valor válido reconocido por el enum.
+* No se permiten estados arbitrarios fuera de la enumeración definida.
 
 
 ### 5.3.2. Interface Layer
 
+### Recursos de entrada (Request)
+
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura dentro del bounded context Tasks Management.
+
+##### `CreateTaskResource`
+
+**Propósito:** Transporta los datos necesarios para crear una nueva tarea.
+
+| Campo         | Tipo           | Descripción                       |
+| :------------ | :------------- | :-------------------------------- |
+| `title`       | String         | Título de la tarea                |
+| `description` | String         | Descripción detallada de la tarea |
+| `dueDate`     | OffsetDateTime | Fecha límite de la tarea          |
+
+---
+
+##### `UpdateTaskResource`
+
+**Propósito:** Transporta los datos necesarios para actualizar una tarea existente y asignar un miembro responsable.
+
+| Campo         | Tipo           | Descripción                        |
+| :------------ | :------------- | :--------------------------------- |
+| `title`       | String         | Nuevo título de la tarea           |
+| `description` | String         | Nueva descripción                  |
+| `dueDate`     | OffsetDateTime | Nueva fecha límite                 |
+| `memberId`    | Long           | Identificador del miembro asignado |
+
+---
+
+##### `CreateMemberResource`
+
+**Propósito:** Representa la solicitud para crear un nuevo miembro dentro del contexto de tareas.
+
+| Campo          | Tipo | Descripción                                          |
+| :------------- | :--- | :--------------------------------------------------- |
+| *(sin campos)* | —    | Recurso vacío utilizado para inicializar un miembro. |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `TaskResource`
+
+**Propósito:** Devuelve la información completa de una tarea.
+
+| Campo         | Tipo                 | Descripción                      |
+| :------------ | :------------------- | :------------------------------- |
+| `id`          | Long                 | Identificador único de la tarea  |
+| `title`       | String               | Título de la tarea               |
+| `description` | String               | Descripción detallada            |
+| `dueDate`     | String               | Fecha límite de la tarea         |
+| `createdAt`   | String               | Fecha de creación                |
+| `updatedAt`   | String               | Fecha de última actualización    |
+| `status`      | String               | Estado actual de la tarea        |
+| `member`      | `TaskMemberResource` | Miembro asignado a la tarea      |
+| `groupId`     | Long                 | Identificador del grupo asociado |
+
+---
+
+##### `TaskMemberResource`
+
+**Propósito:** Representa información básica del miembro asignado a una tarea.
+
+| Campo      | Tipo   | Descripción                |
+| :--------- | :----- | :------------------------- |
+| `id`       | Long   | Identificador del miembro  |
+| `name`     | String | Nombre del miembro         |
+| `surname`  | String | Apellido del miembro       |
+| `urlImage` | String | URL de la imagen de perfil |
+
+---
+
+##### `MemberResource`
+
+**Propósito:** Devuelve la información completa de un miembro dentro del sistema de tareas.
+
+| Campo      | Tipo   | Descripción                              |
+| :--------- | :----- | :--------------------------------------- |
+| `id`       | Long   | Identificador único del miembro          |
+| `username` | String | Nombre de usuario                        |
+| `name`     | String | Nombre del miembro                       |
+| `surname`  | String | Apellido del miembro                     |
+| `imgUrl`   | String | URL de la imagen de perfil               |
+| `email`    | String | Correo electrónico                       |
+| `groupId`  | Long   | Identificador del grupo al que pertenece |
+
+---
+
+##### `MemberOnlyResource`
+
+**Propósito:** Representa una versión simplificada de un miembro mostrando únicamente sus identificadores principales.
+
+| Campo     | Tipo | Descripción                      |
+| :-------- | :--- | :------------------------------- |
+| `id`      | Long | Identificador único del miembro  |
+| `groupId` | Long | Identificador del grupo asociado |
+
+---
+
+##### `ExtendedGroupResource`
+
+**Propósito:** Devuelve información extendida de un grupo junto con la lista de miembros asociados.
+
+| Campo         | Tipo                 | Descripción                               |
+| :------------ | :------------------- | :---------------------------------------- |
+| `id`          | Long                 | Identificador único del grupo             |
+| `name`        | String               | Nombre del grupo                          |
+| `imgUrl`      | String               | URL de la imagen del grupo                |
+| `description` | String               | Descripción del grupo                     |
+| `code`        | String               | Código único de invitación                |
+| `members`     | List<MemberResource> | Lista de miembros pertenecientes al grupo |
+
+---
+
+#### Resumen de recursos
+
+| Recurso                 | Tipo     | Dirección | Propósito principal                            |
+| :---------------------- | :------- | :-------- | :--------------------------------------------- |
+| `CreateTaskResource`    | Request  | Entrada   | Crear una nueva tarea                          |
+| `UpdateTaskResource`    | Request  | Entrada   | Actualizar una tarea existente                 |
+| `CreateMemberResource`  | Request  | Entrada   | Crear un nuevo miembro                         |
+| `TaskResource`          | Response | Salida    | Representación completa de una tarea           |
+| `TaskMemberResource`    | Response | Salida    | Información básica del miembro asignado        |
+| `MemberResource`        | Response | Salida    | Información completa de un miembro             |
+| `MemberOnlyResource`    | Response | Salida    | Representación simplificada de un miembro      |
+| `ExtendedGroupResource` | Response | Salida    | Información extendida de un grupo con miembros |
+
+
+#### Controllers
+
+##### 1. `MemberController`
+
+**Propósito:** Gestiona operaciones de consulta relacionadas con miembros autenticados, grupos asociados y tareas asignadas.
+
+**Dependencias inyectadas:**
+
+| Dependencia           | Tipo                  | Propósito                                                      |
+| :-------------------- | :-------------------- | :------------------------------------------------------------- |
+| `memberQueryService`  | `MemberQueryService`  | Servicio de dominio para ejecutar consultas sobre miembros     |
+| `groupsServiceClient` | `GroupsServiceClient` | Cliente externo para obtener información de grupos             |
+| `taskQueryService`    | `TaskQueryService`    | Servicio de dominio para consultar tareas                      |
+| `taskCommandService`  | `TaskCommandService`  | Servicio de dominio para ejecutar comandos sobre tareas        |
+| `iamServiceClient`    | `IamServiceClient`    | Cliente externo para obtener información de usuarios desde IAM |
+
+**Endpoints expuestos:**
+
+| Método   | Endpoint                            | Descripción                                                             | Servicio invocado                                                                                         |
+| :------- | :---------------------------------- | :---------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| `GET`    | `/api/v1/member?groupId={groupId}`  | Obtiene todos los miembros de un grupo                                  | `memberQueryService.handle(GetMembersByGroupIdQuery)`                                                     |
+| `GET`    | `/api/v1/member/details`            | Obtiene la información del miembro autenticado                          | `memberQueryService.handle(GetMemberByUsernameQuery)`                                                     |
+| `GET`    | `/api/v1/member/details/{memberId}` | Obtiene la información detallada de un miembro por ID                   | `memberQueryService.handle(GetMemberInfoByIdQuery)`                                                       |
+| `GET`    | `/api/v1/member/{memberId}`         | Obtiene información básica de un miembro                                | `memberQueryService.handle(GetMemberByIdQuery)`                                                           |
+| `GET`    | `/api/v1/member/group`              | Obtiene el grupo asociado al miembro autenticado                        | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`groupsServiceClient.fetchGroupByGroupId()`      |
+| `GET`    | `/api/v1/member/tasks`              | Obtiene todas las tareas del miembro autenticado                        | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`taskQueryService.handle(GetAllTasksByMemberId)` |
+| `DELETE` | `/api/v1/member/group/leave`        | Permite que un miembro abandone su grupo y elimina sus tareas asociadas | `taskCommandService.handle(DeleteTasksByMemberId)`                                                        |
+| `GET`    | `/api/v1/member/tasks/next`         | Obtiene la próxima tarea pendiente del miembro autenticado              | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`taskQueryService.handle(GetAllTasksByMemberId)` |
+
+---
+
+##### 2. `MemberTaskController`
+
+**Propósito:** Gestiona operaciones relacionadas con tareas asociadas a miembros específicos.
+
+**Dependencias inyectadas:**
+
+| Dependencia          | Tipo                 | Propósito                                               |
+| :------------------- | :------------------- | :------------------------------------------------------ |
+| `taskCommandService` | `TaskCommandService` | Servicio de dominio para ejecutar comandos sobre tareas |
+| `taskQueryService`   | `TaskQueryService`   | Servicio de dominio para consultar tareas               |
+| `iamServiceClient`   | `IamServiceClient`   | Cliente externo para obtener información de usuarios    |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint                                | Descripción                                        | Servicio invocado                                |
+| :----- | :-------------------------------------- | :------------------------------------------------- | :----------------------------------------------- |
+| `POST` | `/api/v1/members/{memberId}/tasks`      | Crea una nueva tarea asociada a un miembro         | `taskCommandService.handle(CreateTaskCommand)`   |
+| `GET`  | `/api/v1/members/{memberId}/tasks`      | Obtiene todas las tareas de un miembro             | `taskQueryService.handle(GetAllTasksByMemberId)` |
+| `GET`  | `/api/v1/members/{memberId}/tasks/next` | Obtiene la siguiente tarea pendiente de un miembro | `taskQueryService.handle(GetAllTasksByMemberId)` |
+
+---
+
+##### 3. `TaskController`
+
+**Propósito:** Gestiona operaciones de consulta, actualización y eliminación de tareas dentro del sistema.
+
+**Dependencias inyectadas:**
+
+| Dependencia          | Tipo                 | Propósito                                                |
+| :------------------- | :------------------- | :------------------------------------------------------- |
+| `taskQueryService`   | `TaskQueryService`   | Servicio de dominio para ejecutar consultas sobre tareas |
+| `taskCommandService` | `TaskCommandService` | Servicio de dominio para ejecutar comandos sobre tareas  |
+| `iamServiceClient`   | `IamServiceClient`   | Cliente externo para obtener información de usuarios     |
+
+**Endpoints expuestos:**
+
+| Método   | Endpoint                                 | Descripción                                   | Servicio invocado                                    |
+| :------- | :--------------------------------------- | :-------------------------------------------- | :--------------------------------------------------- |
+| `GET`    | `/api/v1/tasks/{taskId}`                 | Obtiene una tarea por su ID                   | `taskQueryService.handle(GetTaskByIdQuery)`          |
+| `GET`    | `/api/v1/tasks/status/{status}`          | Obtiene todas las tareas filtradas por estado | `taskQueryService.handle(GetAllTaskByStatusQuery)`   |
+| `PUT`    | `/api/v1/tasks/{taskId}/status/{status}` | Actualiza el estado de una tarea              | `taskCommandService.handle(UpdateTaskStatusCommand)` |
+| `PUT`    | `/api/v1/tasks/{taskId}`                 | Actualiza la información de una tarea         | `taskCommandService.handle(UpdateTaskCommand)`       |
+| `DELETE` | `/api/v1/tasks/{taskId}`                 | Elimina una tarea por ID                      | `taskCommandService.handle(DeleteTaskCommand)`       |
+| `GET`    | `/api/v1/tasks?groupId={groupId}`        | Obtiene todas las tareas asociadas a un grupo | `taskQueryService.handle(GetAllTasksByGroupIdQuery)` |
+
+---
+
+#### Resumen de Controllers
+
+| Controller             | Base Path         | Propósito principal                                                 |
+| :--------------------- | :---------------- | :------------------------------------------------------------------ |
+| `MemberController`     | `/api/v1/member`  | Gestión de miembros autenticados, grupos y tareas asociadas         |
+| `MemberTaskController` | `/api/v1/members` | Gestión de tareas asociadas a miembros específicos                  |
+| `TaskController`       | `/api/v1/tasks`   | Gestión completa de tareas (consultas, actualización y eliminación) |
 
 
 ### 5.3.3. Application Layer
 
+#### Command Services
+
+##### 1. `MemberCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de miembros y su relación con grupos y tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia         | Tipo                | Propósito                                              |
+| :------------------ | :------------------ | :----------------------------------------------------- |
+| `memberRepository`  | `MemberRepository`  | Repositorio para persistir agregados `Member`          |
+| `iamEventPublisher` | `IamEventPublisher` | Publicador de eventos hacia el contexto IAM            |
+| `taskRepository`    | `TaskRepository`    | Repositorio para gestionar tareas asociadas a miembros |
+
+**Comandos manejados:**
+
+| Comando                         | Descripción                                           | Servicio invocado                                                          |
+| :------------------------------ | :---------------------------------------------------- | :------------------------------------------------------------------------- |
+| `CreateMemberCommand`           | Crea un nuevo miembro                                 | Persiste el miembro y publica el evento `publishMemberCreatedSuccessfully` |
+| `AddGroupToMemberCommand`       | Asocia un grupo a un miembro                          | Actualiza el `groupId` del miembro                                         |
+| `RemoveMemberFromGroupCommand`  | Elimina un miembro de un grupo                        | Elimina sus tareas y rompe la relación con el grupo                        |
+| `DeleteMembersByGroupIdCommand` | Elimina la relación de todos los miembros de un grupo | Elimina tareas y limpia el `groupId` de cada miembro                       |
+
+---
+
+##### 2. `TaskCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la creación, actualización, eliminación y gestión de tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                      |
+| :--------------------- | :--------------------- | :--------------------------------------------- |
+| `taskRepository`       | `TaskRepository`       | Repositorio para persistir agregados `Task`    |
+| `memberRepository`     | `MemberRepository`     | Repositorio para consultar miembros            |
+| `groupsServiceClient`  | `GroupsServiceClient`  | Cliente externo para validar grupos            |
+| `groupEventsPublisher` | `GroupEventsPublisher` | Publicador de eventos hacia el contexto Groups |
+
+**Comandos manejados:**
+
+| Comando                       | Descripción                                     | Servicio invocado                                                                |
+| :---------------------------- | :---------------------------------------------- | :------------------------------------------------------------------------------- |
+| `CreateTaskCommand`           | Crea una nueva tarea asociada a un miembro      | Valida miembro y grupo, persiste la tarea                                        |
+| `UpdateTaskCommand`           | Actualiza información y asignación de una tarea | Reasigna tareas entre miembros y ejecuta `updateTask()`                          |
+| `DeleteTaskCommand`           | Elimina una tarea                               | Rompe relación con el miembro y elimina la tarea                                 |
+| `UpdateTaskStatusCommand`     | Actualiza el estado de una tarea                | Ejecuta `updateStatus()` y persiste cambios                                      |
+| `DeleteTasksByMemberId`       | Elimina todas las tareas de un miembro          | Elimina tareas, rompe relación con el grupo y publica evento `publishMemberLeft` |
+| `DeleteTasksByGroupIdCommand` | Elimina todas las tareas de un grupo            | Elimina tareas y limpia relaciones con miembros                                  |
+
+---
+
+#### Query Services
+
+##### 1. `MemberQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con miembros e integración con el contexto IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia        | Tipo               | Propósito                                      |
+| :----------------- | :----------------- | :--------------------------------------------- |
+| `memberRepository` | `MemberRepository` | Repositorio para consultar miembros            |
+| `iamServiceClient` | `IamServiceClient` | Cliente externo para consultar usuarios en IAM |
+
+**Consultas manejadas:**
+
+| Consulta                   | Descripción                                                    |
+| :------------------------- | :------------------------------------------------------------- |
+| `GetMemberByIdQuery`       | Obtiene un miembro por su ID                                   |
+| `GetMemberByUsernameQuery` | Obtiene un miembro por username validando el rol `ROLE_MEMBER` |
+| `GetAllMembersQuery`       | Obtiene todos los miembros registrados                         |
+| `GetMembersByGroupIdQuery` | Obtiene todos los miembros de un grupo                         |
+| `GetMemberInfoByIdQuery`   | Obtiene información detallada de un miembro desde IAM          |
+
+---
+
+##### 2. `TaskQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                         |
+| :--------------- | :--------------- | :-------------------------------- |
+| `taskRepository` | `TaskRepository` | Repositorio para consultar tareas |
+
+**Consultas manejadas:**
+
+| Consulta                    | Descripción                                     |
+| :-------------------------- | :---------------------------------------------- |
+| `GetAllTasksQuery`          | Obtiene todas las tareas registradas            |
+| `GetTaskByIdQuery`          | Obtiene una tarea por su ID                     |
+| `GetAllTasksByMemberId`     | Obtiene todas las tareas asignadas a un miembro |
+| `GetAllTaskByStatusQuery`   | Obtiene todas las tareas filtradas por estado   |
+| `GetAllTasksByGroupIdQuery` | Obtiene todas las tareas asociadas a un grupo   |
+
+---
+
+#### Clients / Ports (Interfaces hacia Infraestructura)
+
+Estas interfaces definen los puertos utilizados por la capa de aplicación para comunicarse con otros microservicios externos.
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio IAM (Identity and Access Management).
+
+**Métodos:**
+
+| Método                                               | Descripción                          |
+| :--------------------------------------------------- | :----------------------------------- |
+| `fetchUserByUsername(username, authorizationHeader)` | Obtiene un usuario por username      |
+| `fetchUserByMemberId(memberId, authorizationHeader)` | Obtiene un usuario por ID de miembro |
+
+---
+
+##### 2. `GroupsServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio Groups.
+
+**Métodos:**
+
+| Método                         | Descripción                                  |
+| :----------------------------- | :------------------------------------------- |
+| `fetchGroupByGroupId(groupId)` | Obtiene la información de un grupo por su ID |
 
 
 ### 5.3.4. Infrastructure Layer
+
+#### Persistencia (JPA Repositories)
+
+##### 1. `MemberRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Member`.
+
+**Métodos personalizados:**
+
+| Método                          | Descripción                                                |
+| :------------------------------ | :--------------------------------------------------------- |
+| `findMembersByGroupId(groupId)` | Obtiene todos los miembros asociados a un grupo específico |
+
+---
+
+##### 2. `TaskRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Task`.
+
+**Métodos personalizados:**
+
+| Método                                             | Descripción                                                         |
+| :------------------------------------------------- | :------------------------------------------------------------------ |
+| `findByMember_Id(memberId)`                        | Obtiene todas las tareas asignadas a un miembro                     |
+| `findByStatus(status)`                             | Obtiene todas las tareas con un estado específico                   |
+| `findByGroupId(groupId)`                           | Obtiene todas las tareas pertenecientes a un grupo                  |
+| `findAllByStatusAndDueDateBefore(status, dueDate)` | Obtiene tareas con un estado específico cuya fecha límite ya expiró |
+| `deleteAllByMember_Id(memberId)`                   | Elimina todas las tareas asociadas a un miembro                     |
+| `deleteAllByGroupId(groupId)`                      | Elimina todas las tareas asociadas a un grupo                       |
+
+---
+
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `RabbitMQConfig`
+
+**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ para la comunicación asíncrona entre microservicios.
+
+**Exchanges definidos:**
+
+| Exchange                | Propósito                                       |
+| :---------------------- | :---------------------------------------------- |
+| `iam-events-exchange`   | Recibe eventos provenientes del contexto de IAM |
+| `tasks-events-exchange` | Maneja eventos relacionados con grupos y tareas |
+
+---
+
+**Colas principales definidas:**
+
+| Cola                   | Evento asociado        |
+| :--------------------- | :--------------------- |
+| `tasks.member-created` | `member.created`       |
+| `tasks.group-accepted` | `group.accepted`       |
+| `tasks.group-deleted`  | `group.deleted`        |
+| `tasks.member-left`    | `group.member.left`    |
+| `tasks.member-removed` | `group.member.removed` |
+
+---
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente `WebClient` con balanceo de carga para comunicación síncrona entre microservicios.
+
+**Beans expuestos:**
+
+| Bean                             | Tipo                | Propósito                                                                 |
+| :------------------------------- | :------------------ | :------------------------------------------------------------------------ |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+
+---
+
+#### Mensajería (Messaging)
+
+La infraestructura de mensajería permite la comunicación asíncrona entre el bounded context **Tasks Management** y otros contextos del sistema mediante RabbitMQ.
+
+Se divide en:
+
+* **Publishers:** Publican eventos hacia otros contextos.
+* **Listeners:** Consumen eventos provenientes de otros contextos y ejecutan comandos internos.
+
+---
+
+### Publishers
+
+##### 1. `IamEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Tasks hacia el contexto de IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                                |
+| :--------------- | :--------------- | :--------------------------------------- |
+| `rabbitTemplate` | `RabbitTemplate` | Template para enviar mensajes a RabbitMQ |
+
+**Métodos:**
+
+| Método                                               | Evento                           | Descripción                                                     |
+| :--------------------------------------------------- | :------------------------------- | :-------------------------------------------------------------- |
+| `publishMemberCreatedSuccessfully(userId, memberId)` | `MemberCreatedSuccessfullyEvent` | Notifica a IAM que un miembro fue creado correctamente en Tasks |
+
+---
+
+##### 2. `GroupEventsPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Tasks hacia el contexto de Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                                |
+| :--------------- | :--------------- | :--------------------------------------- |
+| `rabbitTemplate` | `RabbitTemplate` | Template para enviar mensajes a RabbitMQ |
+
+**Métodos:**
+
+| Método                                 | Evento            | Descripción                                        |
+| :------------------------------------- | :---------------- | :------------------------------------------------- |
+| `publishMemberLeft(memberId, groupId)` | `MemberLeftEvent` | Notifica a Groups que un miembro abandonó un grupo |
+
+---
+
+### Listeners (Consumidores)
+
+##### 1. `MemberCreatedEventListener`
+
+**Propósito:** Escucha eventos de creación de miembros provenientes del contexto de IAM y crea el agregado `Member` en Tasks.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                  |
+| :--------------------- | :--------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `MemberCreatedEvent`
+
+| Acción               | Descripción                       |
+| :------------------- | :-------------------------------- |
+| Al recibir el evento | Extrae el `userId` del evento     |
+| Comando ejecutado    | `CreateMemberCommand(userId)`     |
+| Resultado            | Se crea un nuevo miembro en Tasks |
+
+---
+
+##### 2. `InvitationAcceptedEventListener`
+
+**Propósito:** Escucha eventos de invitaciones aceptadas provenientes del contexto de Groups y asocia un grupo a un miembro.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                  |
+| :--------------------- | :--------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `InvitationAcceptedEvent`
+
+| Acción               | Descripción                                  |
+| :------------------- | :------------------------------------------- |
+| Al recibir el evento | Extrae `groupId` y `memberId`                |
+| Comando ejecutado    | `AddGroupToMemberCommand(groupId, memberId)` |
+| Resultado            | El miembro queda asociado a un grupo         |
+
+---
+
+##### 3. `MemberRemovedEventListener`
+
+**Propósito:** Escucha eventos de miembros eliminados de un grupo y elimina sus tareas asociadas.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                       | Propósito                                  |
+| :--------------------- | :------------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandServiceImpl` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `MemberRemovedEvent`
+
+| Acción               | Descripción                                                            |
+| :------------------- | :--------------------------------------------------------------------- |
+| Al recibir el evento | Extrae `groupId` y `memberId`                                          |
+| Comando ejecutado    | `RemoveMemberFromGroupCommand(groupId, memberId)`                      |
+| Resultado            | Se eliminan las tareas del miembro y se rompe la relación con el grupo |
+
+---
+
+##### 4. `GroupDeletedEventListener`
+
+**Propósito:** Escucha eventos de eliminación de grupos provenientes del contexto de Groups y elimina toda la información asociada en Tasks.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                       |
+| :--------------------- | :--------------------- | :------------------------------ |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos sobre miembros |
+| `taskCommandService`   | `TaskCommandService`   | Ejecuta comandos sobre tareas   |
+
+**Evento esperado:** `GroupDeletedEvent`
+
+| Acción               | Descripción                                                      |
+| :------------------- | :--------------------------------------------------------------- |
+| Al recibir el evento | Extrae `groupId`                                                 |
+| Comandos ejecutados  | `DeleteTasksByGroupIdCommand` y `DeleteMembersByGroupIdCommand`  |
+| Resultado            | Se eliminan tareas y se desvinculan miembros del grupo eliminado |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría                  | Componentes                                                                                                                | Cantidad |
+| :------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :------- |
+| **JPA Repositories**       | `MemberRepository`, `TaskRepository`                                                                                       | 2        |
+| **Configuración**          | `RabbitMQConfig`, `WebClientConfig`                                                                                        | 2        |
+| **Messaging (Publishers)** | `IamEventPublisher`, `GroupEventsPublisher`                                                                                | 2        |
+| **Messaging (Listeners)**  | `MemberCreatedEventListener`, `InvitationAcceptedEventListener`, `MemberRemovedEventListener`, `GroupDeletedEventListener` | 4        |
 
 
 
