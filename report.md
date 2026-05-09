@@ -2372,7 +2372,41 @@ Los servicios internos implementan la orquestacion del contexto Requests. Valida
 
 ### 5.4.4. Infrastructure Layer
 
+Esta capa implementa la persistencia JPA y configuraciones tecnicas para conectividad y documentacion.
 
+**Clase: RequestRepository**
+
+| Titulo | RequestRepository |
+|---|---|
+| Descripcion | Repositorio Spring Data JPA para operaciones CRUD y consultas por tarea. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| findById(Long) | Recupera una solicitud por ID (heredado de JpaRepository). |
+| findAll() | Recupera todas las solicitudes (heredado de JpaRepository). |
+| save(Request) | Persiste o actualiza solicitud (heredado de JpaRepository). |
+| findByTaskId(TaskId) | Recupera solicitudes por taskId. |
+| deleteByTaskId(TaskId) | Elimina solicitudes por taskId. |
+
+**Clase: WebClientConfig**
+
+| Titulo | WebClientConfig |
+|---|---|
+| Descripcion | Define WebClient.Builder con @LoadBalanced para resolver servicios por nombre en Eureka. |
+
+**Clase: OpenApiConfiguration**
+
+| Titulo | OpenApiConfiguration |
+|---|---|
+| Descripcion | Configura metadatos de OpenAPI/Swagger para el servicio Requests. |
+
+**Clase: AuditableAbstractAggregateRoot**
+
+| Titulo | AuditableAbstractAggregateRoot |
+|---|---|
+| Descripcion | Base compartida para agregados con id, createdAt, updatedAt y hooks @PrePersist/@PreUpdate. |
 
 ### 5.4.5. Bounded Context Software Architecture Component Level Diagrams
 
