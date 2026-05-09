@@ -182,8 +182,8 @@
     - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
     - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
-    - [5.6.7. Bounded Context Domain Layer Class Diagrams](#567-bounded-context-domain-layer-class-diagrams)
-    - [5.6.8. Bounded Context Database Design Diagram](#568-bounded-context-database-design-diagram)
+      - [5.6.6.1. Bounded Context Domain Layer Class Diagrams](#5661-bounded-context-domain-layer-class-diagrams)
+      - [5.6.6.2. Bounded Context Database Design Diagram](#5662-bounded-context-database-design-diagram)
 - [6. Capítulo VI: Solution UX Design](#6-capítulo-vi-solution-ux-design)
   - [6.1. Style Guidelines](#61-style-guidelines)
     - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
@@ -2242,7 +2242,128 @@ Parte de microservicios:
 
 ### 5.6.1. Domain Layer
 
+El bounded context **Notifications** es responsable del envío de comunicaciones a los usuarios de la plataforma SynHub. Este contexto maneja el envío de correos electrónicos para invitaciones, notificaciones de eventos y alertas del sistema.
 
+#### Aggregate Root: `Notification`
+
+**Descripción:** Representa una notificación o pendiente de enviar a un usuario. Es el aggregate root de este bounded context. El email real del usuario se obtiene del IAM Service al momento del envío.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `userId` | Long | Private | ID del usuario destino (referencia a IAM Service) |
+| `subject` | String | Private | Asunto del correo |
+| `content` | String | Private | Contenido del correo (formato texto) |
+| `status` | NotificationStatus | Private | Value Object. Estado: PENDING, SENT, FAILED |
+| `eventType` | EventType | Private | Value Object. Tipo de evento que originó la notificación |
+| `createdAt` | LocalDateTime | Private | Fecha de creación |
+| `sentAt` | LocalDateTime | Private | Fecha de envío (nullable) |
+| `retryCount` | Integer | Private | Número de reintentos (default 0) |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Notification(userId, subject, content, eventType)` | Notification | Public | Constructor. Inicializa `status = PENDING`, `createdAt = now()`, `retryCount = 0` |
+| `markAsSent()` | void | Public | Cambia status a SENT y asigna `sentAt = now()` |
+| `markAsFailed()` | void | Public | Cambia status a FAILED |
+| `incrementRetryCount()` | void | Public | Incrementa `retryCount` en 1 |
+| `canRetry()` | boolean | Public | Retorna true si `retryCount < 3` y `status = FAILED` |
+
+##### Invariantes de negocio
+
+- Una notificación no puede enviarse más de una vez.
+- Si `status = SENT`, no se puede modificar el estado.
+- El número máximo de reintentos es 3.
+
+---
+
+#### Entity: `EmailDeliveryLog`
+
+**Descripción:** Registro histórico de cada intento de envío de una notificación. Permite auditoría y trazabilidad de todos los intentos (exitosos o fallidos).
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `notificationId` | Long | Private | ID de la notificación asociada |
+| `attemptNumber` | Integer | Private | Número de intento (1, 2, 3) |
+| `status` | NotificationStatus | Private | Estado resultante del intento |
+| `errorMessage` | String | Private | Mensaje de error si falló (nullable) |
+| `attemptedAt` | LocalDateTime | Private | Fecha y hora del intento |
+| `responseTimeMs` | Long | Private | Tiempo de respuesta del servidor de correo (ms) |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `EmailDeliveryLog(notificationId, attemptNumber, status, errorMessage, responseTimeMs)` | EmailDeliveryLog | Public | Constructor. Registra un intento de envío |
+| `wasSuccessful()` | boolean | Public | Retorna true si el intento fue exitoso |
+
+##### Invariantes de negocio
+
+- `attemptNumber` debe estar entre 1 y 3.
+- Si `status = SENT`, `errorMessage` debe ser nulo.
+- Si `status = FAILED`, `errorMessage` no puede ser nulo.
+
+---
+
+#### Value Object: `NotificationStatus`
+
+**Descripción:** Estado del ciclo de vida de una notificación.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | String | Private | Valores permitidos: PENDING, SENT, FAILED |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `NotificationStatus(value)` | NotificationStatus | Public | Constructor. Valida que el valor sea permitido |
+| `getValue()` | String | Public | Retorna el valor |
+| `isPending()` | boolean | Public | Retorna true si es PENDING |
+| `isSent()` | boolean | Public | Retorna true si es SENT |
+| `isFailed()` | boolean | Public | Retorna true si es FAILED |
+
+##### Invariantes de negocio
+
+- El valor debe ser uno de los permitidos: PENDING, SENT, FAILED.
+- No puede ser nulo.
+
+---
+
+#### Value Object: `EventType`
+
+**Descripción:** Tipo de evento que origina la notificación.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | String | Private | Valores permitidos: INVITATION_SENT, MEMBER_JOINED, MEMBER_LEFT, TASK_ASSIGNED, GROUP_CREATED |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `EventType(value)` | EventType | Public | Constructor. Valida que el valor sea permitido |
+| `getValue()` | String | Public | Retorna el valor |
+| `isInvitationSent()` | boolean | Public | Retorna true si es INVITATION_SENT |
+| `isMemberJoined()` | boolean | Public | Retorna true si es MEMBER_JOINED |
+| `isMemberLeft()` | boolean | Public | Retorna true si es MEMBER_LEFT |
+| `isTaskAssigned()` | boolean | Public | Retorna true si es TASK_ASSIGNED |
+| `isGroupCreated()` | boolean | Public | Retorna true si es GROUP_CREATED |
+
+##### Invariantes de negocio
+
+- El valor debe ser uno de los permitidos.
+- No puede ser nulo.
 
 ### 5.6.2. Interface Layer
 
@@ -2262,13 +2383,11 @@ Parte de microservicios:
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
 
-
-
-### 5.6.7. Bounded Context Domain Layer Class Diagrams
+#### 5.6.6.1. Bounded Context Domain Layer Class Diagrams
 
 
 
-### 5.6.8. Bounded Context Database Design Diagram
+#### 5.6.6.2. Bounded Context Database Design Diagram
 
 
 
