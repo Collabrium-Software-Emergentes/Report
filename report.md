@@ -2367,7 +2367,99 @@ El bounded context **Notifications** es responsable del envío de comunicaciones
 
 ### 5.6.2. Interface Layer
 
+#### Recursos de entrada (Request)
 
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura.
+
+
+##### `CreateNotificationResource`
+
+**Propósito:** Transporta los datos necesarios para crear una nueva notificación a partir de un evento recibido.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `content` | String | Contenido del correo (formato texto) |
+| `eventType` | String | Tipo de evento que originó la notificación |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `NotificationResource`
+
+**Propósito:** Devuelve la información completa de una notificación.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la notificación |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `content` | String | Contenido del correo |
+| `status` | String | Estado actual (PENDING, SENT, FAILED) |
+| `eventType` | String | Tipo de evento que originó la notificación |
+| `createdAt` | String | Fecha de creación (formato ISO) |
+| `sentAt` | String | Fecha de envío (formato ISO, nullable) |
+| `retryCount` | Integer | Número de reintentos realizados |
+
+---
+
+##### `NotificationSummaryResource`
+
+**Propósito:** Versión resumida de una notificación para listados y búsquedas rápidas.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la notificación |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `status` | String | Estado actual (PENDING, SENT, FAILED) |
+| `eventType` | String | Tipo de evento |
+| `createdAt` | String | Fecha de creación (formato ISO) |
+
+---
+
+##### `EmailDeliveryLogResource`
+
+**Propósito:** Representa un intento de envío de una notificación para auditoría.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del log |
+| `notificationId` | Long | ID de la notificación asociada |
+| `attemptNumber` | Integer | Número de intento (1, 2, 3) |
+| `status` | String | Estado resultante (SENT, FAILED) |
+| `errorMessage` | String | Mensaje de error (si falló) |
+| `attemptedAt` | String | Fecha y hora del intento (formato ISO) |
+| `responseTimeMs` | Long | Tiempo de respuesta en milisegundos |
+
+---
+
+##### `NotificationStatusResource`
+
+**Propósito:** Información simple del estado actual de una notificación.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `notificationId` | Long | ID de la notificación |
+| `status` | String | Estado actual |
+| `canRetry` | Boolean | Indica si se puede reintentar el envío |
+| `retryCount` | Integer | Número de reintentos realizados |
+
+---
+
+#### Resumen de recursos
+
+| Recurso | Tipo | Dirección | Propósito principal |
+| :--- | :--- | :--- | :--- |
+| `CreateNotificationResource` | Request | Entrada | Crear una nueva notificación desde un evento |
+| `NotificationResource` | Response | Salida | Representación completa de una notificación |
+| `NotificationSummaryResource` | Response | Salida | Versión resumida para listados |
+| `EmailDeliveryLogResource` | Response | Salida | Registro de intentos de envío |
+| `NotificationStatusResource` | Response | Salida | Estado actual de una notificación |
 
 ### 5.6.3. Application Layer
 
