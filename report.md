@@ -2847,11 +2847,15 @@ Se muestra de manera más detallada cada parte del diagrama de componentes:
 
 #### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+Diagrama de clases para GroupController:
 
+[![Group-Controller-Clases.png](https://i.postimg.cc/nrwFKq53/Group-Controller-Clases.png)](https://postimg.cc/RJKx4Jvt)
 
 #### 5.2.6.2 Bounded Context Database Design Diagram
 
+Diagrama de bases de datos de Groups
 
+[![Groups-Database.png](https://i.postimg.cc/ncDrKPFM/Groups-Database.png)](https://postimg.cc/tY99pDVH)
 
 ## 5.3. Bounded Context: Tasks
 
