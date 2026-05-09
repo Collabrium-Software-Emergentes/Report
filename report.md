@@ -2263,7 +2263,67 @@ El agregado Request es la raiz que gestiona solicitudes dentro del sistema, gara
 
 ### 5.4.2. Interface Layer
 
+La capa de interfaz del contexto Requests expone endpoints REST para crear, consultar, actualizar y eliminar solicitudes. Tambien expone endpoints agregados orientados a lider y miembro de grupo, apoyandose en clientes externos para validaciones y enriquecimiento de respuesta.
 
+**Controlador: RequestController**
+
+Maneja operaciones CRUD de solicitudes ligadas a una tarea.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| createRequest | POST /api/v1/tasks/{taskId}/requests | Crea una solicitud para una tarea, validando miembro y pertenencia. |
+| getRequestsByTaskId | GET /api/v1/tasks/{taskId}/requests | Lista solicitudes de una tarea. |
+| getRequestById | GET /api/v1/tasks/{taskId}/requests/{requestId} | Recupera una solicitud especifica de la tarea. |
+| updateRequestStatus | PUT /api/v1/tasks/{taskId}/requests/{requestId}/status/{status} | Actualiza el estado de una solicitud. |
+| deleteRequestById | DELETE /api/v1/tasks/{taskId}/requests/{requestId} | Elimina una solicitud por ID. |
+
+**Controlador: GroupRequestController**
+
+Expone consultas agregadas de solicitudes para lider y miembro, combinando datos de grupos, tareas y requests.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| getAllRequestsFromGroup | GET /api/v1/leader/group/requests | Obtiene solicitudes de todas las tareas del grupo del lider autenticado. |
+| getAllRequestsFromMember | GET /api/v1/member/group/requests | Obtiene solicitudes de todas las tareas del miembro autenticado. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestCommandService | Ejecuta comandos de creacion, actualizacion y eliminacion. |
+| RequestQueryService | Ejecuta consultas de lectura de solicitudes. |
+| TaskServiceClient | Consulta tareas y miembros para validaciones y enriquecimiento. |
+| GroupServiceClient | Consulta lider y grupo en endpoints agregados. |
+| CreateRequestCommandFromResourceAssembler | Mapea recurso HTTP de creacion a CreateRequestCommand. |
+| UpdateRequestCommandFromResourceAssembler | Mapea datos de actualizacion a UpdateRequestCommand. |
+| RequestResourceFromEntityAssembler | Convierte entidad Request y detalles de tarea a RequestResource. |
+| RequestDetailsResourceFromEntityAssembler | Convierte entidad Request a recurso de detalle. |
+| TaskResourceFromEntityAssembler | Convierte recurso externo de tarea a recurso local. |
+| TaskMemberResourceFromEntityAssembler | Convierte recurso externo de miembro a recurso local. |
+
+**Recursos**
+
+| Recurso | Descripcion |
+|---|---|
+| CreateRequestResource | Contiene description y requestType para crear solicitud. |
+| RequestResource | Respuesta completa de solicitud con tarea enriquecida. |
+| RequestDetailsResource | Respuesta resumida con taskId embebido. |
+| TaskResource | Recurso local para datos de tarea remota. |
+| TaskMemberResource | Recurso local para datos de miembro de tarea. |
+
+**ACL (Anticorruption Layer)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient | Interfaz ACL para comunicacion con tasks-service. |
+| TaskServiceClientImpl | Implementacion ACL basada en WebClient y service discovery. |
+| GroupServiceClient | Interfaz ACL para comunicacion con groups-service. |
+| GroupServiceClientImpl | Implementacion ACL para obtener lider y grupo remoto. |
+| GroupRequestController | Orquesta datos entre contextos para consultas agregadas. |
 
 ### 5.4.3. Application Layer
 
