@@ -2849,7 +2849,11 @@ Se muestra de manera más detallada cada parte del diagrama de componentes:
 
 Diagrama de clases para GroupController:
 
-[![Group-Controller-Clases.png](https://i.postimg.cc/nrwFKq53/Group-Controller-Clases.png)](https://postimg.cc/RJKx4Jvt)
+[![Groups-Controller-Clases.png](https://i.postimg.cc/FKCgkHVR/Groups-Controller-Clases.png)](https://postimg.cc/7C7TpDc8)
+
+Diagrama ded clases para un CommadServiceComponent:
+
+[![Group-Command-Service.png](https://i.postimg.cc/qMBRSxTf/Group-Command-Service.png)](https://postimg.cc/py7Rn8rk)
 
 #### 5.2.6.2 Bounded Context Database Design Diagram
 
