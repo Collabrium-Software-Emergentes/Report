@@ -2327,7 +2327,48 @@ Expone consultas agregadas de solicitudes para lider y miembro, combinando datos
 
 ### 5.4.3. Application Layer
 
+Los servicios internos implementan la orquestacion del contexto Requests. Validan reglas, llaman a repositorios y coordinan integraciones con otros microservicios.
 
+**Clase: RequestCommandServiceImpl**
+
+| Titulo | RequestCommandServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de comandos para crear, actualizar y eliminar solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Persistencia de solicitudes. |
+| TaskServiceClient | Verificacion de existencia de tarea en la creacion. |
+
+**Metodos relevantes**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Valida requestType, verifica task existente y persiste Request. |
+| handle(UpdateRequestCommand) | Verifica existencia, actualiza estado y guarda cambios. |
+| handle(DeleteRequestCommand) | Verifica existencia y elimina por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Pendiente (TODO). |
+
+**Clase: RequestQueryServiceImpl**
+
+| Titulo | RequestQueryServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de consultas para lecturas de solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Acceso a datos para consultas por ID y por taskId. |
+
+**Clientes de Aplicacion (Integraciones)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient / TaskServiceClientImpl | Obtiene task simple, task detalle, miembro por username/memberId y tareas por grupo/miembro. |
+| GroupServiceClient / GroupServiceClientImpl | Obtiene lider por username y grupo por leaderId. |
 
 ### 5.4.4. Infrastructure Layer
 
