@@ -2174,7 +2174,92 @@ Parte de microservicios:
 
 ### 5.4.1. Domain Layer
 
+En esta capa se define el nucleo de la gestion de solicitudes asociadas a tareas, encapsulando reglas de negocio para tipo de solicitud, estado y relacion con Task.
 
+**Aggregate: Request**
+
+El agregado Request es la raiz que gestiona solicitudes dentro del sistema, garantizando consistencia de tipo, estado y referencia a la tarea.
+
+| Atributos | Tipo de dato | Visibilidad | Descripcion |
+|---|---|---|---|
+| id | Long | Private | Identificador unico de la solicitud (heredado). |
+| description | String | Private | Descripcion de la solicitud. |
+| requestType | RequestType | Private | Tipo de solicitud. |
+| requestStatus | RequestStatus | Private | Estado actual de la solicitud. |
+| taskId | TaskId | Private | Identificador de la tarea asociada. |
+| createdAt | OffsetDateTime | Private | Fecha de creacion UTC (heredado). |
+| updatedAt | OffsetDateTime | Private | Fecha de ultima actualizacion UTC (heredado). |
+
+| Metodos | Tipo de retorno | Visibilidad | Descripcion |
+|---|---|---|---|
+| Request(CreateRequestCommand) | Constructor | Public | Crea una solicitud a partir de un comando. |
+| getRequestType() | String | Public | Devuelve el tipo de solicitud como texto. |
+| getRequestStatus() | String | Public | Devuelve el estado de la solicitud como texto. |
+| updateRequestStatus(String) | void | Public | Actualiza el estado de la solicitud. |
+| getId() | Long | Public | Devuelve el ID de la solicitud (heredado). |
+| getTaskId() | TaskId | Public | Devuelve el ID de la tarea asociada. |
+| getCreatedAt() | OffsetDateTime | Public | Devuelve la fecha de creacion (heredado). |
+| getUpdatedAt() | OffsetDateTime | Public | Devuelve la fecha de actualizacion (heredado). |
+
+**Value Objects**
+
+| Value Object | Descripcion |
+|---|---|
+| TaskId | Record embebible que representa el ID de tarea. Valida que no sea null ni menor o igual a cero. |
+| RequestType | Enumeracion de tipos permitidos: SUBMISSION, MODIFICATION, EXPIRED. Incluye fromString con validacion. |
+| RequestStatus | Enumeracion de estados permitidos: PENDING, APPROVED, REJECTED. Incluye fromString con validacion. |
+
+**Commands**
+
+| Command | Descripcion |
+|---|---|
+| CreateRequestCommand | Crea una solicitud con description, requestType y taskId. |
+| UpdateRequestCommand | Actualiza el estado de una solicitud por requestId. |
+| DeleteRequestCommand | Elimina una solicitud por requestId. |
+| DeleteAllRequestsByTaskIdCommand | Elimina solicitudes por taskId (actualmente pendiente de implementacion). |
+
+**Queries**
+
+| Query | Descripcion |
+|---|---|
+| GetAllRequestsQuery | Recupera todas las solicitudes. |
+| GetRequestsByTaskIdQuery | Recupera solicitudes de una tarea especifica. |
+| GetRequestByIdQuery | Recupera una solicitud por ID. |
+
+**Clase: RequestQueryService**
+
+| Titulo | RequestQueryService |
+|---|---|
+| Descripcion | Interfaz de servicio de consultas para operaciones de lectura de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(GetAllRequestsQuery) | Recupera todas las solicitudes registradas. |
+| handle(GetRequestsByTaskIdQuery) | Recupera solicitudes por ID de tarea. |
+| handle(GetRequestByIdQuery) | Busca una solicitud por su identificador unico. |
+
+**Clase: RequestCommandService**
+
+| Titulo | RequestCommandService |
+|---|---|
+| Descripcion | Interfaz de servicio de comandos para gestion de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Crea una nueva solicitud y devuelve su ID. |
+| handle(UpdateRequestCommand) | Actualiza una solicitud existente y devuelve el agregado actualizado. |
+| handle(DeleteRequestCommand) | Elimina una solicitud por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Elimina todas las solicitudes de una tarea. |
+
+**Excepciones de Dominio**
+
+| Excepcion | Descripcion |
+|---|---|
+| IllegalArgumentException | Se usa para validaciones de tipo, estado, existencia de request o task, y errores en update/delete. |
 
 ### 5.4.2. Interface Layer
 
