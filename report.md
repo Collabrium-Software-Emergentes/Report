@@ -2865,7 +2865,15 @@ La capa de infraestructura de mensajería maneja la comunicación asíncrona con
 
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
+Vista general del diagrama de componentes:
 
+[![Componentes-Notificaciones.png](https://i.postimg.cc/W3dBdD3f/Componentes-Notificaciones.png)](https://postimg.cc/VrcGTkXj)
+
+Vistas parciales del diagrama de componentes:
+
+[![Componentes-Notificaciones-1.png](https://i.postimg.cc/T184hCBR/Componentes-Notificaciones-1.png)](https://postimg.cc/tZ55MtXf)
+
+[![Notificaciones-Componentes-2.png](https://i.postimg.cc/8Pm0Pd4p/Notificaciones-Componentes-2.png)](https://postimg.cc/tY75Bx8w)
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
 
