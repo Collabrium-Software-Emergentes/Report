@@ -2599,7 +2599,37 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 
 ### 5.6.4. Infrastructure Layer
 
+#### Persistencia (JPA Repositories)
 
+##### 1. `NotificationRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Notification`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByUserId(userId)` | Busca todas las notificaciones de un usuario específico |
+| `findByUserIdAndStatus(userId, status)` | Busca notificaciones de un usuario por estado (PENDING, SENT, FAILED) |
+| `findByStatus(status)` | Busca todas las notificaciones con un estado específico |
+| `findByStatusAndRetryCountLessThan(status, maxRetries)` | Busca notificaciones fallidas que aún pueden reintentarse |
+| `findPendingNotificationsBefore(date)` | Busca notificaciones pendientes creadas antes de una fecha (para schedulers) |
+
+---
+
+##### 2. `EmailDeliveryLogRepository`
+
+**Propósito:** Repositorio JPA para la entidad `EmailDeliveryLog`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByNotificationId(notificationId)` | Busca todos los intentos de envío asociados a una notificación |
+| `findByNotificationIdOrderByAttemptNumberAsc(notificationId)` | Busca los intentos ordenados por número de intento |
+| `countByNotificationId(notificationId)` | Cuenta cuántos intentos tiene una notificación |
+
+---
 
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
