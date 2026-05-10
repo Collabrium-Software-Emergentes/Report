@@ -2867,19 +2867,25 @@ La capa de infraestructura de mensajería maneja la comunicación asíncrona con
 
 Vista general del diagrama de componentes:
 
-[![Componentes-Notificaciones.png](https://i.postimg.cc/W3dBdD3f/Componentes-Notificaciones.png)](https://postimg.cc/VrcGTkXj)
+[![Componentes_-_Notificaciones_-_General.png](https://i.postimg.cc/4yBz7133/Componentes_-_Notificaciones_-_General.png)](https://postimg.cc/q66tWyyf)
 
 Vistas parciales del diagrama de componentes:
 
-[![Componentes-Notificaciones-1.png](https://i.postimg.cc/T184hCBR/Componentes-Notificaciones-1.png)](https://postimg.cc/tZ55MtXf)
+[![Notificaciones-Component-1.png](https://i.postimg.cc/SQT29RrK/Notificaciones-Component-1.png)](https://postimg.cc/F1SH59wt)
 
-[![Notificaciones-Componentes-2.png](https://i.postimg.cc/8Pm0Pd4p/Notificaciones-Componentes-2.png)](https://postimg.cc/tY75Bx8w)
+[![Notificaciones-Components-2.png](https://i.postimg.cc/xTNCbR8g/Notificaciones-Components-2.png)](https://postimg.cc/dLvvbG8T)
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.6.6.1. Bounded Context Domain Layer Class Diagrams
 
+Diagrama de clases de Command Component:
 
+[![Notification-Command-Component-Class.png](https://i.postimg.cc/przL3Wgs/Notification-Command-Component-Class.png)](https://postimg.cc/hQ4ndB4m)
+
+Diagrama de clases de Event Manager Component:
+
+[![Notificaciones-Clases-2.png](https://i.postimg.cc/PJBkZJMT/Notificaciones-Clases-2.png)](https://postimg.cc/D4dD32DM)
 
 #### 5.6.6.2. Bounded Context Database Design Diagram
 
