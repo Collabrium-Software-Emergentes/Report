@@ -2461,6 +2461,51 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 | `EmailDeliveryLogResource` | Response | Salida | Registro de intentos de envío |
 | `NotificationStatusResource` | Response | Salida | Estado actual de una notificación |
 
+#### Controllers
+
+##### 1. `NotificationController`
+
+**Propósito:** Gestiona operaciones de consulta y gestión de notificaciones. Permite obtener el estado de una notificación, listar notificaciones por usuario y cancelar notificaciones pendientes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationQueryService` | `NotificationQueryService` | Servicio de dominio para ejecutar consultas sobre notificaciones |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de dominio para ejecutar comandos sobre notificaciones |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/notifications/{notificationId}` | Obtiene una notificación por su ID | `notificationQueryService.handle(GetNotificationByIdQuery)` |
+| `GET` | `/api/v1/notifications/users/{userId}` | Lista todas las notificaciones de un usuario | `notificationQueryService.handle(GetNotificationsByUserIdQuery)` |
+| `GET` | `/api/v1/notifications/users/{userId}/pending` | Lista notificaciones pendientes de un usuario | `notificationQueryService.handle(GetPendingNotificationsByUserIdQuery)` |
+| `GET` | `/api/v1/notifications/{notificationId}/status` | Obtiene el estado actual de una notificación | `notificationQueryService.handle(GetNotificationStatusQuery)` |
+| `GET` | `/api/v1/notifications/{notificationId}/logs` | Obtiene todos los intentos de envío de una notificación | `notificationQueryService.handle(GetDeliveryLogsByNotificationIdQuery)` |
+| `DELETE` | `/api/v1/notifications/{notificationId}` | Cancela una notificación pendiente (no enviada) | `notificationCommandService.handle(CancelNotificationCommand)` |
+
+---
+
+##### 2. `NotificationRetryController`
+
+**Propósito:** Gestiona el reintento de notificaciones fallidas. Permite reintentar manualmente una notificación y consultar la cola de reintentos pendientes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de dominio para ejecutar comandos de reintento |
+| `notificationQueryService` | `NotificationQueryService` | Servicio de dominio para consultar notificaciones fallidas |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/notifications/{notificationId}/retry` | Reintenta el envío de una notificación fallida | `notificationCommandService.handle(RetryNotificationCommand)` |
+| `GET` | `/api/v1/notifications/failed` | Lista todas las notificaciones fallidas pendientes de reintento | `notificationQueryService.handle(GetFailedNotificationsQuery)` |
+| `POST` | `/api/v1/notifications/failed/retry-all` | Reintenta todas las notificaciones fallidas pendientes | `notificationCommandService.handle(RetryAllFailedNotificationsCommand)` |
+
 ### 5.6.3. Application Layer
 
 
