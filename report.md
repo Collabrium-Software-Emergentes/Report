@@ -157,8 +157,8 @@
     - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
     - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
     - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
-    - [5.2.7. Bounded Context Domain Layer Class Diagrams](#527-bounded-context-domain-layer-class-diagrams)
-    - [5.2.8. Bounded Context Database Design Diagram](#528-bounded-context-database-design-diagram)
+      - [5.2.6.1 Bounded Context Domain Layer Class Diagrams](#5261-bounded-context-domain-layer-class-diagrams)
+      - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
       - [Aggregate Root: `Task`](#aggregate-root-task)
@@ -248,9 +248,9 @@
     - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
     - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
-    - [5.6.7. Bounded Context Domain Layer Class Diagrams](#567-bounded-context-domain-layer-class-diagrams)
-    - [5.6.8. Bounded Context Database Design Diagram](#568-bounded-context-database-design-diagram)
-- [Capítulo VI: Solution UX Design](#capítulo-vi-solution-ux-design)
+      - [5.6.6.1. Bounded Context Domain Layer Class Diagrams](#5661-bounded-context-domain-layer-class-diagrams)
+      - [5.6.6.2. Bounded Context Database Design Diagram](#5662-bounded-context-database-design-diagram)
+- [6. Capítulo VI: Solution UX Design](#6-capítulo-vi-solution-ux-design)
   - [6.1. Style Guidelines](#61-style-guidelines)
     - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
     - [6.1.2. Web, Mobile \& Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
@@ -2513,35 +2513,760 @@ El diseño de persistencia para el microservicio de IAM se basa en un esquema re
 
 ### 5.2.1. Domain Layer
 
+El bounded context **Groups Management** es responsable de la gestión de grupos colaborativos dentro de la plataforma SynHub. Este contexto maneja la creación de grupos, invitaciones a miembros y asignación de líderes.
 
+#### Aggregate Root: `Group`
+
+**Descripción:** Representa un grupo colaborativo dentro de la plataforma. Es el aggregate root principal de este bounded context. Contiene un código único de invitación, un líder, una descripción, una imagen y el conteo actual de miembros.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `code` | GroupCode | Private | Value Object con validación propia (9 caracteres alfanuméricos). No puede ser nulo. |
+| `name` | String | Private | No puede ser nulo. Define el nombre visible del grupo. |
+| `description` | String | Private | No puede ser nulo. Texto descriptivo del grupo (formato largo). |
+| `imgUrl` | ImgUrl | Private | Value Object. No puede ser nulo ni estar en blanco. |
+| `leader` | Leader | Private | Relación OneToOne. Un grupo tiene exactamente un líder. |
+| `memberCount` | Integer | Private | No puede ser nulo. Comienza en 0. No puede ser negativo. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Group(name, description, imgUrl, leader, code)` | Group | Public | Constructor que crea un nuevo grupo. Inicializa `memberCount = 0`. |
+| `updateInformation(UpdateGroupCommand)` | void | Public | Actualiza nombre, descripción o imagen. Solo modifica los campos que vienen en el comando. |
+| `increaseMemberCount()` | void | Public | Incrementa en 1 el conteo de miembros. |
+| `decreaseMemberCount()` | void | Public | Decrementa en 1 el conteo de miembros. |
+
+##### Invariantes de negocio
+
+- El código del grupo (`code`) debe ser único en todo el sistema.
+- `memberCount` nunca puede ser negativo (se controla mediante métodos específicos).
+- Al crear un grupo, `memberCount` comienza en 0 (el líder aún no cuenta como miembro hasta que se une explícitamente).
+
+---
+
+#### Aggregate Root: `Invitation`
+
+**Descripción:** Representa una invitación enviada a un usuario para que se una a un grupo. Permite rastrear qué invitaciones están pendientes y a qué grupo pertenecen.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `memberId` | MemberId | Private | Value Object. Puede ser nulo (invitación pendiente sin usuario asignado). Si existe, debe ser > 0. |
+| `group` | Group | Private | Relación ManyToOne. No puede ser nulo. Una invitación siempre pertenece a un grupo existente. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Invitation(memberId, group)` | Invitation | Public | Constructor que crea una nueva invitación. |
+| `Invitation()` | Invitation | Public | Constructor por defecto (requerido por JPA). |
+
+##### Invariantes de negocio
+
+- Una invitación debe estar asociada a un `Group` válido (no nulo).
+
+---
+
+#### Aggregate Root: `Leader`
+
+**Descripción:** Representa al líder de un grupo. Encapsula métricas de rendimiento como el tiempo promedio de solución de solicitudes y la cantidad de solicitudes resueltas.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `averageSolutionTime` | Time | Private | Inicializado en 0 (00:00:00). Representa el tiempo promedio en resolver solicitudes. |
+| `solvedRequests` | Integer | Private | Inicializado en 0. No puede ser negativo. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Leader()` | Leader | Public | Constructor por defecto. Inicializa `averageSolutionTime = new Time(0)` y `solvedRequests = 0`. |
+
+##### Invariantes de negocio
+
+- `solvedRequests` nunca puede ser negativo.
+- El líder se asocia a un único grupo mediante la relación `@OneToOne` en el aggregate `Group`.
+
+---
+
+#### Value Object: `GroupCode`
+
+**Descripción:** Código alfanumérico único que identifica a un grupo. Se utiliza para invitaciones y acceso rápido al grupo.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `code` | String | Private | Longitud exacta de 9 caracteres. Solo permite dígitos (0-9) y letras mayúsculas (A-Z). |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `GroupCode(code)` | GroupCode | Public | Constructor. Valida formato y longitud. Lanza excepción si no cumple. |
+| `random()` | GroupCode | Public static | Factory method. Genera un código aleatorio válido usando `SecureRandom`. |
+
+##### Invariantes
+
+- El código debe tener exactamente 9 caracteres.
+- Solo caracteres permitidos: `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
+
+---
+
+#### Value Object: `ImgUrl`
+
+**Descripción:** Representa la URL de la imagen asociada a un grupo (avatar, banner, etc.).
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `imgUrl` | String | Private | No puede ser nulo ni estar en blanco. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `ImgUrl(imgUrl)` | ImgUrl | Public | Constructor. Valida que la URL no sea nula ni vacía. Lanza excepción si no cumple. |
+
+##### Invariantes
+
+- La URL no puede ser `null`, vacía (`""`) ni contener solo espacios en blanco.
+
+---
+
+#### Value Object: `MemberId`
+
+**Descripción:** Identificador numérico de un miembro dentro del sistema. Se utiliza en invitaciones para referenciar al usuario invitado.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | Long | Private | No puede ser nulo. Debe ser mayor a 0. |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `MemberId(value)` | MemberId | Public | Constructor. Valida que `value` no sea nulo ni negativo. Lanza excepción si no cumple. |
+
+##### Invariantes
+
+- `value` no puede ser `null`.
+- `value` debe ser mayor a 0.
 
 ### 5.2.2. Interface Layer
 
+#### Recursos de entrada (Request)
 
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura.
+
+##### `CreateGroupResource`
+
+**Propósito:** Transporta los datos necesarios para crear un nuevo grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nombre del grupo |
+| `imgUrl` | String | URL de la imagen del grupo |
+| `description` | String | Descripción detallada del grupo |
+
+---
+
+##### `UpdateGroupResource`
+
+**Propósito:** Transporta los datos para actualizar un grupo existente.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nuevo nombre del grupo |
+| `imgUrl` | String | Nueva URL de la imagen |
+| `description` | String | Nueva descripción |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `GroupResource`
+
+**Propósito:** Devuelve la información completa de un grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del grupo |
+| `name` | String | Nombre del grupo |
+| `imgUrl` | String | URL de la imagen |
+| `description` | String | Descripción del grupo |
+| `code` | String | Código alfanumérico único (9 caracteres) para invitaciones |
+| `memberCount` | Integer | Número actual de miembros en el grupo |
+
+---
+
+##### `LeaderResource`
+
+**Propósito:** Devuelve la información completa de un líder, incluyendo datos personales y métricas de rendimiento.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `username` | String | Nombre de usuario del líder |
+| `name` | String | Nombre del líder |
+| `surname` | String | Apellido del líder |
+| `imgUrl` | String | URL de la foto de perfil |
+| `email` | String | Correo electrónico |
+| `averageSolutionTime` | String | Tiempo promedio de solución de solicitudes (formato HH:MM:SS) |
+| `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
+
+---
+
+##### `LeaderDetailsResource`
+
+**Propósito:** Devuelve únicamente las métricas de rendimiento de un líder (versión simplificada).
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del líder |
+| `averageSolutionTime` | String | Tiempo promedio de solución (formato HH:MM:SS) |
+| `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
+
+---
+
+##### `GroupMemberResource`
+
+**Propósito:** Representa la información básica de un miembro dentro de un grupo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
+
+##### `InvitationMemberResource`
+
+**Propósito:** Información del miembro destinatario de una invitación (versión anidada dentro de `InvitationResource`).
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
+
+##### `InvitationResource`
+
+**Propósito:** Representa una invitación a un grupo, incluyendo información del miembro invitado y del grupo destino.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la invitación |
+| `member` | `InvitationMemberResource` | Miembro invitado (puede ser nulo para invitaciones públicas) |
+| `group` | `GroupResource` | Grupo al que se invita |
+
+---
+
+#### Resumen de recursos
+
+| Recurso | Tipo | Dirección | Propósito principal |
+| :--- | :--- | :--- | :--- |
+| `CreateGroupResource` | Request | Entrada | Crear un nuevo grupo |
+| `UpdateGroupResource` | Request | Entrada | Actualizar un grupo existente |
+| `GroupResource` | Response | Salida | Representación completa de un grupo |
+| `LeaderResource` | Response | Salida | Información completa del líder |
+| `LeaderDetailsResource` | Response | Salida | Métricas de rendimiento del líder |
+| `GroupMemberResource` | Response | Salida | Información básica de un miembro |
+| `InvitationResource` | Response | Salida | Invitación con grupo y miembro |
+| `InvitationMemberResource` | Response | Salida | Miembro dentro de una invitación |
+
+#### Controllers
+
+##### 1. `GroupController`
+
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con grupos. Este controlador solo maneja peticiones de lectura, separando las responsabilidades de escritura (commands) en `LeaderGroupController`.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/groups/{groupId}` | Obtiene un grupo por su ID | `groupQueryService.handle(GetGroupByIdQuery)` |
+| `GET` | `/api/v1/groups/search?code={code}` | Busca un grupo por su código único | `groupQueryService.handle(GetGroupByCodeQuery)` |
+| `GET` | `/api/v1/groups/members` | Obtiene todos los miembros del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `GET` | `/api/v1/groups/tasks` | Obtiene todas las tareas asociadas al grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+
+---
+
+##### 2. `InvitationController`
+
+**Propósito:** Gestiona operaciones de creación, consulta y cancelación de invitaciones a grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationQueryService` | `InvitationQueryService` | Servicio de dominio para ejecutar consultas sobre invitaciones |
+| `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para consultar grupos |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/invitations/groups/{groupId}` | Crea una nueva invitación para un grupo | `invitationCommandService.handle(CreateInvitationCommand)` |
+| `GET` | `/api/v1/invitations/group` | Obtiene todas las invitaciones del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)`<br>`invitationQueryService.handle(GetInvitationsByGroupIdQuery)` |
+| `DELETE` | `/api/v1/invitations/member` | Cancela la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)`<br>`invitationCommandService.handle(CancelInvitationCommand)` |
+| `GET` | `/api/v1/invitations/member` | Obtiene la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)` |
+
+---
+
+##### 3. `LeaderController`
+
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con líderes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para ejecutar consultas sobre líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/leader/{leaderId}` | Obtiene las métricas de rendimiento de un líder por su ID | `leaderQueryService.handle(GetLeaderByIdQuery)` |
+| `GET` | `/api/v1/leader/details` | Obtiene la información completa del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)` |
+
+---
+
+##### 4. `LeaderGroupController`
+
+**Propósito:** Gestiona operaciones de escritura (commands) y consulta relacionadas con grupos, ejecutadas exclusivamente por líderes autenticados.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
+| `groupCommandService` | `GroupCommandService` | Servicio de dominio para ejecutar comandos sobre grupos |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/leader/group` | Crea un nuevo grupo asociado al líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(CreateGroupCommand)` |
+| `PUT` | `/api/v1/leader/group` | Actualiza la información del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(UpdateGroupCommand)` |
+| `DELETE` | `/api/v1/leader/group` | Elimina el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(DeleteGroupCommand)` |
+| `GET` | `/api/v1/leader/group` | Obtiene el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `DELETE` | `/api/v1/leader/group/members/{memberId}` | Elimina un miembro del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(RemoveMemberFromGroupCommand)` |
+
+---
+
+##### 5. `LeaderInvitationController`
+
+**Propósito:** Gestiona el procesamiento de invitaciones (aceptar o rechazar) por parte de líderes autenticados.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
+| `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `PATCH` | `/api/v1/group/invitations/{invitationId}?accept={boolean}` | Acepta o rechaza una invitación (por defecto `false`) | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`invitationCommandService.handle(AcceptInvitationCommand)` o `invitationCommandService.handle(RejectInvitationCommand)` |
+
+---
+
+#### Resumen de Controllers
+
+| Controller | Base Path | Propósito principal |
+| :--- | :--- | :--- |
+| `GroupController` | `/api/v1/groups` | Consultas públicas de grupos, miembros y tareas |
+| `InvitationController` | `/api/v1/invitations` | Gestión completa de invitaciones (CRUD) |
+| `LeaderController` | `/api/v1/leader` | Consultas de líderes y sus métricas |
+| `LeaderGroupController` | `/api/v1/leader/group` | Gestión de grupos por el líder (escritura y consulta) |
+| `LeaderInvitationController` | `/api/v1/group/invitations` | Procesamiento de invitaciones por el líder |
 
 ### 5.2.3. Application Layer
 
+#### Command Services
 
+##### 1. `GroupCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de grupos (crear, actualizar, eliminar, gestionar miembros).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupRepository` | `GroupRepository` | Repositorio para persistir agregados `Group` |
+| `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
+| `tasksEventPublisher` | `TasksEventPublisher` | Publicador de eventos hacia el contexto de Tasks |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateGroupCommand` | Crea un nuevo grupo asociado a un líder | Genera `GroupCode` aleatorio único, persiste el grupo |
+| `UpdateGroupCommand` | Actualiza información de un grupo existente | Obtiene grupo por líder, ejecuta `updateInformation()` |
+| `DeleteGroupCommand` | Elimina un grupo | Valida existencia, elimina de la base de datos |
+| `RemoveMemberFromGroupCommand` | Elimina un miembro del grupo | Ejecuta `decreaseMemberCount()`, publica evento `memberRemoved` |
+| `LeaveGroupCommand` | Un miembro abandona un grupo | Ejecuta `decreaseMemberCount()` |
+
+---
+
+##### 2. `InvitationCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de invitaciones a grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationRepository` | `InvitationRepository` | Repositorio para persistir invitaciones |
+| `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
+| `leaderRepository` | `LeaderRepository` | Repositorio para validar líderes |
+| `tasksEventPublisher` | `TasksEventPublisher` | Publicador de eventos hacia el contexto de Tasks |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateInvitationCommand` | Crea una nueva invitación | Valida existencia del grupo y que el miembro no tenga invitación previa |
+| `CancelInvitationCommand` | Cancela una invitación existente | Valida que el miembro sea propietario de la invitación |
+| `RejectInvitationCommand` | Rechaza una invitación (líder) | Valida que el líder sea dueño del grupo, elimina invitación |
+| `AcceptInvitationCommand` | Acepta una invitación (líder) | Valida líder, ejecuta `increaseMemberCount()`, publica evento `invitationAccepted`, elimina invitación |
+
+---
+
+##### 3. `LeaderCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la creación de líderes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderRepository` | `LeaderRepository` | Repositorio para persistir líderes |
+| `iamEventPublisher` | `IamEventPublisher` | Publicador de eventos hacia el contexto de IAM |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateLeaderCommand` | Crea un nuevo líder | Persiste el líder, publica evento `leaderCreatedSuccessfully` hacia IAM |
+
+---
+
+#### Query Services
+
+##### 1. `GroupQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con grupos.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetGroupByIdQuery` | Obtiene un grupo por su ID |
+| `GetGroupByCodeQuery` | Busca un grupo por su código único |
+| `GetGroupByLeaderIdQuery` | Obtiene el grupo asociado a un líder |
+| `GetGroupByMemberIdQuery` | Obtiene el grupo de un miembro (pendiente de implementación) |
+
+---
+
+##### 2. `InvitationQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con invitaciones.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `invitationRepository` | `InvitationRepository` | Repositorio para consultar invitaciones |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetInvitationByMemberIdQuery` | Obtiene la invitación de un miembro específico |
+| `GetInvitationsByGroupIdQuery` | Obtiene todas las invitaciones de un grupo |
+
+##### 3. `LeaderQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con líderes, incluyendo integración con el contexto de IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
+| `iamServiceClient` | `IamServiceClient` | Puerto para consultar información de usuarios en IAM |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción |
+| :--- | :--- |
+| `GetLeaderByIdQuery` | Obtiene un líder por su ID |
+| `GetLeaderByUsernameQuery` | Obtiene un líder por su nombre de usuario, validando rol en IAM |
+
+#### Clients / Ports (Interfaces hacia Infraestructura)
+
+Estas interfaces definen los **puertos** que la capa de aplicación utiliza para comunicarse con servicios externos (otros microservicios). Las implementaciones concretas residen en la capa de infraestructura, respetando el principio de inversión de dependencias.
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio de IAM (Identity and Access Management).
+
+**Métodos:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `fetchUserByUsername(username, authHeader)` | Obtiene un usuario por su nombre de usuario |
+| `fetchUserByMemberId(memberId, authHeader)` | Obtiene un usuario por su ID de miembro |
+
+---
+
+##### 2. `TasksServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio de Tasks (gestión de tareas).
+
+**Métodos:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `fetchMemberByMemberId(memberId)` | Obtiene un miembro por su ID |
+| `fetchMemberByUsername(username, authHeader)` | Obtiene un miembro por su nombre de usuario |
+| `fetchMembersByGroupId(groupId, authHeader)` | Obtiene todos los miembros de un grupo |
+| `fetchTasksByGroupId(groupId, authHeader)` | Obtiene todas las tareas de un grupo |
 
 ### 5.2.4. Infrastructure Layer
 
+#### Persistencia (JPA Repositories)
 
+##### 1. `GroupRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Group`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByLeaderId(leaderId)` | Busca el grupo asociado a un líder específico |
+| `existsByCode(code)` | Verifica si ya existe un grupo con el código dado |
+| `findByCode(code)` | Busca un grupo por su código único |
+
+---
+
+##### 2. `InvitationRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Invitation`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByMemberId(memberId)` | Busca la invitación asociada a un miembro |
+| `findByGroup_Id(groupId)` | Lista todas las invitaciones de un grupo |
+| `existsByMemberId(memberId)` | Verifica si un miembro ya tiene una invitación activa |
+
+---
+
+##### 3. `LeaderRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Leader`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findById(id)` | Busca un líder por su ID |
+
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `RabbitMQConfig`
+
+**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ para la comunicación asíncrona entre microservicios.
+
+**Exchanges definidos:**
+
+| Exchange | Propósito |
+| :--- | :--- |
+| `iam-events-exchange` | Recibe eventos provenientes del contexto de IAM |
+| `tasks-events-exchange` | Envía eventos hacia el contexto de Tasks |
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente WebClient con balanceo de carga para comunicación síncrona entre microservicios.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+
+#### Mensajería (Messaging)
+
+La capa de infraestructura de mensajería maneja la comunicación asíncrona con otros microservicios a través de RabbitMQ. Se divide en dos responsabilidades:
+
+- **Publishers:** Envían eventos desde Groups hacia otros contextos (IAM, Tasks).
+- **Listeners (Consumidores):** Reciben eventos desde otros contextos y ejecutan los comandos correspondientes.
+
+##### Publishers
+
+###### 1. `IamEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de IAM a través de RabbitMQ.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
+
+**Métodos:**
+
+| Método | Evento | Descripción |
+| :--- | :--- | :--- |
+| `publishLeaderCreatedSuccessfully(userId, leaderId, avgTime, solvedRequests)` | `LeaderCreatedSuccessfullyEvent` | Notifica a IAM que un líder fue creado exitosamente en Groups |
+
+---
+
+###### 2. `TasksEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de Tasks a través de RabbitMQ.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
+
+**Métodos:**
+
+| Método | Evento | Descripción |
+| :--- | :--- | :--- |
+| `publishInvitationAccepted(groupId, memberId)` | `AcceptInvitationEvent` | Notifica a Tasks que una invitación fue aceptada y el miembro se unió al grupo |
+| `publishMemberRemoved(groupId, memberId)` | `RemoveMemberEvent` | Notifica a Tasks que un miembro fue eliminado del grupo |
+
+---
+
+##### Listeners (Consumidores)
+
+###### 1. `LeaderCreatedEventListener`
+
+**Propósito:** Escucha eventos de creación de líder provenientes del contexto de IAM y crea el líder en el contexto de Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `leaderCommandService` | `LeaderCommandService` | Servicio de aplicación para ejecutar comandos de líder |
+
+**Evento esperado:** `LeaderCreatedEvent`
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId` del evento |
+| Comando ejecutado | `CreateLeaderCommand` con el `userId` |
+| Resultado | El líder es creado en el contexto de Groups |
+
+---
+
+##### 2. `MemberLeftEventListener`
+
+**Propósito:** Escucha eventos de miembros que abandonan un grupo, provenientes del contexto de Tasks, y actualiza el conteo de miembros en Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `groupCommandService` | `GroupCommandService` | Servicio de aplicación para ejecutar comandos de grupo |
+
+**Evento esperado:** `MemberLeftEvent`
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `memberId` y `groupId` del evento |
+| Comando ejecutado | `LeaveGroupCommand(memberId, groupId)` |
+| Resultado | El contador de miembros del grupo (`memberCount`) se decrementa |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría | Componentes | Cantidad |
+| :--- | :--- | :--- |
+| **JPA Repositories** | `GroupRepository`, `InvitationRepository`, `LeaderRepository` | 3 |
+| **Configuración** | `RabbitMQConfig`, `WebClientConfig` | 2 |
+| **Messaging (Publishers)** | `IamEventPublisher`, `TasksEventPublisher` | 2 |
+| **Messaging (Listeners)** | `LeaderCreatedEventListener`, `MemberLeftEventListener` | 2 |
 
 ### 5.2.5. Bounded Context Software Architecture Component Level Diagrams
 
+Se visualiza el diagrama de componentes de manera general:
 
+[![Diagrama-de-componentes-Groups.png](https://i.postimg.cc/yx4vrGR4/Diagrama-de-componentes-Groups.png)](https://postimg.cc/dk62h4n4)
+
+Se muestra de manera más detallada cada parte del diagrama de componentes:
+
+[![Componentes-Groups-1.png](https://i.postimg.cc/BnQNyHXr/Componentes-Groups-1.png)](https://postimg.cc/nCgv9sK2)
+
+[![Componentes-Groups-2.png](https://i.postimg.cc/50vmvmRT/Componentes-Groups-2.png)](https://postimg.cc/5Y4vW81S)
 
 ### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
 
+#### 5.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+Diagrama de clases para GroupController:
 
-### 5.2.7. Bounded Context Domain Layer Class Diagrams
+[![Groups-Controller-Clases.png](https://i.postimg.cc/FKCgkHVR/Groups-Controller-Clases.png)](https://postimg.cc/7C7TpDc8)
 
+Diagrama ded clases para un CommadServiceComponent:
 
+[![Group-Command-Service.png](https://i.postimg.cc/qMBRSxTf/Group-Command-Service.png)](https://postimg.cc/py7Rn8rk)
 
-### 5.2.8. Bounded Context Database Design Diagram
+#### 5.2.6.2 Bounded Context Database Design Diagram
 
+Diagrama de bases de datos de Groups
 
+[![Groups-Database.png](https://i.postimg.cc/ncDrKPFM/Groups-Database.png)](https://postimg.cc/tY99pDVH)
 
 ## 5.3. Bounded Context: Tasks
 
@@ -3544,35 +4269,654 @@ El diseño de este esquema de base de datos refleja una estructura de tabla úni
 
 ### 5.6.1. Domain Layer
 
+El bounded context **Notifications** es responsable del envío de comunicaciones a los usuarios de la plataforma SynHub. Este contexto maneja el envío de correos electrónicos para invitaciones, notificaciones de eventos y alertas del sistema.
 
+#### Aggregate Root: `Notification`
+
+**Descripción:** Representa una notificación o pendiente de enviar a un usuario. Es el aggregate root de este bounded context. El email real del usuario se obtiene del IAM Service al momento del envío.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `userId` | Long | Private | ID del usuario destino (referencia a IAM Service) |
+| `subject` | String | Private | Asunto del correo |
+| `content` | String | Private | Contenido del correo (formato texto) |
+| `status` | NotificationStatus | Private | Value Object. Estado: PENDING, SENT, FAILED |
+| `eventType` | EventType | Private | Value Object. Tipo de evento que originó la notificación |
+| `createdAt` | LocalDateTime | Private | Fecha de creación |
+| `sentAt` | LocalDateTime | Private | Fecha de envío (nullable) |
+| `retryCount` | Integer | Private | Número de reintentos (default 0) |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Notification(userId, subject, content, eventType)` | Notification | Public | Constructor. Inicializa `status = PENDING`, `createdAt = now()`, `retryCount = 0` |
+| `markAsSent()` | void | Public | Cambia status a SENT y asigna `sentAt = now()` |
+| `markAsFailed()` | void | Public | Cambia status a FAILED |
+| `incrementRetryCount()` | void | Public | Incrementa `retryCount` en 1 |
+| `canRetry()` | boolean | Public | Retorna true si `retryCount < 3` y `status = FAILED` |
+
+##### Invariantes de negocio
+
+- Una notificación no puede enviarse más de una vez.
+- Si `status = SENT`, no se puede modificar el estado.
+- El número máximo de reintentos es 3.
+
+---
+
+#### Entity: `EmailDeliveryLog`
+
+**Descripción:** Registro histórico de cada intento de envío de una notificación. Permite auditoría y trazabilidad de todos los intentos (exitosos o fallidos).
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | Long | Private | Autogenerado, único |
+| `notificationId` | Long | Private | ID de la notificación asociada |
+| `attemptNumber` | Integer | Private | Número de intento (1, 2, 3) |
+| `status` | NotificationStatus | Private | Estado resultante del intento |
+| `errorMessage` | String | Private | Mensaje de error si falló (nullable) |
+| `attemptedAt` | LocalDateTime | Private | Fecha y hora del intento |
+| `responseTimeMs` | Long | Private | Tiempo de respuesta del servidor de correo (ms) |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `EmailDeliveryLog(notificationId, attemptNumber, status, errorMessage, responseTimeMs)` | EmailDeliveryLog | Public | Constructor. Registra un intento de envío |
+| `wasSuccessful()` | boolean | Public | Retorna true si el intento fue exitoso |
+
+##### Invariantes de negocio
+
+- `attemptNumber` debe estar entre 1 y 3.
+- Si `status = SENT`, `errorMessage` debe ser nulo.
+- Si `status = FAILED`, `errorMessage` no puede ser nulo.
+
+---
+
+#### Value Object: `NotificationStatus`
+
+**Descripción:** Estado del ciclo de vida de una notificación.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | String | Private | Valores permitidos: PENDING, SENT, FAILED |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `NotificationStatus(value)` | NotificationStatus | Public | Constructor. Valida que el valor sea permitido |
+| `getValue()` | String | Public | Retorna el valor |
+| `isPending()` | boolean | Public | Retorna true si es PENDING |
+| `isSent()` | boolean | Public | Retorna true si es SENT |
+| `isFailed()` | boolean | Public | Retorna true si es FAILED |
+
+##### Invariantes de negocio
+
+- El valor debe ser uno de los permitidos: PENDING, SENT, FAILED.
+- No puede ser nulo.
+
+---
+
+#### Value Object: `EventType`
+
+**Descripción:** Tipo de evento que origina la notificación.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | String | Private | Valores permitidos: INVITATION_SENT, MEMBER_JOINED, MEMBER_LEFT, TASK_ASSIGNED, GROUP_CREATED |
+
+##### Métodos
+
+| Método | Retorno | Visibilidad | Descripción |
+| :--- | :--- | :--- | :--- |
+| `EventType(value)` | EventType | Public | Constructor. Valida que el valor sea permitido |
+| `getValue()` | String | Public | Retorna el valor |
+| `isInvitationSent()` | boolean | Public | Retorna true si es INVITATION_SENT |
+| `isMemberJoined()` | boolean | Public | Retorna true si es MEMBER_JOINED |
+| `isMemberLeft()` | boolean | Public | Retorna true si es MEMBER_LEFT |
+| `isTaskAssigned()` | boolean | Public | Retorna true si es TASK_ASSIGNED |
+| `isGroupCreated()` | boolean | Public | Retorna true si es GROUP_CREATED |
+
+##### Invariantes de negocio
+
+- El valor debe ser uno de los permitidos.
+- No puede ser nulo.
 
 ### 5.6.2. Interface Layer
 
+#### Recursos de entrada (Request)
 
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura.
+
+
+##### `CreateNotificationResource`
+
+**Propósito:** Transporta los datos necesarios para crear una nueva notificación a partir de un evento recibido.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `content` | String | Contenido del correo (formato texto) |
+| `eventType` | String | Tipo de evento que originó la notificación |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `NotificationResource`
+
+**Propósito:** Devuelve la información completa de una notificación.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la notificación |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `content` | String | Contenido del correo |
+| `status` | String | Estado actual (PENDING, SENT, FAILED) |
+| `eventType` | String | Tipo de evento que originó la notificación |
+| `createdAt` | String | Fecha de creación (formato ISO) |
+| `sentAt` | String | Fecha de envío (formato ISO, nullable) |
+| `retryCount` | Integer | Número de reintentos realizados |
+
+---
+
+##### `NotificationSummaryResource`
+
+**Propósito:** Versión resumida de una notificación para listados y búsquedas rápidas.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único de la notificación |
+| `userId` | Long | ID del usuario destino |
+| `subject` | String | Asunto del correo |
+| `status` | String | Estado actual (PENDING, SENT, FAILED) |
+| `eventType` | String | Tipo de evento |
+| `createdAt` | String | Fecha de creación (formato ISO) |
+
+---
+
+##### `EmailDeliveryLogResource`
+
+**Propósito:** Representa un intento de envío de una notificación para auditoría.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del log |
+| `notificationId` | Long | ID de la notificación asociada |
+| `attemptNumber` | Integer | Número de intento (1, 2, 3) |
+| `status` | String | Estado resultante (SENT, FAILED) |
+| `errorMessage` | String | Mensaje de error (si falló) |
+| `attemptedAt` | String | Fecha y hora del intento (formato ISO) |
+| `responseTimeMs` | Long | Tiempo de respuesta en milisegundos |
+
+---
+
+##### `NotificationStatusResource`
+
+**Propósito:** Información simple del estado actual de una notificación.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `notificationId` | Long | ID de la notificación |
+| `status` | String | Estado actual |
+| `canRetry` | Boolean | Indica si se puede reintentar el envío |
+| `retryCount` | Integer | Número de reintentos realizados |
+
+---
+
+#### Resumen de recursos
+
+| Recurso | Tipo | Dirección | Propósito principal |
+| :--- | :--- | :--- | :--- |
+| `CreateNotificationResource` | Request | Entrada | Crear una nueva notificación desde un evento |
+| `NotificationResource` | Response | Salida | Representación completa de una notificación |
+| `NotificationSummaryResource` | Response | Salida | Versión resumida para listados |
+| `EmailDeliveryLogResource` | Response | Salida | Registro de intentos de envío |
+| `NotificationStatusResource` | Response | Salida | Estado actual de una notificación |
+
+#### Controllers
+
+##### 1. `NotificationController`
+
+**Propósito:** Gestiona operaciones de consulta y gestión de notificaciones. Permite obtener el estado de una notificación, listar notificaciones por usuario y cancelar notificaciones pendientes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationQueryService` | `NotificationQueryService` | Servicio de dominio para ejecutar consultas sobre notificaciones |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de dominio para ejecutar comandos sobre notificaciones |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/notifications/{notificationId}` | Obtiene una notificación por su ID | `notificationQueryService.handle(GetNotificationByIdQuery)` |
+| `GET` | `/api/v1/notifications/users/{userId}` | Lista todas las notificaciones de un usuario | `notificationQueryService.handle(GetNotificationsByUserIdQuery)` |
+| `GET` | `/api/v1/notifications/users/{userId}/pending` | Lista notificaciones pendientes de un usuario | `notificationQueryService.handle(GetPendingNotificationsByUserIdQuery)` |
+| `GET` | `/api/v1/notifications/{notificationId}/status` | Obtiene el estado actual de una notificación | `notificationQueryService.handle(GetNotificationStatusQuery)` |
+| `GET` | `/api/v1/notifications/{notificationId}/logs` | Obtiene todos los intentos de envío de una notificación | `notificationQueryService.handle(GetDeliveryLogsByNotificationIdQuery)` |
+| `DELETE` | `/api/v1/notifications/{notificationId}` | Cancela una notificación pendiente (no enviada) | `notificationCommandService.handle(CancelNotificationCommand)` |
+
+---
+
+##### 2. `NotificationRetryController`
+
+**Propósito:** Gestiona el reintento de notificaciones fallidas. Permite reintentar manualmente una notificación y consultar la cola de reintentos pendientes.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de dominio para ejecutar comandos de reintento |
+| `notificationQueryService` | `NotificationQueryService` | Servicio de dominio para consultar notificaciones fallidas |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint | Descripción | Servicio invocado |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/notifications/{notificationId}/retry` | Reintenta el envío de una notificación fallida | `notificationCommandService.handle(RetryNotificationCommand)` |
+| `GET` | `/api/v1/notifications/failed` | Lista todas las notificaciones fallidas pendientes de reintento | `notificationQueryService.handle(GetFailedNotificationsQuery)` |
+| `POST` | `/api/v1/notifications/failed/retry-all` | Reintenta todas las notificaciones fallidas pendientes | `notificationCommandService.handle(RetryAllFailedNotificationsCommand)` |
+
+---
+
+#### Resumen de Controllers
+
+| Controller | Base Path | Propósito principal |
+| :--- | :--- | :--- |
+| `NotificationController` | `/api/v1/notifications` | Consulta y gestión de notificaciones (obtener, listar por usuario, cancelar pendientes, ver logs) |
+| `NotificationRetryController` | `/api/v1/notifications` | Reintento de notificaciones fallidas (reintentar individual, listar fallidas, reintentar todas) |
 
 ### 5.6.3. Application Layer
 
+#### Command Services
 
+##### 1. `NotificationCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de notificaciones (crear, cancelar, reintentar, marcar como enviadas/fallidas).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationRepository` | `NotificationRepository` | Repositorio para persistir agregados `Notification` |
+| `emailDeliveryLogRepository` | `EmailDeliveryLogRepository` | Repositorio para registrar intentos de envío |
+| `notificationDeliveryService` | `NotificationDeliveryService` | Servicio de infraestructura para enviar correos vía SendGrid SMTP |
+| `iamServiceClient` | `IamServiceClient` | Cliente HTTP para obtener el email del usuario desde IAM Service |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateNotificationCommand` | Crea una nueva notificación en estado PENDING | Crea `Notification` con userId, subject, content, eventType y la persiste |
+| `CancelNotificationCommand` | Cancela una notificación pendiente | Verifica que `status = PENDING`, cambia estado a FAILED o elimina según política |
+| `RetryNotificationCommand` | Reintenta el envío de una notificación fallida | Verifica `canRetry()`, incrementa retryCount, delega en `NotificationDeliveryService` |
+| `MarkNotificationAsSentCommand` | Marca una notificación como enviada exitosamente | Ejecuta `markAsSent()`, persiste cambio, crea `EmailDeliveryLog` |
+| `MarkNotificationAsFailedCommand` | Marca una notificación como fallida | Ejecuta `markAsFailed()`, persiste cambio, crea `EmailDeliveryLog` |
+| `RetryAllFailedNotificationsCommand` | Reintenta todas las notificaciones fallidas pendientes | Obtiene notificaciones con `status = FAILED` y `canRetry() = true`, ejecuta reintento por cada una |
+
+---
+
+##### 2. `NotificationDeliveryService` (Infrastructure Service expuesto vía Application Layer)
+
+**Propósito:** Encapsula la lógica de envío real de correos electrónicos a través de SendGrid SMTP, incluyendo la obtención del email del destinatario desde IAM Service.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `sendGridClient` | `SendGridClient` | Cliente SMTP de SendGrid para enviar correos |
+
+**Métodos principales:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `send()` | Obtiene la notificación, consulta el email en IAM Service, envía vía SendGrid, registra log y actualiza estado |
+
+---
+
+#### Query Services
+
+##### 1. `NotificationQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con notificaciones para recuperar información sin modificar el estado.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationRepository` | `NotificationRepository` | Repositorio para consultar notificaciones |
+| `emailDeliveryLogRepository` | `EmailDeliveryLogRepository` | Repositorio para consultar logs de envío |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción | Retorno |
+| :--- | :--- | :--- |
+| `GetNotificationByIdQuery` | Obtiene una notificación por su ID | `Optional<Notification>` |
+| `GetNotificationsByUserIdQuery` | Lista todas las notificaciones de un usuario | `List<Notification>` |
+| `GetPendingNotificationsByUserIdQuery` | Lista notificaciones pendientes de un usuario | `List<Notification>` |
+| `GetNotificationStatusQuery` | Obtiene el estado actual de una notificación | `NotificationStatus` con metadatos |
+| `GetDeliveryLogsByNotificationIdQuery` | Obtiene todos los intentos de envío de una notificación | `List<EmailDeliveryLog>` |
+| `GetFailedNotificationsQuery` | Lista notificaciones fallidas pendientes de reintento | `List<Notification>` |
+
+---
+
+#### Resumen de servicios de aplicación
+
+| Servicio | Tipo | Propósito principal |
+| :--- | :--- | :--- |
+| `NotificationCommandServiceImpl` | Command Service | Crear, cancelar, reintentar y actualizar estado de notificaciones |
+| `NotificationDeliveryService` | Infrastructure Service | Envío real de correos vía SendGrid con obtención de email desde IAM |
+| `NotificationQueryServiceImpl` | Query Service | Consultas de lectura sobre notificaciones y logs |
 
 ### 5.6.4. Infrastructure Layer
 
+#### Persistencia (JPA Repositories)
 
+##### 1. `NotificationRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Notification`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByUserId(userId)` | Busca todas las notificaciones de un usuario específico |
+| `findByUserIdAndStatus(userId, status)` | Busca notificaciones de un usuario por estado (PENDING, SENT, FAILED) |
+| `findByStatus(status)` | Busca todas las notificaciones con un estado específico |
+| `findByStatusAndRetryCountLessThan(status, maxRetries)` | Busca notificaciones fallidas que aún pueden reintentarse |
+| `findPendingNotificationsBefore(date)` | Busca notificaciones pendientes creadas antes de una fecha (para schedulers) |
+
+---
+
+##### 2. `EmailDeliveryLogRepository`
+
+**Propósito:** Repositorio JPA para la entidad `EmailDeliveryLog`.
+
+**Métodos personalizados:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `findByNotificationId(notificationId)` | Busca todos los intentos de envío asociados a una notificación |
+| `findByNotificationIdOrderByAttemptNumberAsc(notificationId)` | Busca los intentos ordenados por número de intento |
+| `countByNotificationId(notificationId)` | Cuenta cuántos intentos tiene una notificación |
+
+---
+
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `SendGridConfig`
+
+**Propósito:** Configura el cliente de SendGrid para el envío de correos electrónicos vía SMTP.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `sendGridClient()` | `SendGrid` | Cliente de SendGrid configurado con API Key desde variables de entorno |
+| `mailSender()` | `JavaMailSender` | MailSender de Spring para envío SMTP (alternativa a SendGrid directo) |
+
+**Propiedades configuradas:**
+
+| Propiedad | Descripción |
+| :--- | :--- |
+| `sendgrid.api-key` | API Key de SendGrid (desde secrets) |
+| `sendgrid.from-email` | Email remitente (ej: noreply@synhub.com) |
+| `sendgrid.from-name` | Nombre del remitente (ej: SynHub) |
+
+---
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente WebClient con balanceo de carga para comunicación síncrona con IAM Service.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+| `iamServiceWebClient()` | `WebClient` | WebClient específico para IAM Service con timeout configurado |
+
+---
+
+##### 3. `SchedulerConfig`
+
+**Propósito:** Configura el scheduler para el procesamiento programado de notificaciones pendientes.
+
+**Propiedades configuradas:**
+
+| Propiedad | Valor | Descripción |
+| :--- | :--- | :--- |
+| `notifications.batch-size` | 100 | Número máximo de notificaciones a procesar por lote |
+| `notifications.scheduler.cron` | `0 */5 * * * *` | Ejecutar cada 5 minutos |
+| `notifications.retry-delay-ms` | 5000 | Retraso entre reintentos (5 segundos) |
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationProcessingScheduler()` | `TaskScheduler` | Scheduler para enviar notificaciones pendientes automáticamente |
+| `failedNotificationRetryScheduler()` | `TaskScheduler` | Scheduler para reintentar notificaciones fallidas |
+
+---
+
+#### Clientes HTTP (HTTP Clients)
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Cliente HTTP para comunicarse con IAM Service y obtener información de usuarios (email, nombre, etc.).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `webClient` | `WebClient` | WebClient balanceado para IAM Service |
+
+**Métodos:**
+
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| `getUserEmail(userId, authHeader)` | `GET /api/v1/users/{userId}/email` | Obtiene el email de un usuario por su ID |
+| `getUserInfo(userId, authHeader)` | `GET /api/v1/users/{userId}` | Obtiene información completa del usuario (nombre, email, etc.) |
+| `userExists(userId, authHeader)` | `HEAD /api/v1/users/{userId}` | Verifica si un usuario existe |
+
+---
+
+#### Mensajería (Messaging)
+
+La capa de infraestructura de mensajería maneja la comunicación asíncrona con otros microservicios a través de RabbitMQ. Para Notifications, el flujo es **entrante**: recibe eventos de otros contextos para crear notificaciones.
+
+##### Listeners (Consumidores)
+
+###### 1. `MemberJoinedEventListener`
+
+**Propósito:** Escucha eventos de miembros que se unen a un grupo (provenientes de Groups Service) y crea una notificación de bienvenida.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `MemberJoinedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del miembro que se unió |
+| `groupId` | ID del grupo al que se unió |
+| `groupName` | Nombre del grupo |
+| `joinedAt` | Fecha de unión |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `groupName` del evento |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = MEMBER_JOINED` |
+| Contenido generado | "Bienvenido al grupo {groupName}" |
+
+---
+
+###### 2. `MemberLeftEventListener`
+
+**Propósito:** Escucha eventos de miembros que abandonan un grupo (provenientes de Groups Service) y crea una notificación de salida.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `MemberLeftEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del miembro que abandonó |
+| `groupId` | ID del grupo que abandonó |
+| `groupName` | Nombre del grupo |
+| `leftAt` | Fecha de salida |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `groupName` del evento |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = MEMBER_LEFT` |
+| Contenido generado | "Has salido del grupo {groupName}" |
+
+---
+
+###### 3. `InvitationSentEventListener`
+
+**Propósito:** Escucha eventos de invitaciones enviadas (provenientes de Groups Service) y crea una notificación de invitación.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `InvitationSentEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `invitedUserId` | ID del usuario invitado |
+| `groupId` | ID del grupo al que fue invitado |
+| `groupName` | Nombre del grupo |
+| `inviterName` | Nombre de quien envió la invitación |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `invitedUserId`, `groupName`, `inviterName` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = INVITATION_SENT` |
+| Contenido generado | "{inviterName} te ha invitado al grupo {groupName}" |
+
+---
+
+###### 4. `TaskAssignedEventListener`
+
+**Propósito:** Escucha eventos de tareas asignadas (provenientes de Tasks Service) y crea una notificación de asignación.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `TaskAssignedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del usuario asignado a la tarea |
+| `taskId` | ID de la tarea |
+| `taskTitle` | Título de la tarea |
+| `groupId` | ID del grupo |
+| `assignedBy` | Nombre de quien asignó la tarea |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `taskTitle`, `assignedBy` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = TASK_ASSIGNED` |
+| Contenido generado | "{assignedBy} te ha asignado la tarea: {taskTitle}" |
+
+---
+
+###### 5. `GroupCreatedEventListener`
+
+**Propósito:** Escucha eventos de grupos creados (provenientes de Groups Service) y crea una notificación de confirmación para el líder.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `GroupCreatedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `leaderId` | ID del líder que creó el grupo |
+| `groupId` | ID del grupo creado |
+| `groupName` | Nombre del grupo |
+| `groupCode` | Código único del grupo |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `leaderId`, `groupName`, `groupCode` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = GROUP_CREATED` |
+| Contenido generado | "Tu grupo {groupName} ha sido creado. Código de invitación: {groupCode}" |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría | Componentes | Cantidad |
+| :--- | :--- | :--- |
+| **JPA Repositories** | `NotificationRepository`, `EmailDeliveryLogRepository` | 2 |
+| **Configuración** | `SendGridConfig`, `WebClientConfig`, `SchedulerConfig` | 3 |
+| **HTTP Clients** | `IamServiceClient` | 1 |
+| **Messaging (Listeners)** | `MemberJoinedEventListener`, `MemberLeftEventListener`, `InvitationSentEventListener`, `TaskAssignedEventListener`, `GroupCreatedEventListener` | 5 |
 
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
+Vista general del diagrama de componentes:
 
+[![Componentes_-_Notificaciones_-_General.png](https://i.postimg.cc/4yBz7133/Componentes_-_Notificaciones_-_General.png)](https://postimg.cc/q66tWyyf)
+
+Vistas parciales del diagrama de componentes:
+
+[![Notificaciones-Component-1.png](https://i.postimg.cc/SQT29RrK/Notificaciones-Component-1.png)](https://postimg.cc/F1SH59wt)
+
+[![Notificaciones-Components-2.png](https://i.postimg.cc/xTNCbR8g/Notificaciones-Components-2.png)](https://postimg.cc/dLvvbG8T)
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
 
+#### 5.6.6.1. Bounded Context Domain Layer Class Diagrams
 
+Diagrama de clases de Command Component:
 
-### 5.6.7. Bounded Context Domain Layer Class Diagrams
+[![Notification-Command-Component-Class.png](https://i.postimg.cc/przL3Wgs/Notification-Command-Component-Class.png)](https://postimg.cc/hQ4ndB4m)
 
+Diagrama de clases de Event Manager Component:
 
+[![Notificaciones-Clases-2.png](https://i.postimg.cc/PJBkZJMT/Notificaciones-Clases-2.png)](https://postimg.cc/D4dD32DM)
 
-### 5.6.8. Bounded Context Database Design Diagram
+#### 5.6.6.2. Bounded Context Database Design Diagram
 
-
+[![Notification-Database.png](https://i.postimg.cc/HL0DGJxZ/Notification-Database.png)](https://postimg.cc/mcr6Cg7C)
 
 # Capítulo VI: Solution UX Design
 
