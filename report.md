@@ -2417,13 +2417,13 @@ RequestController y GroupRequestController actuan como puertas de entrada para c
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-Este diagrama muestra la estructura interna del dominio de Requests, destacando el aggregate "Request", sus value objects, los commands y queries que usa para operar, y los servicios de dominio que coordinan las reglas del contexto.
-
-[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
+En esta seccion se explican diagramas con mayor detalle de la implementacion de componentes del bounded context Requests.
 
 ### 5.4.7. Bounded Context Domain Layer Class Diagrams
 
+Este diagrama muestra la estructura interna del dominio de Requests, destacando el aggregate "Request", sus value objects, los commands y queries que usa para operar, y los servicios de dominio que coordinan las reglas del contexto.
 
+[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
