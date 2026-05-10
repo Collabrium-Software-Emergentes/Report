@@ -2829,7 +2829,7 @@ Se divide en:
 
 ### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
 
-<img src="assets/chapter5/tasks/tasks-uml.png" alt="interview 1" width="600"/>
+<img src="assets/chapter5/tasks/tasks-uml.png" alt="interview 1" width="800"/>
 
 
 ### 5.3.6.2 Bounded Context Database Design Diagram
