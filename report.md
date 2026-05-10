@@ -75,20 +75,22 @@
   - [Integrantes](#integrantes)
   - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
   - [Project Report Collaboration Insights](#project-report-collaboration-insights)
+    - [TB1:](#tb1)
+    - [TB2:](#tb2)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
-- [1. Capítulo I: Introducción](#1-capítulo-i-introducción)
-  - [1.1. Startup Profile](#11-startup-profile)
+- [**Capítulo I: Introducción**](#capítulo-i-introducción)
+  - [**1.1. Startup Profile**](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
-  - [1.2. Solution Profile](#12-solution-profile)
-    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
-    - [1.2.2. Lean UX Process](#122-lean-ux-process)
-      - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
-      - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-      - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
-      - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
-  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+  - [**1.2. Solution Profile**](#12-solution-profile)
+    - [1.2.1 Nombre del producto](#121-nombre-del-producto)
+    - [1.2.2 Antecedentes y problemática](#122-antecedentes-y-problemática)
+    - [1.2.3. Lean UX Process](#123-lean-ux-process)
+      - [1.2.3.1. Lean UX Problem Statements](#1231-lean-ux-problem-statements)
+      - [1.2.3.2. Lean UX Assumptions](#1232-lean-ux-assumptions)
+      - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
+      - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
+  - [**1.3. Segmento objetivo**](#13-segmento-objetivo)
 - [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -99,9 +101,17 @@
     - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
   - [2.3. Needfinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
+      - [A. User Persona: Coordinador de equipos](#a-user-persona-coordinador-de-equipos)
+      - [B. User Persona: Miembro de equipo](#b-user-persona-miembro-de-equipo)
     - [2.3.2. User Task Matrix](#232-user-task-matrix)
+      - [A. Segmento 1: Coordinadores o Líderes de Grupo](#a-segmento-1-coordinadores-o-líderes-de-grupo)
+      - [B. Segmento 2: Miembros del Equipo o Grupo](#b-segmento-2-miembros-del-equipo-o-grupo)
     - [2.3.3. Empathy Mapping](#233-empathy-mapping)
+      - [A. Empathy Map: Coordinador de equipos](#a-empathy-map-coordinador-de-equipos)
+      - [B. Empathy Map: Miembro de equipo](#b-empathy-map-miembro-de-equipo)
     - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
+      - [A. As-is Segmento 1: Coordinador de equipos](#a-as-is-segmento-1-coordinador-de-equipos)
+      - [B. As-is Segmento 2: Miembro de equipo](#b-as-is-segmento-2-miembro-de-equipo)
   - [2.4. Ubiquitous Language](#24-ubiquitous-language)
 - [3. Capítulo III: Requirements Specification](#3-capítulo-iii-requirements-specification)
   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
@@ -111,6 +121,7 @@
 - [4. Capítulo IV: Strategic-Level Software Design](#4-capítulo-iv-strategic-level-software-design)
   - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#411-design-purpose)
+  - [Enfoque Arquitectónico](#enfoque-arquitectónico)
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -137,8 +148,8 @@
     - [5.1.4. Infrastructure Layer](#514-infrastructure-layer)
     - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams)
     - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
-    - [5.1.7. Bounded Context Domain Layer Class Diagrams](#517-bounded-context-domain-layer-class-diagrams)
-    - [5.1.8. Bounded Context Database Design Diagram](#518-bounded-context-database-design-diagram)
+      - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams)
+      - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram)
   - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
     - [5.2.1. Domain Layer](#521-domain-layer)
     - [5.2.2. Interface Layer](#522-interface-layer)
@@ -150,13 +161,68 @@
     - [5.2.8. Bounded Context Database Design Diagram](#528-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
+      - [Aggregate Root: `Task`](#aggregate-root-task)
+        - [Métodos](#métodos)
+        - [Invariantes de negocio](#invariantes-de-negocio)
+      - [Aggregate Root: `Member`](#aggregate-root-member)
+        - [Métodos](#métodos-1)
+        - [Invariantes de negocio](#invariantes-de-negocio-1)
+      - [Value Object: `GroupId`](#value-object-groupid)
+        - [Atributos](#atributos)
+        - [Métodos](#métodos-2)
+        - [Invariantes](#invariantes)
+      - [Value Object: `TaskStatus`](#value-object-taskstatus)
+        - [Valores](#valores)
+        - [Métodos](#métodos-3)
+        - [Invariantes](#invariantes-1)
     - [5.3.2. Interface Layer](#532-interface-layer)
+    - [Recursos de entrada (Request)](#recursos-de-entrada-request)
+        - [`CreateTaskResource`](#createtaskresource)
+        - [`UpdateTaskResource`](#updatetaskresource)
+        - [`CreateMemberResource`](#creatememberresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response)
+        - [`TaskResource`](#taskresource)
+        - [`TaskMemberResource`](#taskmemberresource)
+        - [`MemberResource`](#memberresource)
+        - [`MemberOnlyResource`](#memberonlyresource)
+        - [`ExtendedGroupResource`](#extendedgroupresource)
+      - [Resumen de recursos](#resumen-de-recursos)
+      - [Controllers](#controllers)
+        - [1. `MemberController`](#1-membercontroller)
+        - [2. `MemberTaskController`](#2-membertaskcontroller)
+        - [3. `TaskController`](#3-taskcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers)
     - [5.3.3. Application Layer](#533-application-layer)
+      - [Command Services](#command-services)
+        - [1. `MemberCommandServiceImpl`](#1-membercommandserviceimpl)
+        - [2. `TaskCommandServiceImpl`](#2-taskcommandserviceimpl)
+      - [Query Services](#query-services)
+        - [1. `MemberQueryServiceImpl`](#1-memberqueryserviceimpl)
+        - [2. `TaskQueryServiceImpl`](#2-taskqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura)
+        - [1. `IamServiceClient`](#1-iamserviceclient)
+        - [2. `GroupsServiceClient`](#2-groupsserviceclient)
     - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories)
+        - [1. `MemberRepository`](#1-memberrepository)
+        - [2. `TaskRepository`](#2-taskrepository)
+      - [Configuración (Configuration)](#configuración-configuration)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig)
+      - [Mensajería (Messaging)](#mensajería-messaging)
+    - [Publishers](#publishers)
+        - [1. `IamEventPublisher`](#1-iameventpublisher)
+        - [2. `GroupEventsPublisher`](#2-groupeventspublisher)
+    - [Listeners (Consumidores)](#listeners-consumidores)
+        - [1. `MemberCreatedEventListener`](#1-membercreatedeventlistener)
+        - [2. `InvitationAcceptedEventListener`](#2-invitationacceptedeventlistener)
+        - [3. `MemberRemovedEventListener`](#3-memberremovedeventlistener)
+        - [4. `GroupDeletedEventListener`](#4-groupdeletedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura)
     - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
     - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
-    - [5.3.7. Bounded Context Domain Layer Class Diagrams](#537-bounded-context-domain-layer-class-diagrams)
-    - [5.3.8. Bounded Context Database Design Diagram](#538-bounded-context-database-design-diagram)
+    - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
+    - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
   - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
     - [5.4.1. Domain Layer](#541-domain-layer)
     - [5.4.2. Interface Layer](#542-interface-layer)
@@ -184,10 +250,10 @@
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
     - [5.6.7. Bounded Context Domain Layer Class Diagrams](#567-bounded-context-domain-layer-class-diagrams)
     - [5.6.8. Bounded Context Database Design Diagram](#568-bounded-context-database-design-diagram)
-- [6. Capítulo VI: Solution UX Design](#6-capítulo-vi-solution-ux-design)
+- [Capítulo VI: Solution UX Design](#capítulo-vi-solution-ux-design)
   - [6.1. Style Guidelines](#61-style-guidelines)
     - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
-    - [6.1.2. Web, Mobile & Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+    - [6.1.2. Web, Mobile \& Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
   - [6.2. Information Architecture](#62-information-architecture)
     - [6.2.1. Labeling Systems](#621-labeling-systems)
     - [6.2.2. Searching Systems](#622-searching-systems)
@@ -199,6 +265,9 @@
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+  - [Conclusiones](#conclusiones)
+    - [TB1:](#tb1-1)
+    - [TB2:](#tb2-1)
 
 ## Student Outcome
 
@@ -2068,39 +2137,377 @@ Parte de microservicios:
 
 ## 5.1. Bounded Context: Iam
 
-
-
 ### 5.1.1. Domain Layer
 
+La Capa de Dominio del Bounded Context de IAM es el núcleo de la lógica de negocio para la seguridad y gestión de identidades. En esta capa se define el Aggregate Root: User, que actúa como la unidad de consistencia principal, asegurando que las reglas de autenticación y la vinculación con perfiles de negocio (Member/Leader) se cumplan rigurosamente.
 
+<strong style="font-size: 1.2em;">Aggregate Root: `User`</strong>
+
+Descripción: Es el Agregado Raíz que representa la identidad de un usuario. Aunque se implementa técnicamente como una entidad JPA para su persistencia, en el diseño táctico actúa como la raíz que encapsula el estado de seguridad, los datos personales y la relación con los roles y perfiles externos mediante Value Objects.
+
+| Atributo          | Tipo           | Visibilidad | Invariante / Regla de negocio                                                                       |
+| :---------------- | :------------- | :---------- | :-------------------------------------------------------------------------------------------------- |
+| `id`              | Long           | Private     | Único y obligatorio. Heredado de AuditableAbstractAggregateRoot.                                   |
+| `username`        | String         | Private     | No nulo ni vacío. Debe ser único en la base de datos y tener una longitud máxima de 50 caracteres. |
+| `name`            | String         | Private     | No nulo. Máximo 50 caracteres. Representa el nombre legal del usuario.                             |
+| `surname`         | String         | Private     | No nulo. Máximo 50 caracteres. Representa el apellido legal del usuario.                           |
+| `imgUrl`          | String         | Private     | Obligatorio. Debe ser una URL válida con un máximo de 1024 caracteres.                             |
+| `email`           | String         | Private     | Único y obligatorio. Debe seguir el formato de correo electrónico estándar. No puede duplicarse.   |
+| `password`        | String         | Private     | No nulo. Debe almacenarse mediante un hash seguro. Longitud máxima en BD de 120 caracteres.       |
+| `roles`           | Set<Role>      | Private     | Estado consistente. Nunca puede ser nulo; se inicializa como un HashSet vacío. Al persistirse, debe tener al menos un rol asignado. |
+| `leaderId`        | LeaderId       | Private     | Opcional. Si está presente, el valor interno debe ser un entero positivo (>0).                     |
+| `memberId`        | MemberId       | Private     | Opcional. Si está presente, el valor interno debe ser un entero positivo (>0).                     |
+
+<strong style="font-size: 1em;">Métodos</strong>
+
+| Nombre del Método      | Tipo Retorno | Visibilidad | Descripción / Regla de Negocio                                                                          |
+| :--------------------- | :----------- | :---------- | :------------------------------------------------------------------------------------------------------- |
+| `User()`               | N/A          | Public      | Constructor por defecto. Inicializa el conjunto de roles como un HashSet vacío.                         |
+| `User(username, ...)` | N/A          | Public      | Constructor sobrecargado para la creación de usuarios con datos básicos.                                |
+| `addRole(role)`        | User         | Public      | Añade un objeto Role al conjunto de roles del usuario. Retorna la instancia de User.                    |
+| `addRoles(roles)`      | User         | Public      | Valida y añade una lista de roles. Utiliza Role.validateRoleSet para asegurar la consistencia.         |
+
+<strong style="font-size: 1.2em;">Entity: `Role`</strong>
+
+Descripción: Define las capacidades o permisos asignados a una identidad.
+
+| Atributo | Tipo           | Visibilidad | Invariante / Regla de negocio                                                          |
+| :------- | :------------- | :---------- | :-------------------------------------------------------------------------------------- |
+| `id`     | Long           | Private     | Identificador único de la entidad generado por estrategia IDENTITY.                     |
+| `name`   | Roles (Enum)   | Private     | Representación del rol como String en la base de datos (ROLE_USER, etc.).              |
+
+<strong style="font-size: 1em;">Métodos</strong>
+
+| Nombre del Método        | Tipo Retorno | Visibilidad      | Descripción / Regla de Negocio                                                         |
+| :----------------------- | :----------- | :--------------- | :-------------------------------------------------------------------------------------- |
+| `getStringName()`        | String       | Public           | Retorna el nombre del enumerado Roles como una cadena de texto.                         |
+| `getDefaultRole()`       | Role         | Public (Static)  | Retorna una nueva instancia de Role con el valor ROLE_USER.                            |
+| `toRoleFromName(name)`   | Role         | Public (Static)  | Convierte una cadena de texto al enumerado correspondiente y retorna el Role.           |
+| `validateRoleSet(roles)` | List<Role>   | Public (Static)  | Si la lista es nula o vacía, retorna una lista con el rol por defecto (ROLE_USER).     |
+
+<strong style="font-size: 1.2em;">Value Object: `Roles (Enumeration)`</strong>
+
+| Atributo       | Tipo         | Visibilidad | Invariante / Regla de negocio                                                                  |
+| :------------- | :----------- | :---------- | :--------------------------------------------------------------------------------------------- |
+| `ROLE_USER`    | Enum Value   | N/A         | Rol asignado por defecto a cualquier cuenta creada.                                            |
+| `ROLE_LEADER`  | Enum Value   | N/A         | Identifica a un usuario con capacidades de gestión en el sistema.                              |
+| `ROLE_MEMBER`  | Enum Value   | N/A         | Identifica a un usuario que participa como colaborador en los flujos de trabajo.               |
 
 ### 5.1.2. Interface Layer
 
+La Capa de Interfaz de IAM gestiona la exposición de los servicios de seguridad, autenticación y gestión de usuarios hacia el exterior. Utiliza controladores REST para la comunicación síncrona y recursos (DTOs) para estructurar el intercambio de datos entre el cliente y el servidor.
 
+<strong style="font-size: 1.2em;">Recursos de entrada (Request)</strong>
+
+<strong style="font-size: 1em;">`SignUpResource`</strong>
+
+Propósito: Representa los datos necesarios para registrar un nuevo usuario en la plataforma.
+
+| Campo      | Tipo    | Descripción                           |
+| :--------- | :------ | :------------------------------------ |
+| `username` | String  | Nombre de usuario único.              |
+| `name`     | String  | Nombre del usuario.                   |
+| `surname`  | String  | Apellido del usuario.                 |
+| `imgUrl`   | String  | URL de la imagen de perfil.           |
+| `email`    | String  | Correo electrónico único.             |
+| `password` | String  | Contraseña para la cuenta.            |
+| `roles`    | List    | Lista de nombres de roles solicitados.|
+
+---
+
+<strong style="font-size: 1em;">`SignInResource`</strong>
+
+Propósito: Contiene las credenciales para la autenticación de un usuario.
+
+| Campo      | Tipo    | Descripción                      |
+| :--------- | :------ | :------------------------------- |
+| `username` | String  | Nombre de usuario registrado.    |
+| `password` | String  | Contraseña asociada a la cuenta. |
+
+---
+
+<strong style="font-size: 1.2em;">Recursos de salida (Response)</strong>
+
+<strong style="font-size: 1em;">`UserResource`</strong>
+
+Propósito: Devuelve la información completa del usuario, incluyendo sus perfiles específicos (Líder o Miembro) según su rol.
+
+| Campo      | Tipo                    | Descripción                      |
+| :--------- | :---------------------- | :------------------------------- |
+| `id`       | Long                    | Identificador único del usuario. |
+| `username` | String                  | Nombre de usuario.               |
+| `name`     | String                  | Nombre del usuario.              |
+| `surname`  | String                  | Apellido del usuario.            |
+| `imgUrl`   | String                  | URL de la imagen de perfil.      |
+| `email`    | String                  | Correo electrónico.              |
+| `leader`   | UserLeaderResource      | Información detallada de líder.  |
+| `member`   | UserMemberResource      | Información detallada de miembro.|
+| `roles`    | List<String>            | Lista de roles asignados.        |
+
+---
+
+<strong style="font-size: 1em;">`AuthenticatedUserResource`</strong>
+
+Propósito: Retorna la información básica del usuario junto con el token de acceso tras un inicio de sesión exitoso.
+
+| Campo      | Tipo    | Descripción                      |
+| :--------- | :------ | :------------------------------- |
+| `id`       | Long    | Identificador único del usuario. |
+| `username` | String  | Nombre de usuario.               |
+| `token`    | String  | Token de autenticación (JWT).    |
+
+---
+
+<strong style="font-size: 1em;">`RoleResource`</strong>
+
+Propósito: Representa la información de un rol disponible en el sistema.
+
+| Campo | Tipo   | Descripción          |
+| :---- | :----- | :------------------- |
+| `id`  | Long   | Identificador del rol.|
+| `name`| String | Nombre del rol.      |
+
+---
+
+<strong style="font-size: 1.2em;">Resumen de recursos</strong>
+
+| Recurso                    | Tipo     | Dirección | Propósito principal                                |
+| :------------------------- | :------- | :-------- | :------------------------------------------------- |
+| `SignUpResource`           | Request  | Entrada   | Registrar un nuevo usuario.                        |
+| `SignInResource`           | Request  | Entrada   | Autenticar a un usuario existente.                 |
+| `UserResource`             | Response | Salida    | Representación detallada de un usuario.            |
+| `RoleResource`             | Response | Salida    | Información de roles del sistema.                  |
+| `AuthenticatedUserResource`| Response | Salida    | Confirmación de acceso y entrega de token.         |
+
+---
+
+<strong style="font-size: 1.2em;">Controllers</strong>
+
+<strong style="font-size: 1em;">`1. AuthenticationController`</strong>
+
+Propósito: Gestiona los flujos de registro e inicio de sesión.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                  | Propósito                                      |
+| :--------------------- | :-------------------- | :--------------------------------------------- |
+| `userCommandService`   | UserCommandService    | Procesar comandos de creación y autenticación. |
+
+Endpoints expuestos:
+
+| Método | Endpoint                           | Descripción                                      | Servicio invocado                    |
+| :----- | :--------------------------------- | :----------------------------------------------- | :----------------------------------- |
+| POST   | `/api/v1/authentication/sign-up`   | Registra un nuevo usuario y crea su perfil según rol. | `userCommandService.handle(SignUpCommand)` |
+| POST   | `/api/v1/authentication/sign-in`   | Autentica al usuario y devuelve el token JWT.   | `userCommandService.handle(SignInCommand)` |
+
+<strong style="font-size: 1em;">`2. UsersController`</strong>
+
+Propósito: Permite la consulta de información de usuarios mediante diferentes criterios de búsqueda.
+
+Dependencias inyectadas:
+
+| Dependencia          | Tipo               | Propósito                                      |
+| :------------------- | :----------------- | :--------------------------------------------- |
+| `userQueryService`   | UserQueryService   | Ejecutar consultas sobre los usuarios registrados. |
+
+Endpoints expuestos:
+
+| Método | Endpoint                          | Descripción                                      | Servicio invocado                          |
+| :----- | :-------------------------------- | :----------------------------------------------- | :----------------------------------------- |
+| GET    | `/api/v1/users`                  | Obtiene la lista de todos los usuarios.         | `userQueryService.handle(GetAllUsersQuery)` |
+| GET    | `/api/v1/users/{userId}`         | Obtiene un usuario específico por su ID.        | `userQueryService.handle(GetUserByIdQuery)` |
+| GET    | `/api/v1/users?username={u}`     | Busca un usuario por su nombre de usuario.      | `userQueryService.handle(GetUserByUsernameQuery)` |
+| GET    | `/api/v1/users?memberId={id}`    | Busca el usuario asociado a un ID de miembro.   | `userQueryService.handle(GetUserByMemberIdQuery)` |
+
+<strong style="font-size: 1em;">`3. RolesController`</strong>
+
+Propósito: Proporciona acceso a la lista de roles configurados en la aplicación.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                | Propósito                        |
+| :--------------------- | :------------------ | :------------------------------- |
+| `roleQueryService`     | RoleQueryService    | Consultar los roles existentes.  |
+
+Endpoints expuestos:
+
+| Método | Endpoint          | Descripción                                           | Servicio invocado                      |
+| :----- | :---------------- | :---------------------------------------------------- | :------------------------------------- |
+| GET    | `/api/v1/roles`   | Lista todos los roles disponibles (USER, LEADER, MEMBER). | `roleQueryService.handle(GetAllRolesQuery)` |
+
+---
 
 ### 5.1.3. Application Layer
 
+<strong style="font-size: 1.2em;">Servicios de Aplicación (Command Services)</strong>
 
+<strong style="font-size: 1em;">`1. UserCommandServiceImpl`</strong>
+
+Propósito: Gestionar el ciclo de vida de las credenciales de usuario, el proceso de autenticación segura y la coordinación de la creación de perfiles mediante eventos de integración.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                | Propósito                                                          |
+| :--------------------- | :------------------ | :---------------------------------------------------------------- |
+| `roleRepository`       | RoleRepository      | Acceder a la persistencia de roles para asignación en el registro. |
+| `userRepository`       | UserRepository      | Gestionar la persistencia y búsqueda de los agregados User.        |
+| `hashingService`       | HashingService      | Encriptar contraseñas y verificar hashes durante el login.         |
+| `tokenService`         | TokenService        | Generar tokens JWT para sesiones autenticadas.                     |
+| `leaderPublisher`      | LeaderPublisher     | Publicar eventos de creación de líder hacia RabbitMQ.             |
+| `memberPublisher`      | MemberPublisher     | Publicar eventos de creación de miembro hacia RabbitMQ.           |
+
+Comandos manejados:
+
+| Comando                      | Proceso / Regla de Negocio                                                                                      |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| `SignUpCommand`              | Valida que el username/email no existan, cifra la contraseña, busca los roles en el repositorio y persiste el nuevo usuario. |
+| `SignInCommand`              | Verifica la existencia del usuario y la validez del password; si es exitoso, genera un UserDetails y retorna el usuario con su token. |
+| `CreateUserLeaderCommand`    | Dispara el flujo asíncrono para que el microservicio de grupos cree un perfil de líder para el usuario especificado. |
+| `CreateUserMemberCommand`    | Dispara el flujo asíncrono para que el microservicio de tareas cree un perfil de miembro para el usuario especificado. |
+| `UpdateUserLeaderIdCommand`  | Actualiza de forma atómica el Value Object LeaderId dentro del agregado User una vez confirmada la creación externa. |
+| `UpdateUserMemberIdCommand`  | Actualiza de forma atómica el Value Object MemberId dentro del agregado User una vez confirmada la creación externa. |
+
+---
+
+<strong style="font-size: 1em;">`2. RoleCommandServiceImpl`</strong>
+
+Propósito: Garantizar la integridad de los datos maestros de seguridad inicializando los roles del sistema.
+
+Dependencias inyectadas:
+
+| Dependencia       | Tipo              | Propósito                                                 |
+| :---------------- | :---------------- | :-------------------------------------------------------- |
+| `roleRepository`  | RoleRepository    | Verificar existencia y persistir los roles definidos en el dominio. |
+
+Comandos manejados:
+
+| Comando              | Proceso / Regla de Negocio                                                                  |
+| :------------------- | :------------------------------------------------------------------------------------------ |
+| `SeedRolesCommand`   | Itera sobre el enumerado Roles y registra en la base de datos aquellos que aún no estén presentes. |
+
+---
+
+<strong style="font-size: 1.2em;">Servicios de Aplicación (Query Services)</strong>
+
+<strong style="font-size: 1em;">`1. UserQueryServiceImpl`</strong>
+
+Propósito: Proveer acceso a la información de usuarios, integrando datos locales con información detallada de perfiles proveniente de otros microservicios.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                  | Propósito                                                            |
+| :--------------------- | :-------------------- | :------------------------------------------------------------------ |
+| `userRepository`       | UserRepository        | Consultar la información básica y credenciales de los usuarios.      |
+| `groupsServiceClient`  | GroupsServiceClient   | Recuperar información del perfil de Líder desde el microservicio de grupos. |
+| `tasksServiceClient`   | TasksServiceClient    | Recuperar información del perfil de Miembro desde el microservicio de tareas. |
+
+Consultas manejadas:
+
+| Consulta (Query)       | Descripción                                                                              |
+| :--------------------- | :--------------------------------------------------------------------------------------- |
+| `GetAllUsersQuery`     | Retorna una lista de todos los usuarios registrados en el sistema.                       |
+| `GetUserByIdQuery`     | Obtiene la información de un usuario a partir de su ID único.                            |
+| `GetUserByUsernameQuery` | Busca un usuario mediante su nombre de cuenta.                                          |
+| `GetUserLeaderByIdQuery` | Combina los datos del usuario local con los detalles del líder obtenidos vía WebClient. |
+| `GetUserMemberByIdQuery` | Combina los datos del usuario local con los detalles del miembro obtenidos vía WebClient. |
+
+---
+
+<strong style="font-size: 1em;">`2. RoleQueryServiceImpl`</strong>
+
+Propósito: Facilitar la consulta de los privilegios y roles disponibles.
+
+Dependencias inyectadas:
+
+| Dependencia       | Tipo              | Propósito                             |
+| :---------------- | :---------------- | :------------------------------------ |
+| `roleRepository`  | RoleRepository    | Acceder a la lista de roles persistidos. |
+
+Consultas manejadas:
+
+| Consulta (Query)    | Descripción                                                     |
+| :------------------ | :-------------------------------------------------------------- |
+| `GetAllRolesQuery`  | Recupera el catálogo completo de roles del sistema.             |
+| `GetRoleByNameQuery`| Obtiene un rol específico filtrando por su nombre técnico.      |
+
+---
 
 ### 5.1.4. Infrastructure Layer
 
+<strong style="font-size: 1.2em;">Persistence: Repositories (Spring Data JPA)</strong>
 
+Se utiliza Spring Data JPA con una estrategia de nombrado `SnakeCaseWithPluralizedTable` para mapear los objetos de dominio a una base de datos relacional PostgreSQL.
+
+| Repositorio     | Entidad Relacionada | Descripción                                                                                                                    |
+| :-------------- | :------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `UserRepository` | User               | Gestiona el almacenamiento de usuarios. Incluye métodos para validación de existencia y búsqueda por username, email y referencias externas (leaderId/memberId). |
+| `RoleRepository` | Role               | Almacena y recupera los roles del sistema (USER, LEADER, MEMBER). Permite la inicialización de roles mediante SeedRolesCommand. |
+
+---
+
+<strong style="font-size: 1.2em;">Communication: Outbound Services (Messaging & Clients)</strong>
+
+El microservicio IAM se integra con el resto de la arquitectura SynHub mediante comunicación síncrona (WebClient) y asíncrona (RabbitMQ).
+
+<strong style="font-size: 1em;">`1. Event Publishers (RabbitMQ)`</strong>
+
+| Implementación     | Routing Key                    | Propósito                                                                                                        |
+| :----------------- | :----------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| `LeaderPublisher`  | `ROUTING_KEY_LEADER_CREATED`   | Publica eventos en el exchange de IAM para notificar que un nuevo usuario requiere un perfil de Líder.           |
+| `MemberPublisher`  | `ROUTING_KEY_MEMBER_CREATED`   | Publica eventos para solicitar la creación de un perfil de Miembro en el contexto de Tareas.                     |
+
+---
+
+<strong style="font-size: 1em;">`2. Web Clients (HTTP Balanced)`</strong>
+
+| Cliente                    | Microservicio Destino | Descripción                                                                                                         |
+| :------------------------- | :-------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| `GroupsServiceClientImpl`   | groups-service        | Consume el endpoint /api/v1/leader/{id} para enriquecer el recurso de usuario con datos del perfil de líder.       |
+| `TasksServiceClientImpl`    | tasks-service         | Consume el endpoint /api/v1/member/{id} para obtener información de membresía y grupos.                            |
+
+---
+
+<strong style="font-size: 1.2em;">Security: Authorization & Token Management</strong>
+
+La seguridad se implementa siguiendo el estándar de Spring Security, utilizando JWT (JSON Web Tokens) para una arquitectura stateless.
+
+| Componente          | Clase / Tecnología                   | Función                                                                                                             |
+| :------------------ | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| Token Service       | `TokenServiceImpl`                   | Gestiona el ciclo de vida de los tokens JWT, incluyendo claims personalizados como roles y user_id, con una validez de 7 días. |
+| Auth Filter         | `BearerAuthorizationRequestFilter`  | Filtro de intercepción que valida la presencia de un token en el header Authorization y establece el contexto de seguridad. |
+| Hashing Service     | `BCryptHashingService`              | Implementa la interfaz HashingService del dominio para el cifrado irreversible de contraseñas.                      |
+
+---
+
+<strong style="font-size: 1.2em;">Configuration & Environment (Infrastructure Config)</strong>
+
+El microservicio utiliza variables de entorno para una configuración segura y flexible:
+
+- `Base de Datos`: Configurado para PostgreSQL mediante `POSTGRES_URL`, con soporte para el ajuste automático del esquema (`ddl-auto: update`).
+- `Seguridad`: El secreto de firma de tokens se gestiona externamente mediante `JWT_SECRET`.
+- `RabbitMQConfig`: Centraliza las constantes de ruteo y nombres de cola para asegurar la consistencia en el intercambio de mensajes entre contextos.
+
+---
 
 ### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+El diagrama de clases de la capa de dominio de IAM ilustra la estructura lógica y el comportamiento del sistema de identidad. En el centro se encuentra el Agregado Raíz User, que encapsula la identidad del usuario y coordina su relación con la entidad Role y los Value Objects LeaderId y MemberId. Esta estructura garantiza la integridad de los datos de autenticación mientras mantiene una conexión desacoplada con otros contextos mediante eventos de dominio y referencias de identidad externas.
 
+<img src="assets/chapter5/iam/iam-component.png" alt="interview 1" width="800"/>
 
 ### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
 
+#### 5.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+El diagrama de la capa de dominio de IAM ilustra la lógica central de identidad mediante patrones tácticos de `DDD`. Se destaca el Agregado Raíz `User`, que gestiona el estado del usuario y se vincula con entidades de `Role` para la seguridad. El modelo utiliza `Value Objects` (`LeaderId`, `MemberId`) para referenciar perfiles externos y define `Interfaces` de servicios y repositorios que garantizan la independencia tecnológica. Finalmente, los `Eventos de Dominio` aseguran la sincronización asíncrona con otros contextos tras el registro de usuarios.
 
-### 5.1.7. Bounded Context Domain Layer Class Diagrams
+<img src="assets/chapter5/iam/iam-uml.png" alt="interview 1" width="800"/>
 
+#### 5.1.6.2. Bounded Context Database Design Diagram
 
+El diseño de persistencia para el microservicio de IAM se basa en un esquema relacional normalizado para la gestión segura de identidades y accesos. El modelo se compone de tres tablas clave: `users`, que almacena las credenciales y referencias externas (`leader_id`, `member_id`); `roles`, que centraliza el catálogo de permisos; y `user_roles`, que actúa como tabla de unión para permitir una asignación flexible de roles de tipo muchos a muchos. Este diseño garantiza la integridad referencial y una alta eficiencia en los procesos de `autenticación` y `autorización`.
 
-### 5.1.8. Bounded Context Database Design Diagram
-
-
+<img src="assets/chapter5/iam/iam-db.png" alt="interview 1" width="800"/>
 
 ## 5.2. Bounded Context: Groups
 
