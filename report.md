@@ -2883,7 +2883,7 @@ Vistas parciales del diagrama de componentes:
 
 #### 5.6.6.2. Bounded Context Database Design Diagram
 
-
+[![Notification-Database.png](https://i.postimg.cc/HL0DGJxZ/Notification-Database.png)](https://postimg.cc/mcr6Cg7C)
 
 # Capítulo VI: Solution UX Design
 
