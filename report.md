@@ -2631,6 +2631,63 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 
 ---
 
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `SendGridConfig`
+
+**Propósito:** Configura el cliente de SendGrid para el envío de correos electrónicos vía SMTP.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `sendGridClient()` | `SendGrid` | Cliente de SendGrid configurado con API Key desde variables de entorno |
+| `mailSender()` | `JavaMailSender` | MailSender de Spring para envío SMTP (alternativa a SendGrid directo) |
+
+**Propiedades configuradas:**
+
+| Propiedad | Descripción |
+| :--- | :--- |
+| `sendgrid.api-key` | API Key de SendGrid (desde secrets) |
+| `sendgrid.from-email` | Email remitente (ej: noreply@synhub.com) |
+| `sendgrid.from-name` | Nombre del remitente (ej: SynHub) |
+
+---
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente WebClient con balanceo de carga para comunicación síncrona con IAM Service.
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+| `iamServiceWebClient()` | `WebClient` | WebClient específico para IAM Service con timeout configurado |
+
+---
+
+##### 3. `SchedulerConfig`
+
+**Propósito:** Configura el scheduler para el procesamiento programado de notificaciones pendientes.
+
+**Propiedades configuradas:**
+
+| Propiedad | Valor | Descripción |
+| :--- | :--- | :--- |
+| `notifications.batch-size` | 100 | Número máximo de notificaciones a procesar por lote |
+| `notifications.scheduler.cron` | `0 */5 * * * *` | Ejecutar cada 5 minutos |
+| `notifications.retry-delay-ms` | 5000 | Retraso entre reintentos (5 segundos) |
+
+**Beans expuestos:**
+
+| Bean | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationProcessingScheduler()` | `TaskScheduler` | Scheduler para enviar notificaciones pendientes automáticamente |
+| `failedNotificationRetryScheduler()` | `TaskScheduler` | Scheduler para reintentar notificaciones fallidas |
+
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 
