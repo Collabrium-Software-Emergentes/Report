@@ -2841,34 +2841,262 @@ Se divide en:
 
 ### 5.4.1. Domain Layer
 
+En esta capa se define el nucleo de la gestion de solicitudes asociadas a tareas, encapsulando reglas de negocio para tipo de solicitud, estado y relacion con Task.
 
+**Aggregate: Request**
+
+El agregado Request es la raiz que gestiona solicitudes dentro del sistema, garantizando consistencia de tipo, estado y referencia a la tarea.
+
+| Atributos | Tipo de dato | Visibilidad | Descripcion |
+|---|---|---|---|
+| id | Long | Private | Identificador unico de la solicitud (heredado). |
+| description | String | Private | Descripcion de la solicitud. |
+| requestType | RequestType | Private | Tipo de solicitud. |
+| requestStatus | RequestStatus | Private | Estado actual de la solicitud. |
+| taskId | TaskId | Private | Identificador de la tarea asociada. |
+| createdAt | OffsetDateTime | Private | Fecha de creacion UTC (heredado). |
+| updatedAt | OffsetDateTime | Private | Fecha de ultima actualizacion UTC (heredado). |
+
+| Metodos | Tipo de retorno | Visibilidad | Descripcion |
+|---|---|---|---|
+| Request(CreateRequestCommand) | Constructor | Public | Crea una solicitud a partir de un comando. |
+| getRequestType() | String | Public | Devuelve el tipo de solicitud como texto. |
+| getRequestStatus() | String | Public | Devuelve el estado de la solicitud como texto. |
+| updateRequestStatus(String) | void | Public | Actualiza el estado de la solicitud. |
+| getId() | Long | Public | Devuelve el ID de la solicitud (heredado). |
+| getTaskId() | TaskId | Public | Devuelve el ID de la tarea asociada. |
+| getCreatedAt() | OffsetDateTime | Public | Devuelve la fecha de creacion (heredado). |
+| getUpdatedAt() | OffsetDateTime | Public | Devuelve la fecha de actualizacion (heredado). |
+
+**Value Objects**
+
+| Value Object | Descripcion |
+|---|---|
+| TaskId | Record embebible que representa el ID de tarea. Valida que no sea null ni menor o igual a cero. |
+| RequestType | Enumeracion de tipos permitidos: SUBMISSION, MODIFICATION, EXPIRED. Incluye fromString con validacion. |
+| RequestStatus | Enumeracion de estados permitidos: PENDING, APPROVED, REJECTED. Incluye fromString con validacion. |
+
+**Commands**
+
+| Command | Descripcion |
+|---|---|
+| CreateRequestCommand | Crea una solicitud con description, requestType y taskId. |
+| UpdateRequestCommand | Actualiza el estado de una solicitud por requestId. |
+| DeleteRequestCommand | Elimina una solicitud por requestId. |
+| DeleteAllRequestsByTaskIdCommand | Elimina solicitudes por taskId (actualmente pendiente de implementacion). |
+
+**Queries**
+
+| Query | Descripcion |
+|---|---|
+| GetAllRequestsQuery | Recupera todas las solicitudes. |
+| GetRequestsByTaskIdQuery | Recupera solicitudes de una tarea especifica. |
+| GetRequestByIdQuery | Recupera una solicitud por ID. |
+
+**Clase: RequestQueryService**
+
+| Titulo | RequestQueryService |
+|---|---|
+| Descripcion | Interfaz de servicio de consultas para operaciones de lectura de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(GetAllRequestsQuery) | Recupera todas las solicitudes registradas. |
+| handle(GetRequestsByTaskIdQuery) | Recupera solicitudes por ID de tarea. |
+| handle(GetRequestByIdQuery) | Busca una solicitud por su identificador unico. |
+
+**Clase: RequestCommandService**
+
+| Titulo | RequestCommandService |
+|---|---|
+| Descripcion | Interfaz de servicio de comandos para gestion de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Crea una nueva solicitud y devuelve su ID. |
+| handle(UpdateRequestCommand) | Actualiza una solicitud existente y devuelve el agregado actualizado. |
+| handle(DeleteRequestCommand) | Elimina una solicitud por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Elimina todas las solicitudes de una tarea. |
+
+**Excepciones de Dominio**
+
+| Excepcion | Descripcion |
+|---|---|
+| IllegalArgumentException | Se usa para validaciones de tipo, estado, existencia de request o task, y errores en update/delete. |
 
 ### 5.4.2. Interface Layer
 
+La capa de interfaz del contexto Requests expone endpoints REST para crear, consultar, actualizar y eliminar solicitudes. Tambien expone endpoints agregados orientados a lider y miembro de grupo, apoyandose en clientes externos para validaciones y enriquecimiento de respuesta.
 
+**Controlador: RequestController**
+
+Maneja operaciones CRUD de solicitudes ligadas a una tarea.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| createRequest | POST /api/v1/tasks/{taskId}/requests | Crea una solicitud para una tarea, validando miembro y pertenencia. |
+| getRequestsByTaskId | GET /api/v1/tasks/{taskId}/requests | Lista solicitudes de una tarea. |
+| getRequestById | GET /api/v1/tasks/{taskId}/requests/{requestId} | Recupera una solicitud especifica de la tarea. |
+| updateRequestStatus | PUT /api/v1/tasks/{taskId}/requests/{requestId}/status/{status} | Actualiza el estado de una solicitud. |
+| deleteRequestById | DELETE /api/v1/tasks/{taskId}/requests/{requestId} | Elimina una solicitud por ID. |
+
+**Controlador: GroupRequestController**
+
+Expone consultas agregadas de solicitudes para lider y miembro, combinando datos de grupos, tareas y requests.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| getAllRequestsFromGroup | GET /api/v1/leader/group/requests | Obtiene solicitudes de todas las tareas del grupo del lider autenticado. |
+| getAllRequestsFromMember | GET /api/v1/member/group/requests | Obtiene solicitudes de todas las tareas del miembro autenticado. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestCommandService | Ejecuta comandos de creacion, actualizacion y eliminacion. |
+| RequestQueryService | Ejecuta consultas de lectura de solicitudes. |
+| TaskServiceClient | Consulta tareas y miembros para validaciones y enriquecimiento. |
+| GroupServiceClient | Consulta lider y grupo en endpoints agregados. |
+| CreateRequestCommandFromResourceAssembler | Mapea recurso HTTP de creacion a CreateRequestCommand. |
+| UpdateRequestCommandFromResourceAssembler | Mapea datos de actualizacion a UpdateRequestCommand. |
+| RequestResourceFromEntityAssembler | Convierte entidad Request y detalles de tarea a RequestResource. |
+| RequestDetailsResourceFromEntityAssembler | Convierte entidad Request a recurso de detalle. |
+| TaskResourceFromEntityAssembler | Convierte recurso externo de tarea a recurso local. |
+| TaskMemberResourceFromEntityAssembler | Convierte recurso externo de miembro a recurso local. |
+
+**Recursos**
+
+| Recurso | Descripcion |
+|---|---|
+| CreateRequestResource | Contiene description y requestType para crear solicitud. |
+| RequestResource | Respuesta completa de solicitud con tarea enriquecida. |
+| RequestDetailsResource | Respuesta resumida con taskId embebido. |
+| TaskResource | Recurso local para datos de tarea remota. |
+| TaskMemberResource | Recurso local para datos de miembro de tarea. |
+
+**ACL (Anticorruption Layer)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient | Interfaz ACL para comunicacion con tasks-service. |
+| TaskServiceClientImpl | Implementacion ACL basada en WebClient y service discovery. |
+| GroupServiceClient | Interfaz ACL para comunicacion con groups-service. |
+| GroupServiceClientImpl | Implementacion ACL para obtener lider y grupo remoto. |
+| GroupRequestController | Orquesta datos entre contextos para consultas agregadas. |
 
 ### 5.4.3. Application Layer
 
+Los servicios internos implementan la orquestacion del contexto Requests. Validan reglas, llaman a repositorios y coordinan integraciones con otros microservicios.
 
+**Clase: RequestCommandServiceImpl**
+
+| Titulo | RequestCommandServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de comandos para crear, actualizar y eliminar solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Persistencia de solicitudes. |
+| TaskServiceClient | Verificacion de existencia de tarea en la creacion. |
+
+**Metodos relevantes**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Valida requestType, verifica task existente y persiste Request. |
+| handle(UpdateRequestCommand) | Verifica existencia, actualiza estado y guarda cambios. |
+| handle(DeleteRequestCommand) | Verifica existencia y elimina por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Pendiente (TODO). |
+
+**Clase: RequestQueryServiceImpl**
+
+| Titulo | RequestQueryServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de consultas para lecturas de solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Acceso a datos para consultas por ID y por taskId. |
+
+**Clientes de Aplicacion (Integraciones)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient / TaskServiceClientImpl | Obtiene task simple, task detalle, miembro por username/memberId y tareas por grupo/miembro. |
+| GroupServiceClient / GroupServiceClientImpl | Obtiene lider por username y grupo por leaderId. |
 
 ### 5.4.4. Infrastructure Layer
 
+Esta capa implementa la persistencia JPA y configuraciones tecnicas para conectividad y documentacion.
 
+**Clase: RequestRepository**
+
+| Titulo | RequestRepository |
+|---|---|
+| Descripcion | Repositorio Spring Data JPA para operaciones CRUD y consultas por tarea. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| findById(Long) | Recupera una solicitud por ID (heredado de JpaRepository). |
+| findAll() | Recupera todas las solicitudes (heredado de JpaRepository). |
+| save(Request) | Persiste o actualiza solicitud (heredado de JpaRepository). |
+| findByTaskId(TaskId) | Recupera solicitudes por taskId. |
+| deleteByTaskId(TaskId) | Elimina solicitudes por taskId. |
+
+**Clase: WebClientConfig**
+
+| Titulo | WebClientConfig |
+|---|---|
+| Descripcion | Define WebClient.Builder con @LoadBalanced para resolver servicios por nombre en Eureka. |
+
+**Clase: OpenApiConfiguration**
+
+| Titulo | OpenApiConfiguration |
+|---|---|
+| Descripcion | Configura metadatos de OpenAPI/Swagger para el servicio Requests. |
+
+**Clase: AuditableAbstractAggregateRoot**
+
+| Titulo | AuditableAbstractAggregateRoot |
+|---|---|
+| Descripcion | Base compartida para agregados con id, createdAt, updatedAt y hooks @PrePersist/@PreUpdate. |
 
 ### 5.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama representa como el Bounded Context de Requests gestiona solicitudes asociadas a tareas.
+RequestController y GroupRequestController actuan como puertas de entrada para comandos y consultas. Ambos delegan en RequestCommandService y RequestQueryService. A su vez, la capa de aplicacion integra tareas y grupos mediante clientes ACL (TaskServiceClient y GroupServiceClient). La persistencia se realiza en base de datos relacional a traves de RequestRepository.
 
+![Bounded Context Request - component level diagram](https://i.ibb.co/C5MGvfTK/Requests-Component-View-dark.png)
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-
+En esta seccion se explican diagramas con mayor detalle de la implementacion de componentes del bounded context Requests.
 
 ### 5.4.7. Bounded Context Domain Layer Class Diagrams
 
+Este diagrama muestra la estructura interna del dominio de Requests, destacando el aggregate "Request", sus value objects, los commands y queries que usa para operar, y los servicios de dominio que coordinan las reglas del contexto.
 
+[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
+El diseño de este esquema de base de datos refleja una estructura de tabla única "requests" que encapsula el agregado Request dentro del bounded context. El atributo "task_id" se persiste como un Value Object embebible sin restricción de clave foránea, manteniendo autonomía del contexto y evitando acoplamiento directo con la tabla de tareas en el servicio remoto. Finalmente, resaltar que las columnas "created_at" y "updated_at" heredan del patrón "AuditableAbstractAggregateRoot".
+
+[![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
 
 ## 5.5. Bounded Context: Metrics
