@@ -2410,7 +2410,10 @@ Esta capa implementa la persistencia JPA y configuraciones tecnicas para conecti
 
 ### 5.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama representa como el Bounded Context de Requests gestiona solicitudes asociadas a tareas.
+RequestController y GroupRequestController actuan como puertas de entrada para comandos y consultas. Ambos delegan en RequestCommandService y RequestQueryService. A su vez, la capa de aplicacion integra tareas y grupos mediante clientes ACL (TaskServiceClient y GroupServiceClient). La persistencia se realiza en base de datos relacional a traves de RequestRepository.
 
+![Bounded Context Request - component level diagram](https://i.ibb.co/C5MGvfTK/Requests-Component-View-dark.png)
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
