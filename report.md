@@ -2506,9 +2506,96 @@ Estos recursos representan los datos que el servidor devuelve al cliente como re
 | `GET` | `/api/v1/notifications/failed` | Lista todas las notificaciones fallidas pendientes de reintento | `notificationQueryService.handle(GetFailedNotificationsQuery)` |
 | `POST` | `/api/v1/notifications/failed/retry-all` | Reintenta todas las notificaciones fallidas pendientes | `notificationCommandService.handle(RetryAllFailedNotificationsCommand)` |
 
+---
+
+#### Resumen de Controllers
+
+| Controller | Base Path | Propósito principal |
+| :--- | :--- | :--- |
+| `NotificationController` | `/api/v1/notifications` | Consulta y gestión de notificaciones (obtener, listar por usuario, cancelar pendientes, ver logs) |
+| `NotificationRetryController` | `/api/v1/notifications` | Reintento de notificaciones fallidas (reintentar individual, listar fallidas, reintentar todas) |
+
 ### 5.6.3. Application Layer
 
+#### Command Services
 
+##### 1. `NotificationCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de notificaciones (crear, cancelar, reintentar, marcar como enviadas/fallidas).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationRepository` | `NotificationRepository` | Repositorio para persistir agregados `Notification` |
+| `emailDeliveryLogRepository` | `EmailDeliveryLogRepository` | Repositorio para registrar intentos de envío |
+| `notificationDeliveryService` | `NotificationDeliveryService` | Servicio de infraestructura para enviar correos vía SendGrid SMTP |
+| `iamServiceClient` | `IamServiceClient` | Cliente HTTP para obtener el email del usuario desde IAM Service |
+
+**Comandos manejados:**
+
+| Comando | Descripción | Servicio invocado |
+| :--- | :--- | :--- |
+| `CreateNotificationCommand` | Crea una nueva notificación en estado PENDING | Crea `Notification` con userId, subject, content, eventType y la persiste |
+| `CancelNotificationCommand` | Cancela una notificación pendiente | Verifica que `status = PENDING`, cambia estado a FAILED o elimina según política |
+| `RetryNotificationCommand` | Reintenta el envío de una notificación fallida | Verifica `canRetry()`, incrementa retryCount, delega en `NotificationDeliveryService` |
+| `MarkNotificationAsSentCommand` | Marca una notificación como enviada exitosamente | Ejecuta `markAsSent()`, persiste cambio, crea `EmailDeliveryLog` |
+| `MarkNotificationAsFailedCommand` | Marca una notificación como fallida | Ejecuta `markAsFailed()`, persiste cambio, crea `EmailDeliveryLog` |
+| `RetryAllFailedNotificationsCommand` | Reintenta todas las notificaciones fallidas pendientes | Obtiene notificaciones con `status = FAILED` y `canRetry() = true`, ejecuta reintento por cada una |
+
+---
+
+##### 2. `NotificationDeliveryService` (Infrastructure Service expuesto vía Application Layer)
+
+**Propósito:** Encapsula la lógica de envío real de correos electrónicos a través de SendGrid SMTP, incluyendo la obtención del email del destinatario desde IAM Service.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `sendGridClient` | `SendGridClient` | Cliente SMTP de SendGrid para enviar correos |
+
+**Métodos principales:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `send()` | Obtiene la notificación, consulta el email en IAM Service, envía vía SendGrid, registra log y actualiza estado |
+
+---
+
+#### Query Services
+
+##### 1. `NotificationQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con notificaciones para recuperar información sin modificar el estado.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationRepository` | `NotificationRepository` | Repositorio para consultar notificaciones |
+| `emailDeliveryLogRepository` | `EmailDeliveryLogRepository` | Repositorio para consultar logs de envío |
+
+**Consultas manejadas:**
+
+| Consulta | Descripción | Retorno |
+| :--- | :--- | :--- |
+| `GetNotificationByIdQuery` | Obtiene una notificación por su ID | `Optional<Notification>` |
+| `GetNotificationsByUserIdQuery` | Lista todas las notificaciones de un usuario | `List<Notification>` |
+| `GetPendingNotificationsByUserIdQuery` | Lista notificaciones pendientes de un usuario | `List<Notification>` |
+| `GetNotificationStatusQuery` | Obtiene el estado actual de una notificación | `NotificationStatus` con metadatos |
+| `GetDeliveryLogsByNotificationIdQuery` | Obtiene todos los intentos de envío de una notificación | `List<EmailDeliveryLog>` |
+| `GetFailedNotificationsQuery` | Lista notificaciones fallidas pendientes de reintento | `List<Notification>` |
+
+---
+
+#### Resumen de servicios de aplicación
+
+| Servicio | Tipo | Propósito principal |
+| :--- | :--- | :--- |
+| `NotificationCommandServiceImpl` | Command Service | Crear, cancelar, reintentar y actualizar estado de notificaciones |
+| `NotificationDeliveryService` | Infrastructure Service | Envío real de correos vía SendGrid con obtención de email desde IAM |
+| `NotificationQueryServiceImpl` | Query Service | Consultas de lectura sobre notificaciones y logs |
 
 ### 5.6.4. Infrastructure Layer
 
