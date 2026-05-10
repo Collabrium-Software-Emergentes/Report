@@ -2823,18 +2823,18 @@ Se divide en:
 
 ### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-
+<img src="assets/chapter5/tasks/tasks-components.png" alt="interview 1" width="800"/>
 
 ### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
 
+### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
+
+<img src="assets/chapter5/tasks/tasks-uml.png" alt="interview 1" width="600"/>
 
 
-### 5.3.7. Bounded Context Domain Layer Class Diagrams
+### 5.3.6.2 Bounded Context Database Design Diagram
 
-
-
-### 5.3.8. Bounded Context Database Design Diagram
-
+<img src="assets/chapter5/tasks/tasks-db.png" alt="interview 1" width="600"/>
 
 
 ## 5.4. Bounded Context: Requests
