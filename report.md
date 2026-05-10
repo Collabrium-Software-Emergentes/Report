@@ -2712,6 +2712,157 @@ Clases de configuración técnicas que definen beans y parámetros de infraestru
 
 ---
 
+#### Mensajería (Messaging)
+
+La capa de infraestructura de mensajería maneja la comunicación asíncrona con otros microservicios a través de RabbitMQ. Para Notifications, el flujo es **entrante**: recibe eventos de otros contextos para crear notificaciones.
+
+##### Listeners (Consumidores)
+
+###### 1. `MemberJoinedEventListener`
+
+**Propósito:** Escucha eventos de miembros que se unen a un grupo (provenientes de Groups Service) y crea una notificación de bienvenida.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `MemberJoinedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del miembro que se unió |
+| `groupId` | ID del grupo al que se unió |
+| `groupName` | Nombre del grupo |
+| `joinedAt` | Fecha de unión |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `groupName` del evento |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = MEMBER_JOINED` |
+| Contenido generado | "Bienvenido al grupo {groupName}" |
+
+---
+
+###### 2. `MemberLeftEventListener`
+
+**Propósito:** Escucha eventos de miembros que abandonan un grupo (provenientes de Groups Service) y crea una notificación de salida.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `MemberLeftEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del miembro que abandonó |
+| `groupId` | ID del grupo que abandonó |
+| `groupName` | Nombre del grupo |
+| `leftAt` | Fecha de salida |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `groupName` del evento |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = MEMBER_LEFT` |
+| Contenido generado | "Has salido del grupo {groupName}" |
+
+---
+
+###### 3. `InvitationSentEventListener`
+
+**Propósito:** Escucha eventos de invitaciones enviadas (provenientes de Groups Service) y crea una notificación de invitación.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `InvitationSentEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `invitedUserId` | ID del usuario invitado |
+| `groupId` | ID del grupo al que fue invitado |
+| `groupName` | Nombre del grupo |
+| `inviterName` | Nombre de quien envió la invitación |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `invitedUserId`, `groupName`, `inviterName` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = INVITATION_SENT` |
+| Contenido generado | "{inviterName} te ha invitado al grupo {groupName}" |
+
+---
+
+###### 4. `TaskAssignedEventListener`
+
+**Propósito:** Escucha eventos de tareas asignadas (provenientes de Tasks Service) y crea una notificación de asignación.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `TaskAssignedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `userId` | ID del usuario asignado a la tarea |
+| `taskId` | ID de la tarea |
+| `taskTitle` | Título de la tarea |
+| `groupId` | ID del grupo |
+| `assignedBy` | Nombre de quien asignó la tarea |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId`, `taskTitle`, `assignedBy` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = TASK_ASSIGNED` |
+| Contenido generado | "{assignedBy} te ha asignado la tarea: {taskTitle}" |
+
+---
+
+###### 5. `GroupCreatedEventListener`
+
+**Propósito:** Escucha eventos de grupos creados (provenientes de Groups Service) y crea una notificación de confirmación para el líder.
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `notificationCommandService` | `NotificationCommandService` | Servicio de aplicación para crear notificaciones |
+
+**Evento esperado:** `GroupCreatedEvent`
+
+| Campo del evento | Descripción |
+| :--- | :--- |
+| `leaderId` | ID del líder que creó el grupo |
+| `groupId` | ID del grupo creado |
+| `groupName` | Nombre del grupo |
+| `groupCode` | Código único del grupo |
+
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `leaderId`, `groupName`, `groupCode` |
+| Comando ejecutado | `CreateNotificationCommand` con `eventType = GROUP_CREATED` |
+| Contenido generado | "Tu grupo {groupName} ha sido creado. Código de invitación: {groupCode}" |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría | Componentes | Cantidad |
+| :--- | :--- | :--- |
+| **JPA Repositories** | `NotificationRepository`, `EmailDeliveryLogRepository` | 2 |
+| **Configuración** | `SendGridConfig`, `WebClientConfig`, `SchedulerConfig` | 3 |
+| **HTTP Clients** | `IamServiceClient` | 1 |
+| **Messaging (Listeners)** | `MemberJoinedEventListener`, `MemberLeftEventListener`, `InvitationSentEventListener`, `TaskAssignedEventListener`, `GroupCreatedEventListener` | 5 |
+
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 
