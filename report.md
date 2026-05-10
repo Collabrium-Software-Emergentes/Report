@@ -2427,6 +2427,9 @@ Este diagrama muestra la estructura interna del dominio de Requests, destacando 
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
+El diseño de este esquema de base de datos refleja una estructura de tabla única "requests" que encapsula el agregado Request dentro del bounded context. El atributo "task_id" se persiste como un Value Object embebible sin restricción de clave foránea, manteniendo autonomía del contexto y evitando acoplamiento directo con la tabla de tareas en el servicio remoto. Finalmente, resaltar que las columnas "created_at" y "updated_at" heredan del patrón "AuditableAbstractAggregateRoot".
+
+[![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
 
 ## 5.5. Bounded Context: Metrics
