@@ -2688,6 +2688,30 @@ Clases de configuración técnicas que definen beans y parámetros de infraestru
 | `notificationProcessingScheduler()` | `TaskScheduler` | Scheduler para enviar notificaciones pendientes automáticamente |
 | `failedNotificationRetryScheduler()` | `TaskScheduler` | Scheduler para reintentar notificaciones fallidas |
 
+---
+
+#### Clientes HTTP (HTTP Clients)
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Cliente HTTP para comunicarse con IAM Service y obtener información de usuarios (email, nombre, etc.).
+
+**Dependencias inyectadas:**
+
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
+| `webClient` | `WebClient` | WebClient balanceado para IAM Service |
+
+**Métodos:**
+
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| `getUserEmail(userId, authHeader)` | `GET /api/v1/users/{userId}/email` | Obtiene el email de un usuario por su ID |
+| `getUserInfo(userId, authHeader)` | `GET /api/v1/users/{userId}` | Obtiene información completa del usuario (nombre, email, etc.) |
+| `userExists(userId, authHeader)` | `HEAD /api/v1/users/{userId}` | Verifica si un usuario existe |
+
+---
+
 ### 5.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 
