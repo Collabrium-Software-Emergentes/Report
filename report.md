@@ -2306,7 +2306,9 @@ Parte de microservicios:
 
 ### 6.3.1. Landing Page Wireframe
 
+Los wireframes de la landing page de Synhub definen la estructura clave y la distribución de elementos, garantizando una presentación clara y atractiva para el usuario. Estos esquemas visuales aseguran que la información esencial se comunique de manera eficiente, optimizando la experiencia desde el primer contacto.
 
+[![Landing Page Wireframe](https://i.ibb.co/Y742vdKd/wireframe.png)](https://ibb.co/Kjc6CsQs)
 
 ### 6.3.2. Landing Page Mock-up
 
