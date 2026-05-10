@@ -75,20 +75,22 @@
   - [Integrantes](#integrantes)
   - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
   - [Project Report Collaboration Insights](#project-report-collaboration-insights)
+    - [TB1:](#tb1)
+    - [TB2:](#tb2)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
-- [1. Capítulo I: Introducción](#1-capítulo-i-introducción)
-  - [1.1. Startup Profile](#11-startup-profile)
+- [**Capítulo I: Introducción**](#capítulo-i-introducción)
+  - [**1.1. Startup Profile**](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
-  - [1.2. Solution Profile](#12-solution-profile)
-    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
-    - [1.2.2. Lean UX Process](#122-lean-ux-process)
-      - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
-      - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-      - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
-      - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
-  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+  - [**1.2. Solution Profile**](#12-solution-profile)
+    - [1.2.1 Nombre del producto](#121-nombre-del-producto)
+    - [1.2.2 Antecedentes y problemática](#122-antecedentes-y-problemática)
+    - [1.2.3. Lean UX Process](#123-lean-ux-process)
+      - [1.2.3.1. Lean UX Problem Statements](#1231-lean-ux-problem-statements)
+      - [1.2.3.2. Lean UX Assumptions](#1232-lean-ux-assumptions)
+      - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
+      - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
+  - [**1.3. Segmento objetivo**](#13-segmento-objetivo)
 - [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -99,9 +101,17 @@
     - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
   - [2.3. Needfinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
+      - [A. User Persona: Coordinador de equipos](#a-user-persona-coordinador-de-equipos)
+      - [B. User Persona: Miembro de equipo](#b-user-persona-miembro-de-equipo)
     - [2.3.2. User Task Matrix](#232-user-task-matrix)
+      - [A. Segmento 1: Coordinadores o Líderes de Grupo](#a-segmento-1-coordinadores-o-líderes-de-grupo)
+      - [B. Segmento 2: Miembros del Equipo o Grupo](#b-segmento-2-miembros-del-equipo-o-grupo)
     - [2.3.3. Empathy Mapping](#233-empathy-mapping)
+      - [A. Empathy Map: Coordinador de equipos](#a-empathy-map-coordinador-de-equipos)
+      - [B. Empathy Map: Miembro de equipo](#b-empathy-map-miembro-de-equipo)
     - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
+      - [A. As-is Segmento 1: Coordinador de equipos](#a-as-is-segmento-1-coordinador-de-equipos)
+      - [B. As-is Segmento 2: Miembro de equipo](#b-as-is-segmento-2-miembro-de-equipo)
   - [2.4. Ubiquitous Language](#24-ubiquitous-language)
 - [3. Capítulo III: Requirements Specification](#3-capítulo-iii-requirements-specification)
   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
@@ -111,6 +121,7 @@
 - [4. Capítulo IV: Strategic-Level Software Design](#4-capítulo-iv-strategic-level-software-design)
   - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#411-design-purpose)
+  - [Enfoque Arquitectónico](#enfoque-arquitectónico)
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -137,8 +148,8 @@
     - [5.1.4. Infrastructure Layer](#514-infrastructure-layer)
     - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams)
     - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
-    - [5.1.7. Bounded Context Domain Layer Class Diagrams](#517-bounded-context-domain-layer-class-diagrams)
-    - [5.1.8. Bounded Context Database Design Diagram](#518-bounded-context-database-design-diagram)
+      - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams)
+      - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram)
   - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
     - [5.2.1. Domain Layer](#521-domain-layer)
     - [5.2.2. Interface Layer](#522-interface-layer)
@@ -150,13 +161,68 @@
       - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
+      - [Aggregate Root: `Task`](#aggregate-root-task)
+        - [Métodos](#métodos)
+        - [Invariantes de negocio](#invariantes-de-negocio)
+      - [Aggregate Root: `Member`](#aggregate-root-member)
+        - [Métodos](#métodos-1)
+        - [Invariantes de negocio](#invariantes-de-negocio-1)
+      - [Value Object: `GroupId`](#value-object-groupid)
+        - [Atributos](#atributos)
+        - [Métodos](#métodos-2)
+        - [Invariantes](#invariantes)
+      - [Value Object: `TaskStatus`](#value-object-taskstatus)
+        - [Valores](#valores)
+        - [Métodos](#métodos-3)
+        - [Invariantes](#invariantes-1)
     - [5.3.2. Interface Layer](#532-interface-layer)
+    - [Recursos de entrada (Request)](#recursos-de-entrada-request)
+        - [`CreateTaskResource`](#createtaskresource)
+        - [`UpdateTaskResource`](#updatetaskresource)
+        - [`CreateMemberResource`](#creatememberresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response)
+        - [`TaskResource`](#taskresource)
+        - [`TaskMemberResource`](#taskmemberresource)
+        - [`MemberResource`](#memberresource)
+        - [`MemberOnlyResource`](#memberonlyresource)
+        - [`ExtendedGroupResource`](#extendedgroupresource)
+      - [Resumen de recursos](#resumen-de-recursos)
+      - [Controllers](#controllers)
+        - [1. `MemberController`](#1-membercontroller)
+        - [2. `MemberTaskController`](#2-membertaskcontroller)
+        - [3. `TaskController`](#3-taskcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers)
     - [5.3.3. Application Layer](#533-application-layer)
+      - [Command Services](#command-services)
+        - [1. `MemberCommandServiceImpl`](#1-membercommandserviceimpl)
+        - [2. `TaskCommandServiceImpl`](#2-taskcommandserviceimpl)
+      - [Query Services](#query-services)
+        - [1. `MemberQueryServiceImpl`](#1-memberqueryserviceimpl)
+        - [2. `TaskQueryServiceImpl`](#2-taskqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura)
+        - [1. `IamServiceClient`](#1-iamserviceclient)
+        - [2. `GroupsServiceClient`](#2-groupsserviceclient)
     - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories)
+        - [1. `MemberRepository`](#1-memberrepository)
+        - [2. `TaskRepository`](#2-taskrepository)
+      - [Configuración (Configuration)](#configuración-configuration)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig)
+      - [Mensajería (Messaging)](#mensajería-messaging)
+    - [Publishers](#publishers)
+        - [1. `IamEventPublisher`](#1-iameventpublisher)
+        - [2. `GroupEventsPublisher`](#2-groupeventspublisher)
+    - [Listeners (Consumidores)](#listeners-consumidores)
+        - [1. `MemberCreatedEventListener`](#1-membercreatedeventlistener)
+        - [2. `InvitationAcceptedEventListener`](#2-invitationacceptedeventlistener)
+        - [3. `MemberRemovedEventListener`](#3-memberremovedeventlistener)
+        - [4. `GroupDeletedEventListener`](#4-groupdeletedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura)
     - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
     - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
-    - [5.3.7. Bounded Context Domain Layer Class Diagrams](#537-bounded-context-domain-layer-class-diagrams)
-    - [5.3.8. Bounded Context Database Design Diagram](#538-bounded-context-database-design-diagram)
+    - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
+    - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
   - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
     - [5.4.1. Domain Layer](#541-domain-layer)
     - [5.4.2. Interface Layer](#542-interface-layer)
@@ -187,7 +253,7 @@
 - [6. Capítulo VI: Solution UX Design](#6-capítulo-vi-solution-ux-design)
   - [6.1. Style Guidelines](#61-style-guidelines)
     - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
-    - [6.1.2. Web, Mobile & Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+    - [6.1.2. Web, Mobile \& Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
   - [6.2. Information Architecture](#62-information-architecture)
     - [6.2.1. Labeling Systems](#621-labeling-systems)
     - [6.2.2. Searching Systems](#622-searching-systems)
@@ -199,6 +265,9 @@
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+  - [Conclusiones](#conclusiones)
+    - [TB1:](#tb1-1)
+    - [TB2:](#tb2-1)
 
 ## Student Outcome
 
@@ -2068,39 +2137,377 @@ Parte de microservicios:
 
 ## 5.1. Bounded Context: Iam
 
-
-
 ### 5.1.1. Domain Layer
 
+La Capa de Dominio del Bounded Context de IAM es el núcleo de la lógica de negocio para la seguridad y gestión de identidades. En esta capa se define el Aggregate Root: User, que actúa como la unidad de consistencia principal, asegurando que las reglas de autenticación y la vinculación con perfiles de negocio (Member/Leader) se cumplan rigurosamente.
 
+<strong style="font-size: 1.2em;">Aggregate Root: `User`</strong>
+
+Descripción: Es el Agregado Raíz que representa la identidad de un usuario. Aunque se implementa técnicamente como una entidad JPA para su persistencia, en el diseño táctico actúa como la raíz que encapsula el estado de seguridad, los datos personales y la relación con los roles y perfiles externos mediante Value Objects.
+
+| Atributo          | Tipo           | Visibilidad | Invariante / Regla de negocio                                                                       |
+| :---------------- | :------------- | :---------- | :-------------------------------------------------------------------------------------------------- |
+| `id`              | Long           | Private     | Único y obligatorio. Heredado de AuditableAbstractAggregateRoot.                                   |
+| `username`        | String         | Private     | No nulo ni vacío. Debe ser único en la base de datos y tener una longitud máxima de 50 caracteres. |
+| `name`            | String         | Private     | No nulo. Máximo 50 caracteres. Representa el nombre legal del usuario.                             |
+| `surname`         | String         | Private     | No nulo. Máximo 50 caracteres. Representa el apellido legal del usuario.                           |
+| `imgUrl`          | String         | Private     | Obligatorio. Debe ser una URL válida con un máximo de 1024 caracteres.                             |
+| `email`           | String         | Private     | Único y obligatorio. Debe seguir el formato de correo electrónico estándar. No puede duplicarse.   |
+| `password`        | String         | Private     | No nulo. Debe almacenarse mediante un hash seguro. Longitud máxima en BD de 120 caracteres.       |
+| `roles`           | Set<Role>      | Private     | Estado consistente. Nunca puede ser nulo; se inicializa como un HashSet vacío. Al persistirse, debe tener al menos un rol asignado. |
+| `leaderId`        | LeaderId       | Private     | Opcional. Si está presente, el valor interno debe ser un entero positivo (>0).                     |
+| `memberId`        | MemberId       | Private     | Opcional. Si está presente, el valor interno debe ser un entero positivo (>0).                     |
+
+<strong style="font-size: 1em;">Métodos</strong>
+
+| Nombre del Método      | Tipo Retorno | Visibilidad | Descripción / Regla de Negocio                                                                          |
+| :--------------------- | :----------- | :---------- | :------------------------------------------------------------------------------------------------------- |
+| `User()`               | N/A          | Public      | Constructor por defecto. Inicializa el conjunto de roles como un HashSet vacío.                         |
+| `User(username, ...)` | N/A          | Public      | Constructor sobrecargado para la creación de usuarios con datos básicos.                                |
+| `addRole(role)`        | User         | Public      | Añade un objeto Role al conjunto de roles del usuario. Retorna la instancia de User.                    |
+| `addRoles(roles)`      | User         | Public      | Valida y añade una lista de roles. Utiliza Role.validateRoleSet para asegurar la consistencia.         |
+
+<strong style="font-size: 1.2em;">Entity: `Role`</strong>
+
+Descripción: Define las capacidades o permisos asignados a una identidad.
+
+| Atributo | Tipo           | Visibilidad | Invariante / Regla de negocio                                                          |
+| :------- | :------------- | :---------- | :-------------------------------------------------------------------------------------- |
+| `id`     | Long           | Private     | Identificador único de la entidad generado por estrategia IDENTITY.                     |
+| `name`   | Roles (Enum)   | Private     | Representación del rol como String en la base de datos (ROLE_USER, etc.).              |
+
+<strong style="font-size: 1em;">Métodos</strong>
+
+| Nombre del Método        | Tipo Retorno | Visibilidad      | Descripción / Regla de Negocio                                                         |
+| :----------------------- | :----------- | :--------------- | :-------------------------------------------------------------------------------------- |
+| `getStringName()`        | String       | Public           | Retorna el nombre del enumerado Roles como una cadena de texto.                         |
+| `getDefaultRole()`       | Role         | Public (Static)  | Retorna una nueva instancia de Role con el valor ROLE_USER.                            |
+| `toRoleFromName(name)`   | Role         | Public (Static)  | Convierte una cadena de texto al enumerado correspondiente y retorna el Role.           |
+| `validateRoleSet(roles)` | List<Role>   | Public (Static)  | Si la lista es nula o vacía, retorna una lista con el rol por defecto (ROLE_USER).     |
+
+<strong style="font-size: 1.2em;">Value Object: `Roles (Enumeration)`</strong>
+
+| Atributo       | Tipo         | Visibilidad | Invariante / Regla de negocio                                                                  |
+| :------------- | :----------- | :---------- | :--------------------------------------------------------------------------------------------- |
+| `ROLE_USER`    | Enum Value   | N/A         | Rol asignado por defecto a cualquier cuenta creada.                                            |
+| `ROLE_LEADER`  | Enum Value   | N/A         | Identifica a un usuario con capacidades de gestión en el sistema.                              |
+| `ROLE_MEMBER`  | Enum Value   | N/A         | Identifica a un usuario que participa como colaborador en los flujos de trabajo.               |
 
 ### 5.1.2. Interface Layer
 
+La Capa de Interfaz de IAM gestiona la exposición de los servicios de seguridad, autenticación y gestión de usuarios hacia el exterior. Utiliza controladores REST para la comunicación síncrona y recursos (DTOs) para estructurar el intercambio de datos entre el cliente y el servidor.
 
+<strong style="font-size: 1.2em;">Recursos de entrada (Request)</strong>
+
+<strong style="font-size: 1em;">`SignUpResource`</strong>
+
+Propósito: Representa los datos necesarios para registrar un nuevo usuario en la plataforma.
+
+| Campo      | Tipo    | Descripción                           |
+| :--------- | :------ | :------------------------------------ |
+| `username` | String  | Nombre de usuario único.              |
+| `name`     | String  | Nombre del usuario.                   |
+| `surname`  | String  | Apellido del usuario.                 |
+| `imgUrl`   | String  | URL de la imagen de perfil.           |
+| `email`    | String  | Correo electrónico único.             |
+| `password` | String  | Contraseña para la cuenta.            |
+| `roles`    | List    | Lista de nombres de roles solicitados.|
+
+---
+
+<strong style="font-size: 1em;">`SignInResource`</strong>
+
+Propósito: Contiene las credenciales para la autenticación de un usuario.
+
+| Campo      | Tipo    | Descripción                      |
+| :--------- | :------ | :------------------------------- |
+| `username` | String  | Nombre de usuario registrado.    |
+| `password` | String  | Contraseña asociada a la cuenta. |
+
+---
+
+<strong style="font-size: 1.2em;">Recursos de salida (Response)</strong>
+
+<strong style="font-size: 1em;">`UserResource`</strong>
+
+Propósito: Devuelve la información completa del usuario, incluyendo sus perfiles específicos (Líder o Miembro) según su rol.
+
+| Campo      | Tipo                    | Descripción                      |
+| :--------- | :---------------------- | :------------------------------- |
+| `id`       | Long                    | Identificador único del usuario. |
+| `username` | String                  | Nombre de usuario.               |
+| `name`     | String                  | Nombre del usuario.              |
+| `surname`  | String                  | Apellido del usuario.            |
+| `imgUrl`   | String                  | URL de la imagen de perfil.      |
+| `email`    | String                  | Correo electrónico.              |
+| `leader`   | UserLeaderResource      | Información detallada de líder.  |
+| `member`   | UserMemberResource      | Información detallada de miembro.|
+| `roles`    | List<String>            | Lista de roles asignados.        |
+
+---
+
+<strong style="font-size: 1em;">`AuthenticatedUserResource`</strong>
+
+Propósito: Retorna la información básica del usuario junto con el token de acceso tras un inicio de sesión exitoso.
+
+| Campo      | Tipo    | Descripción                      |
+| :--------- | :------ | :------------------------------- |
+| `id`       | Long    | Identificador único del usuario. |
+| `username` | String  | Nombre de usuario.               |
+| `token`    | String  | Token de autenticación (JWT).    |
+
+---
+
+<strong style="font-size: 1em;">`RoleResource`</strong>
+
+Propósito: Representa la información de un rol disponible en el sistema.
+
+| Campo | Tipo   | Descripción          |
+| :---- | :----- | :------------------- |
+| `id`  | Long   | Identificador del rol.|
+| `name`| String | Nombre del rol.      |
+
+---
+
+<strong style="font-size: 1.2em;">Resumen de recursos</strong>
+
+| Recurso                    | Tipo     | Dirección | Propósito principal                                |
+| :------------------------- | :------- | :-------- | :------------------------------------------------- |
+| `SignUpResource`           | Request  | Entrada   | Registrar un nuevo usuario.                        |
+| `SignInResource`           | Request  | Entrada   | Autenticar a un usuario existente.                 |
+| `UserResource`             | Response | Salida    | Representación detallada de un usuario.            |
+| `RoleResource`             | Response | Salida    | Información de roles del sistema.                  |
+| `AuthenticatedUserResource`| Response | Salida    | Confirmación de acceso y entrega de token.         |
+
+---
+
+<strong style="font-size: 1.2em;">Controllers</strong>
+
+<strong style="font-size: 1em;">`1. AuthenticationController`</strong>
+
+Propósito: Gestiona los flujos de registro e inicio de sesión.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                  | Propósito                                      |
+| :--------------------- | :-------------------- | :--------------------------------------------- |
+| `userCommandService`   | UserCommandService    | Procesar comandos de creación y autenticación. |
+
+Endpoints expuestos:
+
+| Método | Endpoint                           | Descripción                                      | Servicio invocado                    |
+| :----- | :--------------------------------- | :----------------------------------------------- | :----------------------------------- |
+| POST   | `/api/v1/authentication/sign-up`   | Registra un nuevo usuario y crea su perfil según rol. | `userCommandService.handle(SignUpCommand)` |
+| POST   | `/api/v1/authentication/sign-in`   | Autentica al usuario y devuelve el token JWT.   | `userCommandService.handle(SignInCommand)` |
+
+<strong style="font-size: 1em;">`2. UsersController`</strong>
+
+Propósito: Permite la consulta de información de usuarios mediante diferentes criterios de búsqueda.
+
+Dependencias inyectadas:
+
+| Dependencia          | Tipo               | Propósito                                      |
+| :------------------- | :----------------- | :--------------------------------------------- |
+| `userQueryService`   | UserQueryService   | Ejecutar consultas sobre los usuarios registrados. |
+
+Endpoints expuestos:
+
+| Método | Endpoint                          | Descripción                                      | Servicio invocado                          |
+| :----- | :-------------------------------- | :----------------------------------------------- | :----------------------------------------- |
+| GET    | `/api/v1/users`                  | Obtiene la lista de todos los usuarios.         | `userQueryService.handle(GetAllUsersQuery)` |
+| GET    | `/api/v1/users/{userId}`         | Obtiene un usuario específico por su ID.        | `userQueryService.handle(GetUserByIdQuery)` |
+| GET    | `/api/v1/users?username={u}`     | Busca un usuario por su nombre de usuario.      | `userQueryService.handle(GetUserByUsernameQuery)` |
+| GET    | `/api/v1/users?memberId={id}`    | Busca el usuario asociado a un ID de miembro.   | `userQueryService.handle(GetUserByMemberIdQuery)` |
+
+<strong style="font-size: 1em;">`3. RolesController`</strong>
+
+Propósito: Proporciona acceso a la lista de roles configurados en la aplicación.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                | Propósito                        |
+| :--------------------- | :------------------ | :------------------------------- |
+| `roleQueryService`     | RoleQueryService    | Consultar los roles existentes.  |
+
+Endpoints expuestos:
+
+| Método | Endpoint          | Descripción                                           | Servicio invocado                      |
+| :----- | :---------------- | :---------------------------------------------------- | :------------------------------------- |
+| GET    | `/api/v1/roles`   | Lista todos los roles disponibles (USER, LEADER, MEMBER). | `roleQueryService.handle(GetAllRolesQuery)` |
+
+---
 
 ### 5.1.3. Application Layer
 
+<strong style="font-size: 1.2em;">Servicios de Aplicación (Command Services)</strong>
 
+<strong style="font-size: 1em;">`1. UserCommandServiceImpl`</strong>
+
+Propósito: Gestionar el ciclo de vida de las credenciales de usuario, el proceso de autenticación segura y la coordinación de la creación de perfiles mediante eventos de integración.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                | Propósito                                                          |
+| :--------------------- | :------------------ | :---------------------------------------------------------------- |
+| `roleRepository`       | RoleRepository      | Acceder a la persistencia de roles para asignación en el registro. |
+| `userRepository`       | UserRepository      | Gestionar la persistencia y búsqueda de los agregados User.        |
+| `hashingService`       | HashingService      | Encriptar contraseñas y verificar hashes durante el login.         |
+| `tokenService`         | TokenService        | Generar tokens JWT para sesiones autenticadas.                     |
+| `leaderPublisher`      | LeaderPublisher     | Publicar eventos de creación de líder hacia RabbitMQ.             |
+| `memberPublisher`      | MemberPublisher     | Publicar eventos de creación de miembro hacia RabbitMQ.           |
+
+Comandos manejados:
+
+| Comando                      | Proceso / Regla de Negocio                                                                                      |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| `SignUpCommand`              | Valida que el username/email no existan, cifra la contraseña, busca los roles en el repositorio y persiste el nuevo usuario. |
+| `SignInCommand`              | Verifica la existencia del usuario y la validez del password; si es exitoso, genera un UserDetails y retorna el usuario con su token. |
+| `CreateUserLeaderCommand`    | Dispara el flujo asíncrono para que el microservicio de grupos cree un perfil de líder para el usuario especificado. |
+| `CreateUserMemberCommand`    | Dispara el flujo asíncrono para que el microservicio de tareas cree un perfil de miembro para el usuario especificado. |
+| `UpdateUserLeaderIdCommand`  | Actualiza de forma atómica el Value Object LeaderId dentro del agregado User una vez confirmada la creación externa. |
+| `UpdateUserMemberIdCommand`  | Actualiza de forma atómica el Value Object MemberId dentro del agregado User una vez confirmada la creación externa. |
+
+---
+
+<strong style="font-size: 1em;">`2. RoleCommandServiceImpl`</strong>
+
+Propósito: Garantizar la integridad de los datos maestros de seguridad inicializando los roles del sistema.
+
+Dependencias inyectadas:
+
+| Dependencia       | Tipo              | Propósito                                                 |
+| :---------------- | :---------------- | :-------------------------------------------------------- |
+| `roleRepository`  | RoleRepository    | Verificar existencia y persistir los roles definidos en el dominio. |
+
+Comandos manejados:
+
+| Comando              | Proceso / Regla de Negocio                                                                  |
+| :------------------- | :------------------------------------------------------------------------------------------ |
+| `SeedRolesCommand`   | Itera sobre el enumerado Roles y registra en la base de datos aquellos que aún no estén presentes. |
+
+---
+
+<strong style="font-size: 1.2em;">Servicios de Aplicación (Query Services)</strong>
+
+<strong style="font-size: 1em;">`1. UserQueryServiceImpl`</strong>
+
+Propósito: Proveer acceso a la información de usuarios, integrando datos locales con información detallada de perfiles proveniente de otros microservicios.
+
+Dependencias inyectadas:
+
+| Dependencia            | Tipo                  | Propósito                                                            |
+| :--------------------- | :-------------------- | :------------------------------------------------------------------ |
+| `userRepository`       | UserRepository        | Consultar la información básica y credenciales de los usuarios.      |
+| `groupsServiceClient`  | GroupsServiceClient   | Recuperar información del perfil de Líder desde el microservicio de grupos. |
+| `tasksServiceClient`   | TasksServiceClient    | Recuperar información del perfil de Miembro desde el microservicio de tareas. |
+
+Consultas manejadas:
+
+| Consulta (Query)       | Descripción                                                                              |
+| :--------------------- | :--------------------------------------------------------------------------------------- |
+| `GetAllUsersQuery`     | Retorna una lista de todos los usuarios registrados en el sistema.                       |
+| `GetUserByIdQuery`     | Obtiene la información de un usuario a partir de su ID único.                            |
+| `GetUserByUsernameQuery` | Busca un usuario mediante su nombre de cuenta.                                          |
+| `GetUserLeaderByIdQuery` | Combina los datos del usuario local con los detalles del líder obtenidos vía WebClient. |
+| `GetUserMemberByIdQuery` | Combina los datos del usuario local con los detalles del miembro obtenidos vía WebClient. |
+
+---
+
+<strong style="font-size: 1em;">`2. RoleQueryServiceImpl`</strong>
+
+Propósito: Facilitar la consulta de los privilegios y roles disponibles.
+
+Dependencias inyectadas:
+
+| Dependencia       | Tipo              | Propósito                             |
+| :---------------- | :---------------- | :------------------------------------ |
+| `roleRepository`  | RoleRepository    | Acceder a la lista de roles persistidos. |
+
+Consultas manejadas:
+
+| Consulta (Query)    | Descripción                                                     |
+| :------------------ | :-------------------------------------------------------------- |
+| `GetAllRolesQuery`  | Recupera el catálogo completo de roles del sistema.             |
+| `GetRoleByNameQuery`| Obtiene un rol específico filtrando por su nombre técnico.      |
+
+---
 
 ### 5.1.4. Infrastructure Layer
 
+<strong style="font-size: 1.2em;">Persistence: Repositories (Spring Data JPA)</strong>
 
+Se utiliza Spring Data JPA con una estrategia de nombrado `SnakeCaseWithPluralizedTable` para mapear los objetos de dominio a una base de datos relacional PostgreSQL.
+
+| Repositorio     | Entidad Relacionada | Descripción                                                                                                                    |
+| :-------------- | :------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `UserRepository` | User               | Gestiona el almacenamiento de usuarios. Incluye métodos para validación de existencia y búsqueda por username, email y referencias externas (leaderId/memberId). |
+| `RoleRepository` | Role               | Almacena y recupera los roles del sistema (USER, LEADER, MEMBER). Permite la inicialización de roles mediante SeedRolesCommand. |
+
+---
+
+<strong style="font-size: 1.2em;">Communication: Outbound Services (Messaging & Clients)</strong>
+
+El microservicio IAM se integra con el resto de la arquitectura SynHub mediante comunicación síncrona (WebClient) y asíncrona (RabbitMQ).
+
+<strong style="font-size: 1em;">`1. Event Publishers (RabbitMQ)`</strong>
+
+| Implementación     | Routing Key                    | Propósito                                                                                                        |
+| :----------------- | :----------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| `LeaderPublisher`  | `ROUTING_KEY_LEADER_CREATED`   | Publica eventos en el exchange de IAM para notificar que un nuevo usuario requiere un perfil de Líder.           |
+| `MemberPublisher`  | `ROUTING_KEY_MEMBER_CREATED`   | Publica eventos para solicitar la creación de un perfil de Miembro en el contexto de Tareas.                     |
+
+---
+
+<strong style="font-size: 1em;">`2. Web Clients (HTTP Balanced)`</strong>
+
+| Cliente                    | Microservicio Destino | Descripción                                                                                                         |
+| :------------------------- | :-------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| `GroupsServiceClientImpl`   | groups-service        | Consume el endpoint /api/v1/leader/{id} para enriquecer el recurso de usuario con datos del perfil de líder.       |
+| `TasksServiceClientImpl`    | tasks-service         | Consume el endpoint /api/v1/member/{id} para obtener información de membresía y grupos.                            |
+
+---
+
+<strong style="font-size: 1.2em;">Security: Authorization & Token Management</strong>
+
+La seguridad se implementa siguiendo el estándar de Spring Security, utilizando JWT (JSON Web Tokens) para una arquitectura stateless.
+
+| Componente          | Clase / Tecnología                   | Función                                                                                                             |
+| :------------------ | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| Token Service       | `TokenServiceImpl`                   | Gestiona el ciclo de vida de los tokens JWT, incluyendo claims personalizados como roles y user_id, con una validez de 7 días. |
+| Auth Filter         | `BearerAuthorizationRequestFilter`  | Filtro de intercepción que valida la presencia de un token en el header Authorization y establece el contexto de seguridad. |
+| Hashing Service     | `BCryptHashingService`              | Implementa la interfaz HashingService del dominio para el cifrado irreversible de contraseñas.                      |
+
+---
+
+<strong style="font-size: 1.2em;">Configuration & Environment (Infrastructure Config)</strong>
+
+El microservicio utiliza variables de entorno para una configuración segura y flexible:
+
+- `Base de Datos`: Configurado para PostgreSQL mediante `POSTGRES_URL`, con soporte para el ajuste automático del esquema (`ddl-auto: update`).
+- `Seguridad`: El secreto de firma de tokens se gestiona externamente mediante `JWT_SECRET`.
+- `RabbitMQConfig`: Centraliza las constantes de ruteo y nombres de cola para asegurar la consistencia en el intercambio de mensajes entre contextos.
+
+---
 
 ### 5.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+El diagrama de clases de la capa de dominio de IAM ilustra la estructura lógica y el comportamiento del sistema de identidad. En el centro se encuentra el Agregado Raíz User, que encapsula la identidad del usuario y coordina su relación con la entidad Role y los Value Objects LeaderId y MemberId. Esta estructura garantiza la integridad de los datos de autenticación mientras mantiene una conexión desacoplada con otros contextos mediante eventos de dominio y referencias de identidad externas.
 
+<img src="assets/chapter5/iam/iam-component.png" alt="interview 1" width="800"/>
 
 ### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
 
+#### 5.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+El diagrama de la capa de dominio de IAM ilustra la lógica central de identidad mediante patrones tácticos de `DDD`. Se destaca el Agregado Raíz `User`, que gestiona el estado del usuario y se vincula con entidades de `Role` para la seguridad. El modelo utiliza `Value Objects` (`LeaderId`, `MemberId`) para referenciar perfiles externos y define `Interfaces` de servicios y repositorios que garantizan la independencia tecnológica. Finalmente, los `Eventos de Dominio` aseguran la sincronización asíncrona con otros contextos tras el registro de usuarios.
 
-### 5.1.7. Bounded Context Domain Layer Class Diagrams
+<img src="assets/chapter5/iam/iam-uml.png" alt="interview 1" width="800"/>
 
+#### 5.1.6.2. Bounded Context Database Design Diagram
 
+El diseño de persistencia para el microservicio de IAM se basa en un esquema relacional normalizado para la gestión segura de identidades y accesos. El modelo se compone de tres tablas clave: `users`, que almacena las credenciales y referencias externas (`leader_id`, `member_id`); `roles`, que centraliza el catálogo de permisos; y `user_roles`, que actúa como tabla de unión para permitir una asignación flexible de roles de tipo muchos a muchos. Este diseño garantiza la integridad referencial y una alta eficiencia en los procesos de `autenticación` y `autorización`.
 
-### 5.1.8. Bounded Context Database Design Diagram
-
-
+<img src="assets/chapter5/iam/iam-db.png" alt="interview 1" width="800"/>
 
 ## 5.2. Bounded Context: Groups
 
@@ -2863,70 +3270,965 @@ Diagrama de bases de datos de Groups
 
 ## 5.3. Bounded Context: Tasks
 
+
 ### 5.3.1. Domain Layer
 
+El bounded context Tasks Management es responsable de la gestión de tareas colaborativas dentro de la plataforma SynHub. Este contexto maneja la creación de tareas, asignación de responsables, actualización de estados y seguimiento del tiempo de ejecución de cada tarea.
+
+#### Aggregate Root: `Task`
+
+Descripción: Representa una tarea dentro de la plataforma. Es el aggregate root principal de este bounded context. Contiene información sobre el título, descripción, estado, fecha límite, miembro asignado y métricas relacionadas al progreso de la tarea.
+
+| Atributo          | Tipo           | Visibilidad | Invariante / Regla de negocio                                                                       |
+| :---------------- | :------------- | :---------- | :-------------------------------------------------------------------------------------------------- |
+| `id`              | Long           | Private     | Heredado de `AuditableAbstractAggregateRoot`. Autogenerado y único.                                 |
+| `title`           | String         | Private     | No puede ser nulo. Representa el título de la tarea.                                                |
+| `description`     | String         | Private     | No puede ser nulo. Contiene la descripción detallada de la tarea.                                   |
+| `status`          | TaskStatus     | Private     | Enumerado (`IN_PROGRESS`, `COMPLETED`, `ON_HOLD`, `EXPIRED`). Se inicializa en `IN_PROGRESS`.       |
+| `dueDate`         | OffsetDateTime | Private     | No puede ser nulo. Representa la fecha límite de la tarea.                                          |
+| `member`          | Member         | Private     | Relación ManyToOne. Representa el miembro asignado a la tarea. Puede ser nulo inicialmente.         |
+| `groupId`         | GroupId        | Private     | Value Object embebido. Representa el grupo al que pertenece la tarea.                               |
+| `timesRearranged` | Integer        | Private     | No puede ser nulo. Inicia en 0. Cuenta las veces que una tarea vuelve a estado `IN_PROGRESS`.       |
+| `timePassed`      | Long           | Private     | No puede ser nulo. Inicia en 0. Almacena el tiempo acumulado transcurrido hasta completar la tarea. |
+
+##### Métodos
+| Método                                          | Retorno | Visibilidad | Descripción                                                                                                                           |
+| :---------------------------------------------- | :------ | :---------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `Task()`                                        | Task    | Public      | Constructor por defecto. Inicializa `status = IN_PROGRESS` y `timesRearranged = 0`.                                                   |
+| `Task(CreateTaskCommand command)`               | Task    | Public      | Constructor que crea una nueva tarea utilizando la información del comando recibido.                                                  |
+| `updateStatus(UpdateTaskStatusCommand command)` | void    | Public      | Actualiza el estado de la tarea y registra métricas relacionadas al tiempo y reorganización de la tarea.                              |
+| `updateTask(UpdateTaskCommand command)`         | void    | Public      | Actualiza el título, descripción y fecha límite de la tarea. También actualiza automáticamente el estado según la nueva fecha límite. |
+
+##### Invariantes de negocio
+* Toda tarea debe tener un `title`, `description` y `dueDate` válidos.
+* El estado inicial de una tarea siempre es `IN_PROGRESS`.
+* `timesRearranged` nunca puede ser negativo.
+* Cuando una tarea cambia de `IN_PROGRESS` a `COMPLETED`, se calcula y almacena el tiempo transcurrido en `timePassed`.
+* Si una tarea cambia desde `COMPLETED`, `ON_HOLD` o `EXPIRED` hacia `IN_PROGRESS`, se incrementa `timesRearranged`.
+* Si la nueva `dueDate` es anterior a la fecha actual, la tarea automáticamente cambia su estado a `EXPIRED`.
+* Una tarea pertenece únicamente a un grupo mediante `groupId`.
+* Una tarea puede estar asignada a un único `Member`.
+* `timePassed` debe representar únicamente el tiempo acumulado válido de ejecución de la tarea.
+
+
+#### Aggregate Root: `Member`
+
+Descripción: Representa un miembro perteneciente a un grupo colaborativo dentro de la plataforma SynHub. Este aggregate root administra la relación entre los miembros y las tareas asignadas.
+
+| Atributo  | Tipo       | Visibilidad | Invariante / Regla de negocio                                                                                                    |
+| :-------- | :--------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| `id`      | Long       | Private     | Heredado de `AuditableAbstractAggregateRoot`. Autogenerado y único.                                                              |
+| `tasks`   | List<Task> | Private     | Relación OneToMany. Contiene las tareas asignadas al miembro. Puede estar vacía, pero nunca debe contener referencias inválidas. |
+| `groupId` | GroupId    | Private     | Value Object embebido. Representa el grupo al que pertenece el miembro. No puede ser nulo.                                       |
+
+##### Métodos
+| Método                                | Retorno | Visibilidad | Descripción                                                                                        |
+| :------------------------------------ | :------ | :---------- | :------------------------------------------------------------------------------------------------- |
+| `Member()`                            | Member  | Public      | Constructor por defecto requerido por JPA.                                                         |
+| `Member(CreateMemberCommand command)` | Member  | Public      | Constructor que crea un nuevo miembro utilizando la información del comando recibido.              |
+| `addTask(Task task)`                  | void    | Public      | Asigna una tarea al miembro y establece la relación bidireccional con la tarea.                    |
+| `removeTask(Task task)`               | void    | Public      | Elimina una tarea del miembro y rompe la relación bidireccional con la tarea.                      |
+| `clearTasks()`                        | void    | Public      | Elimina todas las tareas asignadas al miembro y limpia las referencias bidireccionales existentes. |
+
+##### Invariantes de negocio
+* Un miembro puede tener múltiples tareas asignadas.
+* Toda tarea asignada a un miembro debe mantener correctamente la relación bidireccional con `Task`.
+* Al remover una tarea, la referencia al `Member` dentro de `Task` debe establecerse en `null`.
+* Al ejecutar `clearTasks()`, ninguna tarea debe conservar referencias al miembro anterior.
+* Un miembro pertenece únicamente a un grupo mediante `groupId`.
+* La colección `tasks` no debe contener referencias inválidas o duplicadas.
+
+#### Value Object: `GroupId`
+
+**Descripción:** Identificador único que representa el grupo al que pertenece una entidad dentro del bounded context Tasks Management.
+
+##### Atributos
+
+| Atributo | Tipo | Visibilidad | Invariante                              |
+| :------- | :--- | :---------- | :-------------------------------------- |
+| `value`  | Long | Private     | No puede ser nulo y debe ser mayor a 0. |
+
+##### Métodos
+
+| Método           | Retorno | Visibilidad | Descripción                                                                           |
+| :--------------- | :------ | :---------- | :------------------------------------------------------------------------------------ |
+| `GroupId(value)` | GroupId | Public      | Constructor del record. Valida que el identificador no sea nulo ni menor o igual a 0. |
+
+##### Invariantes
+
+* `value` no puede ser nulo.
+* `value` debe ser mayor a 0.
+* El identificador representa un grupo válido dentro del sistema.
+
+---
+
+#### Value Object: `TaskStatus`
+
+**Descripción:** Enumeración que representa los posibles estados de una tarea dentro de la plataforma.
+
+##### Valores
+
+| Valor         | Descripción                                                |
+| :------------ | :--------------------------------------------------------- |
+| `ON_HOLD`     | La tarea se encuentra temporalmente pausada.               |
+| `IN_PROGRESS` | La tarea está actualmente en progreso.                     |
+| `COMPLETED`   | La tarea fue completada correctamente.                     |
+| `DONE`        | Estado finalizado alternativo definido dentro del sistema. |
+| `EXPIRED`     | La tarea excedió su fecha límite.                          |
+
+##### Métodos
+
+| Método               | Retorno    | Visibilidad   | Descripción                                                                                                            |
+| :------------------- | :--------- | :------------ | :--------------------------------------------------------------------------------------------------------------------- |
+| `fromString(status)` | TaskStatus | Public static | Convierte un texto en un valor válido del enum ignorando mayúsculas/minúsculas. Lanza excepción si el valor no existe. |
+
+##### Invariantes
+
+* El estado de una tarea solo puede ser uno de los valores definidos en `TaskStatus`.
+* `fromString(status)` debe recibir un valor válido reconocido por el enum.
+* No se permiten estados arbitrarios fuera de la enumeración definida.
 
 
 ### 5.3.2. Interface Layer
 
+### Recursos de entrada (Request)
+
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura dentro del bounded context Tasks Management.
+
+##### `CreateTaskResource`
+
+**Propósito:** Transporta los datos necesarios para crear una nueva tarea.
+
+| Campo         | Tipo           | Descripción                       |
+| :------------ | :------------- | :-------------------------------- |
+| `title`       | String         | Título de la tarea                |
+| `description` | String         | Descripción detallada de la tarea |
+| `dueDate`     | OffsetDateTime | Fecha límite de la tarea          |
+
+---
+
+##### `UpdateTaskResource`
+
+**Propósito:** Transporta los datos necesarios para actualizar una tarea existente y asignar un miembro responsable.
+
+| Campo         | Tipo           | Descripción                        |
+| :------------ | :------------- | :--------------------------------- |
+| `title`       | String         | Nuevo título de la tarea           |
+| `description` | String         | Nueva descripción                  |
+| `dueDate`     | OffsetDateTime | Nueva fecha límite                 |
+| `memberId`    | Long           | Identificador del miembro asignado |
+
+---
+
+##### `CreateMemberResource`
+
+**Propósito:** Representa la solicitud para crear un nuevo miembro dentro del contexto de tareas.
+
+| Campo          | Tipo | Descripción                                          |
+| :------------- | :--- | :--------------------------------------------------- |
+| *(sin campos)* | —    | Recurso vacío utilizado para inicializar un miembro. |
+
+---
+
+#### Recursos de salida (Response)
+
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
+
+##### `TaskResource`
+
+**Propósito:** Devuelve la información completa de una tarea.
+
+| Campo         | Tipo                 | Descripción                      |
+| :------------ | :------------------- | :------------------------------- |
+| `id`          | Long                 | Identificador único de la tarea  |
+| `title`       | String               | Título de la tarea               |
+| `description` | String               | Descripción detallada            |
+| `dueDate`     | String               | Fecha límite de la tarea         |
+| `createdAt`   | String               | Fecha de creación                |
+| `updatedAt`   | String               | Fecha de última actualización    |
+| `status`      | String               | Estado actual de la tarea        |
+| `member`      | `TaskMemberResource` | Miembro asignado a la tarea      |
+| `groupId`     | Long                 | Identificador del grupo asociado |
+
+---
+
+##### `TaskMemberResource`
+
+**Propósito:** Representa información básica del miembro asignado a una tarea.
+
+| Campo      | Tipo   | Descripción                |
+| :--------- | :----- | :------------------------- |
+| `id`       | Long   | Identificador del miembro  |
+| `name`     | String | Nombre del miembro         |
+| `surname`  | String | Apellido del miembro       |
+| `urlImage` | String | URL de la imagen de perfil |
+
+---
+
+##### `MemberResource`
+
+**Propósito:** Devuelve la información completa de un miembro dentro del sistema de tareas.
+
+| Campo      | Tipo   | Descripción                              |
+| :--------- | :----- | :--------------------------------------- |
+| `id`       | Long   | Identificador único del miembro          |
+| `username` | String | Nombre de usuario                        |
+| `name`     | String | Nombre del miembro                       |
+| `surname`  | String | Apellido del miembro                     |
+| `imgUrl`   | String | URL de la imagen de perfil               |
+| `email`    | String | Correo electrónico                       |
+| `groupId`  | Long   | Identificador del grupo al que pertenece |
+
+---
+
+##### `MemberOnlyResource`
+
+**Propósito:** Representa una versión simplificada de un miembro mostrando únicamente sus identificadores principales.
+
+| Campo     | Tipo | Descripción                      |
+| :-------- | :--- | :------------------------------- |
+| `id`      | Long | Identificador único del miembro  |
+| `groupId` | Long | Identificador del grupo asociado |
+
+---
+
+##### `ExtendedGroupResource`
+
+**Propósito:** Devuelve información extendida de un grupo junto con la lista de miembros asociados.
+
+| Campo         | Tipo                 | Descripción                               |
+| :------------ | :------------------- | :---------------------------------------- |
+| `id`          | Long                 | Identificador único del grupo             |
+| `name`        | String               | Nombre del grupo                          |
+| `imgUrl`      | String               | URL de la imagen del grupo                |
+| `description` | String               | Descripción del grupo                     |
+| `code`        | String               | Código único de invitación                |
+| `members`     | List<MemberResource> | Lista de miembros pertenecientes al grupo |
+
+---
+
+#### Resumen de recursos
+
+| Recurso                 | Tipo     | Dirección | Propósito principal                            |
+| :---------------------- | :------- | :-------- | :--------------------------------------------- |
+| `CreateTaskResource`    | Request  | Entrada   | Crear una nueva tarea                          |
+| `UpdateTaskResource`    | Request  | Entrada   | Actualizar una tarea existente                 |
+| `CreateMemberResource`  | Request  | Entrada   | Crear un nuevo miembro                         |
+| `TaskResource`          | Response | Salida    | Representación completa de una tarea           |
+| `TaskMemberResource`    | Response | Salida    | Información básica del miembro asignado        |
+| `MemberResource`        | Response | Salida    | Información completa de un miembro             |
+| `MemberOnlyResource`    | Response | Salida    | Representación simplificada de un miembro      |
+| `ExtendedGroupResource` | Response | Salida    | Información extendida de un grupo con miembros |
+
+
+#### Controllers
+
+##### 1. `MemberController`
+
+**Propósito:** Gestiona operaciones de consulta relacionadas con miembros autenticados, grupos asociados y tareas asignadas.
+
+**Dependencias inyectadas:**
+
+| Dependencia           | Tipo                  | Propósito                                                      |
+| :-------------------- | :-------------------- | :------------------------------------------------------------- |
+| `memberQueryService`  | `MemberQueryService`  | Servicio de dominio para ejecutar consultas sobre miembros     |
+| `groupsServiceClient` | `GroupsServiceClient` | Cliente externo para obtener información de grupos             |
+| `taskQueryService`    | `TaskQueryService`    | Servicio de dominio para consultar tareas                      |
+| `taskCommandService`  | `TaskCommandService`  | Servicio de dominio para ejecutar comandos sobre tareas        |
+| `iamServiceClient`    | `IamServiceClient`    | Cliente externo para obtener información de usuarios desde IAM |
+
+**Endpoints expuestos:**
+
+| Método   | Endpoint                            | Descripción                                                             | Servicio invocado                                                                                         |
+| :------- | :---------------------------------- | :---------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| `GET`    | `/api/v1/member?groupId={groupId}`  | Obtiene todos los miembros de un grupo                                  | `memberQueryService.handle(GetMembersByGroupIdQuery)`                                                     |
+| `GET`    | `/api/v1/member/details`            | Obtiene la información del miembro autenticado                          | `memberQueryService.handle(GetMemberByUsernameQuery)`                                                     |
+| `GET`    | `/api/v1/member/details/{memberId}` | Obtiene la información detallada de un miembro por ID                   | `memberQueryService.handle(GetMemberInfoByIdQuery)`                                                       |
+| `GET`    | `/api/v1/member/{memberId}`         | Obtiene información básica de un miembro                                | `memberQueryService.handle(GetMemberByIdQuery)`                                                           |
+| `GET`    | `/api/v1/member/group`              | Obtiene el grupo asociado al miembro autenticado                        | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`groupsServiceClient.fetchGroupByGroupId()`      |
+| `GET`    | `/api/v1/member/tasks`              | Obtiene todas las tareas del miembro autenticado                        | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`taskQueryService.handle(GetAllTasksByMemberId)` |
+| `DELETE` | `/api/v1/member/group/leave`        | Permite que un miembro abandone su grupo y elimina sus tareas asociadas | `taskCommandService.handle(DeleteTasksByMemberId)`                                                        |
+| `GET`    | `/api/v1/member/tasks/next`         | Obtiene la próxima tarea pendiente del miembro autenticado              | `memberQueryService.handle(GetMemberByUsernameQuery)`<br>`taskQueryService.handle(GetAllTasksByMemberId)` |
+
+---
+
+##### 2. `MemberTaskController`
+
+**Propósito:** Gestiona operaciones relacionadas con tareas asociadas a miembros específicos.
+
+**Dependencias inyectadas:**
+
+| Dependencia          | Tipo                 | Propósito                                               |
+| :------------------- | :------------------- | :------------------------------------------------------ |
+| `taskCommandService` | `TaskCommandService` | Servicio de dominio para ejecutar comandos sobre tareas |
+| `taskQueryService`   | `TaskQueryService`   | Servicio de dominio para consultar tareas               |
+| `iamServiceClient`   | `IamServiceClient`   | Cliente externo para obtener información de usuarios    |
+
+**Endpoints expuestos:**
+
+| Método | Endpoint                                | Descripción                                        | Servicio invocado                                |
+| :----- | :-------------------------------------- | :------------------------------------------------- | :----------------------------------------------- |
+| `POST` | `/api/v1/members/{memberId}/tasks`      | Crea una nueva tarea asociada a un miembro         | `taskCommandService.handle(CreateTaskCommand)`   |
+| `GET`  | `/api/v1/members/{memberId}/tasks`      | Obtiene todas las tareas de un miembro             | `taskQueryService.handle(GetAllTasksByMemberId)` |
+| `GET`  | `/api/v1/members/{memberId}/tasks/next` | Obtiene la siguiente tarea pendiente de un miembro | `taskQueryService.handle(GetAllTasksByMemberId)` |
+
+---
+
+##### 3. `TaskController`
+
+**Propósito:** Gestiona operaciones de consulta, actualización y eliminación de tareas dentro del sistema.
+
+**Dependencias inyectadas:**
+
+| Dependencia          | Tipo                 | Propósito                                                |
+| :------------------- | :------------------- | :------------------------------------------------------- |
+| `taskQueryService`   | `TaskQueryService`   | Servicio de dominio para ejecutar consultas sobre tareas |
+| `taskCommandService` | `TaskCommandService` | Servicio de dominio para ejecutar comandos sobre tareas  |
+| `iamServiceClient`   | `IamServiceClient`   | Cliente externo para obtener información de usuarios     |
+
+**Endpoints expuestos:**
+
+| Método   | Endpoint                                 | Descripción                                   | Servicio invocado                                    |
+| :------- | :--------------------------------------- | :-------------------------------------------- | :--------------------------------------------------- |
+| `GET`    | `/api/v1/tasks/{taskId}`                 | Obtiene una tarea por su ID                   | `taskQueryService.handle(GetTaskByIdQuery)`          |
+| `GET`    | `/api/v1/tasks/status/{status}`          | Obtiene todas las tareas filtradas por estado | `taskQueryService.handle(GetAllTaskByStatusQuery)`   |
+| `PUT`    | `/api/v1/tasks/{taskId}/status/{status}` | Actualiza el estado de una tarea              | `taskCommandService.handle(UpdateTaskStatusCommand)` |
+| `PUT`    | `/api/v1/tasks/{taskId}`                 | Actualiza la información de una tarea         | `taskCommandService.handle(UpdateTaskCommand)`       |
+| `DELETE` | `/api/v1/tasks/{taskId}`                 | Elimina una tarea por ID                      | `taskCommandService.handle(DeleteTaskCommand)`       |
+| `GET`    | `/api/v1/tasks?groupId={groupId}`        | Obtiene todas las tareas asociadas a un grupo | `taskQueryService.handle(GetAllTasksByGroupIdQuery)` |
+
+---
+
+#### Resumen de Controllers
+
+| Controller             | Base Path         | Propósito principal                                                 |
+| :--------------------- | :---------------- | :------------------------------------------------------------------ |
+| `MemberController`     | `/api/v1/member`  | Gestión de miembros autenticados, grupos y tareas asociadas         |
+| `MemberTaskController` | `/api/v1/members` | Gestión de tareas asociadas a miembros específicos                  |
+| `TaskController`       | `/api/v1/tasks`   | Gestión completa de tareas (consultas, actualización y eliminación) |
 
 
 ### 5.3.3. Application Layer
 
+#### Command Services
+
+##### 1. `MemberCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la gestión de miembros y su relación con grupos y tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia         | Tipo                | Propósito                                              |
+| :------------------ | :------------------ | :----------------------------------------------------- |
+| `memberRepository`  | `MemberRepository`  | Repositorio para persistir agregados `Member`          |
+| `iamEventPublisher` | `IamEventPublisher` | Publicador de eventos hacia el contexto IAM            |
+| `taskRepository`    | `TaskRepository`    | Repositorio para gestionar tareas asociadas a miembros |
+
+**Comandos manejados:**
+
+| Comando                         | Descripción                                           | Servicio invocado                                                          |
+| :------------------------------ | :---------------------------------------------------- | :------------------------------------------------------------------------- |
+| `CreateMemberCommand`           | Crea un nuevo miembro                                 | Persiste el miembro y publica el evento `publishMemberCreatedSuccessfully` |
+| `AddGroupToMemberCommand`       | Asocia un grupo a un miembro                          | Actualiza el `groupId` del miembro                                         |
+| `RemoveMemberFromGroupCommand`  | Elimina un miembro de un grupo                        | Elimina sus tareas y rompe la relación con el grupo                        |
+| `DeleteMembersByGroupIdCommand` | Elimina la relación de todos los miembros de un grupo | Elimina tareas y limpia el `groupId` de cada miembro                       |
+
+---
+
+##### 2. `TaskCommandServiceImpl`
+
+**Propósito:** Ejecuta comandos relacionados con la creación, actualización, eliminación y gestión de tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                      |
+| :--------------------- | :--------------------- | :--------------------------------------------- |
+| `taskRepository`       | `TaskRepository`       | Repositorio para persistir agregados `Task`    |
+| `memberRepository`     | `MemberRepository`     | Repositorio para consultar miembros            |
+| `groupsServiceClient`  | `GroupsServiceClient`  | Cliente externo para validar grupos            |
+| `groupEventsPublisher` | `GroupEventsPublisher` | Publicador de eventos hacia el contexto Groups |
+
+**Comandos manejados:**
+
+| Comando                       | Descripción                                     | Servicio invocado                                                                |
+| :---------------------------- | :---------------------------------------------- | :------------------------------------------------------------------------------- |
+| `CreateTaskCommand`           | Crea una nueva tarea asociada a un miembro      | Valida miembro y grupo, persiste la tarea                                        |
+| `UpdateTaskCommand`           | Actualiza información y asignación de una tarea | Reasigna tareas entre miembros y ejecuta `updateTask()`                          |
+| `DeleteTaskCommand`           | Elimina una tarea                               | Rompe relación con el miembro y elimina la tarea                                 |
+| `UpdateTaskStatusCommand`     | Actualiza el estado de una tarea                | Ejecuta `updateStatus()` y persiste cambios                                      |
+| `DeleteTasksByMemberId`       | Elimina todas las tareas de un miembro          | Elimina tareas, rompe relación con el grupo y publica evento `publishMemberLeft` |
+| `DeleteTasksByGroupIdCommand` | Elimina todas las tareas de un grupo            | Elimina tareas y limpia relaciones con miembros                                  |
+
+---
+
+#### Query Services
+
+##### 1. `MemberQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con miembros e integración con el contexto IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia        | Tipo               | Propósito                                      |
+| :----------------- | :----------------- | :--------------------------------------------- |
+| `memberRepository` | `MemberRepository` | Repositorio para consultar miembros            |
+| `iamServiceClient` | `IamServiceClient` | Cliente externo para consultar usuarios en IAM |
+
+**Consultas manejadas:**
+
+| Consulta                   | Descripción                                                    |
+| :------------------------- | :------------------------------------------------------------- |
+| `GetMemberByIdQuery`       | Obtiene un miembro por su ID                                   |
+| `GetMemberByUsernameQuery` | Obtiene un miembro por username validando el rol `ROLE_MEMBER` |
+| `GetAllMembersQuery`       | Obtiene todos los miembros registrados                         |
+| `GetMembersByGroupIdQuery` | Obtiene todos los miembros de un grupo                         |
+| `GetMemberInfoByIdQuery`   | Obtiene información detallada de un miembro desde IAM          |
+
+---
+
+##### 2. `TaskQueryServiceImpl`
+
+**Propósito:** Ejecuta consultas relacionadas con tareas.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                         |
+| :--------------- | :--------------- | :-------------------------------- |
+| `taskRepository` | `TaskRepository` | Repositorio para consultar tareas |
+
+**Consultas manejadas:**
+
+| Consulta                    | Descripción                                     |
+| :-------------------------- | :---------------------------------------------- |
+| `GetAllTasksQuery`          | Obtiene todas las tareas registradas            |
+| `GetTaskByIdQuery`          | Obtiene una tarea por su ID                     |
+| `GetAllTasksByMemberId`     | Obtiene todas las tareas asignadas a un miembro |
+| `GetAllTaskByStatusQuery`   | Obtiene todas las tareas filtradas por estado   |
+| `GetAllTasksByGroupIdQuery` | Obtiene todas las tareas asociadas a un grupo   |
+
+---
+
+#### Clients / Ports (Interfaces hacia Infraestructura)
+
+Estas interfaces definen los puertos utilizados por la capa de aplicación para comunicarse con otros microservicios externos.
+
+##### 1. `IamServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio IAM (Identity and Access Management).
+
+**Métodos:**
+
+| Método                                               | Descripción                          |
+| :--------------------------------------------------- | :----------------------------------- |
+| `fetchUserByUsername(username, authorizationHeader)` | Obtiene un usuario por username      |
+| `fetchUserByMemberId(memberId, authorizationHeader)` | Obtiene un usuario por ID de miembro |
+
+---
+
+##### 2. `GroupsServiceClient`
+
+**Propósito:** Puerto para comunicarse con el microservicio Groups.
+
+**Métodos:**
+
+| Método                         | Descripción                                  |
+| :----------------------------- | :------------------------------------------- |
+| `fetchGroupByGroupId(groupId)` | Obtiene la información de un grupo por su ID |
 
 
 ### 5.3.4. Infrastructure Layer
+
+#### Persistencia (JPA Repositories)
+
+##### 1. `MemberRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Member`.
+
+**Métodos personalizados:**
+
+| Método                          | Descripción                                                |
+| :------------------------------ | :--------------------------------------------------------- |
+| `findMembersByGroupId(groupId)` | Obtiene todos los miembros asociados a un grupo específico |
+
+---
+
+##### 2. `TaskRepository`
+
+**Propósito:** Repositorio JPA para el agregado `Task`.
+
+**Métodos personalizados:**
+
+| Método                                             | Descripción                                                         |
+| :------------------------------------------------- | :------------------------------------------------------------------ |
+| `findByMember_Id(memberId)`                        | Obtiene todas las tareas asignadas a un miembro                     |
+| `findByStatus(status)`                             | Obtiene todas las tareas con un estado específico                   |
+| `findByGroupId(groupId)`                           | Obtiene todas las tareas pertenecientes a un grupo                  |
+| `findAllByStatusAndDueDateBefore(status, dueDate)` | Obtiene tareas con un estado específico cuya fecha límite ya expiró |
+| `deleteAllByMember_Id(memberId)`                   | Elimina todas las tareas asociadas a un miembro                     |
+| `deleteAllByGroupId(groupId)`                      | Elimina todas las tareas asociadas a un grupo                       |
+
+---
+
+#### Configuración (Configuration)
+
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
+
+##### 1. `RabbitMQConfig`
+
+**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ para la comunicación asíncrona entre microservicios.
+
+**Exchanges definidos:**
+
+| Exchange                | Propósito                                       |
+| :---------------------- | :---------------------------------------------- |
+| `iam-events-exchange`   | Recibe eventos provenientes del contexto de IAM |
+| `tasks-events-exchange` | Maneja eventos relacionados con grupos y tareas |
+
+---
+
+**Colas principales definidas:**
+
+| Cola                   | Evento asociado        |
+| :--------------------- | :--------------------- |
+| `tasks.member-created` | `member.created`       |
+| `tasks.group-accepted` | `group.accepted`       |
+| `tasks.group-deleted`  | `group.deleted`        |
+| `tasks.member-left`    | `group.member.left`    |
+| `tasks.member-removed` | `group.member.removed` |
+
+---
+
+##### 2. `WebClientConfig`
+
+**Propósito:** Configura el cliente `WebClient` con balanceo de carga para comunicación síncrona entre microservicios.
+
+**Beans expuestos:**
+
+| Bean                             | Tipo                | Propósito                                                                 |
+| :------------------------------- | :------------------ | :------------------------------------------------------------------------ |
+| `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
+
+---
+
+#### Mensajería (Messaging)
+
+La infraestructura de mensajería permite la comunicación asíncrona entre el bounded context **Tasks Management** y otros contextos del sistema mediante RabbitMQ.
+
+Se divide en:
+
+* **Publishers:** Publican eventos hacia otros contextos.
+* **Listeners:** Consumen eventos provenientes de otros contextos y ejecutan comandos internos.
+
+---
+
+### Publishers
+
+##### 1. `IamEventPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Tasks hacia el contexto de IAM.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                                |
+| :--------------- | :--------------- | :--------------------------------------- |
+| `rabbitTemplate` | `RabbitTemplate` | Template para enviar mensajes a RabbitMQ |
+
+**Métodos:**
+
+| Método                                               | Evento                           | Descripción                                                     |
+| :--------------------------------------------------- | :------------------------------- | :-------------------------------------------------------------- |
+| `publishMemberCreatedSuccessfully(userId, memberId)` | `MemberCreatedSuccessfullyEvent` | Notifica a IAM que un miembro fue creado correctamente en Tasks |
+
+---
+
+##### 2. `GroupEventsPublisher`
+
+**Propósito:** Publica eventos desde el contexto de Tasks hacia el contexto de Groups.
+
+**Dependencias inyectadas:**
+
+| Dependencia      | Tipo             | Propósito                                |
+| :--------------- | :--------------- | :--------------------------------------- |
+| `rabbitTemplate` | `RabbitTemplate` | Template para enviar mensajes a RabbitMQ |
+
+**Métodos:**
+
+| Método                                 | Evento            | Descripción                                        |
+| :------------------------------------- | :---------------- | :------------------------------------------------- |
+| `publishMemberLeft(memberId, groupId)` | `MemberLeftEvent` | Notifica a Groups que un miembro abandonó un grupo |
+
+---
+
+### Listeners (Consumidores)
+
+##### 1. `MemberCreatedEventListener`
+
+**Propósito:** Escucha eventos de creación de miembros provenientes del contexto de IAM y crea el agregado `Member` en Tasks.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                  |
+| :--------------------- | :--------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `MemberCreatedEvent`
+
+| Acción               | Descripción                       |
+| :------------------- | :-------------------------------- |
+| Al recibir el evento | Extrae el `userId` del evento     |
+| Comando ejecutado    | `CreateMemberCommand(userId)`     |
+| Resultado            | Se crea un nuevo miembro en Tasks |
+
+---
+
+##### 2. `InvitationAcceptedEventListener`
+
+**Propósito:** Escucha eventos de invitaciones aceptadas provenientes del contexto de Groups y asocia un grupo a un miembro.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                                  |
+| :--------------------- | :--------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `InvitationAcceptedEvent`
+
+| Acción               | Descripción                                  |
+| :------------------- | :------------------------------------------- |
+| Al recibir el evento | Extrae `groupId` y `memberId`                |
+| Comando ejecutado    | `AddGroupToMemberCommand(groupId, memberId)` |
+| Resultado            | El miembro queda asociado a un grupo         |
+
+---
+
+##### 3. `MemberRemovedEventListener`
+
+**Propósito:** Escucha eventos de miembros eliminados de un grupo y elimina sus tareas asociadas.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                       | Propósito                                  |
+| :--------------------- | :------------------------- | :----------------------------------------- |
+| `memberCommandService` | `MemberCommandServiceImpl` | Ejecuta comandos relacionados con miembros |
+
+**Evento esperado:** `MemberRemovedEvent`
+
+| Acción               | Descripción                                                            |
+| :------------------- | :--------------------------------------------------------------------- |
+| Al recibir el evento | Extrae `groupId` y `memberId`                                          |
+| Comando ejecutado    | `RemoveMemberFromGroupCommand(groupId, memberId)`                      |
+| Resultado            | Se eliminan las tareas del miembro y se rompe la relación con el grupo |
+
+---
+
+##### 4. `GroupDeletedEventListener`
+
+**Propósito:** Escucha eventos de eliminación de grupos provenientes del contexto de Groups y elimina toda la información asociada en Tasks.
+
+**Dependencias inyectadas:**
+
+| Dependencia            | Tipo                   | Propósito                       |
+| :--------------------- | :--------------------- | :------------------------------ |
+| `memberCommandService` | `MemberCommandService` | Ejecuta comandos sobre miembros |
+| `taskCommandService`   | `TaskCommandService`   | Ejecuta comandos sobre tareas   |
+
+**Evento esperado:** `GroupDeletedEvent`
+
+| Acción               | Descripción                                                      |
+| :------------------- | :--------------------------------------------------------------- |
+| Al recibir el evento | Extrae `groupId`                                                 |
+| Comandos ejecutados  | `DeleteTasksByGroupIdCommand` y `DeleteMembersByGroupIdCommand`  |
+| Resultado            | Se eliminan tareas y se desvinculan miembros del grupo eliminado |
+
+---
+
+#### Resumen de la capa de infraestructura
+
+| Categoría                  | Componentes                                                                                                                | Cantidad |
+| :------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :------- |
+| **JPA Repositories**       | `MemberRepository`, `TaskRepository`                                                                                       | 2        |
+| **Configuración**          | `RabbitMQConfig`, `WebClientConfig`                                                                                        | 2        |
+| **Messaging (Publishers)** | `IamEventPublisher`, `GroupEventsPublisher`                                                                                | 2        |
+| **Messaging (Listeners)**  | `MemberCreatedEventListener`, `InvitationAcceptedEventListener`, `MemberRemovedEventListener`, `GroupDeletedEventListener` | 4        |
 
 
 
 ### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-
+<img src="assets/chapter5/tasks/tasks-components.png" alt="interview 1" width="800"/>
 
 ### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
 
+### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
+
+<img src="assets/chapter5/tasks/tasks-uml.png" alt="interview 1" width="800"/>
 
 
-### 5.3.7. Bounded Context Domain Layer Class Diagrams
+### 5.3.6.2 Bounded Context Database Design Diagram
 
-
-
-### 5.3.8. Bounded Context Database Design Diagram
-
+<img src="assets/chapter5/tasks/tasks-db.png" alt="interview 1" width="600"/>
 
 
 ## 5.4. Bounded Context: Requests
 
 ### 5.4.1. Domain Layer
 
+En esta capa se define el nucleo de la gestion de solicitudes asociadas a tareas, encapsulando reglas de negocio para tipo de solicitud, estado y relacion con Task.
 
+**Aggregate: Request**
+
+El agregado Request es la raiz que gestiona solicitudes dentro del sistema, garantizando consistencia de tipo, estado y referencia a la tarea.
+
+| Atributos | Tipo de dato | Visibilidad | Descripcion |
+|---|---|---|---|
+| id | Long | Private | Identificador unico de la solicitud (heredado). |
+| description | String | Private | Descripcion de la solicitud. |
+| requestType | RequestType | Private | Tipo de solicitud. |
+| requestStatus | RequestStatus | Private | Estado actual de la solicitud. |
+| taskId | TaskId | Private | Identificador de la tarea asociada. |
+| createdAt | OffsetDateTime | Private | Fecha de creacion UTC (heredado). |
+| updatedAt | OffsetDateTime | Private | Fecha de ultima actualizacion UTC (heredado). |
+
+| Metodos | Tipo de retorno | Visibilidad | Descripcion |
+|---|---|---|---|
+| Request(CreateRequestCommand) | Constructor | Public | Crea una solicitud a partir de un comando. |
+| getRequestType() | String | Public | Devuelve el tipo de solicitud como texto. |
+| getRequestStatus() | String | Public | Devuelve el estado de la solicitud como texto. |
+| updateRequestStatus(String) | void | Public | Actualiza el estado de la solicitud. |
+| getId() | Long | Public | Devuelve el ID de la solicitud (heredado). |
+| getTaskId() | TaskId | Public | Devuelve el ID de la tarea asociada. |
+| getCreatedAt() | OffsetDateTime | Public | Devuelve la fecha de creacion (heredado). |
+| getUpdatedAt() | OffsetDateTime | Public | Devuelve la fecha de actualizacion (heredado). |
+
+**Value Objects**
+
+| Value Object | Descripcion |
+|---|---|
+| TaskId | Record embebible que representa el ID de tarea. Valida que no sea null ni menor o igual a cero. |
+| RequestType | Enumeracion de tipos permitidos: SUBMISSION, MODIFICATION, EXPIRED. Incluye fromString con validacion. |
+| RequestStatus | Enumeracion de estados permitidos: PENDING, APPROVED, REJECTED. Incluye fromString con validacion. |
+
+**Commands**
+
+| Command | Descripcion |
+|---|---|
+| CreateRequestCommand | Crea una solicitud con description, requestType y taskId. |
+| UpdateRequestCommand | Actualiza el estado de una solicitud por requestId. |
+| DeleteRequestCommand | Elimina una solicitud por requestId. |
+| DeleteAllRequestsByTaskIdCommand | Elimina solicitudes por taskId (actualmente pendiente de implementacion). |
+
+**Queries**
+
+| Query | Descripcion |
+|---|---|
+| GetAllRequestsQuery | Recupera todas las solicitudes. |
+| GetRequestsByTaskIdQuery | Recupera solicitudes de una tarea especifica. |
+| GetRequestByIdQuery | Recupera una solicitud por ID. |
+
+**Clase: RequestQueryService**
+
+| Titulo | RequestQueryService |
+|---|---|
+| Descripcion | Interfaz de servicio de consultas para operaciones de lectura de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(GetAllRequestsQuery) | Recupera todas las solicitudes registradas. |
+| handle(GetRequestsByTaskIdQuery) | Recupera solicitudes por ID de tarea. |
+| handle(GetRequestByIdQuery) | Busca una solicitud por su identificador unico. |
+
+**Clase: RequestCommandService**
+
+| Titulo | RequestCommandService |
+|---|---|
+| Descripcion | Interfaz de servicio de comandos para gestion de solicitudes. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Crea una nueva solicitud y devuelve su ID. |
+| handle(UpdateRequestCommand) | Actualiza una solicitud existente y devuelve el agregado actualizado. |
+| handle(DeleteRequestCommand) | Elimina una solicitud por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Elimina todas las solicitudes de una tarea. |
+
+**Excepciones de Dominio**
+
+| Excepcion | Descripcion |
+|---|---|
+| IllegalArgumentException | Se usa para validaciones de tipo, estado, existencia de request o task, y errores en update/delete. |
 
 ### 5.4.2. Interface Layer
 
+La capa de interfaz del contexto Requests expone endpoints REST para crear, consultar, actualizar y eliminar solicitudes. Tambien expone endpoints agregados orientados a lider y miembro de grupo, apoyandose en clientes externos para validaciones y enriquecimiento de respuesta.
 
+**Controlador: RequestController**
+
+Maneja operaciones CRUD de solicitudes ligadas a una tarea.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| createRequest | POST /api/v1/tasks/{taskId}/requests | Crea una solicitud para una tarea, validando miembro y pertenencia. |
+| getRequestsByTaskId | GET /api/v1/tasks/{taskId}/requests | Lista solicitudes de una tarea. |
+| getRequestById | GET /api/v1/tasks/{taskId}/requests/{requestId} | Recupera una solicitud especifica de la tarea. |
+| updateRequestStatus | PUT /api/v1/tasks/{taskId}/requests/{requestId}/status/{status} | Actualiza el estado de una solicitud. |
+| deleteRequestById | DELETE /api/v1/tasks/{taskId}/requests/{requestId} | Elimina una solicitud por ID. |
+
+**Controlador: GroupRequestController**
+
+Expone consultas agregadas de solicitudes para lider y miembro, combinando datos de grupos, tareas y requests.
+
+**Metodos**
+
+| Metodo | Ruta | Descripcion |
+|---|---|---|
+| getAllRequestsFromGroup | GET /api/v1/leader/group/requests | Obtiene solicitudes de todas las tareas del grupo del lider autenticado. |
+| getAllRequestsFromMember | GET /api/v1/member/group/requests | Obtiene solicitudes de todas las tareas del miembro autenticado. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestCommandService | Ejecuta comandos de creacion, actualizacion y eliminacion. |
+| RequestQueryService | Ejecuta consultas de lectura de solicitudes. |
+| TaskServiceClient | Consulta tareas y miembros para validaciones y enriquecimiento. |
+| GroupServiceClient | Consulta lider y grupo en endpoints agregados. |
+| CreateRequestCommandFromResourceAssembler | Mapea recurso HTTP de creacion a CreateRequestCommand. |
+| UpdateRequestCommandFromResourceAssembler | Mapea datos de actualizacion a UpdateRequestCommand. |
+| RequestResourceFromEntityAssembler | Convierte entidad Request y detalles de tarea a RequestResource. |
+| RequestDetailsResourceFromEntityAssembler | Convierte entidad Request a recurso de detalle. |
+| TaskResourceFromEntityAssembler | Convierte recurso externo de tarea a recurso local. |
+| TaskMemberResourceFromEntityAssembler | Convierte recurso externo de miembro a recurso local. |
+
+**Recursos**
+
+| Recurso | Descripcion |
+|---|---|
+| CreateRequestResource | Contiene description y requestType para crear solicitud. |
+| RequestResource | Respuesta completa de solicitud con tarea enriquecida. |
+| RequestDetailsResource | Respuesta resumida con taskId embebido. |
+| TaskResource | Recurso local para datos de tarea remota. |
+| TaskMemberResource | Recurso local para datos de miembro de tarea. |
+
+**ACL (Anticorruption Layer)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient | Interfaz ACL para comunicacion con tasks-service. |
+| TaskServiceClientImpl | Implementacion ACL basada en WebClient y service discovery. |
+| GroupServiceClient | Interfaz ACL para comunicacion con groups-service. |
+| GroupServiceClientImpl | Implementacion ACL para obtener lider y grupo remoto. |
+| GroupRequestController | Orquesta datos entre contextos para consultas agregadas. |
 
 ### 5.4.3. Application Layer
 
+Los servicios internos implementan la orquestacion del contexto Requests. Validan reglas, llaman a repositorios y coordinan integraciones con otros microservicios.
 
+**Clase: RequestCommandServiceImpl**
+
+| Titulo | RequestCommandServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de comandos para crear, actualizar y eliminar solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Persistencia de solicitudes. |
+| TaskServiceClient | Verificacion de existencia de tarea en la creacion. |
+
+**Metodos relevantes**
+
+| Metodo | Descripcion |
+|---|---|
+| handle(CreateRequestCommand) | Valida requestType, verifica task existente y persiste Request. |
+| handle(UpdateRequestCommand) | Verifica existencia, actualiza estado y guarda cambios. |
+| handle(DeleteRequestCommand) | Verifica existencia y elimina por ID. |
+| handle(DeleteAllRequestsByTaskIdCommand) | Pendiente (TODO). |
+
+**Clase: RequestQueryServiceImpl**
+
+| Titulo | RequestQueryServiceImpl |
+|---|---|
+| Descripcion | Implementacion del servicio de consultas para lecturas de solicitudes. |
+
+**Dependencias**
+
+| Dependencia | Descripcion |
+|---|---|
+| RequestRepository | Acceso a datos para consultas por ID y por taskId. |
+
+**Clientes de Aplicacion (Integraciones)**
+
+| Clase | Descripcion |
+|---|---|
+| TaskServiceClient / TaskServiceClientImpl | Obtiene task simple, task detalle, miembro por username/memberId y tareas por grupo/miembro. |
+| GroupServiceClient / GroupServiceClientImpl | Obtiene lider por username y grupo por leaderId. |
 
 ### 5.4.4. Infrastructure Layer
 
+Esta capa implementa la persistencia JPA y configuraciones tecnicas para conectividad y documentacion.
 
+**Clase: RequestRepository**
+
+| Titulo | RequestRepository |
+|---|---|
+| Descripcion | Repositorio Spring Data JPA para operaciones CRUD y consultas por tarea. |
+
+**Metodos**
+
+| Metodo | Descripcion |
+|---|---|
+| findById(Long) | Recupera una solicitud por ID (heredado de JpaRepository). |
+| findAll() | Recupera todas las solicitudes (heredado de JpaRepository). |
+| save(Request) | Persiste o actualiza solicitud (heredado de JpaRepository). |
+| findByTaskId(TaskId) | Recupera solicitudes por taskId. |
+| deleteByTaskId(TaskId) | Elimina solicitudes por taskId. |
+
+**Clase: WebClientConfig**
+
+| Titulo | WebClientConfig |
+|---|---|
+| Descripcion | Define WebClient.Builder con @LoadBalanced para resolver servicios por nombre en Eureka. |
+
+**Clase: OpenApiConfiguration**
+
+| Titulo | OpenApiConfiguration |
+|---|---|
+| Descripcion | Configura metadatos de OpenAPI/Swagger para el servicio Requests. |
+
+**Clase: AuditableAbstractAggregateRoot**
+
+| Titulo | AuditableAbstractAggregateRoot |
+|---|---|
+| Descripcion | Base compartida para agregados con id, createdAt, updatedAt y hooks @PrePersist/@PreUpdate. |
 
 ### 5.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama representa como el Bounded Context de Requests gestiona solicitudes asociadas a tareas.
+RequestController y GroupRequestController actuan como puertas de entrada para comandos y consultas. Ambos delegan en RequestCommandService y RequestQueryService. A su vez, la capa de aplicacion integra tareas y grupos mediante clientes ACL (TaskServiceClient y GroupServiceClient). La persistencia se realiza en base de datos relacional a traves de RequestRepository.
 
+![Bounded Context Request - component level diagram](https://i.ibb.co/C5MGvfTK/Requests-Component-View-dark.png)
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
-
+En esta seccion se explican diagramas con mayor detalle de la implementacion de componentes del bounded context Requests.
 
 ### 5.4.7. Bounded Context Domain Layer Class Diagrams
 
+Este diagrama muestra la estructura interna del dominio de Requests, destacando el aggregate "Request", sus value objects, los commands y queries que usa para operar, y los servicios de dominio que coordinan las reglas del contexto.
 
+[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
+El diseño de este esquema de base de datos refleja una estructura de tabla única "requests" que encapsula el agregado Request dentro del bounded context. El atributo "task_id" se persiste como un Value Object embebible sin restricción de clave foránea, manteniendo autonomía del contexto y evitando acoplamiento directo con la tabla de tareas en el servicio remoto. Finalmente, resaltar que las columnas "created_at" y "updated_at" heredan del patrón "AuditableAbstractAggregateRoot".
+
+[![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
 
 ## 5.5. Bounded Context: Metrics
@@ -3620,13 +4922,69 @@ Diagrama de clases de Event Manager Component:
 
 ## 6.1. Style Guidelines
 
+Este marco de diseño establece la identidad visual de SynHub, garantizando que cada interacción sea intuitiva y coherente en todas sus plataformas. Al estandarizar el uso de colores, tipografías y recursos gráficos, no solo buscamos una estética moderna, sino construir un entorno digital accesible que genere confianza y facilite la navegación. Nuestra prioridad es que el diseño actúe como un motor de eficiencia; cada detalle visual está pensado para simplificar la colaboración y reflejar un sistema tecnológico sólido y centrado plenamente en las necesidades del usuario.
+
 ### 6.1.1. General Style Guidelines
 
+<strong style="font-size: 1.2em;">Colores</strong>
+La identidad cromática de SynHub ha sido seleccionada para proyectar orden, confianza y eficiencia. Utilizamos una combinación de tonos primarios que refuerzan la solidez profesional de la herramienta, mientras que la paleta secundaria se reserva para la gestión de estados (validaciones), fondos de interfaz y legibilidad tipográfica, garantizando un entorno visualmente descansado.
 
+<img src="assets/chapter6/styleGuidelines/colors.png" alt="interview 1" width="800"/>
+
+<strong style="font-size: 1.2em;">Tipografía</strong>
+Se ha adoptado Lato como fuente principal debido a su naturaleza sans-serif de alta legibilidad. Sus proporciones equilibradas y líneas geométricas limpias son ideales para interfaces digitales modernas, permitiendo que el usuario procese la información rápidamente y sin distracciones, manteniendo la coherencia estética en todo el ecosistema de la plataforma.
+
+<img src="assets/chapter6/styleGuidelines/typography.png" alt="interview 1" width="800"/>
+
+<strong style="font-size: 1.2em;">Simplicidad y Claridad</strong>
+El diseño de SynHub se rige por el minimalismo funcional, eliminando cualquier ruido visual que interfiera con la gestión de tareas. Nos enfocamos en los siguientes pilares:
+
+• **Interfaz Depurada**: Exposición exclusiva de elementos esenciales para guiar al usuario hacia la acción principal.
+
+• **Gestión del Espacio**: Uso estratégico de áreas en blanco para prevenir la sobrecarga cognitiva y dar "aire" al contenido.
+
+• **Flujos Optimizados**: Procesos directos que reducen la cantidad de pasos para completar una operación.
+
+• **Estructura Visual**: Jerarquización clara mediante el uso de tamaños y contrastes para destacar la información crítica.
+
+• **Iconografía Intuitiva**: Símbolos universales que facilitan la comprensión inmediata sin depender excesivamente del texto.
+
+• **Comunicación Directa**: Lenguaje sencillo y sin tecnicismos innecesarios para una experiencia de usuario fluida.
+
+• **Diseño Curvado**: Uso de bordes y transiciones redondeadas para crear una experiencia visual más suave, moderna y accesible, facilitando el flujo visual natural del usuario.
 
 ### 6.1.2. Web, Mobile & Devices Style Guidelines
 
+Esta sección define las normativas de diseño para asegurar que la transición entre la navegación web y el uso de la aplicación móvil sea fluida y coherente. Nos enfocamos en adaptar la interfaz a las capacidades de cada dispositivo sin perder la identidad de SynHub.
 
+**Web (Landing Page)**
+
+El diseño web se centra en la claridad informativa y la conversión:
+
+- Sistema de Rejilla: Rejilla de 12 columnas con márgenes laterales de 120px
+- Componentes Interactivos: Botones con bordes redondeados de 8px
+- Efectos Visuales: Elevación (shadows) que reaccionan al cursor (hover)
+- Navegación: Fija en la parte superior para acceso rápido a las secciones
+
+
+**Mobile (Native App)**
+
+La interfaz móvil prioriza la ergonomía y la rapidez de acción:
+
+- Adaptabilidad: Diseño de una sola columna respetando áreas seguras (safe areas)
+- Zona de Contacto: Botones y controles con mínimo 44x44 dp para precisión táctil
+- Navegación Intuitiva: Ubicada en la parte inferior (Bottom Nav) para uso con pulgar
+- Interacción Natural: Integración de gestos como deslizamientos (swipes)
+
+
+**Consistencia de Interacción**
+
+Unificación en ambas plataformas:
+
+- Biblioteca de Iconos: Iconos lineales compartidos
+- Estética Unificada: Esquinas redondeadas en todos los contenedores
+- Identidad Visual: Percepción de SynHub como herramienta moderna y consistente
+- Experiencia Omnichannel: Coherencia independiente del dispositivo de acceso
 
 ## 6.2. Information Architecture
 
