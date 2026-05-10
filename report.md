@@ -2314,8 +2314,8 @@ Los wireframes de la landing page de Synhub definen la estructura clave y la dis
 
 En esta sección se muestran los mock-ups de la landing page de Synhub, donde se aplican los principios de diseño, la arquitectura de información y el Design System para crear una experiencia visual coherente y efectiva. Cada diseño refleja la identidad de la marca y optimiza la conversión desde el primer impacto visual.
 
-[![Landing Page Wireframe](https://i.ibb.co/Y742vdKd/wireframe.png)](https://ibb.co/Kjc6CsQss)
-<a href="https://ibb.co/Kjc6CsQs"><img src="https://i.ibb.co/Y742vdKd/wireframe.png" alt="wireframe" border="0"></a>
+[![Landing Page Wireframe](https://i.ibb.co/JWXN7P2w/mockup.png)](https://ibb.co/wZDTW1CF)
+
 ## 6.4. Applications UX/UI Design
 
 ### 6.4.1. Applications Wireframes
