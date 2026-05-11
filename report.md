@@ -5577,25 +5577,237 @@ Unificación en ambas plataformas:
 
 ## 6.2. Information Architecture
 
+Es un aspecto fundamental en el diseño de experiencias digitales, ya que
+define cómo se organizará y presentará la información en las plataformas
+web y móvil. En esta sección, el equipo establece las decisiones clave
+que guiarán la estructura de los productos, asegurando que los usuarios
+y visitantes puedan navegar de manera intuitiva y encontrar la
+información o funcionalidad que necesitan de manera rápida y eficiente.
+
 ### 6.2.1. Labeling Systems
+
+El sistema de etiquetado se enfoca en definir cómo se presentarán los
+datos y opciones dentro de la aplicación, utilizando un lenguaje claro,
+simple y directo. El objetivo es que las etiquetas sean inmediatamente
+comprensibles para los usuarios, minimizando la carga cognitiva y
+evitando confusión o ambigüedad. La propuesta designada para synhub es
+la siguiente:
+
+| Sección                      | Etiqueta Propuesta |
+|------------------------------|--------------------|
+| Asignación de Tareas         | "Tareas"           |
+| Gestión de Horarios          | "Calendario"       |
+| Estadísticas de Cumplimiento | "Estadísticas"     |
+| Recordatorios                | "Recordatorios"    |
+| Perfil de Usuario            | "Mi Perfil"        |
+| Configuración                | "Configuración"    |
+| Grupos                       | "Mis Grupos"       |
+| Actividad Reciente           | "Actividad"        |
 
 ### 6.2.2. Searching Systems
 
+Estas decisiones están diseñadas para evitar que los usuarios se sientan
+abrumados por grandes volúmenes de información, facilitando una
+navegación eficiente y una búsqueda precisa. A continuación, se detallan
+las opciones de búsqueda y los filtros disponibles, así como la
+presentación de los datos después de la búsqueda.
+
+**Barra de secciones:** Dentro de la landing page, se implementará una
+barra de búsqueda que permitirá a los usuarios buscar información
+específica dentro de las secciones disponibles. Esta barra estará
+ubicada en la parte superior de la página y será fácilmente accesible.
+
+**Menú desplegable:** En la aplicación móvil, se incluirá un menú
+desplegable que permitirá a los usuarios filtrar la información según
+diferentes categorías. Este menú estará disponible en la parte superior
+izquierda de la pantalla.
+
+**Descripción de tareas:** En la sección de tareas al dar click a alguna
+tarea, se abrirá una ventana emergente que mostrará la descripción de la
+tarea seleccionada. Esta ventana incluirá información adicional como el
+estado de la tarea, la fecha de vencimiento y los miembros asignados.
+
+**Tareas de usuario:** En la sección de grupos al hacer click sobre un
+integrante del grupo se podrán visualizar todas las tareas asignadas a
+ese usuario. Esta funcionalidad permitirá a los líderes y miembros del
+grupo ver rápidamente las responsabilidades de cada integrante.
+
+**Tareas:** En el módulo de tareas se visualizará una lista de todas las
+tareas asignadas al integrante que se encuentre en esa sección, al hacer
+click sobre ellas se mostrará la descripción de la tarea, el estado de
+la misma y la fecha de vencimiento. Esta funcionalidad permitirá a los
+usuarios tener un acceso rápido a la información relevante sobre sus
+tareas.
+
+**Solicitudes (integrantes de grupo):** En la sección de solicitudes se
+visualizará una lista de todas las solicitudes realizadas por el
+usuario, al hacer click sobre ellas se mostrará la descripción de la
+solicitud y el estado de la misma. Esta funcionalidad permitirá a los
+usuarios tener un acceso rápido a la información relevante sobre sus
+solicitudes.
+
+**Solicitudes (líderes de grupo):** En la sección de solicitudes se
+visualizará una lista de todas las solicitudes realizadas por los
+integrantes del grupo, al hacer click sobre ellas se mostrará la
+descripción de la solicitud y el estado de la misma. Esta funcionalidad
+permitirá a los líderes tener un acceso rápido a la información
+relevante sobre las solicitudes de sus integrantes. Además, podrá
+filtrar las solicitudes por el tipo de solicitud (reprogramación,
+validación o incumplimiento).
+
 ### 6.2.3. SEO Tags and Meta Tags
 
+Esta sección define cómo se implementarán las etiquetas de optimización
+para motores de búsqueda en el sitio web y cómo se optimizará la
+presencia de SynHub en tiendas de aplicaciones móviles. El objetivo es
+mejorar la visibilidad de SynHub, atraer tráfico orgánico, y asegurar
+que tanto usuarios como motores de búsqueda entiendan de inmediato el
+propósito de la plataforma.
+
+**Para Landing Page Web:**
+
+- Title: SynHub - Organiza tu hogar y equipos de manera fácil
+- Meta Description: Plataforma colaborativa para gestionar tareas,
+  horarios y responsabilidades en hogares, oficinas y comunidades.
+  Organiza tu vida diaria de forma sencilla y eficiente con SynHub.
+- Meta Keywords: organización de tareas, gestión familiar, calendario
+  colaborativo, app de tareas, productividad en grupo
+- Meta Author: Collabrium
+
+**Para Mobile App (App Store / Play Store):**
+
+- App Title: SynHub: Organización de Tareas y Calendarios
+- App Keywords: tareas, calendario, hogar, productividad, recordatorios,
+  familia, equipo, organización
+- App Subtitle: Planifica tu día, organiza tu hogar y tu equipo
+  fácilmente.
+- App Description: SynHub te ayuda a gestionar tareas, compartir
+  calendarios, asignar responsabilidades y mantener a todos organizados,
+  ya sea en casa o en el trabajo. ¡Simplifica tu vida diaria con una
+  plataforma intuitiva y accesible!
+
 ### 6.2.4. Navigation Systems
+
+La estructura de navegación y las opciones disponibles en nuestro
+producto digital están diseñadas para proporcionar una experiencia de
+usuario intuitiva y eficiente. A continuación se muestra un resumen de
+las secciones y elementos clave:
+
+**Landing Page** Barra de navegación con secciones:
+
+- About Us
+- Mision y Vision
+- Features
+- Collabrium Team
+
+**Mobile App** Mediante el uso de un menú lateral, los usuarios podrán
+acceder a las siguientes secciones:
+
+- Tareas
+- Calendario
+- Estadísticas
+- Recordatorios
+- Mi Perfil
+- Configuración
+- Mis Grupos
 
 ## 6.3. Landing Page UI Design
 
 ### 6.3.1. Landing Page Wireframe
 
+Los wireframes de la landing page de Synhub definen la estructura clave
+y la distribución de elementos, garantizando una presentación clara y
+atractiva para el usuario. Estos esquemas visuales aseguran que la
+información esencial se comunique de manera eficiente, optimizando la
+experiencia desde el primer contacto.
+
+[<img src="./media/image42.png" style="width:2.26316in;height:6.73684in"
+alt="Landing Page Wireframe" />](https://ibb.co/Kjc6CsQs)
+
 ### 6.3.2. Landing Page Mock-up
+
+En esta sección se muestran los mock-ups de la landing page de Synhub,
+donde se aplican los principios de diseño, la arquitectura de
+información y el Design System para crear una experiencia visual
+coherente y efectiva. Cada diseño refleja la identidad de la marca y
+optimiza la conversión desde el primer impacto visual.
+
+[<img src="./media/image43.png" style="width:2.24211in;height:6.72632in"
+alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
 ## 6.4. Applications UX/UI Design
 
-### 6.4.1. Applications Wireframes
+## **6.4.1. Applications Wireframes**
 
-### 6.4.2. Applications Wireflow Diagrams
+## Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.
+
+## [![](./media/image44.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-1.png)
+
+## [![](./media/image45.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-2.png)
+
+## [![](./media/image46.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-3.png)
+
+## [![](./media/image47.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-4.png)
+
+## [![](./media/image48.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-5.png)
+
+## [![](./media/image49.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-6.png)
+
+## [![](./media/image50.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-7.png)
+
+## [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-8.png)
+
+## [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-9.png)
+
+## **6.4.2. Applications Wireflow Diagrams**
+
+## Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.
+
+## **Creación de grupo:** este wireflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo.
+
+## [![](./media/image53.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-1.png)
+
+## **Invitación de integrante:** este wireflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo.
+
+## [![](./media/image54.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-1.png)
+
+## [![](./media/image55.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-2.png)
+
+## **Asignación de tarea:** este wireflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo.
+
+## [![](./media/image56.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-3.png)
+
+## **Edición de tarea:** este wireflow corresponde a cuando un lider de equipo busca editar una tarea ya existente.
+
+## [![](./media/image57.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-4.png)
+
+## **Eliminación de tarea:** este wireflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente.
+
+## [![](./media/image58.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-5.png)
+
+## **Ver la información de una tarea:** este wireflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente.
+
+## [![](./media/image59.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-6.png)
+
+## **Revisar una solicitud o validación:** este wireflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente.
+
+## [![](./media/image60.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-7.png)
+
+## **Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo.
+
+## [![](./media/image61.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-8.png)
+
+## **Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva.
+
+## [![](./media/image62.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-9.png)
+
+## **Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes.
+
+## [![](./media/image63.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-10.png)
+
+## **Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica.
+
+## [![](./media/image64.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-11.png)
 
 ## Conclusiones
 
