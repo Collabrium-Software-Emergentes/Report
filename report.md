@@ -233,7 +233,7 @@ EAC - Student Outcome 3.
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Realice la documentacion del bounded context asignado en los plazos asignados y aporte al trabajo colaborativo con la presentacion de Synhub en Canva.
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
@@ -271,7 +271,7 @@ EAC - Student Outcome 3.
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Desarrolle y documente el bounded context de Tasks y elabore sus correspondientes diagramas de componentes, uml y database
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>

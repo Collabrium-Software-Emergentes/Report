@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c76df42-abab-4c15-8575-f951f8e601f6" name="Changes" comment="">
+    <list default="true" id="9c76df42-abab-4c15-8575-f951f8e601f6" name="Changes" comment="feat: added tasks bounded context layers documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
     </list>
@@ -13,8 +13,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotChats">
+    <option name="panelChat">
+      <chat>
+        <option name="activeSessionId" value="dee5c2cd-8d3a-42b6-b51b-49eeeed38841" />
+        <option name="sessions">
+          <session>
+            <option name="chatType" value="PANEL" />
+            <option name="id" value="dee5c2cd-8d3a-42b6-b51b-49eeeed38841" />
+            <option name="modeId" value="Agent" />
+            <option name="modelType" value="builtin_family" />
+            <option name="modelValue" value="claude-haiku-4.5" />
+            <option name="targetType" value="LOCAL" />
+          </session>
+        </option>
+        <option name="type" value="PANEL" />
+      </chat>
+    </option>
+  </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
+      <entry key="_C:/Users/Josue/Documents/UPC 2026-1/Report" value="3DNliSdZyHEDWiHekgKu0pEflh7" />
       <entry key="_C:/Users/david/OneDrive/Escritorio/Trabajo Arquitectura/Report" value="3CYhJtvvhRlsA0gppnjY4HeXFkO" />
     </persistenceIdMap>
   </component>
@@ -28,6 +47,11 @@
     </selectedModels>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="chapter6" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -39,9 +63,13 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Collabrium-Software-Emergentes/Report.git&quot;,
-    &quot;accountId&quot;: &quot;c331bda5-8374-42e9-826b-1d46298585b5&quot;
+    &quot;accountId&quot;: &quot;57c325a8-5c88-4f8e-85a8-2aa9f91fb29e&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -54,11 +82,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/needfinding",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "chapter0",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/david/OneDrive/Escritorio/Trabajo Arquitectura/Report/assets/userPersonas",
     "node.js.detected.package.eslint": "true",
@@ -67,6 +98,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -101,11 +133,36 @@
       <workItem from="1776579417430" duration="708000" />
       <workItem from="1776580698348" duration="2118000" />
       <workItem from="1776714436337" duration="6422000" />
+      <workItem from="1778130469799" duration="59000" />
+      <workItem from="1778130536457" duration="977000" />
+      <workItem from="1778203025237" duration="3715000" />
+      <workItem from="1778370776202" duration="3154000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: added tasks bounded context layers documentation">
+      <option name="closed" value="true" />
+      <created>1778209987323</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778209987323</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: added tasks bounded context layers documentation">
+      <option name="closed" value="true" />
+      <created>1778370858547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778370858547</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: added tasks bounded context layers documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added tasks bounded context layers documentation" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
