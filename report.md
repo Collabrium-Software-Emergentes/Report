@@ -1,13 +1,7 @@
 # Universidad Peruana de Ciencias Aplicadas
 
 ### **Curso:** Arquitectura de Software Emergentes
-<<<<<<< HEAD
 ### **NRC:** 17957
-=======
-
-### **NRC:**
-
->>>>>>> chapter5
 ### **Profesor:** Marino Humberto Jara Palacios
 
 ### **Ingeniería de Software**
@@ -35,13 +29,8 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 |----|----|----|----|
 | 0.1 | 2026-04-14 | Miguel Gomez | Creación de la primera versión del documento |
-<<<<<<< HEAD
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
 | 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 5 <br> - Capítulo 6 hasta 6.4 <br> |
-=======
-| 1.0 | 2026-04-21 | Miguel Gomez Diego Acuña Jhon Guerrero Max Paitan Josue Paiva | \- Capítulo 1 - Capítulo 2 - Capítulo 3 - Capítulo 4 |
-| 2.0 | 2026-04-21 | Miguel Gomez Diego Acuña Jhon Guerrero Max Paitan Josue Paiva |  |
->>>>>>> chapter5
 
 ## Project Report Collaboration Insights
 
@@ -63,22 +52,11 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
 ## Contenido
 
-<<<<<<< HEAD
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
     - [**Curso:** Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
     - [**NRC:** 17957](#nrc-17957)
     - [**Profesor:** Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
     - [**Ingeniería de Software**](#ingeniería-de-software)
-=======
-- [Universidad Peruana de Ciencias
-  Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
-  - [**Curso:** Arquitectura de Software
-    Emergentes](#curso-arquitectura-de-software-emergentes)
-  - [**NRC:**](#nrc)
-  - [**Profesor:** Marino Humberto Jara
-    Palacios](#profesor-marino-humberto-jara-palacios)
-  - [**Ingeniería de Software**](#ingeniería-de-software)
->>>>>>> chapter5
   - [Informe de Trabajo Final](#informe-de-trabajo-final)
     - [**Nombre del Startup:**
       Collabrium](#nombre-del-startup-collabrium)
@@ -149,7 +127,6 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     Design](#strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#design-purpose)
   - [Enfoque Arquitectónico](#enfoque-arquitectónico)
-<<<<<<< HEAD
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -257,68 +234,6 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
-=======
-    - [4.1.2. Attribute-Driven Design
-      Inputs](#attribute-driven-design-inputs)
-      - [4.1.2.1. Primary Functionality (Primary User
-        Stories)](#primary-functionality-primary-user-stories)
-      - [4.1.2.2. Quality attribute
-        Scenarios](#quality-attribute-scenarios)
-      - [4.1.2.3. Constraints](#constraints)
-    - [4.1.3. Architectural Drivers
-      Backlog](#architectural-drivers-backlog)
-    - [4.1.4. Architectural Design
-      Decisions](#architectural-design-decisions)
-    - [4.1.5. Quality Attribute Scenario
-      Refinements](#quality-attribute-scenario-refinements)
-  - [4.2. Strategic-Level Domain-Driven
-    Design](#strategic-level-domain-driven-design)
-    - [4.2.1. EventStorming](#eventstorming)
-    - [4.2.2. Candidate Context Discovery](#candidate-context-discovery)
-    - [4.2.3. Domain Message Flows
-      Modeling](#domain-message-flows-modeling)
-    - [4.2.4. Bounded Context Canvases](#bounded-context-canvases)
-    - [4.2.5. Context Mapping](#context-mapping)
-  - [4.3. Software Architecture](#software-architecture)
-    - [4.3.1. Software Architecture System Landscape
-      Diagram](#software-architecture-system-landscape-diagram)
-    - [4.3.2. Software Architecture Context Level
-      Diagrams](#software-architecture-context-level-diagrams)
-    - [4.3.3. Software Architecture Container Level
-      Diagrams](#software-architecture-container-level-diagrams)
-    - [4.3.4. Software Architecture Deployment
-      Diagrams](#software-architecture-deployment-diagrams)
-- [5. Capítulo V: Tactical-Level Software
-  Design](#capítulo-v-tactical-level-software-design)
-  - [5.1. Bounded Context: Iam](#bounded-context-iam)
-    - [5.1.1. Domain Layer](#domain-layer)
-    - [5.1.2. Interface Layer](#interface-layer)
-    - [5.1.3. Application Layer](#application-layer)
-    - [5.1.4. Infrastructure Layer](#infrastructure-layer)
-    - [5.1.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-software-architecture-component-level-diagrams)
-    - [5.1.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams)
-      - [5.1.6.1. Bounded Context Domain Layer Class
-        Diagrams](#bounded-context-domain-layer-class-diagrams)
-      - [5.1.6.2. Bounded Context Database Design
-        Diagram](#bounded-context-database-design-diagram)
-  - [5.2. Bounded Context: Groups](#bounded-context-groups)
-    - [5.2.1. Domain Layer](#domain-layer-1)
-    - [5.2.2. Interface Layer](#interface-layer-1)
-    - [5.2.3. Application Layer](#application-layer-1)
-    - [5.2.4. Infrastructure Layer](#infrastructure-layer-1)
-    - [5.2.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-software-architecture-component-level-diagrams-1)
-    - [5.2.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams-1)
-      - [5.2.6.1 Bounded Context Domain Layer Class
-        Diagrams](#bounded-context-domain-layer-class-diagrams-1)
-      - [5.2.6.2 Bounded Context Database Design
-        Diagram](#bounded-context-database-design-diagram-1)
-  - [5.3. Bounded Context: Tasks](#bounded-context-tasks)
-    - [5.3.1. Domain Layer](#domain-layer-2)
->>>>>>> chapter5
       - [Aggregate Root: `Task`](#aggregate-root-task)
         - [Métodos](#métodos-6)
         - [Invariantes de negocio](#invariantes-de-negocio-3)
@@ -331,7 +246,6 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
         - [Invariantes](#invariantes-3)
       - [Value Object: `TaskStatus`](#value-object-taskstatus)
         - [Valores](#valores)
-<<<<<<< HEAD
         - [Métodos](#métodos-9)
         - [Invariantes](#invariantes-4)
     - [5.3.2. Interface Layer](#532-interface-layer)
@@ -340,22 +254,11 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
         - [`UpdateTaskResource`](#updatetaskresource)
         - [`CreateMemberResource`](#creatememberresource)
       - [Recursos de salida (Response)](#recursos-de-salida-response-1)
-=======
-        - [Métodos](#métodos-3)
-        - [Invariantes](#invariantes-1)
-    - [5.3.2. Interface Layer](#interface-layer-2)
-    - [Recursos de entrada (Request)](#recursos-de-entrada-request)
-      - [`CreateTaskResource`](#createtaskresource)
-      - [`UpdateTaskResource`](#updatetaskresource)
-      - [`CreateMemberResource`](#creatememberresource)
-      - [Recursos de salida (Response)](#recursos-de-salida-response)
->>>>>>> chapter5
         - [`TaskResource`](#taskresource)
         - [`TaskMemberResource`](#taskmemberresource)
         - [`MemberResource`](#memberresource)
         - [`MemberOnlyResource`](#memberonlyresource)
         - [`ExtendedGroupResource`](#extendedgroupresource)
-<<<<<<< HEAD
       - [Resumen de recursos](#resumen-de-recursos-1)
       - [Controllers](#controllers-1)
         - [1. `MemberController`](#1-membercontroller)
@@ -486,114 +389,6 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
-=======
-      - [Resumen de recursos](#resumen-de-recursos)
-      - [Controllers](#controllers)
-        - [1. `MemberController`](#membercontroller)
-        - [2. `MemberTaskController`](#membertaskcontroller)
-        - [3. `TaskController`](#taskcontroller)
-      - [Resumen de Controllers](#resumen-de-controllers)
-    - [5.3.3. Application Layer](#application-layer-2)
-      - [Command Services](#command-services)
-        - [1. `MemberCommandServiceImpl`](#membercommandserviceimpl)
-        - [2. `TaskCommandServiceImpl`](#taskcommandserviceimpl)
-      - [Query Services](#query-services)
-        - [1. `MemberQueryServiceImpl`](#memberqueryserviceimpl)
-        - [2. `TaskQueryServiceImpl`](#taskqueryserviceimpl)
-      - [Clients / Ports (Interfaces hacia
-        Infraestructura)](#clients-ports-interfaces-hacia-infraestructura)
-        - [1. `IamServiceClient`](#iamserviceclient)
-        - [2. `GroupsServiceClient`](#groupsserviceclient)
-    - [5.3.4. Infrastructure Layer](#infrastructure-layer-2)
-      - [Persistencia (JPA
-        Repositories)](#persistencia-jpa-repositories)
-        - [1. `MemberRepository`](#memberrepository)
-        - [2. `TaskRepository`](#taskrepository)
-      - [Configuración (Configuration)](#configuración-configuration)
-        - [1. `RabbitMQConfig`](#rabbitmqconfig)
-        - [2. `WebClientConfig`](#webclientconfig)
-      - [Mensajería (Messaging)](#mensajería-messaging)
-    - [Publishers](#publishers)
-      - [1. `IamEventPublisher`](#iameventpublisher)
-      - [2. `GroupEventsPublisher`](#groupeventspublisher)
-    - [Listeners (Consumidores)](#listeners-consumidores)
-      - [1. `MemberCreatedEventListener`](#membercreatedeventlistener)
-      - [2.
-        `InvitationAcceptedEventListener`](#invitationacceptedeventlistener)
-      - [3. `MemberRemovedEventListener`](#memberremovedeventlistener)
-      - [4. `GroupDeletedEventListener`](#groupdeletedeventlistener)
-      - [Resumen de la capa de
-        infraestructura](#resumen-de-la-capa-de-infraestructura)
-    - [5.3.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-software-architecture-component-level-diagrams-2)
-    - [5.3.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams-2)
-    - [5.3.6.1 Bounded Context Domain Layer Class
-      Diagrams](#bounded-context-domain-layer-class-diagrams-2)
-    - [5.3.6.2 Bounded Context Database Design
-      Diagram](#bounded-context-database-design-diagram-2)
-  - [5.4. Bounded Context: Requests](#bounded-context-requests)
-    - [5.4.1. Domain Layer](#domain-layer-3)
-    - [5.4.2. Interface Layer](#interface-layer-3)
-    - [5.4.3. Application Layer](#application-layer-3)
-    - [5.4.4. Infrastructure Layer](#infrastructure-layer-3)
-    - [5.4.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-software-architecture-component-level-diagrams-3)
-    - [5.4.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams-3)
-    - [5.4.7. Bounded Context Domain Layer Class
-      Diagrams](#bounded-context-domain-layer-class-diagrams-3)
-    - [5.4.8. Bounded Context Database Design
-      Diagram](#bounded-context-database-design-diagram-3)
-  - [5.5. Bounded Context: Metrics](#section)
-    - [5.5.1. Domain Layer](#Xff66e96264c988dce1d82b0fe2cfdad16b0c8f6)
-    - [5.5.2. Interface
-      Layer](#Xaf6ca4c005a28ffc5c9fbc45b14761f08f2083b)
-    - [5.5.3. Application
-      Layer](#X501c99d6ff3148d6ab81e2c2260616eca90d995)
-    - [5.5.4. Infrastructure
-      Layer](#X045f9df9112c3d1f2e4e162378b8b70c9723d5f)
-    - [5.5.5. Bounded Context Software Architecture Component Level
-      Diagrams](#section)
-    - [5.5.6. Bounded Context Software Architecture Code Level
-      Diagrams](#X9aa8451dfb7b786174797ef3d06195aa2939126)
-    - [5.5.7. Bounded Context Domain Layer Class
-      Diagrams](#Xc7862e4a491526628eed5c373885eb4a49910b5)
-    - [5.5.8. Bounded Context Database Design
-      Diagram](#bounded-context-analítica-y-reportes)
-  - [5.6. Bounded Context:
-    Notifications](#bounded-context-notifications)
-    - [5.6.1. Domain Layer](#domain-layer-5)
-    - [5.6.2. Interface Layer](#interface-layer-5)
-    - [5.6.3. Application Layer](#application-layer-5)
-    - [5.6.4. Infrastructure Layer](#infrastructure-layer-5)
-    - [5.6.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-software-architecture-component-level-diagrams-5)
-    - [5.6.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams-5)
-      - [5.6.6.1. Bounded Context Domain Layer Class
-        Diagrams](#bounded-context-domain-layer-class-diagrams-5)
-      - [5.6.6.2. Bounded Context Database Design
-        Diagram](#bounded-context-database-design-diagram-5)
-- [6. Capítulo VI: Solution UX
-  Design](#X8d11df206c23017767753cd63796dad33776056)
-  - [6.1. Style Guidelines](#style-guidelines)
-    - [6.1.1. General Style Guidelines](#general-style-guidelines)
-    - [6.1.2. Web, Mobile & Devices Style
-      Guidelines](#web-mobile-devices-style-guidelines)
-  - [6.2. Information Architecture](#information-architecture)
-    - [6.2.1. Labeling Systems](#labeling-systems)
-    - [6.2.2. Searching Systems](#searching-systems)
-    - [6.2.3. SEO Tags and Meta Tags](#seo-tags-and-meta-tags)
-    - [6.2.4. Navigation Systems](#navigation-systems)
-  - [6.3. Landing Page UI Design](#landing-page-ui-design)
-    - [6.3.1. Landing Page Wireframe](#landing-page-wireframe)
-    - [6.3.2. Landing Page Mock-up](#landing-page-mock-up)
-  - [6.4. Applications UX/UI Design](#applications-uxui-design)
-    - [6.4.1. Applications Wireframes](#applications-wireframes)
-    - [6.4.2. Applications Wireflow
-      Diagrams](#applications-wireflow-diagrams)
->>>>>>> chapter5
   - [Conclusiones](#conclusiones)
     - [TB1:](#tb1-1)
     - [TB2:](#tb2-1)
@@ -611,7 +406,6 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados
 de conclusiones por parte del grupo, que permiten sustentar el haber
 alcanzado el logro del ABET – EAC - Student Outcome 3.
 
-<<<<<<< HEAD
 <table>
   <thead>
     <tr>
@@ -699,9 +493,6 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
     </tr>
   </tbody>
 </table>
-=======
-# **Capítulo I: Introducción**
->>>>>>> chapter5
 
 ## **1.1. Startup Profile**
 
