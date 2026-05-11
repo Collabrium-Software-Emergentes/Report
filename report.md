@@ -5623,6 +5623,10 @@ Unificación en ambas plataformas:
 
 ### TB2:
 
+- Se logró definir un primer avance al desarrollo de la aplicación mediante wireframes.
+
+- Se evidencia un desglose de la insfrastructura de nuestra aplicación mediante bounded contexts detallados.
+
 Anexo:
 
 - GitHub: <https://github.com/Collabrium-Software-Emergentes>
