@@ -50,6 +50,12 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
 ### TB2:
 
+[![Insght-TP.png](https://i.postimg.cc/CxLKjF9m/Insght-TP.png)](https://postimg.cc/fJpZshz9)
+
+[![Commit-tp.png](https://i.postimg.cc/50v9xjFq/Commit-tp.png)](https://postimg.cc/HcY1zYzV)
+
+[![insig.png](https://i.postimg.cc/yYn16MWc/insig.png)](https://postimg.cc/3d45nbXx)
+
 ## Contenido
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
