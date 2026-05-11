@@ -3814,9 +3814,9 @@ alt="NBounded Context Request Domain Layer Class Diagram" />](https://ibb.co/Zpm
 
 ### 
 
-### **4.2.1. Bounded Context: Analítica y Reportes**
+### **5.5. Bounded Context: Analítica y Reportes**
 
-### **4.2.1.1. Domain Layer**
+### **5.5.1. Domain Layer**
 
 ### En el Domain Layer del contexto de **Analítica y Reportes**, los agregados principales son ActivityLog, Report y Metric. Estos representan los componentes clave del sistema de análisis de comportamiento y productividad dentro de grupos colaborativos en la plataforma SynHub.
 
@@ -4088,7 +4088,7 @@ en formato legible.</h3></td>
 </tbody>
 </table>
 
-### **4.2.1.2. Interface Layer**
+### **5.5.2. Interface Layer**
 
 ### El Interface Layer para el contexto de **Analítica y Reportes** está conformado por el ReportController, que expone las operaciones necesarias para que los usuarios puedan visualizar, generar y exportar reportes a partir de los registros de actividad del sistema. Este controlador representa el punto de entrada para las funcionalidades clave relacionadas a métricas de uso y productividad, tanto a nivel individual como grupal.
 
@@ -4178,7 +4178,7 @@ reciente.</h3></td>
 </tbody>
 </table>
 
-### **4.2.1.3. Application Layer**
+### **5.5.3. Application Layer**
 
 ### En el Application Layer del contexto de **Analítica y Reportes**, se definen los servicios encargados de orquestar la lógica de aplicación relacionada con la generación, recuperación y exportación de reportes, así como con el manejo de eventos relevantes del sistema.
 
@@ -4345,7 +4345,7 @@ un reporte basado en las actividades recientes del usuario.</h3></td>
 
 ### **GroupJoinedEventHandler:** Registra actividad cuando un usuario se une a un grupo.
 
-### **4.2.1.4. Infrastructure Layer**
+### **5.5.4. Infrastructure Layer**
 
 ### En el **Infrastructure Layer** del contexto de **Analítica y Reportes**, se encuentran las clases responsables de interactuar con la base de datos y servicios externos necesarios para la persistencia y recuperación de información clave, como los registros de actividad y los reportes generados. Este layer implementa las interfaces definidas en el *Domain Layer* para los repositorios de ActivityLog y Report.
 
@@ -4442,7 +4442,7 @@ nuevo reporte en la base de datos.</h3></td>
 </tbody>
 </table>
 
-### **4.2.1.5. Bounded Context Software Architecture Component Level Diagrams**
+### **5.5.5. Bounded Context Software Architecture Component Level Diagrams**
 
 ### Este diagrama de componentes representa un sistema monolítico que gestiona datos analíticos y reportes dentro de la plataforma SynHub. Una **Single-Page Application (SPA)**, implementada con Angular, interactúa con una **Web API Application** desarrollada en Spring Boot mediante llamadas HTTP (REST).
 
@@ -4452,9 +4452,9 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/structurizr4.png)
 
-### **4.2.1.6. Bounded Context Software Architecture Code Level Diagrams**
+### **5.5.6. Bounded Context Software Architecture Code Level Diagrams**
 
-### **4.2.1.6.1. Bounded Context Domain Layer Class Diagrams**
+### **5.5.6.1. Bounded Context Domain Layer Class Diagrams**
 
 ### El siguiente diagrama de clases representa el bounded context **Analítica y Reportes** y muestra tres agregados principales: ActivityLog, Report y Metric. Además, se incluye el servicio de dominio ReportFactory y las interfaces de repositorio ActivityLogRepository y ReportRepository.
 
