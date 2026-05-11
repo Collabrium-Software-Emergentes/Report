@@ -275,7 +275,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       Diagrams](#bounded-context-domain-layer-class-diagrams-3)
     - [5.4.8. Bounded Context Database Design
       Diagram](#bounded-context-database-design-diagram-3)
-  - [5.5. Bounded Context: Metrics](#bounded-context-gestión-de-grupos)
+  - [5.5. Bounded Context: Metrics](#section)
     - [5.5.1. Domain Layer](#Xff66e96264c988dce1d82b0fe2cfdad16b0c8f6)
     - [5.5.2. Interface
       Layer](#Xaf6ca4c005a28ffc5c9fbc45b14761f08f2083b)
@@ -284,13 +284,13 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.5.4. Infrastructure
       Layer](#X045f9df9112c3d1f2e4e162378b8b70c9723d5f)
     - [5.5.5. Bounded Context Software Architecture Component Level
-      Diagrams](#bounded-context-gestión-de-grupos)
+      Diagrams](#section)
     - [5.5.6. Bounded Context Software Architecture Code Level
-      Diagrams](#bounded-context-software-architecture-code-level-diagrams-4)
+      Diagrams](#X9aa8451dfb7b786174797ef3d06195aa2939126)
     - [5.5.7. Bounded Context Domain Layer Class
-      Diagrams](#bounded-context-domain-layer-class-diagrams-4)
+      Diagrams](#Xc7862e4a491526628eed5c373885eb4a49910b5)
     - [5.5.8. Bounded Context Database Design
-      Diagram](#bounded-context-database-design-diagram-4)
+      Diagram](#bounded-context-analítica-y-reportes)
   - [5.6. Bounded Context:
     Notifications](#bounded-context-notifications)
     - [5.6.1. Domain Layer](#domain-layer-5)
@@ -3812,20 +3812,32 @@ servicio remoto. Finalmente, resaltar que las columnas "created_at" y
 [<img src="./media/image50.png" style="width:4.17895in;height:2.51579in"
 alt="NBounded Context Request Domain Layer Class Diagram" />](https://ibb.co/ZpmFdZbJ)
 
-### **5.5. Bounded Context: Gestión de grupos**
+### 
 
-### **5.5.1. Domain Layer**
+### **4.2.1. Bounded Context: Analítica y Reportes**
 
-### **Aggregate: Group**
+### **4.2.1.1. Domain Layer**
 
-### **Descripción:** Representa un grupo en el sistema, con usuarios miembros y un propietario.
+### En el Domain Layer del contexto de **Analítica y Reportes**, los agregados principales son ActivityLog, Report y Metric. Estos representan los componentes clave del sistema de análisis de comportamiento y productividad dentro de grupos colaborativos en la plataforma SynHub.
+
+### Los registros de actividad (ActivityLog) permiten capturar eventos relevantes generados por los usuarios durante el uso del sistema (como completar tareas, integrarse a un grupo o modificar horarios). Con base en estos registros, los reportes (Report) se generan para ofrecer métricas de uso, rendimiento y participación. Las métricas (Metric) encapsulan información cuantitativa puntual que puede ser evaluada y comparada a lo largo del tiempo.
+
+### **Justificación:**
+
+### Este enfoque permite encapsular de manera clara los datos recolectados y procesados en estructuras especializadas, garantizando una separación de responsabilidades entre la recolección (logs), el análisis (reportes) y la medición (métricas). Así se facilita el seguimiento de indicadores clave y se apoya la toma de decisiones basada en datos.
+
+### 
+
+### **Aggregate: ActivityLog**
+
+### **Descripción:** Representa un registro de actividad generado por un usuario en el sistema.
 
 <table>
 <colgroup>
 <col style="width: 18%" />
-<col style="width: 20%" />
-<col style="width: 19%" />
-<col style="width: 40%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr>
@@ -3840,56 +3852,38 @@ alt="NBounded Context Request Domain Layer Class Diagram" />](https://ibb.co/Zpm
 <td><h3 id="id">id</h3></td>
 <td><h3 id="long">Long</h3></td>
 <td><h3 id="private">Private</h3></td>
-<td><h3 id="identificador-único-del-grupo.">Identificador único del
-grupo.</h3></td>
+<td><h3 id="identificador-único-del-log.">Identificador único del
+log.</h3></td>
 </tr>
 <tr>
-<td><h3 id="name">name</h3></td>
-<td><h3 id="string">String</h3></td>
-<td><h3 id="private-1">Private</h3></td>
-<td><h3 id="nombre-del-grupo.">Nombre del grupo.</h3></td>
-</tr>
-<tr>
-<td><h3 id="imgurl">imgUrl</h3></td>
-<td><h3 id="string-1">String</h3></td>
-<td><h3 id="private-2">Private</h3></td>
-<td><h3 id="url-de-la-imagen-del-grupo.">Url de la imagen del
-grupo.</h3></td>
-</tr>
-<tr>
-<td><h3 id="count">count</h3></td>
-<td><h3 id="short">Short</h3></td>
-<td><h3 id="private-3">Private</h3></td>
-<td><h3 id="cantidad-de-miembros-puede-derivarse-de-memberids.">Cantidad
-de miembros (puede derivarse de memberIds).</h3></td>
-</tr>
-<tr>
-<td><h3 id="createdat">createdAt</h3></td>
-<td><h3 id="timestamp">Timestamp</h3></td>
-<td><h3 id="private-4">Private</h3></td>
-<td><h3 id="fecha-de-creación-del-grupo.">Fecha de creación del
-grupo.</h3></td>
-</tr>
-<tr>
-<td><h3 id="updatedat">updatedAt</h3></td>
-<td><h3 id="timestamp-1">Timestamp</h3></td>
-<td><h3 id="private-5">Private</h3></td>
-<td><h3 id="fecha-de-última-actualización.">Fecha de última
-actualización.</h3></td>
-</tr>
-<tr>
-<td><h3 id="ownerid">ownerId</h3></td>
+<td><h3 id="userid">userId</h3></td>
 <td><h3 id="long-1">Long</h3></td>
-<td><h3 id="private-6">Private</h3></td>
-<td><h3 id="id-del-usuario-propietario.">ID del usuario
-propietario.</h3></td>
+<td><h3 id="private-1">Private</h3></td>
+<td><h3 id="id-del-usuario-que-generó-la-actividad.">ID del usuario que
+generó la actividad.</h3></td>
 </tr>
 <tr>
-<td><h3 id="members">members</h3></td>
-<td><h3 id="list">List</h3></td>
-<td><h3 id="private-7">Private</h3></td>
-<td><h3 id="lista-de-usuarios-miembros.">Lista de usuarios
-miembros.</h3></td>
+<td><h3 id="actiontype">actionType</h3></td>
+<td><h3 id="string">String</h3></td>
+<td><h3 id="private-2">Private</h3></td>
+<td><h3
+id="tipo-de-acción-realizada-ej.-task_completed-group_joined.">Tipo de
+acción realizada (ej. "task_completed", "group_joined").</h3></td>
+</tr>
+<tr>
+<td><h3 id="timestamp">timestamp</h3></td>
+<td><h3 id="localdatetime">LocalDateTime</h3></td>
+<td><h3 id="private-3">Private</h3></td>
+<td><h3 id="fecha-y-hora-de-la-acción.">Fecha y hora de la
+acción.</h3></td>
+</tr>
+<tr>
+<td><h3 id="metadata">metadata</h3></td>
+<td><h3 id="string-1">String</h3></td>
+<td><h3 id="private-4">Private</h3></td>
+<td><h3
+id="información-adicional-contextual-ej.-id-de-tarea-grupo-etc.">Información
+adicional contextual (ej. ID de tarea, grupo, etc).</h3></td>
 </tr>
 </tbody>
 </table>
@@ -3898,10 +3892,10 @@ miembros.</h3></td>
 
 <table>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 21%" />
-<col style="width: 19%" />
-<col style="width: 32%" />
+<col style="width: 22%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr>
@@ -3913,88 +3907,71 @@ miembros.</h3></td>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="getid">getId()</h3></td>
-<td><h3 id="long-2">Long</h3></td>
+<td><h3 id="createlog">createLog()</h3></td>
+<td><h3 id="void">void</h3></td>
 <td><h3 id="public">Public</h3></td>
-<td><h3 id="devuelve-el-id-del-grupo.">Devuelve el ID del
-grupo.</h3></td>
+<td><h3 id="crea-un-nuevo-registro-de-actividad.">Crea un nuevo registro
+de actividad.</h3></td>
 </tr>
 <tr>
-<td><h3 id="getname">getName()</h3></td>
+<td><h3 id="getsummary">getSummary()</h3></td>
 <td><h3 id="string-2">String</h3></td>
 <td><h3 id="public-1">Public</h3></td>
-<td><h3 id="devuelve-el-nombre-del-grupo.">Devuelve el nombre del
-grupo.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getimgurl">getImgUrl()</h3></td>
-<td><h3 id="string-3">String</h3></td>
-<td><h3 id="public-2">Public</h3></td>
-<td><h3 id="devuelve-la-url-de-la-imagen.">Devuelve la url de la
-imagen.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getcount">getCount()</h3></td>
-<td><h3 id="short-1">Short</h3></td>
-<td><h3 id="public-3">Public</h3></td>
-<td><h3 id="devuelve-la-cantidad-de-miembros.">Devuelve la cantidad de
-miembros.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getcreatedat">getCreatedAt()</h3></td>
-<td><h3 id="timestamp-2">Timestamp</h3></td>
-<td><h3 id="public-4">Public</h3></td>
-<td><h3 id="devuelve-la-fecha-de-creación.">Devuelve la fecha de
-creación.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getupdatedat">getUpdatedAt()</h3></td>
-<td><h3 id="timestamp-3">Timestamp</h3></td>
-<td><h3 id="public-5">Public</h3></td>
-<td><h3 id="devuelve-la-fecha-de-última-actualización.">Devuelve la
-fecha de última actualización.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getownerid">getOwnerId()</h3></td>
-<td><h3 id="long-3">Long</h3></td>
-<td><h3 id="public-6">Public</h3></td>
-<td><h3 id="devuelve-el-id-del-propietario.">Devuelve el ID del
-propietario.</h3></td>
-</tr>
-<tr>
-<td><h3 id="getmembers">getMembers()</h3></td>
-<td><h3 id="list-1">List</h3></td>
-<td><h3 id="public-7">Public</h3></td>
-<td><h3 id="devuelve-la-lista-de-miembros.">Devuelve la lista de
-miembros.</h3></td>
+<td><h3 id="devuelve-un-resumen-legible-del-log.">Devuelve un resumen
+legible del log.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **5.5.2. Interface Layer**
-
 ### 
 
-### **Controlador: GroupController**
+### **Aggregate: Report**
+
+### **Descripción:** Representa un informe generado a partir de múltiples registros de actividad.
 
 <table>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
+<col style="width: 20%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 36%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="título"><strong>Título</strong></h3></th>
-<th><h3 id="groupcontroller-1">GroupController</h3></th>
+<th><h3 id="atributos-8"><strong>Atributos</strong></h3></th>
+<th><h3 id="tipo-de-dato-1"><strong>Tipo de dato</strong></h3></th>
+<th><h3 id="visibilidad-2"><strong>Visibilidad</strong></h3></th>
+<th><h3 id="descripción-2"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="descripción-2"><strong>Descripción</strong></h3></td>
-<td><h3
-id="controlador-rest-que-maneja-las-operaciones-crud-para-grupos-y-gestión-de-miembros">Controlador
-REST que maneja las operaciones CRUD para grupos y gestión de
-miembros</h3></td>
+<td><h3 id="id-1">id</h3></td>
+<td><h3 id="long-2">Long</h3></td>
+<td><h3 id="private-5">Private</h3></td>
+<td><h3 id="identificador-único-del-reporte.">Identificador único del
+reporte.</h3></td>
+</tr>
+<tr>
+<td><h3 id="name">name</h3></td>
+<td><h3 id="string-3">String</h3></td>
+<td><h3 id="private-6">Private</h3></td>
+<td><h3 id="nombre-o-título-del-reporte.">Nombre o título del
+reporte.</h3></td>
+</tr>
+<tr>
+<td><h3 id="generatedat">generatedAt</h3></td>
+<td><h3 id="localdatetime-1">LocalDateTime</h3></td>
+<td><h3 id="private-7">Private</h3></td>
+<td><h3 id="fecha-y-hora-de-generación-del-reporte.">Fecha y hora de
+generación del reporte.</h3></td>
+</tr>
+<tr>
+<td><h3 id="data">data</h3></td>
+<td><h3 id="list">List</h3></td>
+<td><h3 id="private-8">Private</h3></td>
+<td><h3 id="lista-de-métricas-que-componen-el-reporte.">Lista de
+métricas que componen el reporte.</h3></td>
 </tr>
 </tbody>
 </table>
@@ -4003,140 +3980,74 @@ miembros</h3></td>
 
 <table>
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 52%" />
-<col style="width: 19%" />
+<col style="width: 30%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="método"><strong>Método</strong></h3></th>
-<th><h3 id="ruta"><strong>Ruta</strong></h3></th>
+<th><h3 id="métodos-11"><strong>Métodos</strong></h3></th>
+<th><h3 id="tipo-de-retorno-1"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-3"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-3"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="getgroupbyid">getGroupByID</h3></td>
-<td><h3 id="get-apiv1groupid">GET /api/v1/group/{id}</h3></td>
-<td><h3
-id="obtiene-los-detalles-de-un-grupo-específico-por-su-id">Obtiene los
-detalles de un grupo específico por su ID</h3></td>
-</tr>
-<tr>
-<td><h3 id="getallusergroups">getAllUserGroups</h3></td>
-<td><h3 id="get-apiv1groupuseruserid">GET
-/api/v1/group/user/{userId}</h3></td>
-<td><h3
-id="obtiene-todos-los-grupos-a-los-que-pertenece-un-usuario">Obtiene
-todos los grupos a los que pertenece un usuario</h3></td>
-</tr>
-<tr>
-<td><h3 id="registergroup">registerGroup</h3></td>
-<td><h3 id="post-apiv1group">POST /api/v1/group</h3></td>
-<td><h3 id="crea-un-nuevo-grupo-en-el-sistema">Crea un nuevo grupo en el
-sistema</h3></td>
-</tr>
-<tr>
-<td><h3 id="addmembertogroup">AddMemberToGroup</h3></td>
-<td><h3 id="post-apiv1groupgroupidmemberuserid">POST
-/api/v1/group/{groupId}/member/{userId}</h3></td>
-<td><h3 id="añade-un-usuario-como-miembro-a-un-grupo-existente">Añade un
-usuario como miembro a un grupo existente</h3></td>
-</tr>
-<tr>
-<td><h3 id="updategroup">updateGroup</h3></td>
-<td><h3 id="put-apiv1groupid">PUT /api/v1/group/{id}</h3></td>
-<td><h3 id="actualiza-la-información-de-un-grupo-existente">Actualiza la
-información de un grupo existente</h3></td>
-</tr>
-<tr>
-<td><h3 id="deletegroup">DeleteGroup</h3></td>
-<td><h3 id="delete-apiv1groupid">DELETE /api/v1/group/{id}</h3></td>
-<td><h3 id="elimina-un-grupo-del-sistema">Elimina un grupo del
-sistema</h3></td>
+<td><h3 id="generatefromlogs">generateFromLogs()</h3></td>
+<td><h3 id="void-1">void</h3></td>
+<td><h3 id="public-2">Public</h3></td>
+<td><h3 id="genera-el-reporte-a-partir-de-logs.">Genera el reporte a
+partir de logs.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **Dependencias:**
+### 
+
+### **Value Object: Metric**
+
+### **Descripción:** Representa una métrica cuantitativa específica del comportamiento o rendimiento del usuario/grupo.
 
 <table>
 <colgroup>
-<col style="width: 74%" />
-<col style="width: 25%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 47%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="dependencia"><strong>Dependencia</strong></h3></th>
+<th><h3 id="atributos-9"><strong>Atributos</strong></h3></th>
+<th><h3 id="tipo-de-dato-2"><strong>Tipo de dato</strong></h3></th>
+<th><h3 id="visibilidad-4"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-4"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="groupqueryservice">GroupQueryService</h3></td>
-<td><h3
-id="servicio-para-consultas-y-recuperación-de-datos-de-grupos">Servicio
-para consultas y recuperación de datos de grupos</h3></td>
+<td><h3 id="name-1">name</h3></td>
+<td><h3 id="string-4">String</h3></td>
+<td><h3 id="private-9">Private</h3></td>
+<td><h3 id="nombre-de-la-métrica-ej.-tareas-completadas.">Nombre de la
+métrica (ej. "Tareas completadas").</h3></td>
 </tr>
 <tr>
-<td><h3 id="groupcommandservice">GroupCommandService</h3></td>
-<td><h3
-id="servicio-para-ejecutar-comandos-de-modificación-sobre-grupos">Servicio
-para ejecutar comandos de modificación sobre grupos</h3></td>
+<td><h3 id="value">value</h3></td>
+<td><h3 id="double">Double</h3></td>
+<td><h3 id="private-10">Private</h3></td>
+<td><h3 id="valor-numérico-de-la-métrica.">Valor numérico de la
+métrica.</h3></td>
 </tr>
 <tr>
+<td><h3 id="context">context</h3></td>
+<td><h3 id="string-5">String</h3></td>
+<td><h3 id="private-11">Private</h3></td>
 <td><h3
-id="creategroupcommandfromresourceassembler">CreateGroupCommandFromResourceAssembler</h3></td>
-<td><h3
-id="convierte-recursos-rest-en-comandos-de-creación-de-grupos">Convierte
-recursos REST en comandos de creación de grupos</h3></td>
-</tr>
-<tr>
-<td><h3
-id="updategroupcommandfromresourceassembler">UpdateGroupCommandFromResourceAssembler</h3></td>
-<td><h3
-id="convierte-recursos-rest-en-comandos-de-actualización-de-grupos">Convierte
-recursos REST en comandos de actualización de grupos</h3></td>
-</tr>
-<tr>
-<td><h3
-id="deletegroupcommandfromresourceassembler">DeleteGroupCommandFromResourceAssembler</h3></td>
-<td><h3
-id="convierte-recursos-rest-en-comandos-de-eliminación-de-grupos">Convierte
-recursos REST en comandos de eliminación de grupos</h3></td>
-</tr>
-<tr>
-<td><h3
-id="groupresourcefromentityassembler">GroupResourceFromEntityAssembler</h3></td>
-<td><h3
-id="convierte-entidades-de-grupo-en-recursos-rest-para-la-respuesta">Convierte
-entidades de grupo en recursos REST para la respuesta</h3></td>
-</tr>
-</tbody>
-</table>
-
-### **5.5.3. Application Layer**
-
-### **Clase: GroupQueryServiceImpl**
-
-<table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
-</colgroup>
-<thead>
-<tr>
-<th><h3 id="título-1"><strong>Título</strong></h3></th>
-<th><h3 id="groupqueryserviceimpl-1">GroupQueryServiceImpl</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><h3 id="descripción-5"><strong>Descripción</strong></h3></td>
-<td><h3
-id="implementación-del-servicio-de-consultas-para-operaciones-de-lectura-relacionadas-con-grupos">Implementación
-del servicio de consultas para operaciones de lectura relacionadas con
-grupos</h3></td>
+id="contexto-asociado-ej.-id-de-grupo-período-de-tiempo.">Contexto
+asociado (ej. ID de grupo, período de tiempo).</h3></td>
 </tr>
 </tbody>
 </table>
@@ -4145,711 +4056,419 @@ grupos</h3></td>
 
 <table>
 <colgroup>
-<col style="width: 60%" />
-<col style="width: 39%" />
+<col style="width: 18%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 42%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="método-1"><strong>Método</strong></h3></th>
+<th><h3 id="métodos-12"><strong>Métodos</strong></h3></th>
+<th><h3 id="tipo-de-retorno-2"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-5"><strong>Visibilidad</strong></h3></th>
+<th><h3 id="descripción-5"><strong>Descripción</strong></h3></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><h3 id="calculate">calculate()</h3></td>
+<td><h3 id="double-1">Double</h3></td>
+<td><h3 id="public-3">Public</h3></td>
+<td><h3 id="calcula-o-actualiza-el-valor-de-la-métrica.">Calcula o
+actualiza el valor de la métrica.</h3></td>
+</tr>
+<tr>
+<td><h3 id="tostring">toString()</h3></td>
+<td><h3 id="string-6">String</h3></td>
+<td><h3 id="public-4">Public</h3></td>
+<td><h3 id="devuelve-la-métrica-en-formato-legible.">Devuelve la métrica
+en formato legible.</h3></td>
+</tr>
+</tbody>
+</table>
+
+### **4.2.1.2. Interface Layer**
+
+### El Interface Layer para el contexto de **Analítica y Reportes** está conformado por el ReportController, que expone las operaciones necesarias para que los usuarios puedan visualizar, generar y exportar reportes a partir de los registros de actividad del sistema. Este controlador representa el punto de entrada para las funcionalidades clave relacionadas a métricas de uso y productividad, tanto a nivel individual como grupal.
+
+### **Justificación:**
+
+### El Interface Layer es fundamental para desacoplar la lógica de presentación de la lógica de negocio. Al utilizar un controlador especializado, se mantiene una separación clara entre las solicitudes de la interfaz de usuario (UI) y las operaciones internas de generación de reportes, cálculos de métricas y exportación de datos. Esto permite una mejor escalabilidad del sistema y facilita el mantenimiento futuro de la plataforma.
+
+### 
+
+### **Controller: ReportController**
+
+### **Descripción:** Controlador para la gestión de reportes y métricas analíticas dentro de la plataforma SynHub.
+
+### **Atributos**
+
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 31%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th><h3 id="tipo-de-dato-3"><strong>Tipo de dato</strong></h3></th>
+<th><h3 id="nombre"><strong>Nombre</strong></h3></th>
+<th><h3 id="visibilidad-6"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-6"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="handlegetgroupbyidquery">handle(GetGroupByIdQuery)</h3></td>
-<td><h3
-id="obtiene-los-detalles-completos-de-un-grupo-por-su-id">Obtiene los
-detalles completos de un grupo por su ID</h3></td>
+<td><h3 id="reportqueryservice">ReportQueryService</h3></td>
+<td><h3 id="reportqueryservice-1">reportQueryService</h3></td>
+<td><h3 id="private-12">Private</h3></td>
+<td><h3 id="servicio-para-consultas-de-reportes-existentes.">Servicio
+para consultas de reportes existentes.</h3></td>
 </tr>
 <tr>
-<td><h3
-id="handlegetusermembershipquery">handle(GetUserMembershipQuery)</h3></td>
-<td><h3
-id="verifica-si-un-usuario-pertenece-a-un-grupo-específico">Verifica si
-un usuario pertenece a un grupo específico</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlelistgroupmembersquery">handle(ListGroupMembersQuery)</h3></td>
-<td><h3 id="devuelve-todos-los-miembros-activos-de-un-grupo">Devuelve
-todos los miembros activos de un grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlecheckgroupinvitationstatusquery">handle(CheckGroupInvitationStatusQuery)</h3></td>
-<td><h3 id="verifica-el-estado-de-una-invitación-a-un-grupo">Verifica el
-estado de una invitación a un grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlegetgrouppermissionsquery">handle(GetGroupPermissionsQuery)</h3></td>
-<td><h3
-id="obtiene-los-permisos-asociados-a-un-rol-específico-en-el-grupo">Obtiene
-los permisos asociados a un rol específico en el grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlelistusergroupsquery">handle(ListUserGroupsQuery)</h3></td>
-<td><h3 id="lista-todos-los-grupos-a-los-que-pertenece-un-usuario">Lista
-todos los grupos a los que pertenece un usuario</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlevalidategroupownershipquery">handle(ValidateGroupOwnershipQuery)</h3></td>
-<td><h3 id="verifica-si-un-usuario-es-coordinador-del-grupo">Verifica si
-un usuario es coordinador del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlegetgroupconfigurationquery">handle(GetGroupConfigurationQuery)</h3></td>
-<td><h3 id="recupera-las-preferenciasconfiguración-del-grupo">Recupera
-las preferencias/configuración del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlelistpendinginvitationsquery">handle(ListPendingInvitationsQuery)</h3></td>
-<td><h3 id="obtiene-las-invitaciones-pendientes-de-un-grupo">Obtiene las
-invitaciones pendientes de un grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlecheckgroupavailabilityquery">handle(CheckGroupAvailabilityQuery)</h3></td>
-<td><h3 id="valida-la-disponibilidad-del-nombre-del-grupo">Valida la
-disponibilidad del nombre del grupo</h3></td>
+<td><h3 id="reportcommandservice">ReportCommandService</h3></td>
+<td><h3 id="reportcommandservice-1">reportCommandService</h3></td>
+<td><h3 id="private-13">Private</h3></td>
+<td><h3 id="servicio-para-generar-y-exportar-nuevos-reportes.">Servicio
+para generar y exportar nuevos reportes.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **Dependencias:**
+### **Métodos**
 
 <table>
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 47%" />
+<col style="width: 35%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 29%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="dependencia-1"><strong>Dependencia</strong></h3></th>
+<th><h3 id="método"><strong>Método</strong></h3></th>
+<th><h3 id="tipo-de-retorno-3"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-7"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-7"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="grouprepository-1">GroupRepository</h3></td>
-<td><h3 id="repositorio-para-acceso-a-datos-de-grupos">Repositorio para
-acceso a datos de grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="userexternalservice">UserExternalService</h3></td>
-<td><h3 id="servicio-externo-para-validación-de-usuarios">Servicio
-externo para validación de usuarios</h3></td>
-</tr>
-<tr>
-<td><h3 id="getgroupbyidquery">GetGroupByIdQuery</h3></td>
-<td><h3 id="query-para-obtener-detalles-de-grupo-por-id">Query para
-obtener detalles de grupo por ID</h3></td>
-</tr>
-<tr>
-<td><h3 id="getusermembershipquery">GetUserMembershipQuery</h3></td>
-<td><h3 id="query-para-verificar-membresía-de-usuario">Query para
-verificar membresía de usuario</h3></td>
-</tr>
-<tr>
-<td><h3 id="listgroupmembersquery">ListGroupMembersQuery</h3></td>
-<td><h3 id="query-para-listar-miembros-del-grupo">Query para listar
-miembros del grupo</h3></td>
-</tr>
-<tr>
+<td><h3 id="getuserreportsuserid-long">getUserReports(userId:
+Long)</h3></td>
+<td><h3 id="list-1">List</h3></td>
+<td><h3 id="public-5">Public</h3></td>
 <td><h3
-id="checkgroupinvitationstatusquery">CheckGroupInvitationStatusQuery</h3></td>
-<td><h3 id="query-para-estado-de-invitaciones">Query para estado de
-invitaciones</h3></td>
+id="obtiene-todos-los-reportes-generados-por-un-usuario.">Obtiene todos
+los reportes generados por un usuario.</h3></td>
 </tr>
 <tr>
-<td><h3 id="getgrouppermissionsquery">GetGroupPermissionsQuery</h3></td>
-<td><h3 id="query-para-obtener-permisos-de-rol">Query para obtener
-permisos de rol</h3></td>
-</tr>
-<tr>
-<td><h3 id="listusergroupsquery">ListUserGroupsQuery</h3></td>
-<td><h3 id="query-para-grupos-de-un-usuario">Query para grupos de un
-usuario</h3></td>
-</tr>
-<tr>
+<td><h3 id="generatereportuserid-long">generateReport(userId:
+Long)</h3></td>
+<td><h3 id="report">Report</h3></td>
+<td><h3 id="public-6">Public</h3></td>
 <td><h3
-id="validategroupownershipquery">ValidateGroupOwnershipQuery</h3></td>
-<td><h3 id="query-para-validar-coordinadores">Query para validar
-coordinadores</h3></td>
-</tr>
-<tr>
-<td><h3
-id="getgroupconfigurationquery">GetGroupConfigurationQuery</h3></td>
-<td><h3 id="query-para-configuración-del-grupo">Query para configuración
-del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="listpendinginvitationsquery">ListPendingInvitationsQuery</h3></td>
-<td><h3 id="query-para-invitaciones-pendientes">Query para invitaciones
-pendientes</h3></td>
-</tr>
-<tr>
-<td><h3
-id="checkgroupavailabilityquery">CheckGroupAvailabilityQuery</h3></td>
-<td><h3 id="query-para-validar-nombre-de-grupo">Query para validar
-nombre de grupo</h3></td>
+id="genera-un-nuevo-reporte-para-el-usuario-en-base-a-su-actividad-reciente.">Genera
+un nuevo reporte para el usuario en base a su actividad
+reciente.</h3></td>
 </tr>
 </tbody>
 </table>
 
+### **4.2.1.3. Application Layer**
+
+### En el Application Layer del contexto de **Analítica y Reportes**, se definen los servicios encargados de orquestar la lógica de aplicación relacionada con la generación, recuperación y exportación de reportes, así como con el manejo de eventos relevantes del sistema.
+
+### El ReportQueryService maneja la lógica de recuperación de reportes y métricas existentes, mientras que el ReportCommandServicegestiona la generación de nuevos reportes a partir de registros de actividad. A su vez, se definen Command Handlers y Event Handlerspara ejecutar operaciones específicas basadas en acciones del usuario o eventos del sistema.
+
+### **Justificación:**
+
+### Separar los flujos de consultas (queries) y comandos (commands) en servicios especializados permite mantener el sistema modular, coherente y escalable. De esta forma, se asegura que las reglas de negocio para cada operación estén centralizadas y que cualquier modificación futura no afecte otros componentes. Además, esta estructura facilita la incorporación de nuevas funcionalidades analíticas o lógicas de negocio más complejas.
+
 ### 
 
-### **Clase: GroupCommandServiceImpl**
+### **Service: ReportQueryService**
+
+### **Descripción:** Servicio para consultar reportes y métricas existentes.
+
+### **Atributos**
 
 <table>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
+<col style="width: 27%" />
+<col style="width: 26%" />
+<col style="width: 18%" />
+<col style="width: 27%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="título-2"><strong>Título</strong></h3></th>
-<th><h3 id="groupcommandserviceimpl-1">GroupCommandServiceImpl</h3></th>
+<th><h3 id="tipo-de-dato-4"><strong>Tipo de dato</strong></h3></th>
+<th><h3 id="nombre-1"><strong>Nombre</strong></h3></th>
+<th><h3 id="visibilidad-8"><strong>Visibilidad</strong></h3></th>
+<th><h3 id="descripción-8"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="descripción-8"><strong>Descripción</strong></h3></td>
+<td><h3 id="reportrepository">ReportRepository</h3></td>
+<td><h3 id="reportrepository-1">reportRepository</h3></td>
+<td><h3 id="private-14">Private</h3></td>
 <td><h3
-id="implementación-del-servicio-de-comandos-para-operaciones-de-escritura-relacionadas-con-grupos">Implementación
-del servicio de comandos para operaciones de escritura relacionadas con
-grupos</h3></td>
+id="repositorio-que-permite-acceder-a-reportes-almacenados.">Repositorio
+que permite acceder a reportes almacenados.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### 
+### **Métodos**
 
 <table>
 <colgroup>
-<col style="width: 64%" />
-<col style="width: 35%" />
+<col style="width: 32%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+<col style="width: 30%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="método-2"><strong>Método</strong></h3></th>
+<th><h3 id="método-1"><strong>Método</strong></h3></th>
+<th><h3 id="tipo-de-retorno-4"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-9"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-9"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3
-id="handlecreategroupcommand">handle(CreateGroupCommand)</h3></td>
-<td><h3 id="crea-un-nuevo-grupo-con-la-configuración-inicial">Crea un
-nuevo grupo con la configuración inicial</h3></td>
+<td><h3 id="existsbyidreportid-long">existsById(reportId:
+Long)</h3></td>
+<td><h3 id="boolean">Boolean</h3></td>
+<td><h3 id="public-7">Public</h3></td>
+<td><h3 id="verifica-si-un-reporte-existe-por-su-id.">Verifica si un
+reporte existe por su ID.</h3></td>
 </tr>
 <tr>
-<td><h3
-id="handleupdategroupcommand">handle(UpdateGroupCommand)</h3></td>
-<td><h3
-id="actualiza-la-información-básica-del-grupo-nombre-descripción-imagen">Actualiza
-la información básica del grupo (nombre, descripción, imagen)</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handledeletegroupcommand">handle(DeleteGroupCommand)</h3></td>
-<td><h3 id="elimina-un-grupo-existente-del-sistema">Elimina un grupo
-existente del sistema</h3></td>
-</tr>
-<tr>
-<td><h3 id="handleaddmembercommand">handle(AddMemberCommand)</h3></td>
-<td><h3 id="añade-un-nuevo-miembro-al-grupo">Añade un nuevo miembro al
-grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleremovemembercommand">handle(RemoveMemberCommand)</h3></td>
-<td><h3 id="elimina-un-miembro-existente-del-grupo">Elimina un miembro
-existente del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlesendinvitationcommand">handle(SendInvitationCommand)</h3></td>
-<td><h3
-id="envía-una-invitación-a-un-usuario-para-unirse-al-grupo">Envía una
-invitación a un usuario para unirse al grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleupdategroupsettingscommand">handle(UpdateGroupSettingsCommand)</h3></td>
-<td><h3
-id="actualiza-las-preferencias-y-configuración-del-grupo">Actualiza las
-preferencias y configuración del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleupdatememberrolecommand">handle(UpdateMemberRoleCommand)</h3></td>
-<td><h3 id="modifica-los-permisosrol-de-un-miembro-en-el-grupo">Modifica
-los permisos/rol de un miembro en el grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleprocessinvitationresponsecommand">handle(ProcessInvitationResponseCommand)</h3></td>
-<td><h3 id="procesa-la-aceptaciónrechazo-de-una-invitación">Procesa la
-aceptación/rechazo de una invitación</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handletransferownershipcommand">handle(TransferOwnershipCommand)</h3></td>
-<td><h3
-id="transfiere-la-propiedadcoordinación-del-grupo-a-otro-miembro">Transfiere
-la propiedad/coordinación del grupo a otro miembro</h3></td>
+<td><h3 id="findbyuseriduserid-long">findByUserId(userId:
+Long)</h3></td>
+<td><h3 id="list-2">List</h3></td>
+<td><h3 id="public-8">Public</h3></td>
+<td><h3 id="devuelve-los-reportes-asociados-a-un-usuario.">Devuelve los
+reportes asociados a un usuario.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **Dependencias:**
+### 
+
+### **Service: ReportCommandService**
+
+### **Descripción:** Servicio encargado de generar, construir y exportar reportes desde registros de actividad.
+
+### **Atributos**
 
 <table>
 <colgroup>
-<col style="width: 57%" />
-<col style="width: 42%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 18%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="dependencia-2"><strong>Dependencia</strong></h3></th>
+<th><h3 id="tipo-de-dato-5"><strong>Tipo de dato</strong></h3></th>
+<th><h3 id="nombre-2"><strong>Nombre</strong></h3></th>
+<th><h3 id="visibilidad-10"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-10"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="grouprepository-2">GroupRepository</h3></td>
-<td><h3 id="repositorio-para-acceso-a-datos-de-grupos-1">Repositorio
-para acceso a datos de grupos</h3></td>
+<td><h3 id="activitylogrepository">ActivityLogRepository</h3></td>
+<td><h3 id="activitylogrepository-1">activityLogRepository</h3></td>
+<td><h3 id="private-15">Private</h3></td>
+<td><h3 id="repositorio-de-logs-de-actividad.">Repositorio de logs de
+actividad.</h3></td>
 </tr>
 <tr>
-<td><h3 id="userexternalservice-1">UserExternalService</h3></td>
-<td><h3 id="servicio-externo-para-validación-de-usuarios-1">Servicio
-externo para validación de usuarios</h3></td>
-</tr>
-<tr>
-<td><h3 id="notificationservice">NotificationService</h3></td>
-<td><h3 id="servicio-para-enviar-notificaciones-sobre-cambios">Servicio
-para enviar notificaciones sobre cambios</h3></td>
-</tr>
-<tr>
-<td><h3 id="creategroupcommand">CreateGroupCommand</h3></td>
-<td><h3 id="comando-para-creación-de-nuevos-grupos">Comando para
-creación de nuevos grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="updategroupcommand">UpdateGroupCommand</h3></td>
-<td><h3 id="comando-para-actualización-de-grupos">Comando para
-actualización de grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="deletegroupcommand">DeleteGroupCommand</h3></td>
-<td><h3 id="comando-para-eliminación-de-grupos">Comando para eliminación
-de grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="addmembercommand">AddMemberCommand</h3></td>
-<td><h3 id="comando-para-añadir-miembros">Comando para añadir
-miembros</h3></td>
-</tr>
-<tr>
-<td><h3 id="removemembercommand">RemoveMemberCommand</h3></td>
-<td><h3 id="comando-para-remover-miembros">Comando para remover
-miembros</h3></td>
-</tr>
-<tr>
-<td><h3 id="sendinvitationcommand">SendInvitationCommand</h3></td>
-<td><h3 id="comando-para-enviar-invitaciones">Comando para enviar
-invitaciones</h3></td>
-</tr>
-<tr>
-<td><h3
-id="updategroupsettingscommand">UpdateGroupSettingsCommand</h3></td>
-<td><h3 id="comando-para-actualizar-configuraciones">Comando para
-actualizar configuraciones</h3></td>
-</tr>
-<tr>
-<td><h3 id="updatememberrolecommand">UpdateMemberRoleCommand</h3></td>
-<td><h3 id="comando-para-modificar-roles">Comando para modificar
-roles</h3></td>
-</tr>
-<tr>
-<td><h3
-id="processinvitationresponsecommand">ProcessInvitationResponseCommand</h3></td>
-<td><h3 id="comando-para-procesar-respuestas-a-invitaciones">Comando
-para procesar respuestas a invitaciones</h3></td>
-</tr>
-<tr>
-<td><h3 id="transferownershipcommand">TransferOwnershipCommand</h3></td>
-<td><h3 id="comando-para-transferir-propiedad">Comando para transferir
-propiedad</h3></td>
+<td><h3 id="reportfactory">ReportFactory</h3></td>
+<td><h3 id="reportfactory-1">reportFactory</h3></td>
+<td><h3 id="private-16">Private</h3></td>
+<td><h3 id="fábrica-para-la-creación-de-nuevos-reportes.">Fábrica para
+la creación de nuevos reportes.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### 
-
-### **Clase: GroupCommandServiceImpl**
+### **Métodos**
 
 <table>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
+<col style="width: 35%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 29%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="título-3"><strong>Título</strong></h3></th>
-<th><h3 id="groupcommandserviceimpl-2">GroupCommandServiceImpl</h3></th>
+<th><h3 id="método-2"><strong>Método</strong></h3></th>
+<th><h3 id="tipo-de-retorno-5"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-11"><strong>Visibilidad</strong></h3></th>
+<th><h3 id="descripción-11"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="descripción-11"><strong>Descripción</strong></h3></td>
+<td><h3 id="generatereportuserid-long-1">generateReport(userId:
+Long)</h3></td>
+<td><h3 id="report-1">Report</h3></td>
+<td><h3 id="public-9">Public</h3></td>
 <td><h3
-id="implementación-del-servicio-de-comandos-para-operaciones-de-escritura-relacionadas-con-grupos-1">Implementación
-del servicio de comandos para operaciones de escritura relacionadas con
-grupos</h3></td>
+id="genera-un-reporte-basado-en-las-actividades-recientes-del-usuario.">Genera
+un reporte basado en las actividades recientes del usuario.</h3></td>
 </tr>
 </tbody>
 </table>
 
 ### 
 
+### **Command Handlers**
+
+### **GenerateReportCommandHandler:** Invocado cuando el usuario solicita la creación de un nuevo reporte. Ejecuta la lógica de ReportCommandService.generateReport().
+
+### **Event Handlers**
+
+### **TaskCompletedEventHandler:** Registra un nuevo ActivityLog cuando se completa una tarea.
+
+### **GroupJoinedEventHandler:** Registra actividad cuando un usuario se une a un grupo.
+
+### **4.2.1.4. Infrastructure Layer**
+
+### En el **Infrastructure Layer** del contexto de **Analítica y Reportes**, se encuentran las clases responsables de interactuar con la base de datos y servicios externos necesarios para la persistencia y recuperación de información clave, como los registros de actividad y los reportes generados. Este layer implementa las interfaces definidas en el *Domain Layer* para los repositorios de ActivityLog y Report.
+
+### **Justificación:**
+
+### El uso de repositorios implementados en esta capa permite desacoplar la lógica de negocio de los detalles técnicos de acceso a datos. De este modo, cualquier cambio en la tecnología de almacenamiento o proveedor de servicios externos (por ejemplo, base de datos SQL vs NoSQL, o cambio de servicio de exportación) no afectará la lógica central del sistema. Esto asegura una arquitectura flexible, mantenible y alineada con principios de separación de responsabilidades.
+
+### 
+
+### **Repository: ActivityLogRepositoryImpl**
+
+### **Descripción:** Repositorio que implementa la persistencia de registros de actividad de los usuarios.
+
 <table>
 <colgroup>
-<col style="width: 64%" />
-<col style="width: 35%" />
+<col style="width: 32%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr>
 <th><h3 id="método-3"><strong>Método</strong></h3></th>
+<th><h3 id="tipo-de-retorno-6"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-12"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-12"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3
-id="handlecreategroupcommand-1">handle(CreateGroupCommand)</h3></td>
-<td><h3 id="crea-un-nuevo-grupo-con-la-configuración-inicial-1">Crea un
-nuevo grupo con la configuración inicial</h3></td>
+<td><h3 id="findbyuseriduserid-long-1">findByUserId(userId:
+Long)</h3></td>
+<td><h3 id="list-3">List</h3></td>
+<td><h3 id="public-10">Public</h3></td>
+<td><h3 id="obtiene-los-registros-de-actividad-de-un-usuario.">Obtiene
+los registros de actividad de un usuario.</h3></td>
 </tr>
 <tr>
-<td><h3
-id="handleupdategroupcommand-1">handle(UpdateGroupCommand)</h3></td>
-<td><h3
-id="actualiza-la-información-básica-del-grupo-nombre-descripción-imagen-1">Actualiza
-la información básica del grupo (nombre, descripción, imagen)</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handledeletegroupcommand-1">handle(DeleteGroupCommand)</h3></td>
-<td><h3 id="elimina-un-grupo-existente-del-sistema-1">Elimina un grupo
-existente del sistema</h3></td>
-</tr>
-<tr>
-<td><h3 id="handleaddmembercommand-1">handle(AddMemberCommand)</h3></td>
-<td><h3 id="añade-un-nuevo-miembro-al-grupo-1">Añade un nuevo miembro al
-grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleremovemembercommand-1">handle(RemoveMemberCommand)</h3></td>
-<td><h3 id="elimina-un-miembro-existente-del-grupo-1">Elimina un miembro
-existente del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handlesendinvitationcommand-1">handle(SendInvitationCommand)</h3></td>
-<td><h3
-id="envía-una-invitación-a-un-usuario-para-unirse-al-grupo-1">Envía una
-invitación a un usuario para unirse al grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleupdategroupsettingscommand-1">handle(UpdateGroupSettingsCommand)</h3></td>
-<td><h3
-id="actualiza-las-preferencias-y-configuración-del-grupo-1">Actualiza
-las preferencias y configuración del grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleupdatememberrolecommand-1">handle(UpdateMemberRoleCommand)</h3></td>
-<td><h3
-id="modifica-los-permisosrol-de-un-miembro-en-el-grupo-1">Modifica los
-permisos/rol de un miembro en el grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handleprocessinvitationresponsecommand-1">handle(ProcessInvitationResponseCommand)</h3></td>
-<td><h3 id="procesa-la-aceptaciónrechazo-de-una-invitación-1">Procesa la
-aceptación/rechazo de una invitación</h3></td>
-</tr>
-<tr>
-<td><h3
-id="handletransferownershipcommand-1">handle(TransferOwnershipCommand)</h3></td>
-<td><h3
-id="transfiere-la-propiedadcoordinación-del-grupo-a-otro-miembro-1">Transfiere
-la propiedad/coordinación del grupo a otro miembro</h3></td>
+<td><h3 id="savelog-activitylog">save(log: ActivityLog)</h3></td>
+<td><h3 id="void-2">void</h3></td>
+<td><h3 id="public-11">Public</h3></td>
+<td><h3 id="guarda-un-nuevo-registro-de-actividad.">Guarda un nuevo
+registro de actividad.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **Dependencias:**
+### 
+
+### **Repository: ReportRepositoryImpl**
+
+### **Descripción:** Repositorio que permite almacenar y recuperar reportes generados por los usuarios.
 
 <table>
 <colgroup>
-<col style="width: 57%" />
-<col style="width: 42%" />
+<col style="width: 32%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr>
-<th><h3 id="dependencia-3"><strong>Dependencia</strong></h3></th>
+<th><h3 id="método-4"><strong>Método</strong></h3></th>
+<th><h3 id="tipo-de-retorno-7"><strong>Tipo de
+retorno</strong></h3></th>
+<th><h3 id="visibilidad-13"><strong>Visibilidad</strong></h3></th>
 <th><h3 id="descripción-13"><strong>Descripción</strong></h3></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><h3 id="grouprepository-3">GroupRepository</h3></td>
-<td><h3 id="repositorio-para-acceso-a-datos-de-grupos-2">Repositorio
-para acceso a datos de grupos</h3></td>
+<td><h3 id="findbyidreportid-long">findById(reportId: Long)</h3></td>
+<td><h3 id="report-2">Report</h3></td>
+<td><h3 id="public-12">Public</h3></td>
+<td><h3 id="obtiene-un-reporte-por-su-identificador-único.">Obtiene un
+reporte por su identificador único.</h3></td>
 </tr>
 <tr>
-<td><h3 id="userexternalservice-2">UserExternalService</h3></td>
-<td><h3 id="servicio-externo-para-validación-de-usuarios-2">Servicio
-externo para validación de usuarios</h3></td>
-</tr>
-<tr>
-<td><h3 id="notificationservice-1">NotificationService</h3></td>
-<td><h3
-id="servicio-para-enviar-notificaciones-sobre-cambios-1">Servicio para
-enviar notificaciones sobre cambios</h3></td>
-</tr>
-<tr>
-<td><h3 id="creategroupcommand-1">CreateGroupCommand</h3></td>
-<td><h3 id="comando-para-creación-de-nuevos-grupos-1">Comando para
-creación de nuevos grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="updategroupcommand-1">UpdateGroupCommand</h3></td>
-<td><h3 id="comando-para-actualización-de-grupos-1">Comando para
-actualización de grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="deletegroupcommand-1">DeleteGroupCommand</h3></td>
-<td><h3 id="comando-para-eliminación-de-grupos-1">Comando para
-eliminación de grupos</h3></td>
-</tr>
-<tr>
-<td><h3 id="addmembercommand-1">AddMemberCommand</h3></td>
-<td><h3 id="comando-para-añadir-miembros-1">Comando para añadir
-miembros</h3></td>
-</tr>
-<tr>
-<td><h3 id="removemembercommand-1">RemoveMemberCommand</h3></td>
-<td><h3 id="comando-para-remover-miembros-1">Comando para remover
-miembros</h3></td>
-</tr>
-<tr>
-<td><h3 id="sendinvitationcommand-1">SendInvitationCommand</h3></td>
-<td><h3 id="comando-para-enviar-invitaciones-1">Comando para enviar
-invitaciones</h3></td>
-</tr>
-<tr>
-<td><h3
-id="updategroupsettingscommand-1">UpdateGroupSettingsCommand</h3></td>
-<td><h3 id="comando-para-actualizar-configuraciones-1">Comando para
-actualizar configuraciones</h3></td>
-</tr>
-<tr>
-<td><h3 id="updatememberrolecommand-1">UpdateMemberRoleCommand</h3></td>
-<td><h3 id="comando-para-modificar-roles-1">Comando para modificar
-roles</h3></td>
-</tr>
-<tr>
-<td><h3
-id="processinvitationresponsecommand-1">ProcessInvitationResponseCommand</h3></td>
-<td><h3 id="comando-para-procesar-respuestas-a-invitaciones-1">Comando
-para procesar respuestas a invitaciones</h3></td>
-</tr>
-<tr>
-<td><h3
-id="transferownershipcommand-1">TransferOwnershipCommand</h3></td>
-<td><h3 id="comando-para-transferir-propiedad-1">Comando para transferir
-propiedad</h3></td>
-</tr>
-</tbody>
-</table>
-
-### **5.5.4. Infrastructure Layer**
-
-### **Clase: GroupRepository**
-
-<table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
-</colgroup>
-<thead>
-<tr>
-<th><h3 id="título-4"><strong>Título</strong></h3></th>
-<th><h3 id="grouprepository-4">GroupRepository</h3></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><h3 id="descripción-14"><strong>Descripción</strong></h3></td>
-<td><h3
-id="interfaz-de-persistencia-para-operaciones-crud-y-consultas-específicas-de-grupos">Interfaz
-de persistencia para operaciones CRUD y consultas específicas de
-grupos</h3></td>
-</tr>
-</tbody>
-</table>
-
-### 
-
-<table>
-<colgroup>
-<col style="width: 56%" />
-<col style="width: 43%" />
-</colgroup>
-<thead>
-<tr>
-<th><h3 id="método-4"><strong>Método</strong></h3></th>
-<th><h3 id="descripción-15"><strong>Descripción</strong></h3></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><h3 id="savegroupentity">save(GroupEntity)</h3></td>
-<td><h3 id="persiste-un-nuevo-grupo-o-actualiza-uno-existente">Persiste
-un nuevo grupo o actualiza uno existente</h3></td>
-</tr>
-<tr>
-<td><h3 id="deletebyidlong">deleteById(Long)</h3></td>
-<td><h3 id="elimina-un-grupo-por-su-id">Elimina un grupo por su
-ID</h3></td>
-</tr>
-<tr>
-<td><h3 id="findbyidlong">findById(Long)</h3></td>
-<td><h3 id="recupera-un-grupo-completo-por-su-id">Recupera un grupo
-completo por su ID</h3></td>
-</tr>
-<tr>
-<td><h3 id="existsbyidlong">existsById(Long)</h3></td>
-<td><h3 id="verifica-existencia-de-un-grupo">Verifica existencia de un
-grupo</h3></td>
-</tr>
-<tr>
-<td><h3 id="findbyowneridlong-pageable">findByOwnerId(Long,
-Pageable)</h3></td>
-<td><h3 id="busca-grupos-por-id-de-propietario-con-paginación">Busca
-grupos por ID de propietario con paginación</h3></td>
-</tr>
-<tr>
-<td><h3
-id="findmembersbygroupidlong">findMembersByGroupId(Long)</h3></td>
-<td><h3 id="obtiene-todos-los-miembros-de-un-grupo">Obtiene todos los
-miembros de un grupo</h3></td>
-</tr>
-<tr>
-<td><h3 id="findinvitationbyidlong">findInvitationById(Long)</h3></td>
-<td><h3 id="recupera-el-estado-de-una-invitación-específica">Recupera el
-estado de una invitación específica</h3></td>
-</tr>
-<tr>
-<td><h3 id="findgroupconfiglong">findGroupConfig(Long)</h3></td>
-<td><h3 id="obtiene-configuración-específica-del-grupo">Obtiene
-configuración específica del grupo</h3></td>
-</tr>
-<tr>
-<td><h3 id="addmemberlong-long">addMember(Long, Long)</h3></td>
-<td><h3 id="añade-un-usuario-a-la-lista-de-miembros">Añade un usuario a
-la lista de miembros</h3></td>
-</tr>
-<tr>
-<td><h3 id="removememberlong-long">removeMember(Long, Long)</h3></td>
-<td><h3 id="elimina-un-usuario-de-los-miembros">Elimina un usuario de
-los miembros</h3></td>
-</tr>
-<tr>
-<td><h3
-id="saveinvitationgroupinvitationentity">saveInvitation(GroupInvitationEntity)</h3></td>
-<td><h3 id="persiste-una-nueva-invitación">Persiste una nueva
-invitación</h3></td>
-</tr>
-<tr>
-<td><h3
-id="updategroupvisibilitylong-string">updateGroupVisibility(Long,
-String)</h3></td>
-<td><h3 id="actualiza-visibilidad-del-grupo">Actualiza visibilidad del
-grupo</h3></td>
-</tr>
-<tr>
-<td><h3 id="updatememberrolelong-long-string">updateMemberRole(Long,
-Long, String)</h3></td>
-<td><h3 id="modifica-el-rol-de-un-miembro">Modifica el rol de un
-miembro</h3></td>
-</tr>
-<tr>
-<td><h3 id="existsmemberingrouplong-long">existsMemberInGroup(Long,
+<td><h3 id="findbyuseriduserid-long-2">findByUserId(userId:
 Long)</h3></td>
-<td><h3 id="verifica-si-usuario-ya-es-miembro">Verifica si usuario ya es
-miembro</h3></td>
+<td><h3 id="list-4">List</h3></td>
+<td><h3 id="public-13">Public</h3></td>
+<td><h3 id="obtiene-todos-los-reportes-asociados-a-un-usuario.">Obtiene
+todos los reportes asociados a un usuario.</h3></td>
 </tr>
 <tr>
-<td><h3 id="countmemberslong">countMembers(Long)</h3></td>
-<td><h3 id="cuenta-miembros-activos-en-grupo">Cuenta miembros activos en
-grupo</h3></td>
-</tr>
-<tr>
-<td><h3
-id="findactiveinvitationsuuid">findActiveInvitations(UUID)</h3></td>
-<td><h3 id="obtiene-invitaciones-pendientes">Obtiene invitaciones
-pendientes</h3></td>
+<td><h3 id="savereport-report">save(report: Report)</h3></td>
+<td><h3 id="void-3">void</h3></td>
+<td><h3 id="public-14">Public</h3></td>
+<td><h3 id="guarda-un-nuevo-reporte-en-la-base-de-datos.">Guarda un
+nuevo reporte en la base de datos.</h3></td>
 </tr>
 </tbody>
 </table>
 
-### **Dependencias:**
+### **4.2.1.5. Bounded Context Software Architecture Component Level Diagrams**
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 74%" />
-</colgroup>
-<thead>
-<tr>
-<th><h3 id="dependencia-4"><strong>Dependencia</strong></h3></th>
-<th><h3 id="propósito"><strong>Propósito</strong></h3></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><h3 id="user">User</h3></td>
-<td><h3 id="clase-que-representa-al-usuario-en-el-sistema.">Clase que
-representa al usuario en el sistema. </h3></td>
-</tr>
-<tr>
-<td><h3 id="grupo">Grupo </h3></td>
-<td><h3 id="clase-que-representa-a-un-grupo-en-el-sistema.">Clase que
-representa a un grupo en el sistema. </h3></td>
-</tr>
-</tbody>
-</table>
+### Este diagrama de componentes representa un sistema monolítico que gestiona datos analíticos y reportes dentro de la plataforma SynHub. Una **Single-Page Application (SPA)**, implementada con Angular, interactúa con una **Web API Application** desarrollada en Spring Boot mediante llamadas HTTP (REST).
 
-### 
+### La SPA realiza peticiones al ReportController para generar, visualizar o exportar reportes. Este controlador delega la lógica correspondiente en dos componentes principales: el ReportQueryService para operaciones de lectura y recuperación de datos analíticos, y el ReportCommandService para la generación y exportación de reportes.
 
-### 5.5.5. Bounded Context Software Architecture Component Level Diagrams
+### Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).
 
-### 5.5.6. Bounded Context Software Architecture Code Level Diagrams
+### [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/structurizr4.png)
 
-### 5.5.7. Bounded Context Domain Layer Class Diagrams
+### **4.2.1.6. Bounded Context Software Architecture Code Level Diagrams**
+
+### **4.2.1.6.1. Bounded Context Domain Layer Class Diagrams**
+
+### El siguiente diagrama de clases representa el bounded context **Analítica y Reportes** y muestra tres agregados principales: ActivityLog, Report y Metric. Además, se incluye el servicio de dominio ReportFactory y las interfaces de repositorio ActivityLogRepository y ReportRepository.
+
+### El agregado ActivityLog tiene atributos como id: Long, userId: Long, actionType: String, timestamp: LocalDateTime y metadata: String, y representa una acción significativa realizada por un usuario dentro del sistema. Estos logs son la fuente principal para la generación de reportes.
+
+### El agregado Report está compuesto por una lista de métricas (List) y atributos como id: Long, name: String, generatedAt: LocalDateTime, y encapsula los datos procesados derivados de los logs. Posee métodos para generar reportes, así como para exportarlos en distintos formatos.
+
+### La clase Metric es un objeto de valor que contiene los atributos name: String, value: Double y context: String. Esta clase representa datos cuantificables incluidos en los reportes, como tareas completadas o participación en reuniones.
+
+### El servicio de dominio ReportFactory permite construir instancias del agregado Report a partir de un conjunto de ActivityLog, encapsulando la lógica de transformación. Además, se definen las interfaces ActivityLogRepository y ReportRepository, las cuales abstraen el acceso a los datos persistidos en la base de datos.
+
+### Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.
+
+### [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/UML1.png)
 
 ### 5.5.8. Bounded Context Database Design Diagram
 
@@ -5150,7 +4769,7 @@ enviadas/fallidas).
 |----|----|----|
 | `CreateNotificationCommand` | Crea una nueva notificación en estado PENDING | Crea `Notification` con userId, subject, content, eventType y la persiste |
 | `CancelNotificationCommand` | Cancela una notificación pendiente | Verifica que `status = PENDING`, cambia estado a FAILED o elimina según política |
-| `RetryNotificationCommand` | Reintenta el envío de una notificación fallida | Verifica `canRetry()`, incrementa retryCount, delega en `NotificationDeliveryService` |
+| `RetryNotificationCommand` | Reintenta el envío de una notificación fallida | Verifica `canRetry()`, incrementa retryCount, delega en `NotificationDeliveryServi``ce` |
 | `MarkNotificationAsSentCommand` | Marca una notificación como enviada exitosamente | Ejecuta `markAsSent()`, persiste cambio, crea `EmailDeliveryLog` |
 | `MarkNotificationAsFailedCommand` | Marca una notificación como fallida | Ejecuta `markAsFailed()`, persiste cambio, crea `EmailDeliveryLog` |
 | `RetryAllFailedNotificationsCommand` | Reintenta todas las notificaciones fallidas pendientes | Obtiene notificaciones con `status = FAILED` y `canRetry() = true`, ejecuta reintento por cada una |
@@ -5467,15 +5086,15 @@ Service) y crea una notificación de confirmación para el líder.
 
 Vista general del diagrama de componentes:
 
-[<img src="./media/image51.png" style="width:5.83333in;height:5.12859in"
+[<img src="./media/image53.png" style="width:5.83333in;height:5.12859in"
 alt="Componentes_-Notificaciones-_General.png" />](https://postimg.cc/q66tWyyf)
 
 Vistas parciales del diagrama de componentes:
 
-[<img src="./media/image52.png" style="width:5.83333in;height:2.97135in"
+[<img src="./media/image54.png" style="width:5.83333in;height:2.97135in"
 alt="Notificaciones-Component-1.png" />](https://postimg.cc/F1SH59wt)
 
-[<img src="./media/image53.png" style="width:5.83333in;height:2.87109in"
+[<img src="./media/image55.png" style="width:5.83333in;height:2.87109in"
 alt="Notificaciones-Components-2.png" />](https://postimg.cc/dLvvbG8T)
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
@@ -5484,17 +5103,17 @@ alt="Notificaciones-Components-2.png" />](https://postimg.cc/dLvvbG8T)
 
 Diagrama de clases de Command Component:
 
-[<img src="./media/image54.png" style="width:5.83333in;height:4.87694in"
+[<img src="./media/image56.png" style="width:5.83333in;height:4.87694in"
 alt="Notification-Command-Component-Class.png" />](https://postimg.cc/hQ4ndB4m)
 
 Diagrama de clases de Event Manager Component:
 
-[<img src="./media/image55.png" style="width:5.83333in;height:1.97786in"
+[<img src="./media/image57.png" style="width:5.83333in;height:1.97786in"
 alt="Notificaciones-Clases-2.png" />](https://postimg.cc/D4dD32DM)
 
 #### 5.6.6.2. Bounded Context Database Design Diagram
 
-[<img src="./media/image56.png" style="width:5.83333in;height:2.87007in"
+[<img src="./media/image58.png" style="width:5.83333in;height:2.87007in"
 alt="Notification-Database.png" />](https://postimg.cc/mcr6Cg7C)
 
 # Capítulo VI: Solution UX Design
