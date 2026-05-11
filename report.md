@@ -44,7 +44,7 @@
 | ------- | ----- | ----- | --------------------------- |
 | 0.1 | 2026-04-14 | Miguel Gomez | Creación de la primera versión del documento |
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
-| 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva |  |
+| 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 5 <br> - Capítulo 6 hasta 6.4 <br> |
 
 ## Project Report Collaboration Insights
 
