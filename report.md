@@ -238,7 +238,7 @@ EAC - Student Outcome 3.
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Comuniqué objetivamente los avances y bounded contexts con los integrantes de mi equipo para recibir retroalimentación. Asimismo, coordiné con el líder y mi equipo el impacto de la IA y la división de tareas, adaptando mi mensaje a cada nivel jerárquico para asegurar la entrega.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
@@ -276,7 +276,7 @@ EAC - Student Outcome 3.
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Documenté objetivamente la arquitectura y patrones (como CQRS) de los bounded contexts mediante diagramas UML para guiar al equipo técnico. Además, diseñé wireframes para comunicar visualmente el producto a perfiles no técnicos, garantizando su comprensión en diferentes niveles y especialidades.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
