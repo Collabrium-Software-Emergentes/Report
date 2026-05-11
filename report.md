@@ -1888,7 +1888,7 @@ alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
 ## 6.4. Applications UX/UI Design
 
-## **6.4.1. Mobile Applications Wireframes**
+## **6.4.1. Applications Wireframes**
 
 ## Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.
 
@@ -1910,7 +1910,7 @@ alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
 ## [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-9.png)
 
-## **6.4.2. Mobile Applications Wireflow Diagrams**
+## **6.4.2. Applications Wireflow Diagrams**
 
 ## Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.
 
