@@ -227,33 +227,35 @@ EAC - Student Outcome 3.
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
         Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
+        Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.<br>
-        <br> <em>TB2</em>
+        <br> <em>TP</em>
         <br><br>
       </td>
       <td>
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.<br>
-        <br> <strong>TB2</strong> <br>
+        <br> <strong>TP</strong> <br>
+        En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible.
       </td>
     </tr>
     <tr>
@@ -262,33 +264,35 @@ EAC - Student Outcome 3.
         <strong>Gomez Hurtado, Miguel Angel</strong>
         <br> <em>TB1</em> <br>
         Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
+        Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. 
         <br><br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
         Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.<br>
-        <br> <em>TB2</em> <br>
+        <br> <em>TP</em> <br>
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Realicé el Needfinding junto al análisis de los User Persona<br>
-        <br> <em>TB2</em>
+        <br> <em>TP</em>
         <br><br>
       </td>
       <td>
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.<br>
-        <br> <strong>TB2</strong> <br>
+        <br> <strong>TP</strong> <br>
+        Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context.
       </td>
     </tr>
   </tbody>
