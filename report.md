@@ -2235,22 +2235,16 @@ integridad referencial y una alta eficiencia en los procesos de
 
 ### 5.2.1. Domain Layer
 
-El bounded context **Groups Management** es responsable de la gestión de
-grupos colaborativos dentro de la plataforma SynHub. Este contexto
-maneja la creación de grupos, invitaciones a miembros y asignación de
-líderes.
+El bounded context **Groups Management** es responsable de la gestión de grupos colaborativos dentro de la plataforma SynHub. Este contexto maneja la creación de grupos, invitaciones a miembros y asignación de líderes.
 
 #### Aggregate Root: `Group`
 
-**Descripción:** Representa un grupo colaborativo dentro de la
-plataforma. Es el aggregate root principal de este bounded context.
-Contiene un código único de invitación, un líder, una descripción, una
-imagen y el conteo actual de miembros.
+**Descripción:** Representa un grupo colaborativo dentro de la plataforma. Es el aggregate root principal de este bounded context. Contiene un código único de invitación, un líder, una descripción, una imagen y el conteo actual de miembros.
 
 ##### Atributos
 
 | Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `id` | Long | Private | Autogenerado, único |
 | `code` | GroupCode | Private | Value Object con validación propia (9 caracteres alfanuméricos). No puede ser nulo. |
 | `name` | String | Private | No puede ser nulo. Define el nombre visible del grupo. |
@@ -2262,7 +2256,7 @@ imagen y el conteo actual de miembros.
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `Group(name, description, imgUrl, leader, code)` | Group | Public | Constructor que crea un nuevo grupo. Inicializa `memberCount = 0`. |
 | `updateInformation(UpdateGroupCommand)` | void | Public | Actualiza nombre, descripción o imagen. Solo modifica los campos que vienen en el comando. |
 | `increaseMemberCount()` | void | Public | Incrementa en 1 el conteo de miembros. |
@@ -2271,29 +2265,27 @@ imagen y el conteo actual de miembros.
 ##### Invariantes de negocio
 
 - El código del grupo (`code`) debe ser único en todo el sistema.
-- `memberCount` nunca puede ser negativo (se controla mediante métodos
-  específicos).
-- Al crear un grupo, `memberCount` comienza en 0 (el líder aún no cuenta
-  como miembro hasta que se une explícitamente).
+- `memberCount` nunca puede ser negativo (se controla mediante métodos específicos).
+- Al crear un grupo, `memberCount` comienza en 0 (el líder aún no cuenta como miembro hasta que se une explícitamente).
+
+---
 
 #### Aggregate Root: `Invitation`
 
-**Descripción:** Representa una invitación enviada a un usuario para que
-se una a un grupo. Permite rastrear qué invitaciones están pendientes y
-a qué grupo pertenecen.
+**Descripción:** Representa una invitación enviada a un usuario para que se una a un grupo. Permite rastrear qué invitaciones están pendientes y a qué grupo pertenecen.
 
 ##### Atributos
 
 | Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `id` | Long | Private | Autogenerado, único |
-| `memberId` | MemberId | Private | Value Object. Puede ser nulo (invitación pendiente sin usuario asignado). Si existe, debe ser \> 0. |
+| `memberId` | MemberId | Private | Value Object. Puede ser nulo (invitación pendiente sin usuario asignado). Si existe, debe ser > 0. |
 | `group` | Group | Private | Relación ManyToOne. No puede ser nulo. Una invitación siempre pertenece a un grupo existente. |
 
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `Invitation(memberId, group)` | Invitation | Public | Constructor que crea una nueva invitación. |
 | `Invitation()` | Invitation | Public | Constructor por defecto (requerido por JPA). |
 
@@ -2301,16 +2293,16 @@ a qué grupo pertenecen.
 
 - Una invitación debe estar asociada a un `Group` válido (no nulo).
 
+---
+
 #### Aggregate Root: `Leader`
 
-**Descripción:** Representa al líder de un grupo. Encapsula métricas de
-rendimiento como el tiempo promedio de solución de solicitudes y la
-cantidad de solicitudes resueltas.
+**Descripción:** Representa al líder de un grupo. Encapsula métricas de rendimiento como el tiempo promedio de solución de solicitudes y la cantidad de solicitudes resueltas.
 
 ##### Atributos
 
 | Atributo | Tipo | Visibilidad | Invariante / Regla de negocio |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `id` | Long | Private | Autogenerado, único |
 | `averageSolutionTime` | Time | Private | Inicializado en 0 (00:00:00). Representa el tiempo promedio en resolver solicitudes. |
 | `solvedRequests` | Integer | Private | Inicializado en 0. No puede ser negativo. |
@@ -2318,30 +2310,30 @@ cantidad de solicitudes resueltas.
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `Leader()` | Leader | Public | Constructor por defecto. Inicializa `averageSolutionTime = new Time(0)` y `solvedRequests = 0`. |
 
 ##### Invariantes de negocio
 
 - `solvedRequests` nunca puede ser negativo.
-- El líder se asocia a un único grupo mediante la relación `@OneToOne`
-  en el aggregate `Group`.
+- El líder se asocia a un único grupo mediante la relación `@OneToOne` en el aggregate `Group`.
+
+---
 
 #### Value Object: `GroupCode`
 
-**Descripción:** Código alfanumérico único que identifica a un grupo. Se
-utiliza para invitaciones y acceso rápido al grupo.
+**Descripción:** Código alfanumérico único que identifica a un grupo. Se utiliza para invitaciones y acceso rápido al grupo.
 
 ##### Atributos
 
 | Atributo | Tipo | Visibilidad | Invariante |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `code` | String | Private | Longitud exacta de 9 caracteres. Solo permite dígitos (0-9) y letras mayúsculas (A-Z). |
 
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `GroupCode(code)` | GroupCode | Public | Constructor. Valida formato y longitud. Lanza excepción si no cumple. |
 | `random()` | GroupCode | Public static | Factory method. Genera un código aleatorio válido usando `SecureRandom`. |
 
@@ -2350,44 +2342,44 @@ utiliza para invitaciones y acceso rápido al grupo.
 - El código debe tener exactamente 9 caracteres.
 - Solo caracteres permitidos: `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
 
+---
+
 #### Value Object: `ImgUrl`
 
-**Descripción:** Representa la URL de la imagen asociada a un grupo
-(avatar, banner, etc.).
+**Descripción:** Representa la URL de la imagen asociada a un grupo (avatar, banner, etc.).
 
 ##### Atributos
 
-| Atributo | Tipo   | Visibilidad | Invariante                            |
-|----------|--------|-------------|---------------------------------------|
-| `imgUrl` | String | Private     | No puede ser nulo ni estar en blanco. |
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `imgUrl` | String | Private | No puede ser nulo ni estar en blanco. |
 
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `ImgUrl(imgUrl)` | ImgUrl | Public | Constructor. Valida que la URL no sea nula ni vacía. Lanza excepción si no cumple. |
 
 ##### Invariantes
 
-- La URL no puede ser `null`, vacía (`""`) ni contener solo espacios en
-  blanco.
+- La URL no puede ser `null`, vacía (`""`) ni contener solo espacios en blanco.
+
+---
 
 #### Value Object: `MemberId`
 
-**Descripción:** Identificador numérico de un miembro dentro del
-sistema. Se utiliza en invitaciones para referenciar al usuario
-invitado.
+**Descripción:** Identificador numérico de un miembro dentro del sistema. Se utiliza en invitaciones para referenciar al usuario invitado.
 
 ##### Atributos
 
-| Atributo | Tipo | Visibilidad | Invariante                             |
-|----------|------|-------------|----------------------------------------|
-| `value`  | Long | Private     | No puede ser nulo. Debe ser mayor a 0. |
+| Atributo | Tipo | Visibilidad | Invariante |
+| :--- | :--- | :--- | :--- |
+| `value` | Long | Private | No puede ser nulo. Debe ser mayor a 0. |
 
 ##### Métodos
 
 | Método | Retorno | Visibilidad | Descripción |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `MemberId(value)` | MemberId | Public | Constructor. Valida que `value` no sea nulo ni negativo. Lanza excepción si no cumple. |
 
 ##### Invariantes
@@ -2399,41 +2391,42 @@ invitado.
 
 #### Recursos de entrada (Request)
 
-Estos recursos representan los datos que el cliente envía al servidor
-para realizar operaciones de escritura.
+Estos recursos representan los datos que el cliente envía al servidor para realizar operaciones de escritura.
 
 ##### `CreateGroupResource`
 
-**Propósito:** Transporta los datos necesarios para crear un nuevo
-grupo.
+**Propósito:** Transporta los datos necesarios para crear un nuevo grupo.
 
-| Campo         | Tipo   | Descripción                     |
-|---------------|--------|---------------------------------|
-| `name`        | String | Nombre del grupo                |
-| `imgUrl`      | String | URL de la imagen del grupo      |
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nombre del grupo |
+| `imgUrl` | String | URL de la imagen del grupo |
 | `description` | String | Descripción detallada del grupo |
+
+---
 
 ##### `UpdateGroupResource`
 
 **Propósito:** Transporta los datos para actualizar un grupo existente.
 
-| Campo         | Tipo   | Descripción            |
-|---------------|--------|------------------------|
-| `name`        | String | Nuevo nombre del grupo |
-| `imgUrl`      | String | Nueva URL de la imagen |
-| `description` | String | Nueva descripción      |
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `name` | String | Nuevo nombre del grupo |
+| `imgUrl` | String | Nueva URL de la imagen |
+| `description` | String | Nueva descripción |
+
+---
 
 #### Recursos de salida (Response)
 
-Estos recursos representan los datos que el servidor devuelve al cliente
-como respuesta a sus peticiones.
+Estos recursos representan los datos que el servidor devuelve al cliente como respuesta a sus peticiones.
 
 ##### `GroupResource`
 
 **Propósito:** Devuelve la información completa de un grupo.
 
 | Campo | Tipo | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `id` | Long | Identificador único del grupo |
 | `name` | String | Nombre del grupo |
 | `imgUrl` | String | URL de la imagen |
@@ -2441,13 +2434,14 @@ como respuesta a sus peticiones.
 | `code` | String | Código alfanumérico único (9 caracteres) para invitaciones |
 | `memberCount` | Integer | Número actual de miembros en el grupo |
 
+---
+
 ##### `LeaderResource`
 
-**Propósito:** Devuelve la información completa de un líder, incluyendo
-datos personales y métricas de rendimiento.
+**Propósito:** Devuelve la información completa de un líder, incluyendo datos personales y métricas de rendimiento.
 
 | Campo | Tipo | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `username` | String | Nombre de usuario del líder |
 | `name` | String | Nombre del líder |
 | `surname` | String | Apellido del líder |
@@ -2456,58 +2450,64 @@ datos personales y métricas de rendimiento.
 | `averageSolutionTime` | String | Tiempo promedio de solución de solicitudes (formato HH:MM:SS) |
 | `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
 
+---
+
 ##### `LeaderDetailsResource`
 
-**Propósito:** Devuelve únicamente las métricas de rendimiento de un
-líder (versión simplificada).
+**Propósito:** Devuelve únicamente las métricas de rendimiento de un líder (versión simplificada).
 
 | Campo | Tipo | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `id` | Long | Identificador único del líder |
 | `averageSolutionTime` | String | Tiempo promedio de solución (formato HH:MM:SS) |
 | `solvedRequests` | Integer | Cantidad de solicitudes resueltas |
 
+---
+
 ##### `GroupMemberResource`
 
-**Propósito:** Representa la información básica de un miembro dentro de
-un grupo.
+**Propósito:** Representa la información básica de un miembro dentro de un grupo.
 
-| Campo      | Tipo   | Descripción                     |
-|------------|--------|---------------------------------|
-| `id`       | Long   | Identificador único del miembro |
-| `username` | String | Nombre de usuario               |
-| `name`     | String | Nombre                          |
-| `surname`  | String | Apellido                        |
-| `imgUrl`   | String | URL de la foto de perfil        |
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador único del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
 
 ##### `InvitationMemberResource`
 
-**Propósito:** Información del miembro destinatario de una invitación
-(versión anidada dentro de `InvitationResource`).
+**Propósito:** Información del miembro destinatario de una invitación (versión anidada dentro de `InvitationResource`).
 
-| Campo      | Tipo   | Descripción               |
-|------------|--------|---------------------------|
-| `id`       | Long   | Identificador del miembro |
-| `username` | String | Nombre de usuario         |
-| `name`     | String | Nombre                    |
-| `surname`  | String | Apellido                  |
-| `imgUrl`   | String | URL de la foto de perfil  |
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | Long | Identificador del miembro |
+| `username` | String | Nombre de usuario |
+| `name` | String | Nombre |
+| `surname` | String | Apellido |
+| `imgUrl` | String | URL de la foto de perfil |
+
+---
 
 ##### `InvitationResource`
 
-**Propósito:** Representa una invitación a un grupo, incluyendo
-información del miembro invitado y del grupo destino.
+**Propósito:** Representa una invitación a un grupo, incluyendo información del miembro invitado y del grupo destino.
 
 | Campo | Tipo | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `id` | Long | Identificador único de la invitación |
 | `member` | `InvitationMemberResource` | Miembro invitado (puede ser nulo para invitaciones públicas) |
 | `group` | `GroupResource` | Grupo al que se invita |
 
+---
+
 #### Resumen de recursos
 
 | Recurso | Tipo | Dirección | Propósito principal |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `CreateGroupResource` | Request | Entrada | Crear un nuevo grupo |
 | `UpdateGroupResource` | Request | Entrada | Actualizar un grupo existente |
 | `GroupResource` | Response | Salida | Representación completa de un grupo |
@@ -2521,36 +2521,34 @@ información del miembro invitado y del grupo destino.
 
 ##### 1. `GroupController`
 
-**Propósito:** Gestiona operaciones de consulta (queries) relacionadas
-con grupos. Este controlador solo maneja peticiones de lectura,
-separando las responsabilidades de escritura (commands) en
-`LeaderGroupController`.
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con grupos. Este controlador solo maneja peticiones de lectura, separando las responsabilidades de escritura (commands) en `LeaderGroupController`.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
 | `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
 
 **Endpoints expuestos:**
 
 | Método | Endpoint | Descripción | Servicio invocado |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `GET` | `/api/v1/groups/{groupId}` | Obtiene un grupo por su ID | `groupQueryService.handle(GetGroupByIdQuery)` |
 | `GET` | `/api/v1/groups/search?code={code}` | Busca un grupo por su código único | `groupQueryService.handle(GetGroupByCodeQuery)` |
-| `GET` | `/api/v1/groups/members` | Obtiene todos los miembros del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupQueryService.handle(GetGroupByLeaderIdQuery)` |
-| `GET` | `/api/v1/groups/tasks` | Obtiene todas las tareas asociadas al grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupQueryService.handle(GetGroupByLead``erIdQuery)` |
+| `GET` | `/api/v1/groups/members` | Obtiene todos los miembros del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `GET` | `/api/v1/groups/tasks` | Obtiene todas las tareas asociadas al grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+
+---
 
 ##### 2. `InvitationController`
 
-**Propósito:** Gestiona operaciones de creación, consulta y cancelación
-de invitaciones a grupos.
+**Propósito:** Gestiona operaciones de creación, consulta y cancelación de invitaciones a grupos.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `invitationQueryService` | `InvitationQueryService` | Servicio de dominio para ejecutar consultas sobre invitaciones |
 | `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
 | `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
@@ -2559,40 +2557,41 @@ de invitaciones a grupos.
 **Endpoints expuestos:**
 
 | Método | Endpoint | Descripción | Servicio invocado |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `POST` | `/api/v1/invitations/groups/{groupId}` | Crea una nueva invitación para un grupo | `invitationCommandService.handle(CreateInvitationCommand)` |
-| `GET` | `/api/v1/invitations/group` | Obtiene todas las invitaciones del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupQueryService.handle(GetGroupByLeaderIdQuery)invitationQueryService.handle(GetInvitationsByGroupIdQuery)` |
-| `DELETE` | `/api/v1/invitations/member` | Cancela la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)invitationCommandService.handle(CancelInvitationCommand)` |
+| `GET` | `/api/v1/invitations/group` | Obtiene todas las invitaciones del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)`<br>`invitationQueryService.handle(GetInvitationsByGroupIdQuery)` |
+| `DELETE` | `/api/v1/invitations/member` | Cancela la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)`<br>`invitationCommandService.handle(CancelInvitationCommand)` |
 | `GET` | `/api/v1/invitations/member` | Obtiene la invitación de un miembro autenticado | `invitationQueryService.handle(GetInvitationByMemberIdQuery)` |
+
+---
 
 ##### 3. `LeaderController`
 
-**Propósito:** Gestiona operaciones de consulta (queries) relacionadas
-con líderes.
+**Propósito:** Gestiona operaciones de consulta (queries) relacionadas con líderes.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para ejecutar consultas sobre líderes |
 
 **Endpoints expuestos:**
 
 | Método | Endpoint | Descripción | Servicio invocado |
-|----|----|----|----|
+| :--- | :--- | :--- | :--- |
 | `GET` | `/api/v1/leader/{leaderId}` | Obtiene las métricas de rendimiento de un líder por su ID | `leaderQueryService.handle(GetLeaderByIdQuery)` |
 | `GET` | `/api/v1/leader/details` | Obtiene la información completa del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)` |
 
+---
+
 ##### 4. `LeaderGroupController`
 
-**Propósito:** Gestiona operaciones de escritura (commands) y consulta
-relacionadas con grupos, ejecutadas exclusivamente por líderes
-autenticados.
+**Propósito:** Gestiona operaciones de escritura (commands) y consulta relacionadas con grupos, ejecutadas exclusivamente por líderes autenticados.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `groupQueryService` | `GroupQueryService` | Servicio de dominio para ejecutar consultas sobre grupos |
 | `groupCommandService` | `GroupCommandService` | Servicio de dominio para ejecutar comandos sobre grupos |
 | `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
@@ -2600,35 +2599,38 @@ autenticados.
 **Endpoints expuestos:**
 
 | Método | Endpoint | Descripción | Servicio invocado |
-|----|----|----|----|
-| `POST` | `/api/v1/leader/group` | Crea un nuevo grupo asociado al líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupCommandService.handle(CreateGrou``pCommand)` |
-| `PUT` | `/api/v1/leader/group` | Actualiza la información del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupCommandService.handle(UpdateGroupCommand)` |
-| `DELETE` | `/api/v1/leader/group` | Elimina el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupCommandService.handle(DeleteGroupCommand)` |
-| `GET` | `/api/v1/leader/group` | Obtiene el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupQueryService.handle(GetGroupByLeaderIdQuery)` |
-| `DELETE` | `/api/v1/leader/group/members/{memberId}` | Elimina un miembro del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)groupCommandService.handle(RemoveMemberFromGroupCommand)` |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/leader/group` | Crea un nuevo grupo asociado al líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(CreateGroupCommand)` |
+| `PUT` | `/api/v1/leader/group` | Actualiza la información del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(UpdateGroupCommand)` |
+| `DELETE` | `/api/v1/leader/group` | Elimina el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(DeleteGroupCommand)` |
+| `GET` | `/api/v1/leader/group` | Obtiene el grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupQueryService.handle(GetGroupByLeaderIdQuery)` |
+| `DELETE` | `/api/v1/leader/group/members/{memberId}` | Elimina un miembro del grupo del líder autenticado | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`groupCommandService.handle(RemoveMemberFromGroupCommand)` |
+
+---
 
 ##### 5. `LeaderInvitationController`
 
-**Propósito:** Gestiona el procesamiento de invitaciones (aceptar o
-rechazar) por parte de líderes autenticados.
+**Propósito:** Gestiona el procesamiento de invitaciones (aceptar o rechazar) por parte de líderes autenticados.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `invitationCommandService` | `InvitationCommandService` | Servicio de dominio para ejecutar comandos sobre invitaciones |
 | `leaderQueryService` | `LeaderQueryService` | Servicio de dominio para consultar líderes |
 
 **Endpoints expuestos:**
 
 | Método | Endpoint | Descripción | Servicio invocado |
-|----|----|----|----|
-| `PATCH` | `/api/v1/group/invitations/{invitationId}?accept={boolean}` | Acepta o rechaza una invitación (por defecto `false`) | `leaderQueryService.handle(GetLeaderByUsernameQuery)invitationCommandService.handle(AcceptInvitationCommand)` o `invitationCommandService.handle(RejectInvitationCommand)` |
+| :--- | :--- | :--- | :--- |
+| `PATCH` | `/api/v1/group/invitations/{invitationId}?accept={boolean}` | Acepta o rechaza una invitación (por defecto `false`) | `leaderQueryService.handle(GetLeaderByUsernameQuery)`<br>`invitationCommandService.handle(AcceptInvitationCommand)` o `invitationCommandService.handle(RejectInvitationCommand)` |
+
+---
 
 #### Resumen de Controllers
 
 | Controller | Base Path | Propósito principal |
-|----|----|----|
+| :--- | :--- | :--- |
 | `GroupController` | `/api/v1/groups` | Consultas públicas de grupos, miembros y tareas |
 | `InvitationController` | `/api/v1/invitations` | Gestión completa de invitaciones (CRUD) |
 | `LeaderController` | `/api/v1/leader` | Consultas de líderes y sus métricas |
@@ -2641,13 +2643,12 @@ rechazar) por parte de líderes autenticados.
 
 ##### 1. `GroupCommandServiceImpl`
 
-**Propósito:** Ejecuta comandos relacionados con la gestión de grupos
-(crear, actualizar, eliminar, gestionar miembros).
+**Propósito:** Ejecuta comandos relacionados con la gestión de grupos (crear, actualizar, eliminar, gestionar miembros).
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `groupRepository` | `GroupRepository` | Repositorio para persistir agregados `Group` |
 | `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
 | `tasksEventPublisher` | `TasksEventPublisher` | Publicador de eventos hacia el contexto de Tasks |
@@ -2655,22 +2656,23 @@ rechazar) por parte de líderes autenticados.
 **Comandos manejados:**
 
 | Comando | Descripción | Servicio invocado |
-|----|----|----|
+| :--- | :--- | :--- |
 | `CreateGroupCommand` | Crea un nuevo grupo asociado a un líder | Genera `GroupCode` aleatorio único, persiste el grupo |
 | `UpdateGroupCommand` | Actualiza información de un grupo existente | Obtiene grupo por líder, ejecuta `updateInformation()` |
 | `DeleteGroupCommand` | Elimina un grupo | Valida existencia, elimina de la base de datos |
 | `RemoveMemberFromGroupCommand` | Elimina un miembro del grupo | Ejecuta `decreaseMemberCount()`, publica evento `memberRemoved` |
 | `LeaveGroupCommand` | Un miembro abandona un grupo | Ejecuta `decreaseMemberCount()` |
 
+---
+
 ##### 2. `InvitationCommandServiceImpl`
 
-**Propósito:** Ejecuta comandos relacionados con la gestión de
-invitaciones a grupos.
+**Propósito:** Ejecuta comandos relacionados con la gestión de invitaciones a grupos.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `invitationRepository` | `InvitationRepository` | Repositorio para persistir invitaciones |
 | `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
 | `leaderRepository` | `LeaderRepository` | Repositorio para validar líderes |
@@ -2679,11 +2681,13 @@ invitaciones a grupos.
 **Comandos manejados:**
 
 | Comando | Descripción | Servicio invocado |
-|----|----|----|
+| :--- | :--- | :--- |
 | `CreateInvitationCommand` | Crea una nueva invitación | Valida existencia del grupo y que el miembro no tenga invitación previa |
 | `CancelInvitationCommand` | Cancela una invitación existente | Valida que el miembro sea propietario de la invitación |
 | `RejectInvitationCommand` | Rechaza una invitación (líder) | Valida que el líder sea dueño del grupo, elimina invitación |
 | `AcceptInvitationCommand` | Acepta una invitación (líder) | Valida líder, ejecuta `increaseMemberCount()`, publica evento `invitationAccepted`, elimina invitación |
+
+---
 
 ##### 3. `LeaderCommandServiceImpl`
 
@@ -2692,15 +2696,17 @@ invitaciones a grupos.
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `leaderRepository` | `LeaderRepository` | Repositorio para persistir líderes |
 | `iamEventPublisher` | `IamEventPublisher` | Publicador de eventos hacia el contexto de IAM |
 
 **Comandos manejados:**
 
 | Comando | Descripción | Servicio invocado |
-|----|----|----|
+| :--- | :--- | :--- |
 | `CreateLeaderCommand` | Crea un nuevo líder | Persiste el líder, publica evento `leaderCreatedSuccessfully` hacia IAM |
+
+---
 
 #### Query Services
 
@@ -2710,18 +2716,20 @@ invitaciones a grupos.
 
 **Dependencias inyectadas:**
 
-| Dependencia       | Tipo              | Propósito                         |
-|-------------------|-------------------|-----------------------------------|
+| Dependencia | Tipo | Propósito |
+| :--- | :--- | :--- |
 | `groupRepository` | `GroupRepository` | Repositorio para consultar grupos |
 
 **Consultas manejadas:**
 
 | Consulta | Descripción |
-|----|----|
+| :--- | :--- |
 | `GetGroupByIdQuery` | Obtiene un grupo por su ID |
 | `GetGroupByCodeQuery` | Busca un grupo por su código único |
 | `GetGroupByLeaderIdQuery` | Obtiene el grupo asociado a un líder |
 | `GetGroupByMemberIdQuery` | Obtiene el grupo de un miembro (pendiente de implementación) |
+
+---
 
 ##### 2. `InvitationQueryServiceImpl`
 
@@ -2730,63 +2738,59 @@ invitaciones a grupos.
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `invitationRepository` | `InvitationRepository` | Repositorio para consultar invitaciones |
 
 **Consultas manejadas:**
 
 | Consulta | Descripción |
-|----|----|
+| :--- | :--- |
 | `GetInvitationByMemberIdQuery` | Obtiene la invitación de un miembro específico |
 | `GetInvitationsByGroupIdQuery` | Obtiene todas las invitaciones de un grupo |
 
 ##### 3. `LeaderQueryServiceImpl`
 
-**Propósito:** Ejecuta consultas relacionadas con líderes, incluyendo
-integración con el contexto de IAM.
+**Propósito:** Ejecuta consultas relacionadas con líderes, incluyendo integración con el contexto de IAM.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `leaderRepository` | `LeaderRepository` | Repositorio para consultar líderes |
 | `iamServiceClient` | `IamServiceClient` | Puerto para consultar información de usuarios en IAM |
 
 **Consultas manejadas:**
 
 | Consulta | Descripción |
-|----|----|
+| :--- | :--- |
 | `GetLeaderByIdQuery` | Obtiene un líder por su ID |
 | `GetLeaderByUsernameQuery` | Obtiene un líder por su nombre de usuario, validando rol en IAM |
 
 #### Clients / Ports (Interfaces hacia Infraestructura)
 
-Estas interfaces definen los **puertos** que la capa de aplicación
-utiliza para comunicarse con servicios externos (otros microservicios).
-Las implementaciones concretas residen en la capa de infraestructura,
-respetando el principio de inversión de dependencias.
+Estas interfaces definen los **puertos** que la capa de aplicación utiliza para comunicarse con servicios externos (otros microservicios). Las implementaciones concretas residen en la capa de infraestructura, respetando el principio de inversión de dependencias.
 
 ##### 1. `IamServiceClient`
 
-**Propósito:** Puerto para comunicarse con el microservicio de IAM
-(Identity and Access Management).
+**Propósito:** Puerto para comunicarse con el microservicio de IAM (Identity and Access Management).
 
 **Métodos:**
 
 | Método | Descripción |
-|----|----|
+| :--- | :--- |
 | `fetchUserByUsername(username, authHeader)` | Obtiene un usuario por su nombre de usuario |
 | `fetchUserByMemberId(memberId, authHeader)` | Obtiene un usuario por su ID de miembro |
 
+---
+
 ##### 2. `TasksServiceClient`
 
-**Propósito:** Puerto para comunicarse con el microservicio de Tasks
-(gestión de tareas).
+**Propósito:** Puerto para comunicarse con el microservicio de Tasks (gestión de tareas).
 
 **Métodos:**
 
 | Método | Descripción |
-|----|----|
+| :--- | :--- |
 | `fetchMemberByMemberId(memberId)` | Obtiene un miembro por su ID |
 | `fetchMemberByUsername(username, authHeader)` | Obtiene un miembro por su nombre de usuario |
 | `fetchMembersByGroupId(groupId, authHeader)` | Obtiene todos los miembros de un grupo |
@@ -2803,10 +2807,12 @@ respetando el principio de inversión de dependencias.
 **Métodos personalizados:**
 
 | Método | Descripción |
-|----|----|
+| :--- | :--- |
 | `findByLeaderId(leaderId)` | Busca el grupo asociado a un líder específico |
 | `existsByCode(code)` | Verifica si ya existe un grupo con el código dado |
 | `findByCode(code)` | Busca un grupo por su código único |
+
+---
 
 ##### 2. `InvitationRepository`
 
@@ -2815,10 +2821,12 @@ respetando el principio de inversión de dependencias.
 **Métodos personalizados:**
 
 | Método | Descripción |
-|----|----|
+| :--- | :--- |
 | `findByMemberId(memberId)` | Busca la invitación asociada a un miembro |
 | `findByGroup_Id(groupId)` | Lista todas las invitaciones de un grupo |
 | `existsByMemberId(memberId)` | Verifica si un miembro ya tiene una invitación activa |
+
+---
 
 ##### 3. `LeaderRepository`
 
@@ -2826,131 +2834,127 @@ respetando el principio de inversión de dependencias.
 
 **Métodos personalizados:**
 
-| Método         | Descripción              |
-|----------------|--------------------------|
+| Método | Descripción |
+| :--- | :--- |
 | `findById(id)` | Busca un líder por su ID |
 
 #### Configuración (Configuration)
 
-Clases de configuración técnicas que definen beans y parámetros de
-infraestructura.
+Clases de configuración técnicas que definen beans y parámetros de infraestructura.
 
 ##### 1. `RabbitMQConfig`
 
-**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ
-para la comunicación asíncrona entre microservicios.
+**Propósito:** Configura los exchanges, colas y bindings de RabbitMQ para la comunicación asíncrona entre microservicios.
 
 **Exchanges definidos:**
 
-| Exchange                | Propósito                                       |
-|-------------------------|-------------------------------------------------|
-| `iam-events-exchange`   | Recibe eventos provenientes del contexto de IAM |
-| `tasks-events-exchange` | Envía eventos hacia el contexto de Tasks        |
+| Exchange | Propósito |
+| :--- | :--- |
+| `iam-events-exchange` | Recibe eventos provenientes del contexto de IAM |
+| `tasks-events-exchange` | Envía eventos hacia el contexto de Tasks |
 
 ##### 2. `WebClientConfig`
 
-**Propósito:** Configura el cliente WebClient con balanceo de carga para
-comunicación síncrona entre microservicios.
+**Propósito:** Configura el cliente WebClient con balanceo de carga para comunicación síncrona entre microservicios.
 
 **Beans expuestos:**
 
 | Bean | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `loadBalancedWebClientBuilder()` | `WebClient.Builder` | Builder de WebClient con `@LoadBalanced` para descubrimiento de servicios |
 
 #### Mensajería (Messaging)
 
-La capa de infraestructura de mensajería maneja la comunicación
-asíncrona con otros microservicios a través de RabbitMQ. Se divide en
-dos responsabilidades:
+La capa de infraestructura de mensajería maneja la comunicación asíncrona con otros microservicios a través de RabbitMQ. Se divide en dos responsabilidades:
 
-- **Publishers:** Envían eventos desde Groups hacia otros contextos
-  (IAM, Tasks).
-- **Listeners (Consumidores):** Reciben eventos desde otros contextos y
-  ejecutan los comandos correspondientes.
+- **Publishers:** Envían eventos desde Groups hacia otros contextos (IAM, Tasks).
+- **Listeners (Consumidores):** Reciben eventos desde otros contextos y ejecutan los comandos correspondientes.
 
 ##### Publishers
 
 ###### 1. `IamEventPublisher`
 
-**Propósito:** Publica eventos desde el contexto de Groups hacia el
-contexto de IAM a través de RabbitMQ.
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de IAM a través de RabbitMQ.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
 
 **Métodos:**
 
 | Método | Evento | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `publishLeaderCreatedSuccessfully(userId, leaderId, avgTime, solvedRequests)` | `LeaderCreatedSuccessfullyEvent` | Notifica a IAM que un líder fue creado exitosamente en Groups |
+
+---
 
 ###### 2. `TasksEventPublisher`
 
-**Propósito:** Publica eventos desde el contexto de Groups hacia el
-contexto de Tasks a través de RabbitMQ.
+**Propósito:** Publica eventos desde el contexto de Groups hacia el contexto de Tasks a través de RabbitMQ.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `rabbitTemplate` | `RabbitTemplate` | Template de RabbitMQ para enviar mensajes |
 
 **Métodos:**
 
 | Método | Evento | Descripción |
-|----|----|----|
+| :--- | :--- | :--- |
 | `publishInvitationAccepted(groupId, memberId)` | `AcceptInvitationEvent` | Notifica a Tasks que una invitación fue aceptada y el miembro se unió al grupo |
 | `publishMemberRemoved(groupId, memberId)` | `RemoveMemberEvent` | Notifica a Tasks que un miembro fue eliminado del grupo |
+
+---
 
 ##### Listeners (Consumidores)
 
 ###### 1. `LeaderCreatedEventListener`
 
-**Propósito:** Escucha eventos de creación de líder provenientes del
-contexto de IAM y crea el líder en el contexto de Groups.
+**Propósito:** Escucha eventos de creación de líder provenientes del contexto de IAM y crea el líder en el contexto de Groups.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `leaderCommandService` | `LeaderCommandService` | Servicio de aplicación para ejecutar comandos de líder |
 
 **Evento esperado:** `LeaderCreatedEvent`
 
-| Acción               | Descripción                                 |
-|----------------------|---------------------------------------------|
-| Al recibir el evento | Extrae `userId` del evento                  |
-| Comando ejecutado    | `CreateLeaderCommand` con el `userId`       |
-| Resultado            | El líder es creado en el contexto de Groups |
+| Acción | Descripción |
+| :--- | :--- |
+| Al recibir el evento | Extrae `userId` del evento |
+| Comando ejecutado | `CreateLeaderCommand` con el `userId` |
+| Resultado | El líder es creado en el contexto de Groups |
+
+---
 
 ##### 2. `MemberLeftEventListener`
 
-**Propósito:** Escucha eventos de miembros que abandonan un grupo,
-provenientes del contexto de Tasks, y actualiza el conteo de miembros en
-Groups.
+**Propósito:** Escucha eventos de miembros que abandonan un grupo, provenientes del contexto de Tasks, y actualiza el conteo de miembros en Groups.
 
 **Dependencias inyectadas:**
 
 | Dependencia | Tipo | Propósito |
-|----|----|----|
+| :--- | :--- | :--- |
 | `groupCommandService` | `GroupCommandService` | Servicio de aplicación para ejecutar comandos de grupo |
 
 **Evento esperado:** `MemberLeftEvent`
 
 | Acción | Descripción |
-|----|----|
+| :--- | :--- |
 | Al recibir el evento | Extrae `memberId` y `groupId` del evento |
 | Comando ejecutado | `LeaveGroupCommand(memberId, groupId)` |
 | Resultado | El contador de miembros del grupo (`memberCount`) se decrementa |
 
+---
+
 #### Resumen de la capa de infraestructura
 
 | Categoría | Componentes | Cantidad |
-|----|----|----|
+| :--- | :--- | :--- |
 | **JPA Repositories** | `GroupRepository`, `InvitationRepository`, `LeaderRepository` | 3 |
 | **Configuración** | `RabbitMQConfig`, `WebClientConfig` | 2 |
 | **Messaging (Publishers)** | `IamEventPublisher`, `TasksEventPublisher` | 2 |
@@ -2960,17 +2964,13 @@ Groups.
 
 Se visualiza el diagrama de componentes de manera general:
 
-[<img src="./media/image42.png" style="width:5.83333in;height:5.54893in"
-alt="Diagrama-de-componentes-Groups.png" />](https://postimg.cc/dk62h4n4)
+[![Diagrama-de-componentes-Groups.png](https://i.postimg.cc/yx4vrGR4/Diagrama-de-componentes-Groups.png)](https://postimg.cc/dk62h4n4)
 
-Se muestra de manera más detallada cada parte del diagrama de
-componentes:
+Se muestra de manera más detallada cada parte del diagrama de componentes:
 
-[<img src="./media/image43.png" style="width:5.83333in;height:2.69792in"
-alt="Componentes-Groups-1.png" />](https://postimg.cc/nCgv9sK2)
+[![Componentes-Groups-1.png](https://i.postimg.cc/BnQNyHXr/Componentes-Groups-1.png)](https://postimg.cc/nCgv9sK2)
 
-[<img src="./media/image44.png" style="width:5.83333in;height:3.47993in"
-alt="Componentes-Groups-2.png" />](https://postimg.cc/5Y4vW81S)
+[![Componentes-Groups-2.png](https://i.postimg.cc/50vmvmRT/Componentes-Groups-2.png)](https://postimg.cc/5Y4vW81S)
 
 ### 5.2.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2978,20 +2978,17 @@ alt="Componentes-Groups-2.png" />](https://postimg.cc/5Y4vW81S)
 
 Diagrama de clases para GroupController:
 
-[<img src="./media/image45.png" style="width:5.83333in;height:3.28125in"
-alt="Groups-Controller-Clases.png" />](https://postimg.cc/7C7TpDc8)
+[![Groups-Controller-Clases.png](https://i.postimg.cc/FKCgkHVR/Groups-Controller-Clases.png)](https://postimg.cc/7C7TpDc8)
 
 Diagrama ded clases para un CommadServiceComponent:
 
-[<img src="./media/image46.png" style="width:5.83333in;height:4.34524in"
-alt="Group-Command-Service.png" />](https://postimg.cc/py7Rn8rk)
+[![Group-Command-Service.png](https://i.postimg.cc/qMBRSxTf/Group-Command-Service.png)](https://postimg.cc/py7Rn8rk)
 
 #### 5.2.6.2 Bounded Context Database Design Diagram
 
 Diagrama de bases de datos de Groups
 
-[<img src="./media/image47.png" style="width:5.83333in;height:3.08602in"
-alt="Groups-Database.png" />](https://postimg.cc/tY99pDVH)
+[![Groups-Database.png](https://i.postimg.cc/ncDrKPFM/Groups-Database.png)](https://postimg.cc/tY99pDVH)
 
 ## 5.3. Bounded Context: Tasks
 
