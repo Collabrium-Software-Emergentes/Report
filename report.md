@@ -421,12 +421,12 @@ EAC - Student Outcome 3.
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Realice la documentacion del bounded context asignado en los plazos asignados y aporte al trabajo colaborativo con la presentacion de Synhub en Canva.
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Comuniqué objetivamente los avances y bounded contexts con los integrantes de mi equipo para recibir retroalimentación. Asimismo, coordiné con el líder y mi equipo el impacto de la IA y la división de tareas, adaptando mi mensaje a cada nivel jerárquico para asegurar la entrega.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
@@ -459,12 +459,12 @@ EAC - Student Outcome 3.
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Desarrolle y documente el bounded context de Tasks y elabore sus correspondientes diagramas de componentes, uml y database
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
-        <br> <em>TP</em> <br>
+        <br> <em>TP</em> <br> Documenté objetivamente la arquitectura y patrones (como CQRS) de los bounded contexts mediante diagramas UML para guiar al equipo técnico. Además, diseñé wireframes para comunicar visualmente el producto a perfiles no técnicos, garantizando su comprensión en diferentes niveles y especialidades.
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
