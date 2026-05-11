@@ -7,7 +7,7 @@
 # Universidad Peruana de Ciencias Aplicadas
 
 ### **Curso:** Arquitectura de Software Emergentes
-### **NRC:** 
+### **NRC:** 17957
 ### **Profesor:** Marino Humberto Jara Palacios
 ### **Ingeniería de Software**
 
@@ -66,7 +66,7 @@
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
     - [**Curso:** Arquitectura de Software Emergentes](#curso-arquitectura-de-software-emergentes)
-    - [**NRC:**](#nrc)
+    - [**NRC:** 17957](#nrc-17957)
     - [**Profesor:** Marino Humberto Jara Palacios](#profesor-marino-humberto-jara-palacios)
     - [**Ingeniería de Software**](#ingeniería-de-software)
   - [Informe de Trabajo Final](#informe-de-trabajo-final)
