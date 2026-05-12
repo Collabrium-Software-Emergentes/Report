@@ -3665,11 +3665,17 @@ contexto de Groups y elimina toda la información asociada en Tasks.
 
 ### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+[![tasks-components.png](https://i.postimg.cc/htcmH8m4/tasks-components.png)](https://postimg.cc/zV23hgp4)
+
 ### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
 
+[tasks-uml.png](https://postimg.cc/8jXsv6w2)
+
 ### 5.3.6.2 Bounded Context Database Design Diagram
+
+[tasks-db.png](https://postimg.cc/HVvjMy3f)
 
 ## 5.4. Bounded Context: Requests
 
