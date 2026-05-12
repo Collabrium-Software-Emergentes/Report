@@ -2294,7 +2294,7 @@ El microservicio utiliza variables de entorno para una configuración segura y f
 
 El diagrama de clases de la capa de dominio de IAM ilustra la estructura lógica y el comportamiento del sistema de identidad. En el centro se encuentra el Agregado Raíz User, que encapsula la identidad del usuario y coordina su relación con la entidad Role y los Value Objects LeaderId y MemberId. Esta estructura garantiza la integridad de los datos de autenticación mientras mantiene una conexión desacoplada con otros contextos mediante eventos de dominio y referencias de identidad externas.
 
-<img src="assets/chapter5/iam/iam-component.png" alt="interview 1" width="800"/>
+[![iam-component.png](https://i.postimg.cc/cL03V73C/iam-component.png)](https://postimg.cc/qzDgK3jH)
 
 ### 5.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2302,13 +2302,13 @@ El diagrama de clases de la capa de dominio de IAM ilustra la estructura lógica
 
 El diagrama de la capa de dominio de IAM ilustra la lógica central de identidad mediante patrones tácticos de `DDD`. Se destaca el Agregado Raíz `User`, que gestiona el estado del usuario y se vincula con entidades de `Role` para la seguridad. El modelo utiliza `Value Objects` (`LeaderId`, `MemberId`) para referenciar perfiles externos y define `Interfaces` de servicios y repositorios que garantizan la independencia tecnológica. Finalmente, los `Eventos de Dominio` aseguran la sincronización asíncrona con otros contextos tras el registro de usuarios.
 
-<img src="assets/chapter5/iam/iam-uml.png" alt="interview 1" width="800"/>
+[![iam-uml-(1).png](https://i.postimg.cc/sxJjSWg4/iam-uml-(1).png)](https://postimg.cc/q6zHHznN)
 
 #### 5.1.6.2. Bounded Context Database Design Diagram
 
 El diseño de persistencia para el microservicio de IAM se basa en un esquema relacional normalizado para la gestión segura de identidades y accesos. El modelo se compone de tres tablas clave: `users`, que almacena las credenciales y referencias externas (`leader_id`, `member_id`); `roles`, que centraliza el catálogo de permisos; y `user_roles`, que actúa como tabla de unión para permitir una asignación flexible de roles de tipo muchos a muchos. Este diseño garantiza la integridad referencial y una alta eficiencia en los procesos de `autenticación` y `autorización`.
 
-<img src="assets/chapter5/iam/iam-db.png" alt="interview 1" width="800"/>
+[![iam-db-(1).png](https://i.postimg.cc/V6nLfpQ6/iam-db-(1).png)](https://postimg.cc/0M5qZtNR)
 
 ### 5.1.1. Domain Layer
 
@@ -5747,12 +5747,12 @@ Este marco de diseño establece la identidad visual de SynHub, garantizando que 
 <strong style="font-size: 1.2em;">Colores</strong>
 La identidad cromática de SynHub ha sido seleccionada para proyectar orden, confianza y eficiencia. Utilizamos una combinación de tonos primarios que refuerzan la solidez profesional de la herramienta, mientras que la paleta secundaria se reserva para la gestión de estados (validaciones), fondos de interfaz y legibilidad tipográfica, garantizando un entorno visualmente descansado.
 
-<img src="assets/chapter6/styleGuidelines/colors.png" alt="interview 1" width="800"/>
+[![colors-(1).png](https://i.postimg.cc/DZrnkGLf/colors-(1).png)](https://postimg.cc/ftR6YJ81)
 
 <strong style="font-size: 1.2em;">Tipografía</strong>
 Se ha adoptado Lato como fuente principal debido a su naturaleza sans-serif de alta legibilidad. Sus proporciones equilibradas y líneas geométricas limpias son ideales para interfaces digitales modernas, permitiendo que el usuario procese la información rápidamente y sin distracciones, manteniendo la coherencia estética en todo el ecosistema de la plataforma.
 
-<img src="assets/chapter6/styleGuidelines/typography.png" alt="interview 1" width="800"/>
+[![typography-(1).png](https://i.postimg.cc/Y0tkpSzs/typography-(1).png)](https://postimg.cc/hzZNscwL)
 
 <strong style="font-size: 1.2em;">Simplicidad y Claridad</strong>
 El diseño de SynHub se rige por el minimalismo funcional, eliminando cualquier ruido visual que interfiera con la gestión de tareas. Nos enfocamos en los siguientes pilares:
