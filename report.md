@@ -4141,19 +4141,23 @@ contexto de Groups y elimina toda la información asociada en Tasks.
 
 ### 5.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+[![tasks-components.png](https://i.postimg.cc/htcmH8m4/tasks-components.png)](https://postimg.cc/zV23hgp4)
+
 ### 5.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
 
+[tasks-uml.png](https://postimg.cc/8jXsv6w2)
+
 ### 5.3.6.2 Bounded Context Database Design Diagram
+
+[tasks-db.png](https://postimg.cc/HVvjMy3f)
 
 ## 5.4. Bounded Context: Requests
 
 ### 5.4.1. Domain Layer
 
-En esta capa se define el nucleo de la gestion de solicitudes asociadas
-a tareas, encapsulando reglas de negocio para tipo de solicitud, estado
-y relacion con Task.
+El bounded context Requests se encarga de gestionar las solicitudes asociadas a tareas dentro de la plataforma SynHub. Maneja la creación, consulta, actualización y eliminación de solicitudes, valida tipos y estados, y mantiene la referencia a la tarea como un Value Object embebido para preservar la autonomía del contexto mientras orquesta integraciones con otros servicios (Tasks, Groups).
 
 **Aggregate: Request**
 
@@ -4406,8 +4410,7 @@ A su vez, la capa de aplicacion integra tareas y grupos mediante
 clientes ACL (TaskServiceClient y GroupServiceClient). La persistencia
 se realiza en base de datos relacional a traves de RequestRepository.
 
-<img src="./media/image48.png" style="width:5.83333in;height:3.09896in"
-alt="Bounded Context Request - component level diagram" />
+![Bounded Context Request - component level diagram](https://i.ibb.co/C5MGvfTK/Requests-Component-View-dark.png)
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4421,8 +4424,7 @@ destacando el aggregate "Request", sus value objects, los commands y
 queries que usa para operar, y los servicios de dominio que coordinan
 las reglas del contexto.
 
-[<img src="./media/image49.png" style="width:5.83333in;height:2.05078in"
-alt="Notificaciones-Canvas.png" />](https://ibb.co/GfkxFD1L)
+[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
@@ -4434,8 +4436,7 @@ contexto y evitando acoplamiento directo con la tabla de tareas en el
 servicio remoto. Finalmente, resaltar que las columnas "created_at" y
 "updated_at" heredan del patrón "AuditableAbstractAggregateRoot".
 
-[<img src="./media/image50.png" style="width:4.17895in;height:2.51579in"
-alt="NBounded Context Request Domain Layer Class Diagram" />](https://ibb.co/ZpmFdZbJ)
+[![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
 ### 
 
@@ -5075,7 +5076,7 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).
 
-### [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/structurizr4.png)
+[![structurizr4.png](https://i.postimg.cc/5tJzWBFW/structurizr4.png)](https://postimg.cc/xXs8KbR6)
 
 ### **5.5.6. Bounded Context Software Architecture Code Level Diagrams**
 
@@ -5093,7 +5094,7 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.
 
-### [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/UML1.png)
+[![UML1.png](https://i.postimg.cc/xC4q8MqK/UML1.png)](https://postimg.cc/mz7T6cYD)
 
 ### 5.5.8. Bounded Context Database Design Diagram
 
