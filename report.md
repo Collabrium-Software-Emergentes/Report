@@ -4147,11 +4147,10 @@ contexto de Groups y elimina toda la información asociada en Tasks.
 
 ### 5.3.6.1 Bounded Context Domain Layer Class Diagrams
 
-[tasks-uml.png](https://postimg.cc/8jXsv6w2)
-
+[![tasks-uml.png](https://i.postimg.cc/Bn4Fd5Fn/tasks-uml.png)](https://postimg.cc/8jXsv6w2)
 ### 5.3.6.2 Bounded Context Database Design Diagram
 
-[tasks-db.png](https://postimg.cc/HVvjMy3f)
+[![tasks-db.png](https://i.postimg.cc/MpqBh0BK/tasks-db.png)](https://postimg.cc/HVvjMy3f)
 
 ## 5.4. Bounded Context: Requests
 
