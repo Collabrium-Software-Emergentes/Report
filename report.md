@@ -4599,7 +4599,7 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).
 
-### [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/structurizr4.png)
+[![structurizr4.png](https://i.postimg.cc/5tJzWBFW/structurizr4.png)](https://postimg.cc/xXs8KbR6)
 
 ### **5.5.6. Bounded Context Software Architecture Code Level Diagrams**
 
@@ -4617,7 +4617,7 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.
 
-### [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-4/UML1.png)
+[![UML1.png](https://i.postimg.cc/xC4q8MqK/UML1.png)](https://postimg.cc/mz7T6cYD)
 
 ### 5.5.8. Bounded Context Database Design Diagram
 
