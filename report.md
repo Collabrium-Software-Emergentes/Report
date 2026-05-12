@@ -3681,9 +3681,7 @@ contexto de Groups y elimina toda la información asociada en Tasks.
 
 ### 5.4.1. Domain Layer
 
-En esta capa se define el nucleo de la gestion de solicitudes asociadas
-a tareas, encapsulando reglas de negocio para tipo de solicitud, estado
-y relacion con Task.
+El bounded context Requests se encarga de gestionar las solicitudes asociadas a tareas dentro de la plataforma SynHub. Maneja la creación, consulta, actualización y eliminación de solicitudes, valida tipos y estados, y mantiene la referencia a la tarea como un Value Object embebido para preservar la autonomía del contexto mientras orquesta integraciones con otros servicios (Tasks, Groups).
 
 **Aggregate: Request**
 
