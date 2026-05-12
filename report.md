@@ -3936,8 +3936,7 @@ A su vez, la capa de aplicacion integra tareas y grupos mediante
 clientes ACL (TaskServiceClient y GroupServiceClient). La persistencia
 se realiza en base de datos relacional a traves de RequestRepository.
 
-<img src="./media/image48.png" style="width:5.83333in;height:3.09896in"
-alt="Bounded Context Request - component level diagram" />
+![Bounded Context Request - component level diagram](https://i.ibb.co/C5MGvfTK/Requests-Component-View-dark.png)
 
 ### 5.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3951,8 +3950,7 @@ destacando el aggregate "Request", sus value objects, los commands y
 queries que usa para operar, y los servicios de dominio que coordinan
 las reglas del contexto.
 
-[<img src="./media/image49.png" style="width:5.83333in;height:2.05078in"
-alt="Notificaciones-Canvas.png" />](https://ibb.co/GfkxFD1L)
+[![Notificaciones-Canvas.png](https://i.ibb.co/ZRKLNrwP/request-management.png)](https://ibb.co/GfkxFD1L)
 
 ### 5.4.8. Bounded Context Database Design Diagram
 
@@ -3964,8 +3962,7 @@ contexto y evitando acoplamiento directo con la tabla de tareas en el
 servicio remoto. Finalmente, resaltar que las columnas "created_at" y
 "updated_at" heredan del patrón "AuditableAbstractAggregateRoot".
 
-[<img src="./media/image50.png" style="width:4.17895in;height:2.51579in"
-alt="NBounded Context Request Domain Layer Class Diagram" />](https://ibb.co/ZpmFdZbJ)
+[![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
 ### 
 
