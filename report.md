@@ -439,6 +439,8 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [6.1. Style Guidelines](#61-style-guidelines)
     - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
     - [6.1.2. Web, Mobile \& Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+    - [6.1.1. General Style Guidelines](#611-general-style-guidelines-1)
+    - [6.1.2. Web, Mobile \& Devices Style Guidelines](#612-web-mobile--devices-style-guidelines-1)
   - [6.2. Information Architecture](#62-information-architecture)
     - [6.2.1. Labeling Systems](#621-labeling-systems)
     - [6.2.2. Searching Systems](#622-searching-systems)
@@ -5735,7 +5737,73 @@ alt="Notification-Database.png" />](https://postimg.cc/mcr6Cg7C)
 
 # Capítulo VI: Solution UX Design
 
+
 ## 6.1. Style Guidelines
+
+Este marco de diseño establece la identidad visual de SynHub, garantizando que cada interacción sea intuitiva y coherente en todas sus plataformas. Al estandarizar el uso de colores, tipografías y recursos gráficos, no solo buscamos una estética moderna, sino construir un entorno digital accesible que genere confianza y facilite la navegación. Nuestra prioridad es que el diseño actúe como un motor de eficiencia; cada detalle visual está pensado para simplificar la colaboración y reflejar un sistema tecnológico sólido y centrado plenamente en las necesidades del usuario.
+
+### 6.1.1. General Style Guidelines
+
+<strong style="font-size: 1.2em;">Colores</strong>
+La identidad cromática de SynHub ha sido seleccionada para proyectar orden, confianza y eficiencia. Utilizamos una combinación de tonos primarios que refuerzan la solidez profesional de la herramienta, mientras que la paleta secundaria se reserva para la gestión de estados (validaciones), fondos de interfaz y legibilidad tipográfica, garantizando un entorno visualmente descansado.
+
+<img src="assets/chapter6/styleGuidelines/colors.png" alt="interview 1" width="800"/>
+
+<strong style="font-size: 1.2em;">Tipografía</strong>
+Se ha adoptado Lato como fuente principal debido a su naturaleza sans-serif de alta legibilidad. Sus proporciones equilibradas y líneas geométricas limpias son ideales para interfaces digitales modernas, permitiendo que el usuario procese la información rápidamente y sin distracciones, manteniendo la coherencia estética en todo el ecosistema de la plataforma.
+
+<img src="assets/chapter6/styleGuidelines/typography.png" alt="interview 1" width="800"/>
+
+<strong style="font-size: 1.2em;">Simplicidad y Claridad</strong>
+El diseño de SynHub se rige por el minimalismo funcional, eliminando cualquier ruido visual que interfiera con la gestión de tareas. Nos enfocamos en los siguientes pilares:
+
+• **Interfaz Depurada**: Exposición exclusiva de elementos esenciales para guiar al usuario hacia la acción principal.
+
+• **Gestión del Espacio**: Uso estratégico de áreas en blanco para prevenir la sobrecarga cognitiva y dar "aire" al contenido.
+
+• **Flujos Optimizados**: Procesos directos que reducen la cantidad de pasos para completar una operación.
+
+• **Estructura Visual**: Jerarquización clara mediante el uso de tamaños y contrastes para destacar la información crítica.
+
+• **Iconografía Intuitiva**: Símbolos universales que facilitan la comprensión inmediata sin depender excesivamente del texto.
+
+• **Comunicación Directa**: Lenguaje sencillo y sin tecnicismos innecesarios para una experiencia de usuario fluida.
+
+• **Diseño Curvado**: Uso de bordes y transiciones redondeadas para crear una experiencia visual más suave, moderna y accesible, facilitando el flujo visual natural del usuario.
+
+### 6.1.2. Web, Mobile & Devices Style Guidelines
+
+Esta sección define las normativas de diseño para asegurar que la transición entre la navegación web y el uso de la aplicación móvil sea fluida y coherente. Nos enfocamos en adaptar la interfaz a las capacidades de cada dispositivo sin perder la identidad de SynHub.
+
+**Web (Landing Page)**
+
+El diseño web se centra en la claridad informativa y la conversión:
+
+- Sistema de Rejilla: Rejilla de 12 columnas con márgenes laterales de 120px
+- Componentes Interactivos: Botones con bordes redondeados de 8px
+- Efectos Visuales: Elevación (shadows) que reaccionan al cursor (hover)
+- Navegación: Fija en la parte superior para acceso rápido a las secciones
+
+
+**Mobile (Native App)**
+
+La interfaz móvil prioriza la ergonomía y la rapidez de acción:
+
+- Adaptabilidad: Diseño de una sola columna respetando áreas seguras (safe areas)
+- Zona de Contacto: Botones y controles con mínimo 44x44 dp para precisión táctil
+- Navegación Intuitiva: Ubicada en la parte inferior (Bottom Nav) para uso con pulgar
+- Interacción Natural: Integración de gestos como deslizamientos (swipes)
+
+
+**Consistencia de Interacción**
+
+Unificación en ambas plataformas:
+
+- Biblioteca de Iconos: Iconos lineales compartidos
+- Estética Unificada: Esquinas redondeadas en todos los contenedores
+- Identidad Visual: Percepción de SynHub como herramienta moderna y consistente
+- Experiencia Omnichannel: Coherencia independiente del dispositivo de acceso
+
 
 Este marco de diseño establece la identidad visual de SynHub,
 garantizando que cada interacción sea intuitiva y coherente en todas sus
