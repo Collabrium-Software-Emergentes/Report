@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png" width="150" alt="UPC Logo">
+</div>
+
+<div align="center">
+
 # Universidad Peruana de Ciencias Aplicadas
 
 ### **Curso:** Arquitectura de Software Emergentes
