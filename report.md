@@ -6387,7 +6387,31 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
 
+En esta sección se presentan los commits realizados en el repositorio de landing,backend y frontend durante el sprint 1.
 
+**Commits realizados en el repositorio de la Landing Page durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Landing Page | main | 118fcaf10a77ad214d2692c87a35ae5742d8edd0 | Update package.json |  | 2025-05-14 |
+
+**Commits realizados en los repositorios del Frontend durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Landing Page | main | 118fcaf10a77ad214d2692c87a35ae5742d8edd0 | Update package.json |  | 2025-05-14 |
+
+**Commits realizados en los repositorios del Backend durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Groups-Microservice | master | db9fcf979708f45ad6ee0105b1ab1168cc5e0a6e | feat(groups): add LeaderController and LeaderGroupController for leader and group API management | Introduced `LeaderController` for handling leader details by ID and `LeaderGroupController` for managing group operations, including creating, updating, retrieving, and deleting groups, as well as managing group members. | 2026-06-08 |
+| Groups-Microservice | master | d63200902c3905b13e3616707c91e044619216d5 | feat(groups): add REST controllers for leader and invitation management | Added `InvitationDetailsController` for managing invitation creation and retrieval, and `LeaderDetailsController` for handling leader details, group members, and tasks. Expanded functionality for group-related API endpoints. | 2026-06-08 |
+| Groups-Microservice | master | a5e6e6c5fdbe5945c667061bfe71a17ac175b8e6 | feat(groups): implement GroupCommandServiceImpl for group command handling | Added `GroupCommandServiceImpl` to provide business logic for group creation, updating, deletion, and membership management, enhancing command handling and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | b26931786f92733dc4b10b12eba9e46342cb5f48 | feat(groups): add InvitationDetailsQueryService and LeaderDetailsQueryService | Implemented `InvitationDetailsQueryService` and `LeaderDetailsQueryService` to handle query operations for invitations and leaders, enhancing query handling and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | 44de9a3288a8748c7cb8a4eeaf93fcf39bd7c491 | feat(groups): implement InvitationCommandServiceImpl and LeaderCommandServiceImpl | Added `InvitationCommandServiceImpl` and `LeaderCommandServiceImpl` to handle invitation and leader-related commands respectively, enhancing domain services and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | e383bfb18a1df69132a8c736f11502daf673af70 | feat(groups): add Invitation aggregate for invitation management | Introduced `Invitation` aggregate to manage invitation creation and validation logic, including associations with `MemberId` and `Group`. Added checks for null member ID and group during initialization, improving clarity and error handling in group management. | 2026-06-08 |
+| Groups-Microservice | master | 3e48740621c6f27f4f87c87550e502f4fa523424 | feat(groups): add Group aggregate with validation and update logic | Introduced `Group` aggregate to represent group-level domain logic and state. Added validation for creation, member operations, and updates, as well as utility methods for group checks like membership and leadership. | 2026-06-08 |
 
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
