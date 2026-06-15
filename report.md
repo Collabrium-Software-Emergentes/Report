@@ -6176,7 +6176,72 @@ Usaremos buenas prácticas en cuanto al código de manera que sea coherente y so
 
 ### 7.1.4. Software Deployment Configuration
 
+En esta sección se detallan las consideraciones y pasos necesarios para el despliegue de los productos de Synhub.
 
+**Landing Page**
+
+**Consideraciones antes del despliegue:**
+
+- Es recomendable ejecutar npm run build localmente para asegurarse de que la aplicación web no contenga errores, ya sea por paquetes externos o problemas en la declaración de los componentes.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo de la landing page en github
+- Repositorio de github con estado de visualización público
+
+**Pasos realizados para desplegar nuestra Landing Page:**
+
+1. Ingresar al sitio web de GitHub.
+2. Iniciar sesión en la cuenta de GitHub.
+3. Ir al repositorio donde se encuentra el código de la Landing Page.
+4. Hacer clic en la pestaña **Settings** (Configuración).
+5. En el menú lateral izquierdo, seleccionar **Pages** (sección "Code and automation").
+6. En la sección **Branch**, elegir la rama que contiene los archivos a desplegar (ej: `main`).
+7. Seleccionar la carpeta raíz (`/ (root)`) o la carpeta `/docs` (si los archivos estáticos están allí).
+8. Hacer clic en **Save**.
+9. Esperar unos minutos hasta que GitHub genere la URL pública (generalmente `https://<tu-usuario>.github.io/<nombre-repositorio>/`).
+10. Acceder a la URL pública generada para verificar que la Landing Page funcione correctamente.
+
+**Mobile Application**
+
+**Consideraciones antes del despliegue:**
+
+- Se necesita tener el API desplegado en un servidor al que se pueda acceder de manera externa.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo del API en github
+- Dispositivo móvil Android en el que se pueda instalar la aplicación
+
+**Pasos realizados para desplegar nuestra Mobile Application:**
+
+1. Activar el modo desarrollador en el dispositivo móvil.
+2. Activar la depuración por USB en el dispositivo móvil.
+3. Conectar el dispositivo móvil a la computadora.
+4. Abrir Android Studio y seleccionar el proyecto de la aplicación.
+5. Seleccionar el dispositivo móvil en la lista de dispositivos disponibles.
+6. Hacer clic en el botón de "Run" (Ejecutar) en Android Studio.
+7. Esperar a que la aplicación se compile y se instale en el dispositivo móvil.
+8. Abrir la aplicación en el dispositivo móvil y verificar que funcione correctamente.
+
+**Backend**
+
+**Consideraciones antes del despliegue:**
+
+- Se necesita tener la base de datos desplegada en un servidor al que se pueda acceder de manera externa.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo del backend en github
+- Repositorio de github con estado de visualización público
+
+**Pasos realizados para desplegar nuestra API:**
+
+1. Extraer el pipeline de la base de datos de Neontech y cargarla al código del API.
+2. Crear un archivo Dockerfile para el despliegue del API.
+3. Crear un proyecto en Render de tipo Web Service.
+4. Importar el repositorio del API al proyecto de Render.
+5. Desplegar el API en Render.
 
 ## 7.2. Solution Implementation
 
