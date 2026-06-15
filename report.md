@@ -5903,7 +5903,27 @@ Los wireflow diagrams de Synhub representan la secuencia de interacciones y pant
 
 ### 6.4.3. Applications Mock-ups
 
+En esta sección se presentan y explican los Mock-ups de la aplicación. Se evidencia la aplicación de los principios y elementos de diseño, el diseño inclusivo, la arquitectura de información y el Design System establecido en el desarrollo de los wireframes. Cada mock-up ilustra cómo se implementan estos conceptos en la interfaz de usuario.
 
+[![mockup-1.png](https://i.postimg.cc/Qdq0HcSD/mockup-1.png)](https://postimg.cc/5X6wrYZK)
+
+[![mock-up-2.png](https://i.postimg.cc/DyPqgnG4/mock-up-2.png)](https://postimg.cc/KR4kcXJm)
+
+[![mockup-3.png](https://i.postimg.cc/bYQbypmf/mockup-3.png)](https://postimg.cc/mhghVfxm)
+
+[![mockup-4.png](https://i.postimg.cc/FzZ7jF6Q/mockup-4.png)](https://postimg.cc/QKF8DDs6)
+
+[![mockup-5.png](https://i.postimg.cc/4Nx3DgMm/mockup-5.png)](https://postimg.cc/py3xjgPH)
+
+[![mockup-6.png](https://i.postimg.cc/mDSbnXyv/mockup-6.png)](https://postimg.cc/YGhKGxVR)
+
+[![mockup-7.png](https://i.postimg.cc/rwtqTF9m/mockup-7.png)](https://postimg.cc/nXZyYxgb)
+
+[![mockup-8.png](https://i.postimg.cc/TYBXtvX2/mockup-8.png)](https://postimg.cc/8jd3C35x)
+
+[![mockup-9.png](https://i.postimg.cc/PqQsfLv1/mockup-9.png)](https://postimg.cc/WDzfX1n4)
+
+[![mockup-10.png](https://i.postimg.cc/Y0VTDYZ1/mockup-10.png)](https://postimg.cc/fScHJtwL)
 
 ### 6.4.4. Applications User Flow Diagrams
 
