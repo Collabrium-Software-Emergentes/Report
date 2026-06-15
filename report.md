@@ -5927,7 +5927,71 @@ En esta sección se presentan y explican los Mock-ups de la aplicación. Se evid
 
 ### 6.4.4. Applications User Flow Diagrams
 
+**Creación de grupo:** Este userflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
 
+[![userflow-t1.png](https://i.postimg.cc/VNYZRK5v/userflow-t1.png)](https://postimg.cc/hX504bLR)
+
+[![userflow-t2.png](https://i.postimg.cc/Dy1KpYfG/userflow-t2.png)](https://postimg.cc/MvZ4v5QZ)
+
+**Invitación de integrante:** Este userflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t3.png](https://i.postimg.cc/W43CV9Vn/userflow-t3.png)](https://postimg.cc/68kYLfy2)
+
+[![userflow-t4.png](https://i.postimg.cc/9fr8KrtW/userflow-t4.png)](https://postimg.cc/QBZJWNyP)
+
+**Asignación de tarea:** Este userflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t5.png](https://i.postimg.cc/C1bNpDZp/userflow-t5.png)](https://postimg.cc/cg4YQvMF)
+
+[![userflow-t6.png](https://i.postimg.cc/NfdxtQ0F/userflow-t6.png)](https://postimg.cc/MvjBb2VJ)
+
+**Edición de tarea:** Este userflow corresponde a cuando un lider de equipo busca editar una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t7.png](https://i.postimg.cc/FzD0hxNy/userflow-t7.png)](https://postimg.cc/64480n7q)
+
+[![userflow-t8.png](https://i.postimg.cc/VvLbZbn7/userflow-t8.png)](https://postimg.cc/sQqXvxnS)
+
+**Eliminación de tarea:** Este userflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t9.png](https://i.postimg.cc/HLwcpttj/userflow-t9.png)](https://postimg.cc/mcr2jCJG)
+
+[![userflow-t10.png](https://i.postimg.cc/jdDDWTX5/userflow-t10.png)](https://postimg.cc/SJpS5wHF)
+
+**Ver la información de una tarea:** Este userflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t11.png](https://i.postimg.cc/W3943Yqz/userflow-t11.png)](https://postimg.cc/zbgN2jjY)
+
+[![userflow-t12.png](https://i.postimg.cc/wTRBqV6S/userflow-t12.png)](https://postimg.cc/JGm8KjHq)
+
+**Revisar una solicitud o validación:** Este userflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t13.png](https://i.postimg.cc/ZnBJqbS4/userflow-t13.png)](https://postimg.cc/7JkFsyhW)
+
+[![userflow-t14.png](https://i.postimg.cc/VLtYQkgd/userflow-t14.png)](https://postimg.cc/3dKM27PT)
+
+**Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t15.png](https://i.postimg.cc/0N9TXpcc/userflow-t15.png)](https://postimg.cc/WdfYhJRk)
+
+[![userflow-t16.png](https://i.postimg.cc/9z3SdTDd/userflow-t16.png)](https://postimg.cc/dZB4vhm3)
+
+**Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t17.png](https://i.postimg.cc/2yvmNCvH/userflow-t17.png)](https://postimg.cc/bSz4Qcmb)
+
+[![userflow-t18.png](https://i.postimg.cc/8PRDyPT7/userflow-t18.png)](https://postimg.cc/9rQv02R2)
+
+**Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t19.png](https://i.postimg.cc/J7JWn4DK/userflow-t19.png)](https://postimg.cc/mhbnp4SF)
+
+[![userflow-t20.png](https://i.postimg.cc/1zTLmLyT/userflow-t20.png)](https://postimg.cc/LqtyvQYB)
+
+**Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t21.png](https://i.postimg.cc/TPy44Cn0/userflow-t21.png)](https://postimg.cc/Z9SH9P7v)
+
+[![userflow-t22.png](https://i.postimg.cc/x18xXtx7/userflow-t22.png)](https://postimg.cc/yDqX5XzX)
 
 ## 6.5. Applications Prototyping
 
