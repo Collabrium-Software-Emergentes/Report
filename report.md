@@ -62,6 +62,10 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
 [![insig.png](https://i.postimg.cc/yYn16MWc/insig.png)](https://postimg.cc/3d45nbXx)
 
+### TB3:
+
+
+
 ## Contenido
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
@@ -5829,25 +5833,25 @@ alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
  Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.
 
-## [![](./media/image44.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-1.png)
+[![](./media/image44.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-1.png)
 
-## [![](./media/image45.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-2.png)
+[![](./media/image45.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-2.png)
 
-## [![](./media/image46.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-3.png)
+[![](./media/image46.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-3.png)
 
-## [![](./media/image47.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-4.png)
+[![](./media/image47.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-4.png)
 
-## [![](./media/image48.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-5.png)
+[![](./media/image48.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-5.png)
 
-## [![](./media/image49.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-6.png)
+[![](./media/image49.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-6.png)
 
-## [![](./media/image50.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-7.png)
+[![](./media/image50.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-7.png)
 
-## [![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-8.png)
+[![](./media/image51.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-8.png)
 
-## [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-9.png)
+[![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-9.png)
 
-## 6.4.2. Applications Wireflow Diagrams
+### 6.4.2. Applications Wireflow Diagrams
 
 Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.
 
@@ -5897,6 +5901,101 @@ Los wireflow diagrams de Synhub representan la secuencia de interacciones y pant
 
 [![](./media/image64.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-11.png)
 
+### 6.4.3. Applications Mock-ups
+
+
+
+### 6.4.4. Applications User Flow Diagrams
+
+
+
+## 6.5. Applications Prototyping
+
+
+
+# Capítulo VII: Product Implementation, Validation & Deployment
+
+## 7.1. Software COnfiguration Management
+
+
+
+### 7.1.1. Software Development Environment Configuration
+
+
+
+### 7.1.2. Source Code Management
+
+
+
+### 7.1.3. Source Code Style Guide & Conventions
+
+
+
+### 7.1.4. Software Deployment Configuration
+
+
+
+## 7.2. Solution Implementation
+
+
+
+### 7.2.1 Sprint 1
+
+
+
+#### 7.2.1.1. Sprint Planning 1
+
+
+
+#### 7.2.1.2. Sprint Backlog 1
+
+
+
+#### 7.2.1.3. Development Evidence for Sprint Review.
+
+
+
+#### 7.2.1.4.	Testing Suite Evidence for Sprint Review
+
+
+
+#### 7.2.1.5.	Execution Evidence for Sprint Review
+
+
+
+#### 7.2.1.6.	Services Documentation Evidence for Sprint Review
+
+
+
+#### 7.2.1.7.	Software Deployment Evidence for Sprint Review
+
+
+
+#### 7.2.1.8.	Team Collaboration Insights during Sprint
+
+
+
+## 7.3.	Validation Interviews
+
+
+
+### 7.3.1.	Diseño de Entrevistas
+
+
+
+### 7.3.2.	Registro de Entrevistas
+
+
+
+### 7.3.3.	Evaluaciones según heurísticas
+
+
+
+### 7.4.	Video About-the-Product
+
+
+
+
 ## Conclusiones
 
 ### TB1:
@@ -5926,6 +6025,14 @@ Los wireflow diagrams de Synhub representan la secuencia de interacciones y pant
 - Se logró definir un primer avance al desarrollo de la aplicación mediante wireframes.
 
 - Se evidencia un desglose de la insfrastructura de nuestra aplicación mediante bounded contexts detallados.
+
+### TB3:
+
+- s
+
+- s
+
+- s
 
 Anexo:
 
