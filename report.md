@@ -6304,7 +6304,86 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
 
 #### 7.2.1.2. Sprint Backlog 1
 
-
+<table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="7"><strong>Sprint 1</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>User Story</strong></td>
+    <td colspan="6"><strong>Work-Item/task</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Id</strong></td>
+    <td colspan="1"><strong>Title</strong></td>
+    <td colspan="1"><strong>Id</strong></td>
+    <td colspan="1"><strong>Title</strong></td>
+    <td colspan="1"><strong>Description</strong></td>
+    <td colspan="1"><strong>Estimation(Hrs)</strong></td>
+    <td colspan="1"><strong>Assigned To</strong></td>
+    <td colspan="1"><strong>Status</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-001</td>
+    <td colspan="1">Obtener un grupo por ID</td>
+    <td colspan="1">T01</td>
+    <td colspan="1">Crear getGroupById</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group/{id}  .</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-002</td>
+    <td colspan="1">Obtener todos los grupos de un usuario</td>
+    <td colspan="1">T02</td>
+    <td colspan="1">Crear getAllUserGroups</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group/user/{userId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-003</td>
+    <td colspan="1">Registrar un nuevo grupo</td>
+    <td colspan="1">T03</td>
+    <td colspan="1">Crear registerGroup</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-004</td>
+    <td colspan="1">Agregar un miembro a un grupo</td>
+    <td colspan="1">T04</td>
+    <td colspan="1">Crear addMemberToGroup</td>
+    <td colspan="1">Crear endpoint de groups POST /api/v1/group/{groupId}/member/{userId}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-005</td>
+    <td colspan="1">Actualizar un grupo</td>
+    <td colspan="1">T05</td>
+    <td colspan="1">Crear updateGroup</td>
+    <td colspan="1">Crear endpoint de groups PUT/api/v1/group/{id}</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-006</td>
+    <td colspan="1">Eliminar un grupo</td>
+    <td colspan="1">T06</td>
+    <td colspan="1">Crear deleteGroup</td>
+    <td colspan="1">Crear endpoint de groups DELETE/api/v1/group/{id}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+</table>
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
 
