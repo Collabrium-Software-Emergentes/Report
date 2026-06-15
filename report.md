@@ -5995,11 +5995,13 @@ En esta sección se presentan y explican los Mock-ups de la aplicación. Se evid
 
 ## 6.5. Applications Prototyping
 
+Para este apartado comenzamos con la creación de grupos, donde el líder establece un nuevo espacio de trabajo, seguido de la invitación de integrantes para conformar el equipo. Una vez formado el grupo, el líder puede asignar tareas específicas a cada miembro, con la capacidad de editar los detalles de estas tareas si es necesario o eliminarlas cuando ya no sean relevantes. Además, el líder puede consultar la información detallada de cualquier tarea para hacer seguimiento, y revisar solicitudes o validaciones presentadas por los miembros del equipo, lo que le permite aprobar, rechazar o dar retroalimentación sobre el trabajo realizado. Estos flujos cubren el ciclo completo de gestión, desde la organización del equipo hasta la supervisión y validación de las actividades asignadas.
 
+[![image.png](https://i.postimg.cc/hPzQhm89/image.png)](https://postimg.cc/56J2R6R0)
 
 # Capítulo VII: Product Implementation, Validation & Deployment
 
-## 7.1. Software COnfiguration Management
+## 7.1. Software Configuration Management
 
 
 
