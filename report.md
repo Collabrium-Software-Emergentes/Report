@@ -6415,6 +6415,32 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
+En esta sección se presentan las evidencias de la ejecución de la aplicación para el sprint 1.
+
+**Landing Page:**
+
+[![LP-1.png](https://i.postimg.cc/d3SGf7gC/LP-1.png)](https://postimg.cc/jnPWwjxq)
+
+[![LP-2.png](https://i.postimg.cc/504vNqVz/LP-2.png)](https://postimg.cc/B8ztmFtZ)
+
+[![LP-3.png](https://i.postimg.cc/8PJv5zqj/LP-3.png)](https://postimg.cc/6yKqbt6X)
+
+[![LP-4.png](https://i.postimg.cc/G2gBLWz0/LP-4.png)](https://postimg.cc/nj7VTw6T)
+
+[![LP-5.png](https://i.postimg.cc/wj57yyFw/LP-5.png)](https://postimg.cc/zyBJ4fsh)
+
+[![LP-6.png](https://i.postimg.cc/j5150zdb/LP-6.png)](https://postimg.cc/47zZpH9L)
+
+**Frontend Members:**
+
+
+
+**Frontend Leaders:**
+
+
+
+**Backend Groups:**
+
 
 
 #### 7.2.1.5.	Execution Evidence for Sprint Review
