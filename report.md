@@ -5903,53 +5903,487 @@ Los wireflow diagrams de Synhub representan la secuencia de interacciones y pant
 
 ### 6.4.3. Applications Mock-ups
 
+En esta sección se presentan y explican los Mock-ups de la aplicación. Se evidencia la aplicación de los principios y elementos de diseño, el diseño inclusivo, la arquitectura de información y el Design System establecido en el desarrollo de los wireframes. Cada mock-up ilustra cómo se implementan estos conceptos en la interfaz de usuario.
 
+[![mockup-1.png](https://i.postimg.cc/Qdq0HcSD/mockup-1.png)](https://postimg.cc/5X6wrYZK)
+
+[![mock-up-2.png](https://i.postimg.cc/DyPqgnG4/mock-up-2.png)](https://postimg.cc/KR4kcXJm)
+
+[![mockup-3.png](https://i.postimg.cc/bYQbypmf/mockup-3.png)](https://postimg.cc/mhghVfxm)
+
+[![mockup-4.png](https://i.postimg.cc/FzZ7jF6Q/mockup-4.png)](https://postimg.cc/QKF8DDs6)
+
+[![mockup-5.png](https://i.postimg.cc/4Nx3DgMm/mockup-5.png)](https://postimg.cc/py3xjgPH)
+
+[![mockup-6.png](https://i.postimg.cc/mDSbnXyv/mockup-6.png)](https://postimg.cc/YGhKGxVR)
+
+[![mockup-7.png](https://i.postimg.cc/rwtqTF9m/mockup-7.png)](https://postimg.cc/nXZyYxgb)
+
+[![mockup-8.png](https://i.postimg.cc/TYBXtvX2/mockup-8.png)](https://postimg.cc/8jd3C35x)
+
+[![mockup-9.png](https://i.postimg.cc/PqQsfLv1/mockup-9.png)](https://postimg.cc/WDzfX1n4)
+
+[![mockup-10.png](https://i.postimg.cc/Y0VTDYZ1/mockup-10.png)](https://postimg.cc/fScHJtwL)
 
 ### 6.4.4. Applications User Flow Diagrams
 
+**Creación de grupo:** Este userflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
 
+[![userflow-t1.png](https://i.postimg.cc/VNYZRK5v/userflow-t1.png)](https://postimg.cc/hX504bLR)
+
+[![userflow-t2.png](https://i.postimg.cc/Dy1KpYfG/userflow-t2.png)](https://postimg.cc/MvZ4v5QZ)
+
+**Invitación de integrante:** Este userflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t3.png](https://i.postimg.cc/W43CV9Vn/userflow-t3.png)](https://postimg.cc/68kYLfy2)
+
+[![userflow-t4.png](https://i.postimg.cc/9fr8KrtW/userflow-t4.png)](https://postimg.cc/QBZJWNyP)
+
+**Asignación de tarea:** Este userflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t5.png](https://i.postimg.cc/C1bNpDZp/userflow-t5.png)](https://postimg.cc/cg4YQvMF)
+
+[![userflow-t6.png](https://i.postimg.cc/NfdxtQ0F/userflow-t6.png)](https://postimg.cc/MvjBb2VJ)
+
+**Edición de tarea:** Este userflow corresponde a cuando un lider de equipo busca editar una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t7.png](https://i.postimg.cc/FzD0hxNy/userflow-t7.png)](https://postimg.cc/64480n7q)
+
+[![userflow-t8.png](https://i.postimg.cc/VvLbZbn7/userflow-t8.png)](https://postimg.cc/sQqXvxnS)
+
+**Eliminación de tarea:** Este userflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t9.png](https://i.postimg.cc/HLwcpttj/userflow-t9.png)](https://postimg.cc/mcr2jCJG)
+
+[![userflow-t10.png](https://i.postimg.cc/jdDDWTX5/userflow-t10.png)](https://postimg.cc/SJpS5wHF)
+
+**Ver la información de una tarea:** Este userflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t11.png](https://i.postimg.cc/W3943Yqz/userflow-t11.png)](https://postimg.cc/zbgN2jjY)
+
+[![userflow-t12.png](https://i.postimg.cc/wTRBqV6S/userflow-t12.png)](https://postimg.cc/JGm8KjHq)
+
+**Revisar una solicitud o validación:** Este userflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t13.png](https://i.postimg.cc/ZnBJqbS4/userflow-t13.png)](https://postimg.cc/7JkFsyhW)
+
+[![userflow-t14.png](https://i.postimg.cc/VLtYQkgd/userflow-t14.png)](https://postimg.cc/3dKM27PT)
+
+**Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t15.png](https://i.postimg.cc/0N9TXpcc/userflow-t15.png)](https://postimg.cc/WdfYhJRk)
+
+[![userflow-t16.png](https://i.postimg.cc/9z3SdTDd/userflow-t16.png)](https://postimg.cc/dZB4vhm3)
+
+**Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t17.png](https://i.postimg.cc/2yvmNCvH/userflow-t17.png)](https://postimg.cc/bSz4Qcmb)
+
+[![userflow-t18.png](https://i.postimg.cc/8PRDyPT7/userflow-t18.png)](https://postimg.cc/9rQv02R2)
+
+**Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t19.png](https://i.postimg.cc/J7JWn4DK/userflow-t19.png)](https://postimg.cc/mhbnp4SF)
+
+[![userflow-t20.png](https://i.postimg.cc/1zTLmLyT/userflow-t20.png)](https://postimg.cc/LqtyvQYB)
+
+**Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica. Task flow: 🟥 Happy Path, 🟨 Error Path, 🟦 User Goal
+
+[![userflow-t21.png](https://i.postimg.cc/TPy44Cn0/userflow-t21.png)](https://postimg.cc/Z9SH9P7v)
+
+[![userflow-t22.png](https://i.postimg.cc/x18xXtx7/userflow-t22.png)](https://postimg.cc/yDqX5XzX)
 
 ## 6.5. Applications Prototyping
 
+Para este apartado comenzamos con la creación de grupos, donde el líder establece un nuevo espacio de trabajo, seguido de la invitación de integrantes para conformar el equipo. Una vez formado el grupo, el líder puede asignar tareas específicas a cada miembro, con la capacidad de editar los detalles de estas tareas si es necesario o eliminarlas cuando ya no sean relevantes. Además, el líder puede consultar la información detallada de cualquier tarea para hacer seguimiento, y revisar solicitudes o validaciones presentadas por los miembros del equipo, lo que le permite aprobar, rechazar o dar retroalimentación sobre el trabajo realizado. Estos flujos cubren el ciclo completo de gestión, desde la organización del equipo hasta la supervisión y validación de las actividades asignadas.
 
+[![image.png](https://i.postimg.cc/hPzQhm89/image.png)](https://postimg.cc/56J2R6R0)
 
 # Capítulo VII: Product Implementation, Validation & Deployment
 
-## 7.1. Software COnfiguration Management
+## 7.1. Software Configuration Management
 
-
+En este ítem se definirán todas las reglas y procesos que hemos seguido en el proyecto al momento de crear y desplegar Synhub. El objetivo de estas reglas y procesos es garantizar la integridad y consistencia del software, desde el inicio hasta el despliegue y mantenimiento.
 
 ### 7.1.1. Software Development Environment Configuration
 
+**Project Management**
 
+Para la organización del proyecto requerimos de un sistema de de asignación de tareas, palataformas y puntos de reunión y un repositorio dónde trabajaremos en conjunto cada avance del proyecto. A continuación se menciona los nombres de los productos y el propósito de uso en el proyecto:
+
+- Centro de organización de trabajo: Github
+- Planificación de tareas: Trello
+- Reuniones con el equipo: Discord
+- Coordinación grupal: WhatsApp
+
+**Requirements Management**
+
+Utilizamos Trello para designar las tareas y actividades de cada integrante del grupo en caso de revisión o cambios.
+
+
+| Herramienta | Descripción                                                                                        | Enlace             |
+| ----------- | --------------------------------------------------------------------------------------------------- | ------------------ |
+| Trello      | Para designar las tareas y actividades de cada integrante del grupo en caso de revisión o cambios. | https://trello.com |
+
+**Product UX/UI Design**
+
+Para el diseño de los wireframes y mockups, además de la realización del prototipo de la mobile application, utilizamos Figma.
+
+
+| Herramienta | Descripción                                                                                    | Enlace                 |
+| ----------- | ----------------------------------------------------------------------------------------------- | ---------------------- |
+| Figma       | Para el diseño de los wireframe y mockups, además de la realización del prototipo de Web App | https://www.figma.com/ |
+
+**Software Development**
+
+Empleamos Android y Jetpack Compose para la creación de la mobile application, y Spring Boot para la creación de la API REST. Para el desarrollo de la landing page utilizamos NextJS, Shadcn y Tailwind CSS.
+
+
+| Herramienta     | Descripción                                                                   | Enlace                                 |
+| --------------- | ------------------------------------------------------------------------------ | -------------------------------------- |
+| Android         | Lenguaje de programación utilizado para la creación de la mobile application | https://developer.android.com/         |
+| Jetpack Compose | Framework utilizado para la creación de la mobile application                 | https://developer.android.com/compose  |
+| Spring Boot     | Framework utilizado para la creación de la API REST                           | https://spring.io/projects/spring-boot |
+| NextJS          | Framework utilizado para la creación de la landing page                       | https://nextjs.org/                    |
+| Shadcn          | Framework utilizado para la creación de la landing page                       | https://ui.shadcn.com/                 |
+| Tailwind CSS    | Framework utilizado para la creación de la landing page                       | https://tailwindcss.com/               |
+
+**Software Deployment**
+
+Se empleó los siguientes software para desplegar los servicios del proyecto. Base de datos: Neontech, API y Landing Page: Render, Mobile Application: Android Studio.
+
+
+| Herramienta    | Descripción                                                     | Enlace                               |
+| -------------- | ---------------------------------------------------------------- | ------------------------------------ |
+| Neontech       | Base de datos utilizada para el proyecto                         | https://neon.tech/                   |
+| Render         | API y Landing Page utilizada para el proyecto                    | https://render.com/                  |
+| Android Studio | Herramienta utilizada para la creación de la mobile application | https://developer.android.com/studio |
+
+**Software Documentation**
+
+Para la documentación del software utilizamos Markdown, y para el trabajo colaborativo Github.
+
+
+| Herramienta | Descripción                                                      | Enlace                          |
+| ----------- | ----------------------------------------------------------------- | ------------------------------- |
+| Markdown    | Lenguaje de marcado utilizado para la documentación del proyecto | https://www.markdownguide.org/  |
+| Github      | Para gestionar la documentación del proyecto                     | https://github.com/Collabrium-Software-Emergentes/Report |
 
 ### 7.1.2. Source Code Management
 
+Para la gestión del código fuente, utilizamos los siguientes repositorios:
 
+
+| Producto           | Repositorio       | Enlace                                     |
+| ------------------ | ----------------- | ------------------------------------------ |
+| Backend            | Synhub-Microservices-Old | https://github.com/Collabrium-Software-Emergentes/Synhub-Microservices-Old    |
+| Landing Page       | Landing-Page    | https://github.com/Collabrium-Software-Emergentes/Landing-Page    |
+
+**Flujo de trabajo GitFlow**
+
+Usaremos el flujo de trabajo planteado por Vincent Driessen en "A successful Git branching model" con los siguientes parámetros:
+
+- Una rama de producción.
+- Una rama de pruebas.
+- Una rama en la que se solucionen los bugs rapidamente y vuelvan a producción.
+- Ramas de features a implementar.
+- Cada cambio en producción debe establecerse como una nueva versión.
+- Para este proyecto en concreto consideramos que los cambios en la rama de producción y de pruebas deben tener autorización de un compa­ñero de equipo.
+
+Teniendo en cuenta la información anterior nos inclinamos por este tipo de organización en los branches:
+
+- **Main branch:** Esta rama esta destinada a la producción de la aplicación, cada cambio deberá tener autorización de un compañero de equipo para evitar cambios sin verificar.
+- **Hotfix branch:** En esta rama se incluirán todas las versiones que poseen errores identificados y que con cada arreglo de este se despliegue otra vez a Main Branch además de implementarla en lo que será Develop Branch.
+- **Develop branch:** Esta rama está destinada a las constantes implementaciones en caliente de los features,
+- **Features branch:** Cada feature poseerá su respectiva rama, una vez que se encuentre correctamente implementada será fusionada con Develop branch.
+
+Con cada deployment de la aplicación debe establecerse como una nueva versión. Nomenclatura de numeración de las versiones:
+
+- **Major changes:** Cuando el código o versión nueva del proyecto a implementar presenta cambios significativos con la versión anterior, estos cambios llegan a ser incompatibles con la versión anterior. Esto se evidenciará en el numero de la versión ej: versión 1.0.0 -> versión 2.0.0.
+- **Minor changes:** Cuando el código o versión nueva del proyecto a implementar presenta cambios con respecto a alguna característica, ya sea añadir o modificar, de la versión anterior; estos cambios no llegan a ser incompatibles con la versión anterior. Esto se evidenciará en el numero de la versión ej: versión 1.1.0 -> versión 1.2.0.
+- **Patch:** Cuando se solucionan bugs menores. Esto se evidenciará en el numero de la versión ej: versión 1.1.3 -> versión 1.1.4.
+
+Sufijos asignados a las versiones:
+
+- **alpha:** versión no estable con características básicas o no funcionales, ejemplo : versión 1.0.0 -alpha.
+- **beta:** versión no apta para la publicación, aún así ya presenta características funcionales en el estado base, ejemplo versión 1.0.0 –beta.
+- **rc:** versión apta para la publicación y uso de los usuarios, es candidata para publicar, ejemplo versión 1.0.0 -rc.
 
 ### 7.1.3. Source Code Style Guide & Conventions
 
+Usaremos buenas prácticas en cuanto al código de manera que sea coherente y sostenible.
 
+**Android (Kotlin/Java)**
+
+- **Nomenclatura:**
+  - Clases: PascalCase.
+  - Funciones y variables: camelCase.
+  - Constantes: UPPER_SNAKE_CASE.
+- **Estructura:**
+  - Separar lógica de UI (ViewModel, UseCase).
+
+**Jetpack Compose**
+
+- **Componenetes:**
+  - Nombres de funciones PascalCase (ej: ButtonSubmit()).
+  - Estado (remember, mutableStateOf) manejado en ViewModel.
+- **Recomposición:**
+  - Evitar cálculos pesados dentro de @Composable.
+  - Usar Modifier para estilos reutilizables.
+
+**Spring Boot**
+
+- **Estructura:**
+  - Paquetes por capa (controller, service, repository, model).
+  - Interfaces para servicios (UserService → UserServiceImpl).
+- **Convenciones:**
+  - Clases en PascalCase.
+  - Métodos en camelCase (getUserById()).
+
+**Next.js**
+
+- **Rutas:**
+  - Usar snake_case o kebab-case en nombres de archivos (/pages/user/profile.js).
+  - API routes en /pages/api/.
+- **Estilos:**
+  - CSS Modules (styles.module.css).
+  - Evitar estilos globales innecesarios.
+
+**Shadcn/ui**
+
+- **Componentes:**
+  - Extender estilos base, no sobrescribir CSS nativo.
+  - Usar clsx o tailwind-merge para combinar clases.
+- **Theming:**
+  - Variables CSS en :root para personalización.
+  - Evitar estilos inline.
+
+**Tailwind CSS**
+
+- **Clases:**
+  - Ordenar clases: Layout > Flex/Grid > Spacing > Typography > Colors > Effects.
+  - Evitar @apply en CSS (usar clases directamente en HTML).
+- **Responsive:**
+  - Usar prefixes (md:, lg:).
+
+**General:**
+
+- **Código:**
+  - Comentarios en inglés.
+  - Commits semánticos (feat:, fix:, docs:).
+- **Performance:**
+  - Lazy loading (imágenes, componentes).
 
 ### 7.1.4. Software Deployment Configuration
 
+En esta sección se detallan las consideraciones y pasos necesarios para el despliegue de los productos de Synhub.
 
+**Landing Page**
+
+**Consideraciones antes del despliegue:**
+
+- Es recomendable ejecutar npm run build localmente para asegurarse de que la aplicación web no contenga errores, ya sea por paquetes externos o problemas en la declaración de los componentes.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo de la landing page en github
+- Repositorio de github con estado de visualización público
+
+**Pasos realizados para desplegar nuestra Landing Page:**
+
+1. Ingresar al sitio web de GitHub.
+2. Iniciar sesión en la cuenta de GitHub.
+3. Ir al repositorio donde se encuentra el código de la Landing Page.
+4. Hacer clic en la pestaña **Settings** (Configuración).
+5. En el menú lateral izquierdo, seleccionar **Pages** (sección "Code and automation").
+6. En la sección **Branch**, elegir la rama que contiene los archivos a desplegar (ej: `main`).
+7. Seleccionar la carpeta raíz (`/ (root)`) o la carpeta `/docs` (si los archivos estáticos están allí).
+8. Hacer clic en **Save**.
+9. Esperar unos minutos hasta que GitHub genere la URL pública (generalmente `https://<tu-usuario>.github.io/<nombre-repositorio>/`).
+10. Acceder a la URL pública generada para verificar que la Landing Page funcione correctamente.
+
+**Mobile Application**
+
+**Consideraciones antes del despliegue:**
+
+- Se necesita tener el API desplegado en un servidor al que se pueda acceder de manera externa.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo del API en github
+- Dispositivo móvil Android en el que se pueda instalar la aplicación
+
+**Pasos realizados para desplegar nuestra Mobile Application:**
+
+1. Activar el modo desarrollador en el dispositivo móvil.
+2. Activar la depuración por USB en el dispositivo móvil.
+3. Conectar el dispositivo móvil a la computadora.
+4. Abrir Android Studio y seleccionar el proyecto de la aplicación.
+5. Seleccionar el dispositivo móvil en la lista de dispositivos disponibles.
+6. Hacer clic en el botón de "Run" (Ejecutar) en Android Studio.
+7. Esperar a que la aplicación se compile y se instale en el dispositivo móvil.
+8. Abrir la aplicación en el dispositivo móvil y verificar que funcione correctamente.
+
+**Backend**
+
+**Consideraciones antes del despliegue:**
+
+- Se necesita tener la base de datos desplegada en un servidor al que se pueda acceder de manera externa.
+
+**Requerimientos para realizar del despliegue:**
+
+- Repositorio de desarrollo del backend en github
+- Repositorio de github con estado de visualización público
+
+**Pasos realizados para desplegar nuestra API:**
+
+1. Extraer el pipeline de la base de datos de Neontech y cargarla al código del API.
+2. Crear un archivo Dockerfile para el despliegue del API.
+3. Crear un proyecto en Render de tipo Web Service.
+4. Importar el repositorio del API al proyecto de Render.
+5. Desplegar el API en Render.
 
 ## 7.2. Solution Implementation
 
-
-
 ### 7.2.1 Sprint 1
-
-
 
 #### 7.2.1.1. Sprint Planning 1
 
-
+<table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="1">1</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Sprint Planning Background</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Date</strong></td>
+    <td colspan="1">2026-02-06</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Time</strong></td>
+    <td colspan="1">12:00 PM</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Location</strong></td>
+    <td colspan="1">Discord</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Prepared by</strong></td>
+    <td colspan="1">Miguel Gomez</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Attendees (to planning meeting)</strong></td>
+    <td colspan="1">Diego Acuña, Miguel Gomez, Max Paitan, Jhon Guerrero, Josue Paiva</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint n – 1 Review Summary</strong></td>
+    <td colspan="1">Se realizó la landing page implementada con next.js, el front del mobile en android y el backend en spring boot JAVA</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint n – 1 Retrospective Summary</strong></td>
+    <td colspan="1">Mejorar la comunicacion de artefacos relacionados a mas de un miembro.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint 1 Goal</strong></td>
+    <td colspan="1">Nuestro enfoque está en consolidar los elementos fundamentales de SynHub mediante la corrección de artefactos anteriores, el diseño de la aplicación, y la entrega de los primeros prototipos funcionales de la landing page, el backend y la aplicación móvil.  Creemos que esto proporcionará claridad, alineamiento técnico y usabilidad inicial para los primeros usuarios, permitiendo que tanto los coordinadores familiares como los miembros del hogar comiencen a interactuar con una primera versión significativa de la plataforma.  Esto se confirmará cuando la landing page esté en línea, la app móvil muestre los primeros flujos de interfaz, el backend proporcione endpoints básicos de la API, y las correcciones a los artefactos previos estén documentadas y validadas por el equipo.</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint 1 Velocity</strong></td>
+    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 100 story points</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sum of Story Points</strong></td>
+    <td colspan="1">La suma de story point atendidos es de 78+ story point.</td>
+  </tr>
+</table>
 
 #### 7.2.1.2. Sprint Backlog 1
 
-
+<table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="7"><strong>Sprint 1</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>User Story</strong></td>
+    <td colspan="6"><strong>Work-Item/task</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Id</strong></td>
+    <td colspan="1"><strong>Title</strong></td>
+    <td colspan="1"><strong>Id</strong></td>
+    <td colspan="1"><strong>Title</strong></td>
+    <td colspan="1"><strong>Description</strong></td>
+    <td colspan="1"><strong>Estimation(Hrs)</strong></td>
+    <td colspan="1"><strong>Assigned To</strong></td>
+    <td colspan="1"><strong>Status</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-001</td>
+    <td colspan="1">Obtener un grupo por ID</td>
+    <td colspan="1">T01</td>
+    <td colspan="1">Crear getGroupById</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group/{id}  .</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-002</td>
+    <td colspan="1">Obtener todos los grupos de un usuario</td>
+    <td colspan="1">T02</td>
+    <td colspan="1">Crear getAllUserGroups</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group/user/{userId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-003</td>
+    <td colspan="1">Registrar un nuevo grupo</td>
+    <td colspan="1">T03</td>
+    <td colspan="1">Crear registerGroup</td>
+    <td colspan="1">Crear endpoint de groups GET /api/v1/group</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-004</td>
+    <td colspan="1">Agregar un miembro a un grupo</td>
+    <td colspan="1">T04</td>
+    <td colspan="1">Crear addMemberToGroup</td>
+    <td colspan="1">Crear endpoint de groups POST /api/v1/group/{groupId}/member/{userId}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-005</td>
+    <td colspan="1">Actualizar un grupo</td>
+    <td colspan="1">T05</td>
+    <td colspan="1">Crear updateGroup</td>
+    <td colspan="1">Crear endpoint de groups PUT/api/v1/group/{id}</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-006</td>
+    <td colspan="1">Eliminar un grupo</td>
+    <td colspan="1">T06</td>
+    <td colspan="1">Crear deleteGroup</td>
+    <td colspan="1">Crear endpoint de groups DELETE/api/v1/group/{id}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+</table>
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
 
