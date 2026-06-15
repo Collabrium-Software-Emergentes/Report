@@ -79,9 +79,9 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [TB2:](#tb2)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
-  - [**1.1. Startup Profile**](#11-startup-profile)
+  - [1.1. Startup Profile](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-  - [**1.2. Solution Profile**](#12-solution-profile)
+  - [1.2. Solution Profile](#12-solution-profile)
     - [1.2.1 Nombre del producto](#121-nombre-del-producto)
     - [1.2.2 Antecedentes y problemática](#122-antecedentes-y-problemática)
     - [1.2.3. Lean UX Process](#123-lean-ux-process)
@@ -89,7 +89,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       - [1.2.3.2. Lean UX Assumptions](#1232-lean-ux-assumptions)
       - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
       - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
-  - [**1.3. Segmento objetivo**](#13-segmento-objetivo)
+  - [1.3. Segmento objetivo](#13-segmento-objetivo)
 - [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -120,7 +120,6 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 - [4. Capítulo IV: Strategic-Level Software Design](#4-capítulo-iv-strategic-level-software-design)
   - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#411-design-purpose)
-  - [Enfoque Arquitectónico](#enfoque-arquitectónico)
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -149,155 +148,24 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
       - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams)
       - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram)
-    - [5.1.1. Domain Layer](#511-domain-layer-1)
-    - [5.1.2. Interface Layer](#512-interface-layer-1)
-    - [5.1.3. Application Layer](#513-application-layer-1)
-    - [5.1.4. Infrastructure Layer](#514-infrastructure-layer-1)
-    - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams-1)
-    - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams-1)
-      - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams-1)
-      - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram-1)
   - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
     - [5.2.1. Domain Layer](#521-domain-layer)
-      - [Aggregate Root: `Group`](#aggregate-root-group)
-        - [Atributos](#atributos)
-        - [Métodos](#métodos)
-        - [Invariantes de negocio](#invariantes-de-negocio)
-      - [Aggregate Root: `Invitation`](#aggregate-root-invitation)
-        - [Atributos](#atributos-1)
-        - [Métodos](#métodos-1)
-        - [Invariantes de negocio](#invariantes-de-negocio-1)
-      - [Aggregate Root: `Leader`](#aggregate-root-leader)
-        - [Atributos](#atributos-2)
-        - [Métodos](#métodos-2)
-        - [Invariantes de negocio](#invariantes-de-negocio-2)
-      - [Value Object: `GroupCode`](#value-object-groupcode)
-        - [Atributos](#atributos-3)
-        - [Métodos](#métodos-3)
-        - [Invariantes](#invariantes)
-      - [Value Object: `ImgUrl`](#value-object-imgurl)
-        - [Atributos](#atributos-4)
-        - [Métodos](#métodos-4)
-        - [Invariantes](#invariantes-1)
-      - [Value Object: `MemberId`](#value-object-memberid)
-        - [Atributos](#atributos-5)
-        - [Métodos](#métodos-5)
-        - [Invariantes](#invariantes-2)
     - [5.2.2. Interface Layer](#522-interface-layer)
-      - [Recursos de entrada (Request)](#recursos-de-entrada-request)
-        - [`CreateGroupResource`](#creategroupresource)
-        - [`UpdateGroupResource`](#updategroupresource)
-      - [Recursos de salida (Response)](#recursos-de-salida-response)
-        - [`GroupResource`](#groupresource)
-        - [`LeaderResource`](#leaderresource)
-        - [`LeaderDetailsResource`](#leaderdetailsresource)
-        - [`GroupMemberResource`](#groupmemberresource)
-        - [`InvitationMemberResource`](#invitationmemberresource)
-        - [`InvitationResource`](#invitationresource)
-      - [Resumen de recursos](#resumen-de-recursos)
-      - [Controllers](#controllers)
-        - [1. `GroupController`](#1-groupcontroller)
-        - [2. `InvitationController`](#2-invitationcontroller)
-        - [3. `LeaderController`](#3-leadercontroller)
-        - [4. `LeaderGroupController`](#4-leadergroupcontroller)
-        - [5. `LeaderInvitationController`](#5-leaderinvitationcontroller)
-      - [Resumen de Controllers](#resumen-de-controllers)
     - [5.2.3. Application Layer](#523-application-layer)
-      - [Command Services](#command-services)
-        - [1. `GroupCommandServiceImpl`](#1-groupcommandserviceimpl)
-        - [2. `InvitationCommandServiceImpl`](#2-invitationcommandserviceimpl)
-        - [3. `LeaderCommandServiceImpl`](#3-leadercommandserviceimpl)
-      - [Query Services](#query-services)
-        - [1. `GroupQueryServiceImpl`](#1-groupqueryserviceimpl)
-        - [2. `InvitationQueryServiceImpl`](#2-invitationqueryserviceimpl)
-        - [3. `LeaderQueryServiceImpl`](#3-leaderqueryserviceimpl)
-      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura)
-        - [1. `IamServiceClient`](#1-iamserviceclient)
-        - [2. `TasksServiceClient`](#2-tasksserviceclient)
     - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
-      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories)
-        - [1. `GroupRepository`](#1-grouprepository)
-        - [2. `InvitationRepository`](#2-invitationrepository)
-        - [3. `LeaderRepository`](#3-leaderrepository)
-      - [Configuración (Configuration)](#configuración-configuration)
-        - [1. `RabbitMQConfig`](#1-rabbitmqconfig)
-        - [2. `WebClientConfig`](#2-webclientconfig)
-      - [Mensajería (Messaging)](#mensajería-messaging)
-        - [Publishers](#publishers)
-          - [1. `IamEventPublisher`](#1-iameventpublisher)
-          - [2. `TasksEventPublisher`](#2-taskseventpublisher)
-        - [Listeners (Consumidores)](#listeners-consumidores)
-          - [1. `LeaderCreatedEventListener`](#1-leadercreatedeventlistener)
-        - [2. `MemberLeftEventListener`](#2-memberlefteventlistener)
-      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura)
     - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
     - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
       - [5.2.6.1. Bounded Context Domain Layer Class Diagrams](#5261-bounded-context-domain-layer-class-diagrams)
       - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
-      - [Aggregate Root: `Task`](#aggregate-root-task)
-        - [Métodos](#métodos-6)
-        - [Invariantes de negocio](#invariantes-de-negocio-3)
-      - [Aggregate Root: `Member`](#aggregate-root-member)
-        - [Métodos](#métodos-7)
-        - [Invariantes de negocio](#invariantes-de-negocio-4)
-      - [Value Object: `GroupId`](#value-object-groupid)
-        - [Atributos](#atributos-6)
-        - [Métodos](#métodos-8)
-        - [Invariantes](#invariantes-3)
-      - [Value Object: `TaskStatus`](#value-object-taskstatus)
-        - [Valores](#valores)
-        - [Métodos](#métodos-9)
-        - [Invariantes](#invariantes-4)
     - [5.3.2. Interface Layer](#532-interface-layer)
-    - [Recursos de entrada (Request)](#recursos-de-entrada-request-1)
-        - [`CreateTaskResource`](#createtaskresource)
-        - [`UpdateTaskResource`](#updatetaskresource)
-        - [`CreateMemberResource`](#creatememberresource)
-      - [Recursos de salida (Response)](#recursos-de-salida-response-1)
-        - [`TaskResource`](#taskresource)
-        - [`TaskMemberResource`](#taskmemberresource)
-        - [`MemberResource`](#memberresource)
-        - [`MemberOnlyResource`](#memberonlyresource)
-        - [`ExtendedGroupResource`](#extendedgroupresource)
-      - [Resumen de recursos](#resumen-de-recursos-1)
-      - [Controllers](#controllers-1)
-        - [1. `MemberController`](#1-membercontroller)
-        - [2. `MemberTaskController`](#2-membertaskcontroller)
-        - [3. `TaskController`](#3-taskcontroller)
-      - [Resumen de Controllers](#resumen-de-controllers-1)
     - [5.3.3. Application Layer](#533-application-layer)
-      - [Command Services](#command-services-1)
-        - [1. `MemberCommandServiceImpl`](#1-membercommandserviceimpl)
-        - [2. `TaskCommandServiceImpl`](#2-taskcommandserviceimpl)
-      - [Query Services](#query-services-1)
-        - [1. `MemberQueryServiceImpl`](#1-memberqueryserviceimpl)
-        - [2. `TaskQueryServiceImpl`](#2-taskqueryserviceimpl)
-      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura-1)
-        - [1. `IamServiceClient`](#1-iamserviceclient-1)
-        - [2. `GroupsServiceClient`](#2-groupsserviceclient)
     - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
-      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-1)
-        - [1. `MemberRepository`](#1-memberrepository)
-        - [2. `TaskRepository`](#2-taskrepository)
-      - [Configuración (Configuration)](#configuración-configuration-1)
-        - [1. `RabbitMQConfig`](#1-rabbitmqconfig-1)
-        - [2. `WebClientConfig`](#2-webclientconfig-1)
-      - [Mensajería (Messaging)](#mensajería-messaging-1)
-    - [Publishers](#publishers-1)
-        - [1. `IamEventPublisher`](#1-iameventpublisher-1)
-        - [2. `GroupEventsPublisher`](#2-groupeventspublisher)
-    - [Listeners (Consumidores)](#listeners-consumidores-1)
-        - [1. `MemberCreatedEventListener`](#1-membercreatedeventlistener)
-        - [2. `InvitationAcceptedEventListener`](#2-invitationacceptedeventlistener)
-        - [3. `MemberRemovedEventListener`](#3-memberremovedeventlistener)
-        - [4. `GroupDeletedEventListener`](#4-groupdeletedeventlistener)
-      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-1)
     - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
     - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
-    - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
-    - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
+      - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
+      - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
   - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
     - [5.4.1. Domain Layer](#541-domain-layer)
     - [5.4.2. Interface Layer](#542-interface-layer)
@@ -305,138 +173,22 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.4.4. Infrastructure Layer](#544-infrastructure-layer)
     - [5.4.5. Bounded Context Software Architecture Component Level Diagrams](#545-bounded-context-software-architecture-component-level-diagrams)
     - [5.4.6. Bounded Context Software Architecture Code Level Diagrams](#546-bounded-context-software-architecture-code-level-diagrams)
-    - [5.4.7. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
-    - [5.4.8. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
-    - [](#)
-    - [**5.5. Bounded Context: Analítica y Reportes**](#55-bounded-context-analítica-y-reportes)
-    - [**5.5.1. Domain Layer**](#551-domain-layer)
-    - [En el Domain Layer del contexto de **Analítica y Reportes**, los agregados principales son ActivityLog, Report y Metric. Estos representan los componentes clave del sistema de análisis de comportamiento y productividad dentro de grupos colaborativos en la plataforma SynHub.](#en-el-domain-layer-del-contexto-deanalítica-y-reportes-los-agregados-principales-sonactivitylogreportymetric-estos-representan-los-componentes-clave-del-sistema-de-análisis-de-comportamiento-y-productividad-dentro-de-grupos-colaborativos-en-la-plataforma-synhub)
-    - [Los registros de actividad (ActivityLog) permiten capturar eventos relevantes generados por los usuarios durante el uso del sistema (como completar tareas, integrarse a un grupo o modificar horarios). Con base en estos registros, los reportes (Report) se generan para ofrecer métricas de uso, rendimiento y participación. Las métricas (Metric) encapsulan información cuantitativa puntual que puede ser evaluada y comparada a lo largo del tiempo.](#los-registros-de-actividad-activitylog-permiten-capturar-eventos-relevantes-generados-por-los-usuarios-durante-el-uso-del-sistema-como-completar-tareas-integrarse-a-un-grupo-o-modificar-horarios-con-base-en-estos-registros-los-reportes-report-se-generan-para-ofrecer-métricas-de-uso-rendimiento-y-participación-las-métricas-metric-encapsulan-información-cuantitativa-puntual-que-puede-ser-evaluada-y-comparada-a-lo-largo-del-tiempo)
-    - [**Justificación:**](#justificación)
-    - [Este enfoque permite encapsular de manera clara los datos recolectados y procesados en estructuras especializadas, garantizando una separación de responsabilidades entre la recolección (logs), el análisis (reportes) y la medición (métricas). Así se facilita el seguimiento de indicadores clave y se apoya la toma de decisiones basada en datos.](#este-enfoque-permite-encapsular-de-manera-clara-los-datos-recolectados-y-procesados-en-estructuras-especializadas-garantizando-una-separación-de-responsabilidades-entre-la-recolección-logs-el-análisis-reportes-y-la-medición-métricas-así-se-facilita-el-seguimiento-de-indicadores-clave-y-se-apoya-la-toma-de-decisiones-basada-en-datos)
-    - [](#-1)
-    - [**Aggregate: ActivityLog**](#aggregateactivitylog)
-    - [**Descripción:** Representa un registro de actividad generado por un usuario en el sistema.](#descripciónrepresenta-un-registro-de-actividad-generado-por-un-usuario-en-el-sistema)
-    - [](#-2)
-    - [](#-3)
-    - [**Aggregate: Report**](#aggregatereport)
-    - [**Descripción:** Representa un informe generado a partir de múltiples registros de actividad.](#descripciónrepresenta-un-informe-generado-a-partir-de-múltiples-registros-de-actividad)
-    - [](#-4)
-    - [](#-5)
-    - [**Value Object: Metric**](#value-objectmetric)
-    - [**Descripción:** Representa una métrica cuantitativa específica del comportamiento o rendimiento del usuario/grupo.](#descripciónrepresenta-una-métrica-cuantitativa-específica-del-comportamiento-o-rendimiento-del-usuariogrupo)
-    - [](#-6)
-    - [**5.5.2. Interface Layer**](#552-interface-layer)
-    - [El Interface Layer para el contexto de **Analítica y Reportes** está conformado por el ReportController, que expone las operaciones necesarias para que los usuarios puedan visualizar, generar y exportar reportes a partir de los registros de actividad del sistema. Este controlador representa el punto de entrada para las funcionalidades clave relacionadas a métricas de uso y productividad, tanto a nivel individual como grupal.](#el-interface-layer-para-el-contexto-deanalítica-y-reportesestá-conformado-por-elreportcontroller-que-expone-las-operaciones-necesarias-para-que-los-usuarios-puedan-visualizar-generar-y-exportar-reportes-a-partir-de-los-registros-de-actividad-del-sistema-este-controlador-representa-el-punto-de-entrada-para-las-funcionalidades-clave-relacionadas-a-métricas-de-uso-y-productividad-tanto-a-nivel-individual-como-grupal)
-    - [**Justificación:**](#justificación-1)
-    - [El Interface Layer es fundamental para desacoplar la lógica de presentación de la lógica de negocio. Al utilizar un controlador especializado, se mantiene una separación clara entre las solicitudes de la interfaz de usuario (UI) y las operaciones internas de generación de reportes, cálculos de métricas y exportación de datos. Esto permite una mejor escalabilidad del sistema y facilita el mantenimiento futuro de la plataforma.](#el-interface-layer-es-fundamental-para-desacoplar-la-lógica-de-presentación-de-la-lógica-de-negocio-al-utilizar-un-controlador-especializado-se-mantiene-una-separación-clara-entre-las-solicitudes-de-la-interfaz-de-usuario-ui-y-las-operaciones-internas-de-generación-de-reportes-cálculos-de-métricas-y-exportación-de-datos-esto-permite-una-mejor-escalabilidad-del-sistema-y-facilita-el-mantenimiento-futuro-de-la-plataforma)
-    - [](#-7)
-    - [**Controller: ReportController**](#controllerreportcontroller)
-    - [**Descripción:** Controlador para la gestión de reportes y métricas analíticas dentro de la plataforma SynHub.](#descripcióncontrolador-para-la-gestión-de-reportes-y-métricas-analíticas-dentro-de-la-plataforma-synhub)
-    - [**Atributos**](#atributos-7)
-    - [**Métodos**](#métodos-10)
-    - [**5.5.3. Application Layer**](#553-application-layer)
-    - [En el Application Layer del contexto de **Analítica y Reportes**, se definen los servicios encargados de orquestar la lógica de aplicación relacionada con la generación, recuperación y exportación de reportes, así como con el manejo de eventos relevantes del sistema.](#en-el-application-layer-del-contexto-deanalítica-y-reportes-se-definen-los-servicios-encargados-de-orquestar-la-lógica-de-aplicación-relacionada-con-la-generación-recuperación-y-exportación-de-reportes-así-como-con-el-manejo-de-eventos-relevantes-del-sistema)
-    - [El ReportQueryService maneja la lógica de recuperación de reportes y métricas existentes, mientras que el ReportCommandServicegestiona la generación de nuevos reportes a partir de registros de actividad. A su vez, se definen Command Handlers y Event Handlerspara ejecutar operaciones específicas basadas en acciones del usuario o eventos del sistema.](#elreportqueryservicemaneja-la-lógica-de-recuperación-de-reportes-y-métricas-existentes-mientras-que-elreportcommandservicegestiona-la-generación-de-nuevos-reportes-a-partir-de-registros-de-actividad-a-su-vez-se-definencommand-handlersyevent-handlerspara-ejecutar-operaciones-específicas-basadas-en-acciones-del-usuario-o-eventos-del-sistema)
-    - [**Justificación:**](#justificación-2)
-    - [Separar los flujos de consultas (queries) y comandos (commands) en servicios especializados permite mantener el sistema modular, coherente y escalable. De esta forma, se asegura que las reglas de negocio para cada operación estén centralizadas y que cualquier modificación futura no afecte otros componentes. Además, esta estructura facilita la incorporación de nuevas funcionalidades analíticas o lógicas de negocio más complejas.](#separar-los-flujos-de-consultas-queries-y-comandos-commands-en-servicios-especializados-permite-mantener-el-sistema-modular-coherente-y-escalable-de-esta-forma-se-asegura-que-las-reglas-de-negocio-para-cada-operación-estén-centralizadas-y-que-cualquier-modificación-futura-no-afecte-otros-componentes-además-esta-estructura-facilita-la-incorporación-de-nuevas-funcionalidades-analíticas-o-lógicas-de-negocio-más-complejas)
-    - [](#-8)
-    - [**Service: ReportQueryService**](#servicereportqueryservice)
-    - [**Descripción:** Servicio para consultar reportes y métricas existentes.](#descripciónservicio-para-consultar-reportes-y-métricas-existentes)
-    - [**Atributos**](#atributos-8)
-    - [**Métodos**](#métodos-11)
-    - [](#-9)
-    - [**Service: ReportCommandService**](#servicereportcommandservice)
-    - [**Descripción:** Servicio encargado de generar, construir y exportar reportes desde registros de actividad.](#descripciónservicio-encargado-de-generar-construir-y-exportar-reportes-desde-registros-de-actividad)
-    - [**Atributos**](#atributos-9)
-    - [**Métodos**](#métodos-12)
-    - [](#-10)
-    - [**Command Handlers**](#command-handlers)
-    - [**GenerateReportCommandHandler:** Invocado cuando el usuario solicita la creación de un nuevo reporte. Ejecuta la lógica de ReportCommandService.generateReport().](#generatereportcommandhandlerinvocado-cuando-el-usuario-solicita-la-creación-de-un-nuevo-reporte-ejecuta-la-lógica-dereportcommandservicegeneratereport)
-    - [**Event Handlers**](#event-handlers)
-    - [**TaskCompletedEventHandler:** Registra un nuevo ActivityLog cuando se completa una tarea.](#taskcompletedeventhandlerregistra-un-nuevoactivitylogcuando-se-completa-una-tarea)
-    - [**GroupJoinedEventHandler:** Registra actividad cuando un usuario se une a un grupo.](#groupjoinedeventhandlerregistra-actividad-cuando-un-usuario-se-une-a-un-grupo)
-    - [**5.5.4. Infrastructure Layer**](#554-infrastructure-layer)
-    - [En el **Infrastructure Layer** del contexto de **Analítica y Reportes**, se encuentran las clases responsables de interactuar con la base de datos y servicios externos necesarios para la persistencia y recuperación de información clave, como los registros de actividad y los reportes generados. Este layer implementa las interfaces definidas en el *Domain Layer* para los repositorios de ActivityLog y Report.](#en-elinfrastructure-layerdel-contexto-deanalítica-y-reportes-se-encuentran-las-clases-responsables-de-interactuar-con-la-base-de-datos-y-servicios-externos-necesarios-para-la-persistencia-y-recuperación-de-información-clave-como-los-registros-de-actividad-y-los-reportes-generados-este-layer-implementa-las-interfaces-definidas-en-eldomain-layerpara-los-repositorios-deactivitylogyreport)
-    - [**Justificación:**](#justificación-3)
-    - [El uso de repositorios implementados en esta capa permite desacoplar la lógica de negocio de los detalles técnicos de acceso a datos. De este modo, cualquier cambio en la tecnología de almacenamiento o proveedor de servicios externos (por ejemplo, base de datos SQL vs NoSQL, o cambio de servicio de exportación) no afectará la lógica central del sistema. Esto asegura una arquitectura flexible, mantenible y alineada con principios de separación de responsabilidades.](#el-uso-de-repositorios-implementados-en-esta-capa-permite-desacoplar-la-lógica-de-negocio-de-los-detalles-técnicos-de-acceso-a-datos-de-este-modo-cualquier-cambio-en-la-tecnología-de-almacenamiento-o-proveedor-de-servicios-externos-por-ejemplo-base-de-datos-sql-vs-nosql-o-cambio-de-servicio-de-exportación-no-afectará-la-lógica-central-del-sistema-esto-asegura-una-arquitectura-flexible-mantenible-y-alineada-con-principios-de-separación-de-responsabilidades)
-    - [](#-11)
-    - [**Repository: ActivityLogRepositoryImpl**](#repositoryactivitylogrepositoryimpl)
-    - [**Descripción:** Repositorio que implementa la persistencia de registros de actividad de los usuarios.](#descripciónrepositorio-que-implementa-la-persistencia-de-registros-de-actividad-de-los-usuarios)
-    - [](#-12)
-    - [**Repository: ReportRepositoryImpl**](#repositoryreportrepositoryimpl)
-    - [**Descripción:** Repositorio que permite almacenar y recuperar reportes generados por los usuarios.](#descripciónrepositorio-que-permite-almacenar-y-recuperar-reportes-generados-por-los-usuarios)
-    - [**5.5.5. Bounded Context Software Architecture Component Level Diagrams**](#555-bounded-context-software-architecture-component-level-diagrams)
-    - [Este diagrama de componentes representa un sistema monolítico que gestiona datos analíticos y reportes dentro de la plataforma SynHub. Una **Single-Page Application (SPA)**, implementada con Angular, interactúa con una **Web API Application** desarrollada en Spring Boot mediante llamadas HTTP (REST).](#este-diagrama-de-componentes-representa-un-sistema-monolítico-que-gestiona-datos-analíticos-y-reportes-dentro-de-la-plataforma-synhub-unasingle-page-application-spa-implementada-con-angular-interactúa-con-unaweb-api-applicationdesarrollada-en-spring-boot-mediante-llamadas-http-rest)
-    - [La SPA realiza peticiones al ReportController para generar, visualizar o exportar reportes. Este controlador delega la lógica correspondiente en dos componentes principales: el ReportQueryService para operaciones de lectura y recuperación de datos analíticos, y el ReportCommandService para la generación y exportación de reportes.](#la-spa-realiza-peticiones-alreportcontrollerpara-generar-visualizar-o-exportar-reportes-este-controlador-delega-la-lógica-correspondiente-en-dos-componentes-principales-elreportqueryservicepara-operaciones-de-lectura-y-recuperación-de-datos-analíticos-y-elreportcommandservicepara-la-generación-y-exportación-de-reportes)
-    - [Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).](#ambos-servicios-se-comunican-con-sus-respectivos-repositorios-activitylogrepositoryyreportrepository-que-abstraen-el-acceso-a-la-base-de-datos-los-repositorios-utilizan-jpa-para-realizar-operaciones-de-lectura-y-escritura-en-una-base-de-datos-relacional-mysql)
-    - [](#-13)
-    - [**5.5.6. Bounded Context Software Architecture Code Level Diagrams**](#556-bounded-context-software-architecture-code-level-diagrams)
-    - [**5.5.6.1. Bounded Context Domain Layer Class Diagrams**](#5561-bounded-context-domain-layer-class-diagrams)
-    - [El siguiente diagrama de clases representa el bounded context **Analítica y Reportes** y muestra tres agregados principales: ActivityLog, Report y Metric. Además, se incluye el servicio de dominio ReportFactory y las interfaces de repositorio ActivityLogRepository y ReportRepository.](#el-siguiente-diagrama-de-clases-representa-el-bounded-contextanalítica-y-reportesy-muestra-tres-agregados-principalesactivitylogreportymetric-además-se-incluye-el-servicio-de-dominioreportfactoryy-las-interfaces-de-repositorioactivitylogrepositoryyreportrepository)
-    - [El agregado ActivityLog tiene atributos como id: Long, userId: Long, actionType: String, timestamp: LocalDateTime y metadata: String, y representa una acción significativa realizada por un usuario dentro del sistema. Estos logs son la fuente principal para la generación de reportes.](#el-agregadoactivitylogtiene-atributos-comoid-longuserid-longactiontype-stringtimestamp-localdatetimeymetadata-string-y-representa-una-acción-significativa-realizada-por-un-usuario-dentro-del-sistema-estos-logs-son-la-fuente-principal-para-la-generación-de-reportes)
-    - [El agregado Report está compuesto por una lista de métricas (List) y atributos como id: Long, name: String, generatedAt: LocalDateTime, y encapsula los datos procesados derivados de los logs. Posee métodos para generar reportes, así como para exportarlos en distintos formatos.](#el-agregadoreportestá-compuesto-por-una-lista-de-métricas-list-y-atributos-comoid-longname-stringgeneratedat-localdatetime-y-encapsula-los-datos-procesados-derivados-de-los-logs-posee-métodos-para-generar-reportes-así-como-para-exportarlos-en-distintos-formatos)
-    - [La clase Metric es un objeto de valor que contiene los atributos name: String, value: Double y context: String. Esta clase representa datos cuantificables incluidos en los reportes, como tareas completadas o participación en reuniones.](#la-clasemetrices-un-objeto-de-valor-que-contiene-los-atributosname-stringvalue-doubleycontext-string-esta-clase-representa-datos-cuantificables-incluidos-en-los-reportes-como-tareas-completadas-o-participación-en-reuniones)
-    - [El servicio de dominio ReportFactory permite construir instancias del agregado Report a partir de un conjunto de ActivityLog, encapsulando la lógica de transformación. Además, se definen las interfaces ActivityLogRepository y ReportRepository, las cuales abstraen el acceso a los datos persistidos en la base de datos.](#el-servicio-de-dominioreportfactorypermite-construir-instancias-del-agregadoreporta-partir-de-un-conjunto-deactivitylog-encapsulando-la-lógica-de-transformación-además-se-definen-las-interfacesactivitylogrepositoryyreportrepository-las-cuales-abstraen-el-acceso-a-los-datos-persistidos-en-la-base-de-datos)
-    - [Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.](#las-relaciones-representadas-en-el-diagrama-incluyen-composición-entrereportymetricun-reporte-contiene-muchas-métricas-y-asociaciones-entre-los-servicios-y-sus-respectivas-entidades-o-interfaces)
-    - [](#-14)
-    - [5.5.8. Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
+      - [5.4.6.1. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
+      - [5.4.6.2. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
+  - [5.5. Bounded Context: Analítica y Reportes](#55-bounded-context-analítica-y-reportes)
+    - [5.5.1. Domain Layer](#551-domain-layer)
+    - [5.5.2. Interface Layer](#552-interface-layer)
+    - [5.5.3. Application Layer](#553-application-layer)
+    - [5.5.4. Infrastructure Layer](#554-infrastructure-layer)
+    - [5.5.5. Bounded Context Software Architecture Component Level Diagrams](#555-bounded-context-software-architecture-component-level-diagrams)
+    - [5.5.6. Bounded Context Software Architecture Code Level Diagrams](#556-bounded-context-software-architecture-code-level-diagrams)
+      - [5.5.6.1. Bounded Context Domain Layer Class Diagrams](#5561-bounded-context-domain-layer-class-diagrams)
+      - [5.5.6.2 Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
   - [5.6. Bounded Context: Notifications](#56-bounded-context-notifications)
     - [5.6.1. Domain Layer](#561-domain-layer)
-      - [Aggregate Root: `Notification`](#aggregate-root-notification)
-        - [Atributos](#atributos-10)
-        - [Métodos](#métodos-13)
-        - [Invariantes de negocio](#invariantes-de-negocio-5)
-      - [Entity: `EmailDeliveryLog`](#entity-emaildeliverylog)
-        - [Atributos](#atributos-11)
-        - [Métodos](#métodos-14)
-        - [Invariantes de negocio](#invariantes-de-negocio-6)
-      - [Value Object: `NotificationStatus`](#value-object-notificationstatus)
-        - [Atributos](#atributos-12)
-        - [Métodos](#métodos-15)
-        - [Invariantes de negocio](#invariantes-de-negocio-7)
-      - [Value Object: `EventType`](#value-object-eventtype)
-        - [Atributos](#atributos-13)
-        - [Métodos](#métodos-16)
-        - [Invariantes de negocio](#invariantes-de-negocio-8)
     - [5.6.2. Interface Layer](#562-interface-layer)
-      - [Recursos de entrada (Request)](#recursos-de-entrada-request-2)
-        - [`CreateNotificationResource`](#createnotificationresource)
-      - [Recursos de salida (Response)](#recursos-de-salida-response-2)
-        - [`NotificationResource`](#notificationresource)
-        - [`NotificationSummaryResource`](#notificationsummaryresource)
-        - [`EmailDeliveryLogResource`](#emaildeliverylogresource)
-        - [`NotificationStatusResource`](#notificationstatusresource)
-      - [Resumen de recursos](#resumen-de-recursos-2)
-      - [Controllers](#controllers-2)
-        - [1. `NotificationController`](#1-notificationcontroller)
-        - [2. `NotificationRetryController`](#2-notificationretrycontroller)
-      - [Resumen de Controllers](#resumen-de-controllers-2)
     - [5.6.3. Application Layer](#563-application-layer)
-      - [Command Services](#command-services-2)
-        - [1. `NotificationCommandServiceImpl`](#1-notificationcommandserviceimpl)
-        - [2. `NotificationDeliveryService` (Infrastructure Service expuesto vía Application Layer)](#2-notificationdeliveryservice-infrastructure-service-expuesto-vía-application-layer)
-      - [Query Services](#query-services-2)
-        - [1. `NotificationQueryServiceImpl`](#1-notificationqueryserviceimpl)
-      - [Resumen de servicios de aplicación](#resumen-de-servicios-de-aplicación)
     - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
-      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-2)
-        - [1. `NotificationRepository`](#1-notificationrepository)
-        - [2. `EmailDeliveryLogRepository`](#2-emaildeliverylogrepository)
-      - [Configuración (Configuration)](#configuración-configuration-2)
-        - [1. `SendGridConfig`](#1-sendgridconfig)
-        - [2. `WebClientConfig`](#2-webclientconfig-2)
-        - [3. `SchedulerConfig`](#3-schedulerconfig)
-      - [Clientes HTTP (HTTP Clients)](#clientes-http-http-clients)
-        - [1. `IamServiceClient`](#1-iamserviceclient-2)
-      - [Mensajería (Messaging)](#mensajería-messaging-2)
-        - [Listeners (Consumidores)](#listeners-consumidores-2)
-          - [1. `MemberJoinedEventListener`](#1-memberjoinedeventlistener)
-          - [2. `MemberLeftEventListener`](#2-memberlefteventlistener-1)
-          - [3. `InvitationSentEventListener`](#3-invitationsenteventlistener)
-          - [4. `TaskAssignedEventListener`](#4-taskassignedeventlistener)
-          - [5. `GroupCreatedEventListener`](#5-groupcreatedeventlistener)
-      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-2)
     - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
       - [5.6.6.1. Bounded Context Domain Layer Class Diagrams](#5661-bounded-context-domain-layer-class-diagrams)
@@ -456,45 +208,8 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [6.3.1. Landing Page Wireframe](#631-landing-page-wireframe)
     - [6.3.2. Landing Page Mock-up](#632-landing-page-mock-up)
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
-  - [**6.4.1. Applications Wireframes**](#641-applications-wireframes)
-  - [Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.](#los-wireframes-de-synhub-representan-la-estructura-y-disposición-de-las-pantallas-clave-mostrando-la-ubicación-de-los-elementos-de-la-interfaz-de-usuario-y-la-navegación-estos-esquemas-visuales-proporcionan-una-guía-clara-para-el-diseño-final-asegurando-que-la-experiencia-del-usuario-sea-intuitiva-y-eficiente)
-  - [](#-15)
-  - [](#-16)
-  - [](#-17)
-  - [](#-18)
-  - [](#-19)
-  - [](#-20)
-  - [](#-21)
-  - [](#-22)
-  - [](#-23)
-  - [**6.4.2. Applications Wireflow Diagrams**](#642-applications-wireflow-diagrams)
-  - [Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.](#los-wireflow-diagrams-de-synhub-representan-la-secuencia-de-interacciones-y-pantallas-que-los-usuarios-experimentarán-al-navegar-por-la-aplicación)
-  - [**Creación de grupo:** este wireflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo.](#creación-de-grupoeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-buscar-crear-un-nuevo-grupo)
-  - [](#-24)
-  - [**Invitación de integrante:** este wireflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo.](#invitación-de-integranteeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-invitar-a-un-nuevo-integrante-al-grupo)
-  - [](#-25)
-  - [](#-26)
-  - [**Asignación de tarea:** este wireflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo.](#asignación-de-tareaeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-asignar-una-nueva-tarea-a-un-integrante-del-grupo)
-  - [](#-27)
-  - [**Edición de tarea:** este wireflow corresponde a cuando un lider de equipo busca editar una tarea ya existente.](#edición-de-tareaeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-editar-una-tarea-ya-existente)
-  - [](#-28)
-  - [**Eliminación de tarea:** este wireflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente.](#eliminación-de-tareaeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-eliminar-una-tarea-ya-existente)
-  - [](#-29)
-  - [**Ver la información de una tarea:** este wireflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente.](#ver-la-información-de-una-tareaeste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-ver-la-información-de-una-tarea-ya-existente)
-  - [](#-30)
-  - [**Revisar una solicitud o validación:** este wireflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente.](#revisar-una-solicitud-o-validacióneste-wireflow-corresponde-a-cuando-un-lider-de-equipo-busca-revisar-una-solicitud-o-validación-ya-existente)
-  - [](#-31)
-  - [**Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo.](#unirse-a-un-grupoeste-wireflow-corresponde-a-cuando-un-miembro-busca-unirse-a-un-grupo)
-  - [](#-32)
-  - [**Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva.](#enviar-un-comentario-a-una-tareaeste-wireflow-corresponde-a-cuando-un-miembro-busca-sus-tareas-asignadas-y-envia-un-comentario-a-la-tarea-respectiva)
-  - [](#-33)
-  - [**Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes.](#visualizar-solicitud-o-validacion-pendienteeste-wireflow-corresponde-a-cuando-un-miembro-busca-sus-solicitudes-o-validaciones-pendientes)
-  - [](#-34)
-  - [**Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica.](#ver-metricas-de-desempeñoeste-wireflow-corresponde-a-cuando-un-miembro-busca-visualizar-su-desempeño-mediante-una-metrica)
-  - [](#-35)
-  - [Conclusiones](#conclusiones)
-    - [TB1:](#tb1-1)
-    - [TB2:](#tb2-1)
+    - [6.4.1. Applications Wireframes](#641-applications-wireframes)
+    - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
 
 ## Student Outcome
 
@@ -4512,25 +4227,21 @@ servicio remoto. Finalmente, resaltar que las columnas "created_at" y
 
 [![NBounded Context Request Domain Layer Class Diagram](https://i.ibb.co/p6Z0kb4W/database-diagram.png)](https://ibb.co/ZpmFdZbJ)
 
-### 
+## 5.5. Bounded Context: Analítica y Reportes
 
-### **5.5. Bounded Context: Analítica y Reportes**
+### 5.5.1. Domain Layer
 
-### **5.5.1. Domain Layer**
+En el Domain Layer del contexto de **Analítica y Reportes**, los agregados principales son ActivityLog, Report y Metric. Estos representan los componentes clave del sistema de análisis de comportamiento y productividad dentro de grupos colaborativos en la plataforma SynHub.
 
-### En el Domain Layer del contexto de **Analítica y Reportes**, los agregados principales son ActivityLog, Report y Metric. Estos representan los componentes clave del sistema de análisis de comportamiento y productividad dentro de grupos colaborativos en la plataforma SynHub.
+Los registros de actividad (ActivityLog) permiten capturar eventos relevantes generados por los usuarios durante el uso del sistema (como completar tareas, integrarse a un grupo o modificar horarios). Con base en estos registros, los reportes (Report) se generan para ofrecer métricas de uso, rendimiento y participación. Las métricas (Metric) encapsulan información cuantitativa puntual que puede ser evaluada y comparada a lo largo del tiempo.
 
-### Los registros de actividad (ActivityLog) permiten capturar eventos relevantes generados por los usuarios durante el uso del sistema (como completar tareas, integrarse a un grupo o modificar horarios). Con base en estos registros, los reportes (Report) se generan para ofrecer métricas de uso, rendimiento y participación. Las métricas (Metric) encapsulan información cuantitativa puntual que puede ser evaluada y comparada a lo largo del tiempo.
+#### **Justificación:**
 
-### **Justificación:**
+Este enfoque permite encapsular de manera clara los datos recolectados y procesados en estructuras especializadas, garantizando una separación de responsabilidades entre la recolección (logs), el análisis (reportes) y la medición (métricas). Así se facilita el seguimiento de indicadores clave y se apoya la toma de decisiones basada en datos.
 
-### Este enfoque permite encapsular de manera clara los datos recolectados y procesados en estructuras especializadas, garantizando una separación de responsabilidades entre la recolección (logs), el análisis (reportes) y la medición (métricas). Así se facilita el seguimiento de indicadores clave y se apoya la toma de decisiones basada en datos.
+#### **Aggregate: ActivityLog**
 
-### 
-
-### **Aggregate: ActivityLog**
-
-### **Descripción:** Representa un registro de actividad generado por un usuario en el sistema.
+**Descripción:** Representa un registro de actividad generado por un usuario en el sistema.
 
 <table>
 <colgroup>
@@ -4588,8 +4299,6 @@ adicional contextual (ej. ID de tarea, grupo, etc).</h3></td>
 </tbody>
 </table>
 
-### 
-
 <table>
 <colgroup>
 <col style="width: 22%" />
@@ -4623,11 +4332,9 @@ legible del log.</h3></td>
 </tbody>
 </table>
 
-### 
+#### **Aggregate: Report**
 
-### **Aggregate: Report**
-
-### **Descripción:** Representa un informe generado a partir de múltiples registros de actividad.
+**Descripción:** Representa un informe generado a partir de múltiples registros de actividad.
 
 <table>
 <colgroup>
@@ -4676,8 +4383,6 @@ métricas que componen el reporte.</h3></td>
 </tbody>
 </table>
 
-### 
-
 <table>
 <colgroup>
 <col style="width: 30%" />
@@ -4705,11 +4410,9 @@ partir de logs.</h3></td>
 </tbody>
 </table>
 
-### 
+#### **Value Object: Metric**
 
-### **Value Object: Metric**
-
-### **Descripción:** Representa una métrica cuantitativa específica del comportamiento o rendimiento del usuario/grupo.
+**Descripción:** Representa una métrica cuantitativa específica del comportamiento o rendimiento del usuario/grupo.
 
 <table>
 <colgroup>
@@ -4752,8 +4455,6 @@ asociado (ej. ID de grupo, período de tiempo).</h3></td>
 </tbody>
 </table>
 
-### 
-
 <table>
 <colgroup>
 <col style="width: 18%" />
@@ -4790,19 +4491,17 @@ en formato legible.</h3></td>
 
 ### **5.5.2. Interface Layer**
 
-### El Interface Layer para el contexto de **Analítica y Reportes** está conformado por el ReportController, que expone las operaciones necesarias para que los usuarios puedan visualizar, generar y exportar reportes a partir de los registros de actividad del sistema. Este controlador representa el punto de entrada para las funcionalidades clave relacionadas a métricas de uso y productividad, tanto a nivel individual como grupal.
+El Interface Layer para el contexto de **Analítica y Reportes** está conformado por el ReportController, que expone las operaciones necesarias para que los usuarios puedan visualizar, generar y exportar reportes a partir de los registros de actividad del sistema. Este controlador representa el punto de entrada para las funcionalidades clave relacionadas a métricas de uso y productividad, tanto a nivel individual como grupal.
 
-### **Justificación:**
+**Justificación:**
 
-### El Interface Layer es fundamental para desacoplar la lógica de presentación de la lógica de negocio. Al utilizar un controlador especializado, se mantiene una separación clara entre las solicitudes de la interfaz de usuario (UI) y las operaciones internas de generación de reportes, cálculos de métricas y exportación de datos. Esto permite una mejor escalabilidad del sistema y facilita el mantenimiento futuro de la plataforma.
+El Interface Layer es fundamental para desacoplar la lógica de presentación de la lógica de negocio. Al utilizar un controlador especializado, se mantiene una separación clara entre las solicitudes de la interfaz de usuario (UI) y las operaciones internas de generación de reportes, cálculos de métricas y exportación de datos. Esto permite una mejor escalabilidad del sistema y facilita el mantenimiento futuro de la plataforma.
 
-### 
+#### **Controller: ReportController**
 
-### **Controller: ReportController**
+**Descripción:** Controlador para la gestión de reportes y métricas analíticas dentro de la plataforma SynHub.
 
-### **Descripción:** Controlador para la gestión de reportes y métricas analíticas dentro de la plataforma SynHub.
-
-### **Atributos**
+#### **Atributos**
 
 <table>
 <colgroup>
@@ -4837,7 +4536,7 @@ para generar y exportar nuevos reportes.</h3></td>
 </tbody>
 </table>
 
-### **Métodos**
+#### **Métodos**
 
 <table>
 <colgroup>
@@ -4880,21 +4579,19 @@ reciente.</h3></td>
 
 ### **5.5.3. Application Layer**
 
-### En el Application Layer del contexto de **Analítica y Reportes**, se definen los servicios encargados de orquestar la lógica de aplicación relacionada con la generación, recuperación y exportación de reportes, así como con el manejo de eventos relevantes del sistema.
+En el Application Layer del contexto de **Analítica y Reportes**, se definen los servicios encargados de orquestar la lógica de aplicación relacionada con la generación, recuperación y exportación de reportes, así como con el manejo de eventos relevantes del sistema.
 
-### El ReportQueryService maneja la lógica de recuperación de reportes y métricas existentes, mientras que el ReportCommandServicegestiona la generación de nuevos reportes a partir de registros de actividad. A su vez, se definen Command Handlers y Event Handlerspara ejecutar operaciones específicas basadas en acciones del usuario o eventos del sistema.
+El ReportQueryService maneja la lógica de recuperación de reportes y métricas existentes, mientras que el ReportCommandServicegestiona la generación de nuevos reportes a partir de registros de actividad. A su vez, se definen Command Handlers y Event Handlerspara ejecutar operaciones específicas basadas en acciones del usuario o eventos del sistema.
 
-### **Justificación:**
+**Justificación:**
 
-### Separar los flujos de consultas (queries) y comandos (commands) en servicios especializados permite mantener el sistema modular, coherente y escalable. De esta forma, se asegura que las reglas de negocio para cada operación estén centralizadas y que cualquier modificación futura no afecte otros componentes. Además, esta estructura facilita la incorporación de nuevas funcionalidades analíticas o lógicas de negocio más complejas.
+Separar los flujos de consultas (queries) y comandos (commands) en servicios especializados permite mantener el sistema modular, coherente y escalable. De esta forma, se asegura que las reglas de negocio para cada operación estén centralizadas y que cualquier modificación futura no afecte otros componentes. Además, esta estructura facilita la incorporación de nuevas funcionalidades analíticas o lógicas de negocio más complejas.
 
-### 
+#### **Service: ReportQueryService**
 
-### **Service: ReportQueryService**
+**Descripción:** Servicio para consultar reportes y métricas existentes.
 
-### **Descripción:** Servicio para consultar reportes y métricas existentes.
-
-### **Atributos**
+#### **Atributos**
 
 <table>
 <colgroup>
@@ -4923,7 +4620,7 @@ que permite acceder a reportes almacenados.</h3></td>
 </tbody>
 </table>
 
-### **Métodos**
+#### **Métodos**
 
 <table>
 <colgroup>
@@ -4961,13 +4658,11 @@ reportes asociados a un usuario.</h3></td>
 </tbody>
 </table>
 
-### 
+#### **Service: ReportCommandService**
 
-### **Service: ReportCommandService**
+**Descripción:** Servicio encargado de generar, construir y exportar reportes desde registros de actividad.
 
-### **Descripción:** Servicio encargado de generar, construir y exportar reportes desde registros de actividad.
-
-### **Atributos**
+#### **Atributos**
 
 <table>
 <colgroup>
@@ -5002,7 +4697,7 @@ la creación de nuevos reportes.</h3></td>
 </tbody>
 </table>
 
-### **Métodos**
+#### **Métodos**
 
 <table>
 <colgroup>
@@ -5033,31 +4728,27 @@ un reporte basado en las actividades recientes del usuario.</h3></td>
 </tbody>
 </table>
 
-### 
+#### **Command Handlers**
 
-### **Command Handlers**
+**GenerateReportCommandHandler:** Invocado cuando el usuario solicita la creación de un nuevo reporte. Ejecuta la lógica de ReportCommandService.generateReport().
 
-### **GenerateReportCommandHandler:** Invocado cuando el usuario solicita la creación de un nuevo reporte. Ejecuta la lógica de ReportCommandService.generateReport().
+#### **Event Handlers**
 
-### **Event Handlers**
+**TaskCompletedEventHandler:** Registra un nuevo ActivityLog cuando se completa una tarea.
 
-### **TaskCompletedEventHandler:** Registra un nuevo ActivityLog cuando se completa una tarea.
-
-### **GroupJoinedEventHandler:** Registra actividad cuando un usuario se une a un grupo.
+**GroupJoinedEventHandler:** Registra actividad cuando un usuario se une a un grupo.
 
 ### **5.5.4. Infrastructure Layer**
 
-### En el **Infrastructure Layer** del contexto de **Analítica y Reportes**, se encuentran las clases responsables de interactuar con la base de datos y servicios externos necesarios para la persistencia y recuperación de información clave, como los registros de actividad y los reportes generados. Este layer implementa las interfaces definidas en el *Domain Layer* para los repositorios de ActivityLog y Report.
+En el **Infrastructure Layer** del contexto de **Analítica y Reportes**, se encuentran las clases responsables de interactuar con la base de datos y servicios externos necesarios para la persistencia y recuperación de información clave, como los registros de actividad y los reportes generados. Este layer implementa las interfaces definidas en el *Domain Layer* para los repositorios de ActivityLog y Report.
 
-### **Justificación:**
+**Justificación:**
 
-### El uso de repositorios implementados en esta capa permite desacoplar la lógica de negocio de los detalles técnicos de acceso a datos. De este modo, cualquier cambio en la tecnología de almacenamiento o proveedor de servicios externos (por ejemplo, base de datos SQL vs NoSQL, o cambio de servicio de exportación) no afectará la lógica central del sistema. Esto asegura una arquitectura flexible, mantenible y alineada con principios de separación de responsabilidades.
+El uso de repositorios implementados en esta capa permite desacoplar la lógica de negocio de los detalles técnicos de acceso a datos. De este modo, cualquier cambio en la tecnología de almacenamiento o proveedor de servicios externos (por ejemplo, base de datos SQL vs NoSQL, o cambio de servicio de exportación) no afectará la lógica central del sistema. Esto asegura una arquitectura flexible, mantenible y alineada con principios de separación de responsabilidades.
 
-### 
+#### **Repository: ActivityLogRepositoryImpl**
 
-### **Repository: ActivityLogRepositoryImpl**
-
-### **Descripción:** Repositorio que implementa la persistencia de registros de actividad de los usuarios.
+**Descripción:** Repositorio que implementa la persistencia de registros de actividad de los usuarios.
 
 <table>
 <colgroup>
@@ -5094,11 +4785,9 @@ registro de actividad.</h3></td>
 </tbody>
 </table>
 
-### 
+#### **Repository: ReportRepositoryImpl**
 
-### **Repository: ReportRepositoryImpl**
-
-### **Descripción:** Repositorio que permite almacenar y recuperar reportes generados por los usuarios.
+**Descripción:** Repositorio que permite almacenar y recuperar reportes generados por los usuarios.
 
 <table>
 <colgroup>
@@ -5144,29 +4833,29 @@ nuevo reporte en la base de datos.</h3></td>
 
 ### **5.5.5. Bounded Context Software Architecture Component Level Diagrams**
 
-### Este diagrama de componentes representa un sistema monolítico que gestiona datos analíticos y reportes dentro de la plataforma SynHub. Una **Single-Page Application (SPA)**, implementada con Angular, interactúa con una **Web API Application** desarrollada en Spring Boot mediante llamadas HTTP (REST).
+Este diagrama de componentes representa un sistema monolítico que gestiona datos analíticos y reportes dentro de la plataforma SynHub. Una **Single-Page Application (SPA)**, implementada con Angular, interactúa con una **Web API Application** desarrollada en Spring Boot mediante llamadas HTTP (REST).
 
-### La SPA realiza peticiones al ReportController para generar, visualizar o exportar reportes. Este controlador delega la lógica correspondiente en dos componentes principales: el ReportQueryService para operaciones de lectura y recuperación de datos analíticos, y el ReportCommandService para la generación y exportación de reportes.
+La SPA realiza peticiones al ReportController para generar, visualizar o exportar reportes. Este controlador delega la lógica correspondiente en dos componentes principales: el ReportQueryService para operaciones de lectura y recuperación de datos analíticos, y el ReportCommandService para la generación y exportación de reportes.
 
-### Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).
+Ambos servicios se comunican con sus respectivos repositorios (ActivityLogRepository y ReportRepository) que abstraen el acceso a la base de datos. Los repositorios utilizan JPA para realizar operaciones de lectura y escritura en una base de datos relacional (MySQL).
 
 [![structurizr4.png](https://i.postimg.cc/5tJzWBFW/structurizr4.png)](https://postimg.cc/xXs8KbR6)
 
 ### **5.5.6. Bounded Context Software Architecture Code Level Diagrams**
 
-### **5.5.6.1. Bounded Context Domain Layer Class Diagrams**
+#### **5.5.6.1. Bounded Context Domain Layer Class Diagrams**
 
-### El siguiente diagrama de clases representa el bounded context **Analítica y Reportes** y muestra tres agregados principales: ActivityLog, Report y Metric. Además, se incluye el servicio de dominio ReportFactory y las interfaces de repositorio ActivityLogRepository y ReportRepository.
+El siguiente diagrama de clases representa el bounded context **Analítica y Reportes** y muestra tres agregados principales: ActivityLog, Report y Metric. Además, se incluye el servicio de dominio ReportFactory y las interfaces de repositorio ActivityLogRepository y ReportRepository.
 
-### El agregado ActivityLog tiene atributos como id: Long, userId: Long, actionType: String, timestamp: LocalDateTime y metadata: String, y representa una acción significativa realizada por un usuario dentro del sistema. Estos logs son la fuente principal para la generación de reportes.
+El agregado ActivityLog tiene atributos como id: Long, userId: Long, actionType: String, timestamp: LocalDateTime y metadata: String, y representa una acción significativa realizada por un usuario dentro del sistema. Estos logs son la fuente principal para la generación de reportes.
 
-### El agregado Report está compuesto por una lista de métricas (List) y atributos como id: Long, name: String, generatedAt: LocalDateTime, y encapsula los datos procesados derivados de los logs. Posee métodos para generar reportes, así como para exportarlos en distintos formatos.
+El agregado Report está compuesto por una lista de métricas (List) y atributos como id: Long, name: String, generatedAt: LocalDateTime, y encapsula los datos procesados derivados de los logs. Posee métodos para generar reportes, así como para exportarlos en distintos formatos.
 
-### La clase Metric es un objeto de valor que contiene los atributos name: String, value: Double y context: String. Esta clase representa datos cuantificables incluidos en los reportes, como tareas completadas o participación en reuniones.
+La clase Metric es un objeto de valor que contiene los atributos name: String, value: Double y context: String. Esta clase representa datos cuantificables incluidos en los reportes, como tareas completadas o participación en reuniones.
 
-### El servicio de dominio ReportFactory permite construir instancias del agregado Report a partir de un conjunto de ActivityLog, encapsulando la lógica de transformación. Además, se definen las interfaces ActivityLogRepository y ReportRepository, las cuales abstraen el acceso a los datos persistidos en la base de datos.
+El servicio de dominio ReportFactory permite construir instancias del agregado Report a partir de un conjunto de ActivityLog, encapsulando la lógica de transformación. Además, se definen las interfaces ActivityLogRepository y ReportRepository, las cuales abstraen el acceso a los datos persistidos en la base de datos.
 
-### Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.
+Las relaciones representadas en el diagrama incluyen composición entre Report y Metric (un reporte contiene muchas métricas), y asociaciones entre los servicios y sus respectivas entidades o interfaces.
 
 [![UML1.png](https://i.postimg.cc/xC4q8MqK/UML1.png)](https://postimg.cc/mz7T6cYD)
 
@@ -5786,16 +5475,13 @@ Service) y crea una notificación de confirmación para el líder.
 
 Vista general del diagrama de componentes:
 
-[<img src="./media/image53.png" style="width:5.83333in;height:5.12859in"
-alt="Componentes_-Notificaciones-_General.png" />](https://postimg.cc/q66tWyyf)
+[![Componentes-Notificaciones-General.png](https://i.postimg.cc/4yBz7133/Componentes-Notificaciones-General.png)](https://postimg.cc/q66tWyyf)
 
 Vistas parciales del diagrama de componentes:
 
-[<img src="./media/image54.png" style="width:5.83333in;height:2.97135in"
-alt="Notificaciones-Component-1.png" />](https://postimg.cc/F1SH59wt)
+[![Notificaciones-Component-1.png](https://i.postimg.cc/SQT29RrK/Notificaciones-Component-1.png)](https://postimg.cc/F1SH59wt)
 
-[<img src="./media/image55.png" style="width:5.83333in;height:2.87109in"
-alt="Notificaciones-Components-2.png" />](https://postimg.cc/dLvvbG8T)
+[![Notificaciones-Components-2.png](https://i.postimg.cc/xTNCbR8g/Notificaciones-Components-2.png)](https://postimg.cc/dLvvbG8T)
 
 ### 5.6.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -5803,18 +5489,15 @@ alt="Notificaciones-Components-2.png" />](https://postimg.cc/dLvvbG8T)
 
 Diagrama de clases de Command Component:
 
-[<img src="./media/image56.png" style="width:5.83333in;height:4.87694in"
-alt="Notification-Command-Component-Class.png" />](https://postimg.cc/hQ4ndB4m)
+[![Notification-Command-Component-Class.png](https://i.postimg.cc/przL3Wgs/Notification-Command-Component-Class.png)](https://postimg.cc/hQ4ndB4m)
 
 Diagrama de clases de Event Manager Component:
 
-[<img src="./media/image57.png" style="width:5.83333in;height:1.97786in"
-alt="Notificaciones-Clases-2.png" />](https://postimg.cc/D4dD32DM)
+[![Notificaciones-Clases-2.png](https://i.postimg.cc/PJBkZJMT/Notificaciones-Clases-2.png)](https://postimg.cc/D4dD32DM)
 
 #### 5.6.6.2. Bounded Context Database Design Diagram
 
-[<img src="./media/image58.png" style="width:5.83333in;height:2.87007in"
-alt="Notification-Database.png" />](https://postimg.cc/mcr6Cg7C)
+[![Notification-Database.png](https://i.postimg.cc/HL0DGJxZ/Notification-Database.png)](https://postimg.cc/mcr6Cg7C)
 
 # Capítulo VI: Solution UX Design
 
@@ -6142,9 +5825,9 @@ alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
 ## 6.4. Applications UX/UI Design
 
-## **6.4.1. Applications Wireframes**
+### 6.4.1. Applications Wireframes
 
-## Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.
+ Los wireframes de Synhub representan la estructura y disposición de las pantallas clave, mostrando la ubicación de los elementos de la interfaz de usuario y la navegación. Estos esquemas visuales proporcionan una guía clara para el diseño final, asegurando que la experiencia del usuario sea intuitiva y eficiente.
 
 ## [![](./media/image44.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-1.png)
 
@@ -6164,55 +5847,55 @@ alt="Landing Page Wireframe" />](https://ibb.co/wZDTW1CF)
 
 ## [![](./media/image52.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireframe-9.png)
 
-## **6.4.2. Applications Wireflow Diagrams**
+## 6.4.2. Applications Wireflow Diagrams
 
-## Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.
+Los wireflow diagrams de Synhub representan la secuencia de interacciones y pantallas que los usuarios experimentarán al navegar por la aplicación.
 
-## **Creación de grupo:** este wireflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo.
+**Creación de grupo:** Este wireflow corresponde a cuando un lider de equipo buscar crear un nuevo grupo.
 
-## [![](./media/image53.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-1.png)
+[![](./media/image53.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-1.png)
 
-## **Invitación de integrante:** este wireflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo.
+**Invitación de integrante:** Este wireflow corresponde a cuando un lider de equipo busca invitar a un nuevo integrante al grupo.
 
-## [![](./media/image54.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-1.png)
+[![](./media/image54.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-1.png)
 
-## [![](./media/image55.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-2.png)
+[![](./media/image55.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-2-2.png)
 
-## **Asignación de tarea:** este wireflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo.
+**Asignación de tarea:** Este wireflow corresponde a cuando un lider de equipo busca asignar una nueva tarea a un integrante del grupo.
 
-## [![](./media/image56.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-3.png)
+[![](./media/image56.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-3.png)
 
-## **Edición de tarea:** este wireflow corresponde a cuando un lider de equipo busca editar una tarea ya existente.
+**Edición de tarea:** este wireflow corresponde a cuando un lider de equipo busca editar una tarea ya existente.
 
-## [![](./media/image57.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-4.png)
+[![](./media/image57.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-4.png)
 
-## **Eliminación de tarea:** este wireflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente.
+**Eliminación de tarea:** Este wireflow corresponde a cuando un lider de equipo busca eliminar una tarea ya existente.
 
-## [![](./media/image58.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-5.png)
+[![](./media/image58.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-5.png)
 
-## **Ver la información de una tarea:** este wireflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente.
+**Ver la información de una tarea:** Este wireflow corresponde a cuando un lider de equipo busca ver la información de una tarea ya existente.
 
-## [![](./media/image59.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-6.png)
+[![](./media/image59.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-6.png)
 
-## **Revisar una solicitud o validación:** este wireflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente.
+**Revisar una solicitud o validación:** Este wireflow corresponde a cuando un lider de equipo busca revisar una solicitud o validación ya existente.
 
-## [![](./media/image60.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-7.png)
+[![](./media/image60.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-7.png)
 
-## **Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo.
+**Unirse a un grupo:** Este wireflow corresponde a cuando un miembro busca unirse a un grupo.
 
-## [![](./media/image61.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-8.png)
+[![](./media/image61.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-8.png)
 
-## **Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva.
+**Enviar un comentario a una tarea:** Este wireflow corresponde a cuando un miembro busca sus tareas asignadas y envia un comentario a la tarea respectiva.
 
-## [![](./media/image62.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-9.png)
+[![](./media/image62.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-9.png)
 
-## **Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes.
+**Visualizar solicitud o validacion pendiente:** Este wireflow corresponde a cuando un miembro busca sus solicitudes o validaciones pendientes.
 
-## [![](./media/image63.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-10.png)
+[![](./media/image63.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-10.png)
 
-## **Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica.
+**Ver metricas de desempeño:** Este wireflow corresponde a cuando un miembro busca visualizar su desempeño mediante una metrica.
 
-## [![](./media/image64.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-11.png)
+[![](./media/image64.png)](https://github.com/NRG-4/synhub-report/blob/main/images/chapter-5/wireflow-11.png)
 
 ## Conclusiones
 
