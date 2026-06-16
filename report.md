@@ -6487,7 +6487,11 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 **Backend Requests:**
 
+[![Requests-1.png](https://i.postimg.cc/3wdjgF6r/Requests-1.png)](https://postimg.cc/TyvWxgfB)
 
+[![Requests-2.png](https://i.postimg.cc/tRh3tTrn/Requests-2.png)](https://postimg.cc/xq1N90V9)
+
+[![Requests-3.png](https://i.postimg.cc/bvDbGNDz/Requests-3.png)](https://postimg.cc/HJmjRm9K)
 
 **Backend Metrics:**
 
