@@ -6549,7 +6549,18 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 #### 7.2.1.6.	Services Documentation Evidence for Sprint Review
 
+Esta tabla presenta la documentación de los servicios implementados como evidencia para la revisión del sprint. Detalla los endpoints disponibles, sus métodos HTTP, descripciones breves de su funcionalidad y los parámetros requeridos, organizados por categorías como *Groups*, *Members*, *Tasks* y *Member Tasks*.
 
+##### **Groups:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Groups** | GET | `/api/v1/group/{id}` | Get group by id | Retrieve detailed information about a specific group by its ID| `getGroupById` | id | no |
+| **Groups** | GET | `/api/v1/group/user/{userId}` | Get all user groups | Retrieve all groups associated with a specific user | `getAllUserGroups` | userId | no |
+| **Groups** | POST | `/api/v1/group` | Register new group | Create a new group | `registerGroup` | no | si |
+| **Groups** | POST | `/api/v1/group/{groupId}/member/{userId}` | Add member to group | Associate a user as a member of a specific group | `AddMemberToGroup` | groupId, userId | no |
+| **Groups** | PUT | `/api/v1/group/{id}` | Update group | Modify existing group | `updateGroup` | id | si |
+| **Groups** | DELETE | `/api/v1/group/{id}` | Delete group | Remove a group | `deleteGroup` | id | no |
 
 #### 7.2.1.7.	Software Deployment Evidence for Sprint Review
 
