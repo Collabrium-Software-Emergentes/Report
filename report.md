@@ -6679,7 +6679,15 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 
 ##### **Requests:**
 
-
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Request Details** | POST | `/api/v1/tasks/{taskId}/requests` | Create a new request | Create a new request | `createRequest` | taskId | si |
+| **Request Details** | GET | `/api/v1/tasks/{taskId}/requests` | Get requests from a task | Get a list of requests from a task id | `getRequestsByTaskId` | taskId | no |
+| **Request Details** | GET | `/api/v1/tasks/{taskId}/requests/{requestId}` | Get a request by id | Get a request by id | `getRequestById` | taskId, requestId | no |
+| **Request** | PUT | `/api/v1/tasks/{taskId}/requests/{requestId}/status/{status}` | Update a request status | Update the status of a request | `updateRequestStatus` | taskId, requestId, status | no |
+| **Request** | DELETE | `/api/v1/tasks/{taskId}/requests/{requestId}` | Delete a request by id | Delete a request by id | `deleteRequestById` | taskId, requestId | no |
+| **Group Requests** | GET | `/api/v1/member/group/requests` | Get all requests from member | Get all requests from member | `getAllRequestsFromMember` | no | no |
+| **Group Requests** | GET | `/api/v1/leader/group/requests` | Get all requests from a group | Get all requests from a group | `getAllRequestsFromGroup` | no | no |
 
 ##### **Metrics:**
 
