@@ -6445,9 +6445,17 @@ En esta sección se presentan las evidencias de la ejecución de la aplicación 
 
 **Api Gateway:**
 
-En el caso del apigateway no hay una interfaz interactiva y lo mejor que se puede mostrar es el endpoint de actuator que se encarga de mostrar el estado de la aplicación.
+En el caso del apigateway no hay una interfaz interactiva y lo mejor que se puede mostrar es el endpoint de actuator que se encarga de mostrar el estado de la aplicación. Además, se agrega la documentación hecha en APIDOG, un software que permite hacer llamados http como Postman pero con un plan mucho más permisivo.
 
 [![Api-Gateway.png](https://i.postimg.cc/dt1bZzBH/Api-Gateway.png)](https://postimg.cc/nMyR6SNB)
+
+[![Api-Dog-1.png](https://i.postimg.cc/6p7Tcb9H/Api-Dog-1.png)](https://postimg.cc/cvSs4mtY)
+
+[![Apidog-2.png](https://i.postimg.cc/65Pp8Vd6/Apidog-2.png)](https://postimg.cc/qz8TY3bW)
+
+[![Apidog-3.png](https://i.postimg.cc/W4Lpn2YF/Apidog-3.png)](https://postimg.cc/qNwdBdT4)
+
+[![Apidog-4.png](https://i.postimg.cc/JnK1Mjrw/Apidog-4.png)](https://postimg.cc/r00690Rg)
 
 **Discovery Server:**
 
