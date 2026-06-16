@@ -6439,7 +6439,37 @@ En esta sección se presentan las evidencias de la ejecución de la aplicación 
 
 
 
+**Api Gateway:**
+
+En el caso del apigateway no hay una interfaz interactiva y lo mejor que se puede mostrar es el endpoint de actuator que se encarga de mostrar el estado de la aplicación.
+
+[![Api-Gateway.png](https://i.postimg.cc/dt1bZzBH/Api-Gateway.png)](https://postimg.cc/nMyR6SNB)
+
+**Discovery Server:**
+
+[![Discovery-Server.png](https://i.postimg.cc/43VkNV5s/Discovery-Server.png)](https://postimg.cc/4KfFWKqS)
+
+**Broker (RabbitAMQP):**
+
+[![Broker.png](https://i.postimg.cc/yds515xh/Broker.png)](https://postimg.cc/TyNQQtrh)
+
+**Backend Iam:**
+
+
+
 **Backend Groups:**
+
+
+
+**Backend Tasks:**
+
+
+
+**Backend Requests:**
+
+
+
+**Backend Metrics:**
 
 
 
