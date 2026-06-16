@@ -6294,11 +6294,11 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
   </tr>
   <tr>
     <td colspan="1"><strong>Sprint 1 Velocity</strong></td>
-    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 100 story points</td>
+    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 240 story points</td>
   </tr>
   <tr>
     <td colspan="1"><strong>Sum of Story Points</strong></td>
-    <td colspan="1">La suma de story point atendidos es de 78+ story point.</td>
+    <td colspan="1">La suma de story point atendidos es de 210+ story point.</td>
   </tr>
 </table>
 
@@ -6481,6 +6481,26 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Implementar servicio para gestionar solicitudes de tareas completadas o cambios.</td>
     <td colspan="1">2</td>
     <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-029</td>
+    <td colspan="1">Crear usuarios</td>
+    <td colspan="1">T006</td>
+    <td colspan="1">Devolver un lider por codigo de usuario</td>
+    <td colspan="1">Crear el endpoint GET /leaders/{userId}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">TS-029</td>
+    <td colspan="1">Crear usuarios</td>
+    <td colspan="1">T007</td>
+    <td colspan="1">Crear un lider</td>
+    <td colspan="1">Crear un lider mediante un POST</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
 </table>
