@@ -6495,7 +6495,9 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 **Backend Metrics:**
 
+[![Metrics-1.png](https://i.postimg.cc/MHxjr7sM/Metrics-1.png)](https://postimg.cc/zbtBygY8)
 
+[![Metrics-2.png](https://i.postimg.cc/T2qb5swb/Metrics-2.png)](https://postimg.cc/9z00vJyX)
 
 #### 7.2.1.6.	Services Documentation Evidence for Sprint Review
 
