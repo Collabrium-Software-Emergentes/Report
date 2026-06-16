@@ -6512,6 +6512,13 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 | Groups-Microservice | master | 44de9a3288a8748c7cb8a4eeaf93fcf39bd7c491 | feat(groups): implement InvitationCommandServiceImpl and LeaderCommandServiceImpl | Added `InvitationCommandServiceImpl` and `LeaderCommandServiceImpl` to handle invitation and leader-related commands respectively, enhancing domain services and group management functionality. | 2026-06-08 |
 | Groups-Microservice | master | e383bfb18a1df69132a8c736f11502daf673af70 | feat(groups): add Invitation aggregate for invitation management | Introduced `Invitation` aggregate to manage invitation creation and validation logic, including associations with `MemberId` and `Group`. Added checks for null member ID and group during initialization, improving clarity and error handling in group management. | 2026-06-08 |
 | Groups-Microservice | master | 3e48740621c6f27f4f87c87550e502f4fa523424 | feat(groups): add Group aggregate with validation and update logic | Introduced `Group` aggregate to represent group-level domain logic and state. Added validation for creation, member operations, and updates, as well as utility methods for group checks like membership and leadership. | 2026-06-08 |
+| Requests-Microservice | master | 50d5dd335cdfb955492192c207be735ce3568b72 | feat(requests): added request controller, request details controller and group request details controller | -- | 2026-06-14 |
+| Requests-Microservice | master | 2a13d00a1e5ebdcabb956abfa8fabf48b4fc9f28 | feat(requests): add request aggregate | -- | 2026-06-14 |
+| Requests-Microservice | master | 88370c0970fdf628329a35203ec3bc0643918b6f | feat(requests): add request commands | -- | 2026-06-14 |
+| Requests-Microservice | master | 617926b26e69ad4fab0d9a9550e504724b1d3a32 | feat(requests): add request queries | -- | 2026-06-14 |
+| Requests-Microservice | master | 5a025b06aa8ea24628cd2b4981d12592c02c3ff8 | feat(requests): add request repository | -- | 2026-06-14 |
+| Requests-Microservice | master | 15cf8ac85d8efb463f6e2051b28e7c3a7b7ecf8c | feat(requests): add GroupOnlyResource and GroupsFeignClient | -- | 2026-06-14 |
+| Requests-Microservice | master | 765e79a2faebaf377d830ba0395e79baa41bf9d3 | feat(requests): add TaskMemberResource and TaskResource | -- | 2026-06-14 |
 
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
