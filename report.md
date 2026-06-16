@@ -6323,67 +6323,279 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1"><strong>Assigned To</strong></td>
     <td colspan="1"><strong>Status</strong></td>
   </tr>
+  <!-- US-001 -->
   <tr>
-    <td colspan="1">TS-001</td>
-    <td colspan="1">Obtener un grupo por ID</td>
-    <td colspan="1">T01</td>
-    <td colspan="1">Crear getGroupById</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group/{id}  .</td>
+    <td colspan="1">US-001</td>
+    <td colspan="1">Creación de grupo</td>
+    <td colspan="1">T-001</td>
+    <td colspan="1">Interfaz visual de creación</td>
+    <td colspan="1">Generar un código para el grupo.</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
+   <!-- US-002 -->
   <tr>
-    <td colspan="1">TS-002</td>
-    <td colspan="1">Obtener todos los grupos de un usuario</td>
-    <td colspan="1">T02</td>
-    <td colspan="1">Crear getAllUserGroups</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group/user/{userId}</td>
+    <td colspan="1">US-002</td>
+    <td colspan="1">Envío de invitaciones</td>
+    <td colspan="1">T-002</td>
+    <td colspan="1">Registrar código de grupo</td>
+    <td colspan="1">Al crear un grupo, se debe crear un código para ser utilizado en la unión de miembros al grupo.</td>
     <td colspan="1">0.5</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
+  <!-- US-003  -->
   <tr>
-    <td colspan="1">TS-003</td>
-    <td colspan="1">Registrar un nuevo grupo</td>
-    <td colspan="1">T03</td>
-    <td colspan="1">Crear registerGroup</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group</td>
+    <td colspan="1" rowspan="2">US-003</td>
+    <td colspan="1" rowspan="2">Eliminación de grupo</td>
+    <td colspan="1">T-003</td>
+    <td colspan="1">Eliminar datos de grupo.</td>
+    <td colspan="1">Antes de eliminar grupo, debe eliminar la información vinculada al grupo.</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-004</td>
-    <td colspan="1">Agregar un miembro a un grupo</td>
-    <td colspan="1">T04</td>
-    <td colspan="1">Crear addMemberToGroup</td>
-    <td colspan="1">Crear endpoint de groups POST /api/v1/group/{groupId}/member/{userId}</td>
+    <td colspan="1">T-004</td>
+    <td colspan="1">Eliminar grupo.</td>
+    <td colspan="1">Al no tener información, permitir la eliminación de grupo.</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-001: Gestión de grupos (CRUD) -->
+  <tr>
+    <td colspan="1" rowspan="6">TS-001</td>
+    <td colspan="1" rowspan="6">Gestión de grupos (CRUD)</td>
+    <td colspan="1">T-005</td>
+    <td colspan="1">Crear endpoint POST CreateGroup</td>
+    <td colspan="1">POST /leader/group - Crear un nuevo grupo como líder</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-006</td>
+    <td colspan="1">Crear endpoint PUT UpdateGroup</td>
+    <td colspan="1">PUT /leader/group - Actualizar grupo existente</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-007</td>
+    <td colspan="1">Crear endpoint GET GetGroupById</td>
+    <td colspan="1">GET /groups/{groupId} - Obtener grupo por ID</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-005</td>
-    <td colspan="1">Actualizar un grupo</td>
-    <td colspan="1">T05</td>
-    <td colspan="1">Crear updateGroup</td>
-    <td colspan="1">Crear endpoint de groups PUT/api/v1/group/{id}</td>
+    <td colspan="1">T-008</td>
+    <td colspan="1">Crear endpoint GET GetGroupByCode</td>
+    <td colspan="1">GET /groups/search?code={code} - Buscar grupo por código</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-009</td>
+    <td colspan="1">Crear endpoint DELETE DeleteGroup</td>
+    <td colspan="1">DELETE /leader/group - Eliminar grupo</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-010</td>
+    <td colspan="1">Implementar validaciones de grupo</td>
+    <td colspan="1">Validar campos obligatorios, formato de datos y reglas de negocio para grupos</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-002: Gestión de miembros en grupos -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-002</td>
+    <td colspan="1" rowspan="5">Gestión de miembros en grupos</td>
+    <td colspan="1">T-011</td>
+    <td colspan="1">Crear endpoint GET GetMembersOfMyGroup</td>
+    <td colspan="1">GET /groups/members - Listar miembros del grupo autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-012</td>
+    <td colspan="1">Crear endpoint DELETE RemoveMemberFromGroup</td>
+    <td colspan="1">DELETE /leader/group/members/{memberId} - Eliminar miembro del grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-013</td>
+    <td colspan="1">Crear endpoint GET GetGroupByLeaderId</td>
+    <td colspan="1">GET /groups?leaderId={leaderId} - Obtener grupos de un líder</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-014</td>
+    <td colspan="1">Validar existencia de miembros</td>
+    <td colspan="1">Verificar que el usuario exista antes de operaciones con miembros</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-015</td>
+    <td colspan="1">Validar permisos de líder</td>
+    <td colspan="1">Validar que solo el líder del grupo pueda realizar acciones de eliminación de miembros</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+   <!-- TS-003: Gestión de solicitudes de unión -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-003</td>
+    <td colspan="1" rowspan="5">Gestión de solicitudes de unión</td>
+    <td colspan="1">T-016</td>
+    <td colspan="1">Crear endpoint POST CreateInvitation</td>
+    <td colspan="1">POST /invitations/groups/{groupId} - Crear invitación para unirse a grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-017</td>
+    <td colspan="1">Crear endpoint GET GetAllInvitationsOfMyGroup</td>
+    <td colspan="1">GET /invitations/group - Listar invitaciones del grupo autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-018</td>
+    <td colspan="1">Crear endpoint GET GetMyInvitation</td>
+    <td colspan="1">GET /invitations/member - Obtener invitaciones del miembro autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-019</td>
+    <td colspan="1">Validar invitaciones duplicadas</td>
+    <td colspan="1">Implementar lógica para evitar invitaciones duplicadas a un mismo grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-020</td>
+    <td colspan="1">Validar existencia de grupo y usuario</td>
+    <td colspan="1">Verificar que el grupo y usuario existan al crear invitación</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-004: Procesamiento de solicitudes -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-004</td>
+    <td colspan="1" rowspan="5">Procesamiento de solicitudes</td>
+    <td colspan="1">T-021</td>
+    <td colspan="1">Crear endpoint PATCH ProcessInvitationByLeaderAuthenticated</td>
+    <td colspan="1">PATCH /group/invitations/{invitationId}?accept={boolean} - Procesar invitación por líder</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-022</td>
+    <td colspan="1">Crear endpoint DELETE DeleteInvitationByMemberAuthenticated</td>
+    <td colspan="1">DELETE /invitations/member - Eliminar invitación del miembro autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-023</td>
+    <td colspan="1">Validar permisos de procesamiento</td>
+    <td colspan="1">Asegurar que solo el líder pueda procesar invitaciones y cambiar su estado</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-024</td>
+    <td colspan="1">Agregar miembro al grupo tras aceptación</td>
+    <td colspan="1">Al aceptar una invitación, agregar automáticamente el miembro al grupo</td>
     <td colspan="1">2</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-006</td>
-    <td colspan="1">Eliminar un grupo</td>
-    <td colspan="1">T06</td>
-    <td colspan="1">Crear deleteGroup</td>
-    <td colspan="1">Crear endpoint de groups DELETE/api/v1/group/{id}</td>
+    <td colspan="1">T-025</td>
+    <td colspan="1">Notificar cambio de estado</td>
+    <td colspan="1">Implementar notificaciones cuando se acepte/rechace una invitación</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Pending</td>
+  </tr>
+   <!-- TS-020: Microservice Groups -->
+  <tr>
+    <td colspan="1" rowspan="6">TS-020</td>
+    <td colspan="1" rowspan="6">Microservice Groups</td>
+    <td colspan="1">T-026</td>
+    <td colspan="1">Configurar microservicio Groups</td>
+    <td colspan="1">Configurar estructura base del microservicio Groups con Spring Boot</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-027</td>
+    <td colspan="1">Implementar endpoints de líder</td>
+    <td colspan="1">GET GetLeaderById y GET GetLeaderDetailsByAuthentication</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-028</td>
+    <td colspan="1">Implementar endpoints de grupo</td>
+    <td colspan="1">GET GetGroupByAuthentication y GET GetTasksOfMyGroup</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-029</td>
+    <td colspan="1">Configurar base de datos</td>
+    <td colspan="1">Configurar conexión y modelos de base de datos para el microservicio</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-030</td>
+    <td colspan="1">Implementar manejo de errores</td>
+    <td colspan="1">Implementar respuestas de error consistentes en el microservicio</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
-    <tr>
+  <tr>
+    <td colspan="1">T-031</td>
+    <td colspan="1">Documentación Swagger</td>
+    <td colspan="1">Documentar API del microservicio con Swagger/OpenAPI</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
   <td colspan="1">TS-024</td>
   <td colspan="1">Actualizar estado de solicitud</td>
   <td colspan="1">T24</td>
@@ -6481,26 +6693,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Implementar servicio para gestionar solicitudes de tareas completadas o cambios.</td>
     <td colspan="1">2</td>
     <td colspan="1">Max Paitan</td>
-    <td colspan="1">Done</td>
-  </tr>
-  <tr>
-    <td colspan="1">TS-029</td>
-    <td colspan="1">Crear usuarios</td>
-    <td colspan="1">T006</td>
-    <td colspan="1">Devolver un lider por codigo de usuario</td>
-    <td colspan="1">Crear el endpoint GET /leaders/{userId}</td>
-    <td colspan="1">1</td>
-    <td colspan="1">Miguel Gomez</td>
-    <td colspan="1">Done</td>
-  </tr>
-  <tr>
-    <td colspan="1">TS-029</td>
-    <td colspan="1">Crear usuarios</td>
-    <td colspan="1">T007</td>
-    <td colspan="1">Crear un lider</td>
-    <td colspan="1">Crear un lider mediante un POST</td>
-    <td colspan="1">1</td>
-    <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
 </table>
