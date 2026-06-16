@@ -6477,7 +6477,13 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 **Backend Tasks:**
 
+[![Tasks-1.png](https://i.postimg.cc/bwLL0Jw9/Tasks-1.png)](https://postimg.cc/3k4gY3pk)
 
+[![Tasks-2.png](https://i.postimg.cc/XJB80kcf/Tasks-2.png)](https://postimg.cc/dkvd2df3)
+
+[![Tasks-3.png](https://i.postimg.cc/y69PQnNC/Tasks-3.png)](https://postimg.cc/23kh3Qv0)
+
+[![Tasks-4.png](https://i.postimg.cc/tCjzLP1V/Tasks-4.png)](https://postimg.cc/hh2xmX1S)
 
 **Backend Requests:**
 
