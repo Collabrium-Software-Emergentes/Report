@@ -6437,11 +6437,51 @@ En esta sección se presentan las evidencias de la ejecución de la aplicación 
 
 **Frontend Members:**
 
+[![Members-1.png](https://i.postimg.cc/Dy3KHCd5/Members-1.png)](https://postimg.cc/grs56H76)
 
+[![Members-2.png](https://i.postimg.cc/pTMZRnGH/Members-2.png)](https://postimg.cc/KKQL54hq)
+
+[![Members-3.png](https://i.postimg.cc/d3qjTcc4/Members-3.png)](https://postimg.cc/wyGmSPvm)
+
+[![Members-4.png](https://i.postimg.cc/mZ8Q6qG3/Members-4.png)](https://postimg.cc/8sfJ7Zcs)
+
+[![Members-5.png](https://i.postimg.cc/k47bTNYq/Members-5.png)](https://postimg.cc/Z9DnRNhM)
+
+[![Members-6.png](https://i.postimg.cc/pV4dTYQK/Members-6.png)](https://postimg.cc/WtmVYZH4)
+
+[![Members-7.png](https://i.postimg.cc/vZL83JJY/Members-7.png)](https://postimg.cc/DS0KzMfH)
+
+[![Members-8.png](https://i.postimg.cc/fy9DXp7Q/Members-8.png)](https://postimg.cc/4HsDR8FW)
+
+[![Members-9.png](https://i.postimg.cc/mg8kbx88/Members-9.png)](https://postimg.cc/0zKPf4gw)
+
+[![Members-10.png](https://i.postimg.cc/MGLGQ7k5/Members-10.png)](https://postimg.cc/kVx9rtgR)
 
 **Frontend Leaders:**
 
+[![Leaders-1.png](https://i.postimg.cc/gcv7XG86/Leaders-1.png)](https://postimg.cc/mhgjKfdb)
 
+[![Leaders-2.png](https://i.postimg.cc/Nj0CzTVS/Leaders-2.png)](https://postimg.cc/HVftJJT9)
+
+[![Leaders-3.png](https://i.postimg.cc/vZDXzygK/Leaders-3.png)](https://postimg.cc/xXDKfWPG)
+
+[![Leaders-4.png](https://i.postimg.cc/J4zQr8q4/Leaders-4.png)](https://postimg.cc/Cd987WXW)
+
+[![Leaders-5.png](https://i.postimg.cc/L8rk31MP/Leaders-5.png)](https://postimg.cc/NKkrgLFG)
+
+[![Leaders-6.png](https://i.postimg.cc/ZnMvYGbN/Leaders-6.png)](https://postimg.cc/1VD3JYNR)
+
+[![Leaders-7.png](https://i.postimg.cc/fT1SGQqg/Leaders-7.png)](https://postimg.cc/0bdNSFsp)
+
+[![Leaders-8.png](https://i.postimg.cc/PJPN7SmK/Leaders-8.png)](https://postimg.cc/N2vg97Cr)
+
+[![Leaders-9.png](https://i.postimg.cc/DZYw11tC/Leaders-9.png)](https://postimg.cc/mzC4s1ZM)
+
+[![Leaders-10.png](https://i.postimg.cc/bN12fBXw/Leaders-10.png)](https://postimg.cc/4mN3zwND)
+
+[![Leaders-11.png](https://i.postimg.cc/NMy5JN8N/Leaders-11.png)](https://postimg.cc/CBghdsQD)
+
+[![Leaders-12.png](https://i.postimg.cc/Fz31m7B6/Leaders-12.png)](https://postimg.cc/ct1dB4Z7)
 
 **Api Gateway:**
 
