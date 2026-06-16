@@ -6493,7 +6493,7 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | --- | --- | --- | --- | --- | --- |
-| Landing Page | main | 118fcaf10a77ad214d2692c87a35ae5742d8edd0 | Update package.json |  | 2025-05-14 |
+| Landing Page | main | 28bfccc55d8d7e9f4075b6d945df204b51f9797c | feat: add the landing page files |  | 2026-05-09 |
 
 **Commits realizados en los repositorios del Frontend durante el sprint 1:**
 
