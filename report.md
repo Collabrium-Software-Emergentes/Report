@@ -6551,6 +6551,10 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 Esta tabla presenta la documentación de los servicios implementados como evidencia para la revisión del sprint. Detalla los endpoints disponibles, sus métodos HTTP, descripciones breves de su funcionalidad y los parámetros requeridos, organizados por categorías como *Groups*, *Members*, *Tasks* y *Member Tasks*.
 
+##### **Iam:**
+
+
+
 ##### **Groups:**
 
 | Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
@@ -6562,9 +6566,50 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 | **Groups** | PUT | `/api/v1/group/{id}` | Update group | Modify existing group | `updateGroup` | id | si |
 | **Groups** | DELETE | `/api/v1/group/{id}` | Delete group | Remove a group | `deleteGroup` | id | no |
 
+##### **Tasks:**
+
+
+
+##### **Requests:**
+
+
+
+##### **Metrics:**
+
+
+
 #### 7.2.1.7.	Software Deployment Evidence for Sprint Review
 
+Para hacer el deployment de la landing page se utilizó GitHub Pages, una plataforma que permite alojar sitios web estáticos de forma gratuita directamente desde un repositorio de GitHub.
 
+**Enlace de la landing page:** [`https://collabrium-software-emergentes.github.io/Landing-Page/`](https://collabrium-software-emergentes.github.io/Landing-Page/)
+
+##### Pasos realizados:
+
+1. **Preparar el repositorio en GitHub**
+   - Crear un repositorio en GitHub con el nombre deseado (público o privado con GitHub Pages habilitado)
+   - Subir los archivos de la landing page (HTML, CSS, JS, assets) al repositorio
+   - Asegurarse de que el archivo principal se llame `index.html`
+
+2. **Acceder a la configuración del repositorio**
+   - Ingresar al sitio web de GitHub
+   - Iniciar sesión con la cuenta correspondiente
+   - Navegar al repositorio de la landing page
+   - Hacer clic en la pestaña **Settings**
+
+3. **Configurar GitHub Pages**
+   - En el menú lateral izquierdo, seleccionar **Pages** (dentro de la sección "Code and automation")
+   - En la sección **Branch**, seleccionar la rama que contiene los archivos (generalmente `main` o `master`)
+   - Seleccionar la carpeta raíz (`/ (root)`) o la carpeta `/docs` según corresponda
+   - Hacer clic en **Save**
+
+4. **Esperar el despliegue**
+   - GitHub automáticamente comenzará a construir y desplegar el sitio
+   - El proceso puede tomar entre 1 y 3 minutos
+
+5. **Verificar el despliegue**
+   - Una vez completado, se generará una URL pública con el formato `https://<usuario>.github.io/<repositorio>/`
+   - Acceder a la URL para verificar que la landing page funcione correctamente
 
 #### 7.2.1.8.	Team Collaboration Insights during Sprint
 
