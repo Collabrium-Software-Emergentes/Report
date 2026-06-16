@@ -6611,6 +6611,8 @@ Para hacer el deployment de la landing page se utilizó GitHub Pages, una plataf
    - Una vez completado, se generará una URL pública con el formato `https://<usuario>.github.io/<repositorio>/`
    - Acceder a la URL para verificar que la landing page funcione correctamente
 
+   [![Github-Pages-1.png](https://i.postimg.cc/0Qc0D5GT/Github-Pages-1.png)](https://postimg.cc/XGB50bzL)
+
 #### 7.2.1.8.	Team Collaboration Insights during Sprint
 
 
