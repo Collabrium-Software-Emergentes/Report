@@ -6467,7 +6467,13 @@ En el caso del apigateway no hay una interfaz interactiva y lo mejor que se pued
 
 **Backend Groups:**
 
+[![Groups-1.png](https://i.postimg.cc/9M0dYtNp/Groups-1.png)](https://postimg.cc/JDwH1J8D)
 
+[![Groups-2.png](https://i.postimg.cc/XNTPXppP/Groups-2.png)](https://postimg.cc/kDvspMNN)
+
+[![Groups-3.png](https://i.postimg.cc/qvrZXScY/Groups-3.png)](https://postimg.cc/svnc3nN9)
+
+[![Groups-4.png](https://i.postimg.cc/43LLG3DW/Groups-4.png)](https://postimg.cc/p9jYYPXj)
 
 **Backend Tasks:**
 
