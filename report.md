@@ -6878,12 +6878,23 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 
 | Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Groups** | GET | `/api/v1/group/{id}` | Get group by id | Retrieve detailed information about a specific group by its ID| `getGroupById` | id | no |
-| **Groups** | GET | `/api/v1/group/user/{userId}` | Get all user groups | Retrieve all groups associated with a specific user | `getAllUserGroups` | userId | no |
-| **Groups** | POST | `/api/v1/group` | Register new group | Create a new group | `registerGroup` | no | si |
-| **Groups** | POST | `/api/v1/group/{groupId}/member/{userId}` | Add member to group | Associate a user as a member of a specific group | `AddMemberToGroup` | groupId, userId | no |
-| **Groups** | PUT | `/api/v1/group/{id}` | Update group | Modify existing group | `updateGroup` | id | si |
-| **Groups** | DELETE | `/api/v1/group/{id}` | Delete group | Remove a group | `deleteGroup` | id | no |
+| **Groups** | GET | `/leader/{leaderId}` | Get leader by id | Retrieve detailed information about a specific leader by their ID | `getLeaderById` | leaderId | no |
+| **Groups** | GET | `/leader/details` | Get leader details by authentication | Retrieve details of the currently authenticated leader | `getLeaderDetailsByAuthentication` | none | no |
+| **Groups** | POST | `/leader/group` | Create group | Create a new group as a leader | `createGroup` | none | si |
+| **Groups** | PUT | `/leader/group` | Update group | Update an existing group as a leader | `updateGroup` | none | si |
+| **Groups** | GET | `/leader/group` | Get group by authentication | Retrieve the group of the currently authenticated leader | `getGroupByAuthentication` | none | no |
+| **Groups** | DELETE | `/leader/group` | Delete group | Delete the group of the currently authenticated leader | `deleteGroup` | none | no |
+| **Groups** | GET | `/groups/search` | Get group by code | Search for a group by its unique invitation code | `getGroupByCode` | code (query) | no |
+| **Groups** | POST | `/invitations/groups/{groupId}` | Create invitation | Create a new invitation for a user to join a group | `createInvitation` | groupId | no |
+| **Groups** | GET | `/invitations/group` | Get all invitations of my group | Retrieve all invitations for the group of the authenticated leader | `getAllInvitationsOfMyGroup` | none | no |
+| **Groups** | GET | `/invitations/member` | Get my invitation | Retrieve invitations of the authenticated member | `getMyInvitation` | none | no |
+| **Groups** | DELETE | `/invitations/member` | Delete invitation by member authenticated | Delete an invitation by the authenticated member | `deleteInvitationByMemberAuthenticated` | none | no |
+| **Groups** | PATCH | `/group/invitations/{invitationId}` | Process invitation by leader authenticated | Process an invitation (accept or reject) by the authenticated leader | `processInvitationByLeaderAuthenticated` | invitationId, accept (query) | no |
+| **Groups** | GET | `/groups/{groupId}` | Get group by id | Retrieve detailed information about a specific group by its ID | `getGroupById` | groupId | no |
+| **Groups** | GET | `/groups` | Get group by leader id | Retrieve groups associated with a specific leader | `getGroupByLeaderId` | leaderId (query) | no |
+| **Groups** | GET | `/groups/members` | Get members of my group | Retrieve all members of the group of the authenticated leader | `getMembersOfMyGroup` | none | no |
+| **Groups** | GET | `/groups/tasks` | Get tasks of my group | Retrieve all tasks associated with the group of the authenticated leader | `getTasksOfMyGroup` | none | no |
+| **Groups** | DELETE | `/leader/group/members/{memberId}` | Remove member from group | Remove a specific member from the group by the authenticated leader | `removeMemberFromGroup` | memberId | no |
 
 ##### **Tasks:**
 
