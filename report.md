@@ -7031,7 +7031,26 @@ Validar la usabilidad y efectividad de la landing page y la aplicación para cad
 
 ### 7.3.2.	Registro de Entrevistas
 
+Todas las entrevistas se encuentran en el siguiente enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQAu0TXsQucRQrgDyImBfKZyAW5ROGp8Eqr6CobslwPgtW4?e=O2eD30&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
+A continuación se presentan los detalles clave de las entrevistas realizadas a los líderes. 
+
+| **Entrevista 1: Coordinadores o Líderes de Grupo** | |
+|-----|------|
+| Nombre de Entrevistado                             | Diego Alonso Quispe Flores  |
+| Edad   | 24     |
+| Profesión | Local Team Leader   |
+| Distrito  | Villa el Salvador |
+| Duración de la Entrevista  | 15:46  |
+| Minuto de inicio | 00:00   |
+| **Análisis de la Entrevista**| |
+| Creación de Grupos  | Nos comenta que la creacion de grupos fue bastante sencilla e intuitiva. |
+| Gestión de Tareas | Es bastante sencillo la creacion de tareas preferiria que hubiera una leyenda que explique los colores de cada estado de la tarea. |
+| Generación de Reportes                             | Argumento que era la parte mas llamativa,ya que le permite mantenerse actualizado a como va el desempeño del grupo.                |
+| Solicitudes y Validaciones                         | Menciona que esta bien distribuido pero añadiria el color de la solicitud o validacion de fondo para que sea mas clara la idea.    |
+| Navegación General                                 | Considera que la navegacion es un poco extensa para un nuevo usuario pero tiene una curva de aprendizaje corta o sencilla.         |
+
+[![Validation-1.png](https://i.postimg.cc/500M5tc5/Validation-1.png)](https://postimg.cc/06L3PPyr)
 
 ### 7.3.3.	Evaluaciones según heurísticas
 
