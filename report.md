@@ -7096,6 +7096,14 @@ Para la parte de Testing se realizaron pruebas unitarias de los servicios de cad
 
 [![Testing-Requests.png](https://i.ibb.co/hx9fNxfJ/request-Test.png)](https://ibb.co/NgCSqgSd)
 
+**Tasks Bounded Context**
+
+![Tasks Service Diagram](https://res.cloudinary.com/duhtltjmh/image/upload/v1781673331/testTasks_jz3aa3.png)
+
+Para el microservicio de Tasks se ejecutaron 4 pruebas unitarias, la primera es un setUp para el resto de pruebas la cual crea una tarea simple, la segunda es la Creacion de Tarea y verifica que
+se crea un registro de manera correcta, la tercera prueba el cambio de estado de la tarea, es decir pasar de completado a en progreso por ejemplo, y la ultima prueba la actulizacion de un registro y si se guarda de manera correcta
+
+
 #### 7.2.1.5.	Execution Evidence for Sprint Review
 
 En esta sección se presentan las evidencias de la ejecución de la aplicación para el sprint 1.
