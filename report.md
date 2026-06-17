@@ -7433,9 +7433,9 @@ En esta sección se presentan las evaluaciones de usabilidad de la landing page 
 **Información del Proyecto**
 
 * **Carrera:** Ingeniería de Software
-* **Curso:** Aplicaciones Moviles
-* **Auditor:** NRG4
-* **Cliente:** NRG4
+* **Curso:** Arquitectura de Software Emergentes
+* **Auditor:** Collabrium
+* **Cliente:** Collabrium
 * **Site o App a Evaluar:** SynHub
 
 **Tareas a Evaluar** El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
