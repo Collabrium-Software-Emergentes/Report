@@ -7318,6 +7318,63 @@ Para hacer el deployment de la landing page se utilizó GitHub Pages, una plataf
 
    [![Github-Pages-1.png](https://i.postimg.cc/0Qc0D5GT/Github-Pages-1.png)](https://postimg.cc/XGB50bzL)
 
+Para hacer el deployment de los microservicios se utilizó Render, una plataforma que permite alojar Web Services de forma gratuita directamente desde un repositorio de GitHub.
+
+**Enlace del Discovery-Server:** [`https://discovery-server-1wsw.onrender.com`](https://discovery-server-1wsw.onrender.com)
+
+**Enlace del Api-Gateway:** [`https://api-gateway-pag1.onrender.com`](https://api-gateway-pag1.onrender.com)
+
+**Enlace del Iam-Microservice:** [`https://iam-microservice-1.onrender.com`](https://iam-microservice-1.onrender.com)
+
+**Enlace del Groups-Microservice:** [`https://groups-microservice-1.onrender.com`](https://groups-microservice-1.onrender.com)
+
+**Enlace del Requests-Microservicer:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+
+##### Pasos realizados:
+
+1. **Preparar el repositorio en GitHub**
+
+   * Crear o utilizar un repositorio que contenga el código fuente del microservicio.
+   * Asegurarse de que el proyecto incluya los archivos de configuración necesarios para su ejecución (por ejemplo, `pom.xml` en proyectos Maven o `build.gradle` en proyectos Gradle).
+   * Confirmar que el repositorio esté actualizado con la última versión del código que se desea desplegar.
+
+2. **Acceder a Render**
+
+   * Ingresar al sitio web de Render: `https://render.com`.
+   * Iniciar sesión con la cuenta correspondiente.
+   * En el Dashboard, hacer clic en la opción **New** y seleccionar **Web Service**.
+
+3. **Conectar el repositorio de GitHub**
+
+   * Seleccionar GitHub como proveedor de código fuente.
+   * Autorizar el acceso de Render a los repositorios disponibles (si aún no se ha realizado).
+   * Seleccionar el repositorio que contiene el microservicio a desplegar.
+   * Hacer clic en **Connect** para vincular el proyecto con Render.
+
+4. **Configurar el Web Service**
+
+   * Definir un nombre para el servicio dentro de Render.
+   * Seleccionar la rama del repositorio que se utilizará para el despliegue (generalmente `main`).
+   * Elegir el entorno de ejecución correspondiente (por ejemplo, Docker).
+   * Configurar el comando de compilación (*Build Command*) y el comando de inicio (*Start Command*) según los requisitos del proyecto.
+   * Agregar las variables de entorno necesarias, como credenciales, puertos o configuraciones específicas de cada microservicio.
+
+5. **Realizar el despliegue**
+
+   * Hacer clic en el botón **Create Web Service**.
+   * Render iniciará automáticamente el proceso de construcción del proyecto y su posterior despliegue.
+   * Esperar a que el estado del servicio cambie a **Live**, indicando que la aplicación está disponible en línea.
+
+6. **Verificar el funcionamiento del microservicio**
+
+   * Acceder a la URL pública generada por Render.
+   * Comprobar que el microservicio responde correctamente a las solicitudes HTTP.
+   * Revisar la sección **Logs** en Render en caso de detectar errores durante el inicio o la ejecución del servicio.
+
+[![Render-Deploy.png](https://i.postimg.cc/j5yns4ch/Render-Deploy.png)](https://postimg.cc/47NxPtrK)
+
+> **Nota:** El mismo procedimiento fue aplicado para el despliegue del Discovery Server, Api Gateway, IAM Microservice, Groups Microservice y Requests Microservice, configurando individualmente cada uno como un Web Service independiente dentro de la plataforma Render.
+
 #### 7.2.1.8.	Team Collaboration Insights during Sprint
 
 
