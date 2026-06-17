@@ -7041,13 +7041,12 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | --- | --- | --- | --- | --- | --- |
-| Landing Page | main | 28bfccc55d8d7e9f4075b6d945df204b51f9797c | feat: add the landing page files |  | 2026-05-09 |
+| Landing-Page | main | 28bfccc55d8d7e9f4075b6d945df204b51f9797c | feat: add the landing page files |  | 2026-05-09 |
 
 **Commits realizados en los repositorios del Frontend durante el sprint 1:**
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | --- | --- | --- | --- | --- | --- |
-| Landing Page | main | 118fcaf10a77ad214d2692c87a35ae5742d8edd0 | Update package.json |  | 2025-05-14 |
 | Synhub-for-Leaders | main | dada750f44d48dfacae12b82fddf3915b3919d81 | feat(tasks): implement task creation and task list views | Implemented the Compose screens for creating a new task and listing the tasks assigned within a group, giving Leaders the primary interface to manage their team's workload. | 2026-06-16 |
 | Synhub-for-Leaders | main | a39237800029c345cbbe823e623a88b2c08cb221 | feat(requests): add GroupRequestList, ValidationView, and EditRequestTask screens | Implemented GroupRequestList, ValidationView, and EditRequestTask, the screens that let a Leader review pending task-completion requests from members, validate or reject them, and edit task details before resolving a request. | 2026-06-16 |
 | Synhub-for-Leaders | main | cb394464ea26b248a79cd8da855e24ee7474d327 | feat(invitations): add invitations screen with accept and reject actions | Implemented the Invitations screen, displaying pending join requests and allowing the Leader to accept or reject them directly from the UI. | 2026-06-16 |
