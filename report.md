@@ -6317,6 +6317,15 @@ Para la gestión del código fuente, utilizamos los siguientes repositorios:
 | ------------------ | ----------------- | ------------------------------------------ |
 | Backend            | Synhub-Microservices-Old | https://github.com/Collabrium-Software-Emergentes/Synhub-Microservices-Old    |
 | Landing Page       | Landing-Page    | https://github.com/Collabrium-Software-Emergentes/Landing-Page    |
+| Api Gateway       | Api-Gateway    | https://github.com/Collabrium-Software-Emergentes/Api-Gateway    |
+| Discovery Server       | Discovery-Server    | https://github.com/Collabrium-Software-Emergentes/Discovery-Server    |
+| Iam     | Iam-Microservice    | https://github.com/Collabrium-Software-Emergentes/Iam-Microservice    |
+| Groups       | Groups-Microservice    | https://github.com/Collabrium-Software-Emergentes/Groups-Microservice    |
+| Tasks       | Tasks-Microservice    | https://github.com/Collabrium-Software-Emergentes/Tasks-Microservice    |
+| Requests      | Requests-Microservice    | https://github.com/Collabrium-Software-Emergentes/Requests-Microservice    |
+| Metrics     | Metrics-Microservice    | https://github.com/Collabrium-Software-Emergentes/Metrics-Microservice    |
+| Members Frontend     | Synhub-for-Members    | https://github.com/Collabrium-Software-Emergentes/Synhub-for-Members    |
+| Leaders Frontend     | Synhub-for-Leaders   | https://github.com/Collabrium-Software-Emergentes/Synhub-for-Leaders   |
 
 **Flujo de trabajo GitFlow**
 
