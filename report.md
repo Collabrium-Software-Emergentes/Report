@@ -6834,9 +6834,9 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
-  <tr>
-  <td colspan="1">TS-024</td>
-  <td colspan="1">Actualizar estado de solicitud</td>
+    <tr>
+  <td colspan="1" rowspan="10">TS-019</td>
+  <td colspan="1" rowspan="10">Microservice Requests</td>
   <td colspan="1">T-032</td>
   <td colspan="1">Crear updateRequestStatus</td>
   <td colspan="1">Crear endpoint de requests PUT /api/v1/requests/{requestId}/status</td>
@@ -6845,8 +6845,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
   <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-025</td>
-    <td colspan="1">Crear nueva solicitud</td>
     <td colspan="1">T-033</td>
     <td colspan="1">Crear createRequest</td>
     <td colspan="1">Crear endpoint de requests POST /api/v1/requests</td>
@@ -6855,8 +6853,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-026</td>
-    <td colspan="1">Obtener solicitud por ID</td>
     <td colspan="1">T-034</td>
     <td colspan="1">Crear getRequestById</td>
     <td colspan="1">Crear endpoint de requests GET /api/v1/requests/{requestId}</td>
@@ -6865,8 +6861,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-045</td>
-    <td colspan="1">Eliminación de solicitud del sistema</td>
     <td colspan="1">T-035</td>
     <td colspan="1">Crear deleteRequest</td>
     <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
@@ -6875,8 +6869,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-046</td>
-    <td colspan="1">Aceptar una solicitud</td>
     <td colspan="1">T-036</td>
     <td colspan="1">Crear acceptRequest</td>
     <td colspan="1">Crear endpoint de requests PATCH /api/v1/group/{groupId}/requests/{requestId}/{status}</td>
@@ -6885,8 +6877,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-047</td>
-    <td colspan="1">Eliminar solicitud tras aceptación</td>
     <td colspan="1">T-037</td>
     <td colspan="1">Crear deleteAcceptedRequest</td>
     <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
@@ -6895,8 +6885,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-050</td>
-    <td colspan="1">Eliminar solicitud tras tarea completada</td>
     <td colspan="1">T-038</td>
     <td colspan="1">Crear deleteCompletedTaskRequest</td>
     <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
@@ -6905,8 +6893,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-052</td>
-    <td colspan="1">Eliminar solicitud tras rechazo de tarea completada</td>
     <td colspan="1">T-039</td>
     <td colspan="1">Crear deleteRejectedTaskRequest</td>
     <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
@@ -6915,8 +6901,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-054</td>
-    <td colspan="1">Eliminar solicitud tras tarea vencida</td>
     <td colspan="1">T-040</td>
     <td colspan="1">Crear deleteExpiredTaskRequest</td>
     <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
@@ -6925,8 +6909,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-058</td>
-    <td colspan="1">Gestión de microservicio Requests</td>
     <td colspan="1">T-041</td>
     <td colspan="1">Implementar RequestService</td>
     <td colspan="1">Implementar servicio para gestionar solicitudes de tareas completadas o cambios.</td>
