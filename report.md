@@ -7273,7 +7273,19 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 
 ##### **Tasks:**
 
-
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Tasks** | GET | `/member` | Get members by group | Retrieve all members associated with a specific group | `getMembersByGroupId` | groupId (query) | no |
+| **Tasks** | GET | `/member/details` | Get member details by authentication | Retrieve detailed information about the currently authenticated member | `getMemberDetailsByAuthentication` | none | no |
+| **Tasks** | GET | `/member/details/{memberId}` | Get member details by id | Retrieve detailed information about a specific member by their ID | `getMemberDetailsById` | memberId | no |
+| **Tasks** | GET | `/member/{memberId}` | Get member by id | Retrieve basic information about a specific member | `getMemberById` | memberId | no |
+| **Tasks** | GET | `/member/group` | Get group by member authentication | Retrieve the group associated with the authenticated member | `getGroupByMemberAuthentication` | none | no |
+| **Tasks** | GET | `/member/tasks` | Get tasks of authenticated member | Retrieve all tasks assigned to the authenticated member | `getTasksByMemberAuthentication` | none | no |
+| **Tasks** | DELETE | `/member/group/leave` | Leave group | Allow the authenticated member to leave their current group | `leaveGroup` | none | no |
+| **Tasks** | GET | `/member/tasks/next` | Get next task of authenticated member | Retrieve the next pending task of the authenticated member | `getNextTaskByMemberAuthentication` | none | no |
+| **Tasks** | POST | `/members/{memberId}/tasks` | Create task | Create a new task for a specific member | `createTask` | memberId | yes |
+| **Tasks** | GET | `/members/{memberId}/tasks` | Get tasks by member id | Retrieve all tasks assigned to a specific member | `getTasksByMemberId` | memberId | no |
+| **Tasks** | GET | `/members/{memberId}/tasks/next` | Get next task by member id | Retrieve the next pending task of a specific member | `getNextTaskByMemberId` | memberId | no |
 
 ##### **Requests:**
 
