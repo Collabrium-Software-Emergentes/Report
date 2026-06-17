@@ -81,11 +81,12 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [Project Report Collaboration Insights](#project-report-collaboration-insights)
     - [TB1:](#tb1)
     - [TB2:](#tb2)
+    - [TB3:](#tb3)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
-  - [1.1. Startup Profile](#11-startup-profile)
+  - [**1.1. Startup Profile**](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-  - [1.2. Solution Profile](#12-solution-profile)
+  - [**1.2. Solution Profile**](#12-solution-profile)
     - [1.2.1 Nombre del producto](#121-nombre-del-producto)
     - [1.2.2 Antecedentes y problemática](#122-antecedentes-y-problemática)
     - [1.2.3. Lean UX Process](#123-lean-ux-process)
@@ -93,7 +94,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       - [1.2.3.2. Lean UX Assumptions](#1232-lean-ux-assumptions)
       - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
       - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
-  - [1.3. Segmento objetivo](#13-segmento-objetivo)
+  - [**1.3. Segmento objetivo**](#13-segmento-objetivo)
 - [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -124,6 +125,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 - [4. Capítulo IV: Strategic-Level Software Design](#4-capítulo-iv-strategic-level-software-design)
   - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#411-design-purpose)
+  - [Enfoque Arquitectónico](#enfoque-arquitectónico)
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -152,24 +154,155 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
       - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams)
       - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram)
+    - [5.1.1. Domain Layer](#511-domain-layer-1)
+    - [5.1.2. Interface Layer](#512-interface-layer-1)
+    - [5.1.3. Application Layer](#513-application-layer-1)
+    - [5.1.4. Infrastructure Layer](#514-infrastructure-layer-1)
+    - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams-1)
+    - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams-1)
+      - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams-1)
+      - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram-1)
   - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
     - [5.2.1. Domain Layer](#521-domain-layer)
+      - [Aggregate Root: `Group`](#aggregate-root-group)
+        - [Atributos](#atributos)
+        - [Métodos](#métodos)
+        - [Invariantes de negocio](#invariantes-de-negocio)
+      - [Aggregate Root: `Invitation`](#aggregate-root-invitation)
+        - [Atributos](#atributos-1)
+        - [Métodos](#métodos-1)
+        - [Invariantes de negocio](#invariantes-de-negocio-1)
+      - [Aggregate Root: `Leader`](#aggregate-root-leader)
+        - [Atributos](#atributos-2)
+        - [Métodos](#métodos-2)
+        - [Invariantes de negocio](#invariantes-de-negocio-2)
+      - [Value Object: `GroupCode`](#value-object-groupcode)
+        - [Atributos](#atributos-3)
+        - [Métodos](#métodos-3)
+        - [Invariantes](#invariantes)
+      - [Value Object: `ImgUrl`](#value-object-imgurl)
+        - [Atributos](#atributos-4)
+        - [Métodos](#métodos-4)
+        - [Invariantes](#invariantes-1)
+      - [Value Object: `MemberId`](#value-object-memberid)
+        - [Atributos](#atributos-5)
+        - [Métodos](#métodos-5)
+        - [Invariantes](#invariantes-2)
     - [5.2.2. Interface Layer](#522-interface-layer)
+      - [Recursos de entrada (Request)](#recursos-de-entrada-request)
+        - [`CreateGroupResource`](#creategroupresource)
+        - [`UpdateGroupResource`](#updategroupresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response)
+        - [`GroupResource`](#groupresource)
+        - [`LeaderResource`](#leaderresource)
+        - [`LeaderDetailsResource`](#leaderdetailsresource)
+        - [`GroupMemberResource`](#groupmemberresource)
+        - [`InvitationMemberResource`](#invitationmemberresource)
+        - [`InvitationResource`](#invitationresource)
+      - [Resumen de recursos](#resumen-de-recursos)
+      - [Controllers](#controllers)
+        - [1. `GroupController`](#1-groupcontroller)
+        - [2. `InvitationController`](#2-invitationcontroller)
+        - [3. `LeaderController`](#3-leadercontroller)
+        - [4. `LeaderGroupController`](#4-leadergroupcontroller)
+        - [5. `LeaderInvitationController`](#5-leaderinvitationcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers)
     - [5.2.3. Application Layer](#523-application-layer)
+      - [Command Services](#command-services)
+        - [1. `GroupCommandServiceImpl`](#1-groupcommandserviceimpl)
+        - [2. `InvitationCommandServiceImpl`](#2-invitationcommandserviceimpl)
+        - [3. `LeaderCommandServiceImpl`](#3-leadercommandserviceimpl)
+      - [Query Services](#query-services)
+        - [1. `GroupQueryServiceImpl`](#1-groupqueryserviceimpl)
+        - [2. `InvitationQueryServiceImpl`](#2-invitationqueryserviceimpl)
+        - [3. `LeaderQueryServiceImpl`](#3-leaderqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura)
+        - [1. `IamServiceClient`](#1-iamserviceclient)
+        - [2. `TasksServiceClient`](#2-tasksserviceclient)
     - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories)
+        - [1. `GroupRepository`](#1-grouprepository)
+        - [2. `InvitationRepository`](#2-invitationrepository)
+        - [3. `LeaderRepository`](#3-leaderrepository)
+      - [Configuración (Configuration)](#configuración-configuration)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig)
+      - [Mensajería (Messaging)](#mensajería-messaging)
+        - [Publishers](#publishers)
+          - [1. `IamEventPublisher`](#1-iameventpublisher)
+          - [2. `TasksEventPublisher`](#2-taskseventpublisher)
+        - [Listeners (Consumidores)](#listeners-consumidores)
+          - [1. `LeaderCreatedEventListener`](#1-leadercreatedeventlistener)
+        - [2. `MemberLeftEventListener`](#2-memberlefteventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura)
     - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
     - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
       - [5.2.6.1. Bounded Context Domain Layer Class Diagrams](#5261-bounded-context-domain-layer-class-diagrams)
       - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
+      - [Aggregate Root: `Task`](#aggregate-root-task)
+        - [Métodos](#métodos-6)
+        - [Invariantes de negocio](#invariantes-de-negocio-3)
+      - [Aggregate Root: `Member`](#aggregate-root-member)
+        - [Métodos](#métodos-7)
+        - [Invariantes de negocio](#invariantes-de-negocio-4)
+      - [Value Object: `GroupId`](#value-object-groupid)
+        - [Atributos](#atributos-6)
+        - [Métodos](#métodos-8)
+        - [Invariantes](#invariantes-3)
+      - [Value Object: `TaskStatus`](#value-object-taskstatus)
+        - [Valores](#valores)
+        - [Métodos](#métodos-9)
+        - [Invariantes](#invariantes-4)
     - [5.3.2. Interface Layer](#532-interface-layer)
+    - [Recursos de entrada (Request)](#recursos-de-entrada-request-1)
+        - [`CreateTaskResource`](#createtaskresource)
+        - [`UpdateTaskResource`](#updatetaskresource)
+        - [`CreateMemberResource`](#creatememberresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response-1)
+        - [`TaskResource`](#taskresource)
+        - [`TaskMemberResource`](#taskmemberresource)
+        - [`MemberResource`](#memberresource)
+        - [`MemberOnlyResource`](#memberonlyresource)
+        - [`ExtendedGroupResource`](#extendedgroupresource)
+      - [Resumen de recursos](#resumen-de-recursos-1)
+      - [Controllers](#controllers-1)
+        - [1. `MemberController`](#1-membercontroller)
+        - [2. `MemberTaskController`](#2-membertaskcontroller)
+        - [3. `TaskController`](#3-taskcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers-1)
     - [5.3.3. Application Layer](#533-application-layer)
+      - [Command Services](#command-services-1)
+        - [1. `MemberCommandServiceImpl`](#1-membercommandserviceimpl)
+        - [2. `TaskCommandServiceImpl`](#2-taskcommandserviceimpl)
+      - [Query Services](#query-services-1)
+        - [1. `MemberQueryServiceImpl`](#1-memberqueryserviceimpl)
+        - [2. `TaskQueryServiceImpl`](#2-taskqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura-1)
+        - [1. `IamServiceClient`](#1-iamserviceclient-1)
+        - [2. `GroupsServiceClient`](#2-groupsserviceclient)
     - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-1)
+        - [1. `MemberRepository`](#1-memberrepository)
+        - [2. `TaskRepository`](#2-taskrepository)
+      - [Configuración (Configuration)](#configuración-configuration-1)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig-1)
+        - [2. `WebClientConfig`](#2-webclientconfig-1)
+      - [Mensajería (Messaging)](#mensajería-messaging-1)
+    - [Publishers](#publishers-1)
+        - [1. `IamEventPublisher`](#1-iameventpublisher-1)
+        - [2. `GroupEventsPublisher`](#2-groupeventspublisher)
+    - [Listeners (Consumidores)](#listeners-consumidores-1)
+        - [1. `MemberCreatedEventListener`](#1-membercreatedeventlistener)
+        - [2. `InvitationAcceptedEventListener`](#2-invitationacceptedeventlistener)
+        - [3. `MemberRemovedEventListener`](#3-memberremovedeventlistener)
+        - [4. `GroupDeletedEventListener`](#4-groupdeletedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-1)
     - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
     - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
-      - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
-      - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
+    - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
+    - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
   - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
     - [5.4.1. Domain Layer](#541-domain-layer)
     - [5.4.2. Interface Layer](#542-interface-layer)
@@ -177,22 +310,90 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.4.4. Infrastructure Layer](#544-infrastructure-layer)
     - [5.4.5. Bounded Context Software Architecture Component Level Diagrams](#545-bounded-context-software-architecture-component-level-diagrams)
     - [5.4.6. Bounded Context Software Architecture Code Level Diagrams](#546-bounded-context-software-architecture-code-level-diagrams)
-      - [5.4.6.1. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
-      - [5.4.6.2. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
+    - [5.4.7. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
+    - [5.4.8. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
   - [5.5. Bounded Context: Analítica y Reportes](#55-bounded-context-analítica-y-reportes)
     - [5.5.1. Domain Layer](#551-domain-layer)
-    - [5.5.2. Interface Layer](#552-interface-layer)
-    - [5.5.3. Application Layer](#553-application-layer)
-    - [5.5.4. Infrastructure Layer](#554-infrastructure-layer)
-    - [5.5.5. Bounded Context Software Architecture Component Level Diagrams](#555-bounded-context-software-architecture-component-level-diagrams)
-    - [5.5.6. Bounded Context Software Architecture Code Level Diagrams](#556-bounded-context-software-architecture-code-level-diagrams)
-      - [5.5.6.1. Bounded Context Domain Layer Class Diagrams](#5561-bounded-context-domain-layer-class-diagrams)
-      - [5.5.6.2 Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
+      - [**Justificación:**](#justificación)
+      - [**Aggregate: ActivityLog**](#aggregateactivitylog)
+      - [**Aggregate: Report**](#aggregatereport)
+      - [**Value Object: Metric**](#value-objectmetric)
+    - [**5.5.2. Interface Layer**](#552-interface-layer)
+      - [**Controller: ReportController**](#controllerreportcontroller)
+      - [**Atributos**](#atributos-7)
+      - [**Métodos**](#métodos-10)
+    - [**5.5.3. Application Layer**](#553-application-layer)
+      - [**Service: ReportQueryService**](#servicereportqueryservice)
+      - [**Atributos**](#atributos-8)
+      - [**Métodos**](#métodos-11)
+      - [**Service: ReportCommandService**](#servicereportcommandservice)
+      - [**Atributos**](#atributos-9)
+      - [**Métodos**](#métodos-12)
+      - [**Command Handlers**](#command-handlers)
+      - [**Event Handlers**](#event-handlers)
+    - [**5.5.4. Infrastructure Layer**](#554-infrastructure-layer)
+      - [**Repository: ActivityLogRepositoryImpl**](#repositoryactivitylogrepositoryimpl)
+      - [**Repository: ReportRepositoryImpl**](#repositoryreportrepositoryimpl)
+    - [**5.5.5. Bounded Context Software Architecture Component Level Diagrams**](#555-bounded-context-software-architecture-component-level-diagrams)
+    - [**5.5.6. Bounded Context Software Architecture Code Level Diagrams**](#556-bounded-context-software-architecture-code-level-diagrams)
+      - [**5.5.6.1. Bounded Context Domain Layer Class Diagrams**](#5561-bounded-context-domain-layer-class-diagrams)
+    - [5.5.8. Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
   - [5.6. Bounded Context: Notifications](#56-bounded-context-notifications)
     - [5.6.1. Domain Layer](#561-domain-layer)
+      - [Aggregate Root: `Notification`](#aggregate-root-notification)
+        - [Atributos](#atributos-10)
+        - [Métodos](#métodos-13)
+        - [Invariantes de negocio](#invariantes-de-negocio-5)
+      - [Entity: `EmailDeliveryLog`](#entity-emaildeliverylog)
+        - [Atributos](#atributos-11)
+        - [Métodos](#métodos-14)
+        - [Invariantes de negocio](#invariantes-de-negocio-6)
+      - [Value Object: `NotificationStatus`](#value-object-notificationstatus)
+        - [Atributos](#atributos-12)
+        - [Métodos](#métodos-15)
+        - [Invariantes de negocio](#invariantes-de-negocio-7)
+      - [Value Object: `EventType`](#value-object-eventtype)
+        - [Atributos](#atributos-13)
+        - [Métodos](#métodos-16)
+        - [Invariantes de negocio](#invariantes-de-negocio-8)
     - [5.6.2. Interface Layer](#562-interface-layer)
+      - [Recursos de entrada (Request)](#recursos-de-entrada-request-2)
+        - [`CreateNotificationResource`](#createnotificationresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response-2)
+        - [`NotificationResource`](#notificationresource)
+        - [`NotificationSummaryResource`](#notificationsummaryresource)
+        - [`EmailDeliveryLogResource`](#emaildeliverylogresource)
+        - [`NotificationStatusResource`](#notificationstatusresource)
+      - [Resumen de recursos](#resumen-de-recursos-2)
+      - [Controllers](#controllers-2)
+        - [1. `NotificationController`](#1-notificationcontroller)
+        - [2. `NotificationRetryController`](#2-notificationretrycontroller)
+      - [Resumen de Controllers](#resumen-de-controllers-2)
     - [5.6.3. Application Layer](#563-application-layer)
+      - [Command Services](#command-services-2)
+        - [1. `NotificationCommandServiceImpl`](#1-notificationcommandserviceimpl)
+        - [2. `NotificationDeliveryService` (Infrastructure Service expuesto vía Application Layer)](#2-notificationdeliveryservice-infrastructure-service-expuesto-vía-application-layer)
+      - [Query Services](#query-services-2)
+        - [1. `NotificationQueryServiceImpl`](#1-notificationqueryserviceimpl)
+      - [Resumen de servicios de aplicación](#resumen-de-servicios-de-aplicación)
     - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-2)
+        - [1. `NotificationRepository`](#1-notificationrepository)
+        - [2. `EmailDeliveryLogRepository`](#2-emaildeliverylogrepository)
+      - [Configuración (Configuration)](#configuración-configuration-2)
+        - [1. `SendGridConfig`](#1-sendgridconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig-2)
+        - [3. `SchedulerConfig`](#3-schedulerconfig)
+      - [Clientes HTTP (HTTP Clients)](#clientes-http-http-clients)
+        - [1. `IamServiceClient`](#1-iamserviceclient-2)
+      - [Mensajería (Messaging)](#mensajería-messaging-2)
+        - [Listeners (Consumidores)](#listeners-consumidores-2)
+          - [1. `MemberJoinedEventListener`](#1-memberjoinedeventlistener)
+          - [2. `MemberLeftEventListener`](#2-memberlefteventlistener-1)
+          - [3. `InvitationSentEventListener`](#3-invitationsenteventlistener)
+          - [4. `TaskAssignedEventListener`](#4-taskassignedeventlistener)
+          - [5. `GroupCreatedEventListener`](#5-groupcreatedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-2)
     - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
       - [5.6.6.1. Bounded Context Domain Layer Class Diagrams](#5661-bounded-context-domain-layer-class-diagrams)
@@ -214,6 +415,44 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+    - [6.4.3. Applications Mock-ups](#643-applications-mock-ups)
+    - [6.4.4. Applications User Flow Diagrams](#644-applications-user-flow-diagrams)
+  - [6.5. Applications Prototyping](#65-applications-prototyping)
+- [Capítulo VII: Product Implementation, Validation \& Deployment](#capítulo-vii-product-implementation-validation--deployment)
+  - [7.1. Software Configuration Management](#71-software-configuration-management)
+    - [7.1.1. Software Development Environment Configuration](#711-software-development-environment-configuration)
+    - [7.1.2. Source Code Management](#712-source-code-management)
+    - [7.1.3. Source Code Style Guide \& Conventions](#713-source-code-style-guide--conventions)
+    - [7.1.4. Software Deployment Configuration](#714-software-deployment-configuration)
+  - [7.2. Solution Implementation](#72-solution-implementation)
+    - [7.2.1 Sprint 1](#721-sprint-1)
+      - [7.2.1.1. Sprint Planning 1](#7211-sprint-planning-1)
+      - [7.2.1.2. Sprint Backlog 1](#7212-sprint-backlog-1)
+      - [7.2.1.3. Development Evidence for Sprint Review.](#7213-development-evidence-for-sprint-review)
+      - [7.2.1.4.	Testing Suite Evidence for Sprint Review](#7214testing-suite-evidence-for-sprint-review)
+      - [7.2.1.5.	Execution Evidence for Sprint Review](#7215execution-evidence-for-sprint-review)
+      - [7.2.1.6.	Services Documentation Evidence for Sprint Review](#7216services-documentation-evidence-for-sprint-review)
+        - [**Iam:**](#iam)
+        - [**Groups:**](#groups)
+        - [**Tasks:**](#tasks)
+        - [**Requests:**](#requests)
+        - [**Metrics:**](#metrics)
+      - [7.2.1.7.	Software Deployment Evidence for Sprint Review](#7217software-deployment-evidence-for-sprint-review)
+        - [Pasos realizados:](#pasos-realizados)
+      - [7.2.1.8.	Team Collaboration Insights during Sprint](#7218team-collaboration-insights-during-sprint)
+  - [7.3.	Validation Interviews](#73validation-interviews)
+    - [7.3.1.	Diseño de Entrevistas](#731diseño-de-entrevistas)
+      - [Objetivo de la Entrevista](#objetivo-de-la-entrevista)
+      - [Elementos de Validación](#elementos-de-validación)
+      - [User Flows a Validar](#user-flows-a-validar)
+      - [Formato de Registro de la Entrevista](#formato-de-registro-de-la-entrevista)
+    - [7.3.2.	Registro de Entrevistas](#732registro-de-entrevistas)
+    - [7.3.3.	Evaluaciones según heurísticas](#733evaluaciones-según-heurísticas)
+    - [7.4.	Video About-the-Product](#74video-about-the-product)
+  - [Conclusiones](#conclusiones)
+    - [TB1:](#tb1-1)
+    - [TB2:](#tb2-1)
+    - [TB3:](#tb3-1)
 
 ## Student Outcome
 
@@ -6693,6 +6932,103 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Implementar servicio para gestionar solicitudes de tareas completadas o cambios.</td>
     <td colspan="1">2</td>
     <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS016 — Microservice IAM -->
+  <tr>
+    <td colspan="1" rowspan="4">TS-016</td>
+    <td colspan="1" rowspan="4">Microservice IAM</td>
+    <td colspan="1">T-042</td>
+    <td colspan="1">Configurar microservicio IAM</td>
+    <td colspan="1">Configurar estructura base del microservicio IAM con Spring Boot</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-043</td>
+    <td colspan="1">Configurar base de datos</td>
+    <td colspan="1">Configurar conexión y modelos de BD para el microservicio</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-044</td>
+    <td colspan="1">Implementar manejo de errores</td>
+    <td colspan="1">Implementar respuestas de error consistentes en el microservicio</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-045</td>
+    <td colspan="1">Documentación Swagger</td>
+    <td colspan="1">Documentar API del microservicio con Swagger/OpenAPI</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS013 — Autenticación (Login) -->
+  <tr>
+    <td colspan="1" rowspan="3">TS-013</td>
+    <td colspan="1" rowspan="3">Autenticación (Login)</td>
+    <td colspan="1">T-046</td>
+    <td colspan="1">Crear endpoint POST Sign-Up</td>
+    <td colspan="1">POST /Iam/ApiVersion/authentication/sign-up — Registro de nuevo usuario con roles</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-047</td>
+    <td colspan="1">Crear endpoint POST Sign-In</td>
+    <td colspan="1">POST /Iam/ApiVersion/authentication/sign-in — Inicio de sesión con JWT</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-048</td>
+    <td colspan="1">Implementar JWT con roles</td>
+    <td colspan="1">Generar token JWT que incluya roles y tiempo de expiración</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS014 — Gestión de usuarios -->
+  <tr>
+    <td colspan="1" rowspan="4">TS-014</td>
+    <td colspan="1" rowspan="4">Gestión de usuarios</td>
+    <td colspan="1">T-049</td>
+    <td colspan="1">Crear endpoint GET GetRoles</td>
+    <td colspan="1">GET /Iam/ApiVersion/roles — Listar roles disponibles del sistema</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-050</td>
+    <td colspan="1">Crear endpoint GET GetUserByMemberId</td>
+    <td colspan="1">GET /Iam/ApiVersion/users?memberId={memberId} — Buscar usuario por memberId</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-051</td>
+    <td colspan="1">Crear endpoint GET GetUserById</td>
+    <td colspan="1">GET /Iam/ApiVersion/users/{userId} — Obtener usuario por ID</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-052</td>
+    <td colspan="1">Crear endpoint GET GetUserOnlyById</td>
+    <td colspan="1">GET /Iam/ApiVersion/users/{userId}/domain-profile — Perfil de dominio del usuario</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
     <td colspan="1">Done</td>
   </tr>
 </table>
