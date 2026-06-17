@@ -7079,9 +7079,13 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 
 Para la parte de Testing se realizaron pruebas unitarias de los servicios de cada microservicio. Se utilizó el patrón AAA para mantener un estandar entre los miembros.
 
-**Groups:** Esta imagen muestra la evidencia de las 25 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas
+**Groups:** Esta imagen muestra la evidencia de las 25 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
 
 [![Testing-Groups.png](https://i.postimg.cc/zBhH66qP/Testing-Groups.png)](https://postimg.cc/MMWGjsMy)
+
+**Request:** Acá tenemos la evidencia de las 12 pruebas unitarias realizadas para esta entrega, relacionados con requests:
+
+[![Testing-Requests.png](https://i.ibb.co/hx9fNxfJ/request-Test.png)](https://ibb.co/NgCSqgSd)
 
 #### 7.2.1.5.	Execution Evidence for Sprint Review
 
