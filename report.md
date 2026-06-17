@@ -7234,7 +7234,14 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 
 ##### **Iam:**
 
-
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+|-----|-------|----------|---------|--------------|-------------|--------|----------|
+| **Iam** | POST | `/authentication/sign-up` | Sign up | Register a new user account with the provided personal data, credentials, and role | `signUp` | none | si |
+| **Iam** | POST | `/authentication/sign-in` | Sign in | Authenticate a user with their username and password and return an access token | `signIn` | none | si |
+| **Iam** | GET | `/roles` | Get roles | Retrieve the list of all roles available in the system | `getRoles` | none | no |
+| **Iam** | GET | `/users` | Get user by member id | Retrieve the user associated with a specific member id | `getUserByMemberId` | memberId (query) | no |
+| **Iam** | GET | `/users/{userId}` | Get user by id | Retrieve detailed information about a specific user by their ID | `getUserById` | userId | no |
+| **Iam** | GET | `/users/{userId}/domain-profile` | Get user only by id | Retrieve only the domain profile information of a specific user by their ID | `getUserOnlyById` | userId | no |
 
 ##### **Groups:**
 
