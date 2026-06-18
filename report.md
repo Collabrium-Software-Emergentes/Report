@@ -481,8 +481,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.<br>
         <br> <em>TP</em> <br>
-        Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.
-        <br><br>
+        Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.<br>
+        <br> <em>TB2</em> <br>
+        Mantuve el contacto con el profesor para comunicar con mis compañeroes sobre los requerimientos de este entregable. Apoye en la creacion y orquestacion de los microservicios deployados. <br> <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
@@ -516,7 +517,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.<br>
         <br> <strong>TP</strong> <br>
-        En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible.
+        En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible. <br>
+        <br> <strong>TB2</strong> <br>
+        En esta entrega nos encargamos del desarrollo de la primera parte del proyecto. La cual se encarga de todas las historias de usuario que no estan relacionadas a las tecnologias emergentes.
       </td>
     </tr>
     <tr>
@@ -526,8 +529,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.<br>
         <br> <em>TP</em> <br>
-        Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. 
-        <br><br>
+        Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. <br>
+        <br><em>TB2</em> <br>
+        Realizé el deploy de los microservicios, además añadi mejores prácticas a las implementaciones de todos los microservicios, a la vez que corregi vulnerabilidades en las dependencias. Me encargue netamente del microservicio de Groups.  <br> <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
@@ -561,7 +565,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.<br>
         <br> <strong>TP</strong> <br>
-        Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context.
+        Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context. <br>
+        <br> <strong>TB2</strong> <br>
+        En esta entrega nos se realizó el deploy de algunos microservicios que ya se consideraban listos. Además, de investigar todas las tecnologias emergentes que se usarán en las entregas posteriores.
       </td>
     </tr>
   </tbody>
