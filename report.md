@@ -37,6 +37,7 @@
 | 0.1 | 2026-04-14 | Miguel Gomez | Creación de la primera versión del documento |
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
 | 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 5 <br> - Capítulo 6 hasta 6.4 <br> |
+| 3.0 | 2026-06-17 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 6 finalizado <br> - Capítulo 7 - Sprint 1 <br> |
 
 ## Project Report Collaboration Insights
 
@@ -54,7 +55,7 @@ alt="Network-P1-TB1.png" />](https://postimg.cc/rD16qs5S)
 [<img src="./media/image4.png" style="width:5.83333in;height:2.12783in"
 alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
-### TB2:
+### TP:
 
 [![Insght-TP.png](https://i.postimg.cc/CxLKjF9m/Insght-TP.png)](https://postimg.cc/fJpZshz9)
 
@@ -62,9 +63,16 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
 [![insig.png](https://i.postimg.cc/yYn16MWc/insig.png)](https://postimg.cc/3d45nbXx)
 
-### TB3:
+### TB2:
+
+[![TB2-Insight-1.png](https://i.postimg.cc/0NM2qgq7/TB2-Insight-1.png)](https://postimg.cc/wtzdhGMB)
 
 
+Feliz y Felipe son dos cuentas de Jhon Guerrero.
+
+[![TB2-Insight-2.png](https://i.postimg.cc/sf9fz9b5/TB2-Insight-2.png)](https://postimg.cc/RqhxQfS0)
+
+[![TB2-Insights-3.png](https://i.postimg.cc/sX5WsGRW/TB2-Insights-3.png)](https://postimg.cc/tZCJzTJR)
 
 ## Contenido
 
