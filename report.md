@@ -7022,6 +7022,33 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Diego Acuña</td>
     <td colspan="1">Done</td>
   </tr>
+   <!-- TS021 — Microservice Analytics and Reports -->
+   <tr>
+    <td colspan="1">T-053</td>
+    <td colspan="1">Crear getUserUnreadNotifications</td>
+    <td colspan="1">Crear endpoint de Notifications GET /api/notifications/user/{userId}/unread</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
+    <td colspan="1">Done</td>
+  </tr>
+     <tr>
+    <td colspan="1">T-054</td>
+    <td colspan="1">Crear generateReport</td>
+    <td colspan="1">Crear endpoint de Analytics POST /api/reports/generate/{userId}</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
+    <td colspan="1">Done</td>
+  </tr>
+     <tr>
+    <td colspan="1">T-055</td>
+    <td colspan="1">Crear getUserReports</td>
+    <td colspan="1">Crear endpoint de Analytics GET /api/reports/user/{userId}</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
+    <td colspan="1">Done</td>
+  </tr>
+
+
 </table>
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
