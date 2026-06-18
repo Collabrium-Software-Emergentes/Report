@@ -7359,8 +7359,6 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 | **Analytics** | POST | `/api/reports/generate/{userId}` | Generate report | Create a new analytics report for a specific user | `generateReport` | userId | no |
 | **Analytics** | GET | `/api/reports/user/{userId}` | Get user reports | Retrieve all generated reports for a specific user | `getUserReports` | userId | no |
 
-
-
 #### 7.2.1.7.	Software Deployment Evidence for Sprint Review
 
 Para hacer el deployment de la landing page se utilizó GitHub Pages, una plataforma que permite alojar sitios web estáticos de forma gratuita directamente desde un repositorio de GitHub.
