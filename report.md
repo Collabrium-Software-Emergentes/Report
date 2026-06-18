@@ -439,6 +439,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
         - [**Metrics:**](#metrics)
       - [7.2.1.7.	Software Deployment Evidence for Sprint Review](#7217software-deployment-evidence-for-sprint-review)
         - [Pasos realizados:](#pasos-realizados)
+        - [Pasos realizados:](#pasos-realizados-1)
       - [7.2.1.8.	Team Collaboration Insights during Sprint](#7218team-collaboration-insights-during-sprint)
   - [7.3.	Validation Interviews](#73validation-interviews)
     - [7.3.1.	Diseño de Entrevistas](#731diseño-de-entrevistas)
@@ -7087,6 +7088,11 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
 Para la parte de Testing se realizaron pruebas unitarias de los servicios de cada microservicio. Se utilizó el patrón AAA para mantener un estandar entre los miembros.
+
+**Iam:** En este microservicio se realizaron 9 pruebas unitarias, las cuales se enfocaron en probar la lógica de negocio de los servicios de autenticación y gestión de usuarios, incluyendo la creación de usuarios, generación de tokens JWT, y validación de credenciales.
+
+[![Testing-Iam.png](https://i.postimg.cc/x122hrpw/imagen-2026-06-17-192339854.png)](https://postimg.cc/qzjS6FTw)
+
 
 **Groups:** Esta imagen muestra la evidencia de las 25 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
 
