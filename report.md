@@ -7111,6 +7111,34 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 | Iam-Microservice | master | 64e64cda6d363e78b0838ddb5612bf7b20dd4e40 | feat(iam): implement User aggregate root and Role domain entity | Implemented the User Aggregate Root encapsulating username, credentials, personal data, and role assignments, along with the Role entity, forming the core of the IAM Domain Layer. | 2026-06-16 |
 | Iam-Microservice | master | 1c64d98a775afcceed2f55a7707ac0add1eb0afa | feat(iam): introduce authentication domain value objects for roles and identifiers | Introduced the Roles enumeration (ROLE_USER, ROLE_LEADER, ROLE_MEMBER) and the LeaderId/MemberId value objects, used by the User aggregate to reference external Leader and Member profiles without breaking bounded-context isolation. | 2026-06-16 |
 | Iam-Microservice | master | f4094708f7623c2efe5ee4a8e3f1f90f236aea22 | feat(iam): implement OpenFeign clients for groups and tasks services | Added GroupsServiceClientImpl and TasksServiceClientImpl as OpenFeign clients to synchronously fetch leader and member profile details, enabling UserQueryServiceImpl to return enriched user information. | 2026-06-16 |
+| Metrics-Microservice | master | 013dfdf | feat: fixed getByLeaderId to getByGroupId | - | 15/11 |
+| Metrics-Microservice | master | a98ce2a | feat: added create task endpoint | - | 16/11 |
+| Metrics-Microservice | master | acdb033 | feat: added get all tasks by member id | - | 16/11 |
+| Metrics-Microservice | master | 5edbe4a | feat: added get last next task by member id | - | 16/11 |
+| Metrics-Microservice | master | b8b6057 | feat: added get tasks by id and get tasks by status | - | 16/11 |
+| Metrics-Microservice | master | 42a0507 | feat: added update tasks | - | 16/11 |
+| Metrics-Microservice | master | 942b192 | feat: added endpoints | - | 17/11 |
+| Metrics-Microservice | master | e7294b7 | feat: added delete task and get next task by authenticated | - | 17/11 |
+| Metrics-Microservice | master | 21d816f | feat: added get tasks of group by leader authenticated | - | 17/11 |
+| Metrics-Microservice | master | 3c0babf | feat: update pom.xml with new dependencies and Spring Cloud version. | - | 22/11 |
+| Metrics-Microservice | master | d164af8 | feat: add auditing support with abstract models and OpenAPI configuration. | - | 22/11 |
+| Metrics-Microservice | master | 8579c4f | feat: configure application properties for PostgreSQL and RabbitMQ. | - | 22/11 |
+| Metrics-Microservice | master | 31b6cee | feat(requests): enable JPA auditing and scheduling in the application. | - | 22/11 |
+| Metrics-Microservice | master | 7db7e80 | feat(requests): implement request management commands and queries. | - | 22/11 |
+| Metrics-Microservice | master | 149c275 | feat(requests): integrate task service client and enhance request handling. | - | 22/11 |
+| Metrics-Microservice | master | 2786226 | feat(requests): add method to fetch all tasks by group ID in request's TaskServiceClient. | - | 26/11 |
+| Metrics-Microservice | master | 74623f9 | feat(requests): implement GroupRequestController for managing group requests. | - | 26/11 |
+| Metrics-Microservice | master| e838a22 | feat(requests): add requests retrieval by task ID with member validation. | - | 27/11 |
+| Metrics-Microservice | master | c81f1b4 | feat(requests): add method to fetch all tasks by group ID in request's TaskServiceClient. | - | 27/11 |
+| Metrics-Microservice | master | af842e0 | feat: implemented clients for metrics | - | 27/11 |
+| Metrics-Microservice | master | 3085371 | Created group client | - | 29/11 |
+| Metrics-Microservice | master | 87eda77 | Fixed group client | - | 29/11 |
+| Metrics-Microservice | master | ae62fbc | fix: resolve merge conflicts in pom.xml and clean up dependencies. | - | 02/11 |
+| Metrics-Microservice | master | 1735019 | fix(metrics): update import statements to reflect new package structure. | - | 02/12 |
+| Metrics-Microservice | master | d733acc | refactor(metrics): remove unused groups client. | - | 02/12 |
+| Metrics-Microservice | master | 5d4c68e | fix(metrics): update import statements to align with new package structure. | - | 02/12 |
+| Metrics-Microservice | master | d733acc | refactor(metrics): remove unused groups client. | - | 02/12 |
+| Metrics-Microservice | master | 5d4c68e | fix(metrics): update import statements to align with new package structure. | - | 02/12 |
 
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
