@@ -7716,8 +7716,8 @@ Recomendación: Utilizar un fondo de color más destacado o efectos visuales (co
 | Sección| Descripción|
 |------------------|----------------|
 | **Resumen del video**              | El video presenta una introducción a la aplicación SynHub, destacando sus principales características y beneficios para la gestión de grupos. Se enfoca en cómo la app facilita la organización, asignación de tareas y seguimiento del desempeño para líderes. Se muestran ejemplos prácticos de uso, enfatizando la usabilidad y el diseño intuitivo de la interfaz. |
-| **Cuadro de video Representativo** |   |
-| **Url de video**                   |  |
+| **Cuadro de video Representativo** | [![About-The-Product-1.png](https://i.postimg.cc/yN9Bb17K/About-The-Product-1.png)](https://postimg.cc/LqHrqMqQ)  |
+| **Url de video**                   | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQCXm12r-HHzTquQsGH5Y8-uAbgpSvF7n3bmx8tjAkoe2F0?e=axEV9k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
 
 ## Conclusiones
 
