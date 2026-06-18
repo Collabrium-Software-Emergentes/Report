@@ -7809,11 +7809,11 @@ Anexo:
 
 - TB2 - Video Grupal:
 
-
+  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQB4u0FTa25qRo_pLTwwKuB4Abb6XO_uGWUrC9keAjIz2zM?e=QtgY8n&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 - TB2 - About The Team:
 
-
+  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQAXwgoQCXRDSbec0QKmjKW-AasC3aphM8Fsc2Sdk8MPMxk?e=dB6GDS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 Bibliografía:
 
