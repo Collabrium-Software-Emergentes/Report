@@ -81,11 +81,12 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [Project Report Collaboration Insights](#project-report-collaboration-insights)
     - [TB1:](#tb1)
     - [TB2:](#tb2)
+    - [TB3:](#tb3)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
-  - [1.1. Startup Profile](#11-startup-profile)
+  - [**1.1. Startup Profile**](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-  - [1.2. Solution Profile](#12-solution-profile)
+  - [**1.2. Solution Profile**](#12-solution-profile)
     - [1.2.1 Nombre del producto](#121-nombre-del-producto)
     - [1.2.2 Antecedentes y problemática](#122-antecedentes-y-problemática)
     - [1.2.3. Lean UX Process](#123-lean-ux-process)
@@ -93,7 +94,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       - [1.2.3.2. Lean UX Assumptions](#1232-lean-ux-assumptions)
       - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
       - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
-  - [1.3. Segmento objetivo](#13-segmento-objetivo)
+  - [**1.3. Segmento objetivo**](#13-segmento-objetivo)
 - [2. Capítulo II: Requirements Elicitation \& Analysis](#2-capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -124,6 +125,7 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 - [4. Capítulo IV: Strategic-Level Software Design](#4-capítulo-iv-strategic-level-software-design)
   - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
     - [4.1.1. Design Purpose](#411-design-purpose)
+  - [Enfoque Arquitectónico](#enfoque-arquitectónico)
     - [4.1.2. Attribute-Driven Design Inputs](#412-attribute-driven-design-inputs)
       - [4.1.2.1. Primary Functionality (Primary User Stories)](#4121-primary-functionality-primary-user-stories)
       - [4.1.2.2. Quality attribute Scenarios](#4122-quality-attribute-scenarios)
@@ -152,24 +154,155 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams)
       - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams)
       - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram)
+    - [5.1.1. Domain Layer](#511-domain-layer-1)
+    - [5.1.2. Interface Layer](#512-interface-layer-1)
+    - [5.1.3. Application Layer](#513-application-layer-1)
+    - [5.1.4. Infrastructure Layer](#514-infrastructure-layer-1)
+    - [5.1.5. Bounded Context Software Architecture Component Level Diagrams](#515-bounded-context-software-architecture-component-level-diagrams-1)
+    - [5.1.6. Bounded Context Software Architecture Code Level Diagrams](#516-bounded-context-software-architecture-code-level-diagrams-1)
+      - [5.1.6.1. Bounded Context Domain Layer Class Diagrams](#5161-bounded-context-domain-layer-class-diagrams-1)
+      - [5.1.6.2. Bounded Context Database Design Diagram](#5162-bounded-context-database-design-diagram-1)
   - [5.2. Bounded Context: Groups](#52-bounded-context-groups)
     - [5.2.1. Domain Layer](#521-domain-layer)
+      - [Aggregate Root: `Group`](#aggregate-root-group)
+        - [Atributos](#atributos)
+        - [Métodos](#métodos)
+        - [Invariantes de negocio](#invariantes-de-negocio)
+      - [Aggregate Root: `Invitation`](#aggregate-root-invitation)
+        - [Atributos](#atributos-1)
+        - [Métodos](#métodos-1)
+        - [Invariantes de negocio](#invariantes-de-negocio-1)
+      - [Aggregate Root: `Leader`](#aggregate-root-leader)
+        - [Atributos](#atributos-2)
+        - [Métodos](#métodos-2)
+        - [Invariantes de negocio](#invariantes-de-negocio-2)
+      - [Value Object: `GroupCode`](#value-object-groupcode)
+        - [Atributos](#atributos-3)
+        - [Métodos](#métodos-3)
+        - [Invariantes](#invariantes)
+      - [Value Object: `ImgUrl`](#value-object-imgurl)
+        - [Atributos](#atributos-4)
+        - [Métodos](#métodos-4)
+        - [Invariantes](#invariantes-1)
+      - [Value Object: `MemberId`](#value-object-memberid)
+        - [Atributos](#atributos-5)
+        - [Métodos](#métodos-5)
+        - [Invariantes](#invariantes-2)
     - [5.2.2. Interface Layer](#522-interface-layer)
+      - [Recursos de entrada (Request)](#recursos-de-entrada-request)
+        - [`CreateGroupResource`](#creategroupresource)
+        - [`UpdateGroupResource`](#updategroupresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response)
+        - [`GroupResource`](#groupresource)
+        - [`LeaderResource`](#leaderresource)
+        - [`LeaderDetailsResource`](#leaderdetailsresource)
+        - [`GroupMemberResource`](#groupmemberresource)
+        - [`InvitationMemberResource`](#invitationmemberresource)
+        - [`InvitationResource`](#invitationresource)
+      - [Resumen de recursos](#resumen-de-recursos)
+      - [Controllers](#controllers)
+        - [1. `GroupController`](#1-groupcontroller)
+        - [2. `InvitationController`](#2-invitationcontroller)
+        - [3. `LeaderController`](#3-leadercontroller)
+        - [4. `LeaderGroupController`](#4-leadergroupcontroller)
+        - [5. `LeaderInvitationController`](#5-leaderinvitationcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers)
     - [5.2.3. Application Layer](#523-application-layer)
+      - [Command Services](#command-services)
+        - [1. `GroupCommandServiceImpl`](#1-groupcommandserviceimpl)
+        - [2. `InvitationCommandServiceImpl`](#2-invitationcommandserviceimpl)
+        - [3. `LeaderCommandServiceImpl`](#3-leadercommandserviceimpl)
+      - [Query Services](#query-services)
+        - [1. `GroupQueryServiceImpl`](#1-groupqueryserviceimpl)
+        - [2. `InvitationQueryServiceImpl`](#2-invitationqueryserviceimpl)
+        - [3. `LeaderQueryServiceImpl`](#3-leaderqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura)
+        - [1. `IamServiceClient`](#1-iamserviceclient)
+        - [2. `TasksServiceClient`](#2-tasksserviceclient)
     - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories)
+        - [1. `GroupRepository`](#1-grouprepository)
+        - [2. `InvitationRepository`](#2-invitationrepository)
+        - [3. `LeaderRepository`](#3-leaderrepository)
+      - [Configuración (Configuration)](#configuración-configuration)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig)
+      - [Mensajería (Messaging)](#mensajería-messaging)
+        - [Publishers](#publishers)
+          - [1. `IamEventPublisher`](#1-iameventpublisher)
+          - [2. `TasksEventPublisher`](#2-taskseventpublisher)
+        - [Listeners (Consumidores)](#listeners-consumidores)
+          - [1. `LeaderCreatedEventListener`](#1-leadercreatedeventlistener)
+        - [2. `MemberLeftEventListener`](#2-memberlefteventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura)
     - [5.2.5. Bounded Context Software Architecture Component Level Diagrams](#525-bounded-context-software-architecture-component-level-diagrams)
     - [5.2.6. Bounded Context Software Architecture Code Level Diagrams](#526-bounded-context-software-architecture-code-level-diagrams)
       - [5.2.6.1. Bounded Context Domain Layer Class Diagrams](#5261-bounded-context-domain-layer-class-diagrams)
       - [5.2.6.2 Bounded Context Database Design Diagram](#5262-bounded-context-database-design-diagram)
   - [5.3. Bounded Context: Tasks](#53-bounded-context-tasks)
     - [5.3.1. Domain Layer](#531-domain-layer)
+      - [Aggregate Root: `Task`](#aggregate-root-task)
+        - [Métodos](#métodos-6)
+        - [Invariantes de negocio](#invariantes-de-negocio-3)
+      - [Aggregate Root: `Member`](#aggregate-root-member)
+        - [Métodos](#métodos-7)
+        - [Invariantes de negocio](#invariantes-de-negocio-4)
+      - [Value Object: `GroupId`](#value-object-groupid)
+        - [Atributos](#atributos-6)
+        - [Métodos](#métodos-8)
+        - [Invariantes](#invariantes-3)
+      - [Value Object: `TaskStatus`](#value-object-taskstatus)
+        - [Valores](#valores)
+        - [Métodos](#métodos-9)
+        - [Invariantes](#invariantes-4)
     - [5.3.2. Interface Layer](#532-interface-layer)
+    - [Recursos de entrada (Request)](#recursos-de-entrada-request-1)
+        - [`CreateTaskResource`](#createtaskresource)
+        - [`UpdateTaskResource`](#updatetaskresource)
+        - [`CreateMemberResource`](#creatememberresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response-1)
+        - [`TaskResource`](#taskresource)
+        - [`TaskMemberResource`](#taskmemberresource)
+        - [`MemberResource`](#memberresource)
+        - [`MemberOnlyResource`](#memberonlyresource)
+        - [`ExtendedGroupResource`](#extendedgroupresource)
+      - [Resumen de recursos](#resumen-de-recursos-1)
+      - [Controllers](#controllers-1)
+        - [1. `MemberController`](#1-membercontroller)
+        - [2. `MemberTaskController`](#2-membertaskcontroller)
+        - [3. `TaskController`](#3-taskcontroller)
+      - [Resumen de Controllers](#resumen-de-controllers-1)
     - [5.3.3. Application Layer](#533-application-layer)
+      - [Command Services](#command-services-1)
+        - [1. `MemberCommandServiceImpl`](#1-membercommandserviceimpl)
+        - [2. `TaskCommandServiceImpl`](#2-taskcommandserviceimpl)
+      - [Query Services](#query-services-1)
+        - [1. `MemberQueryServiceImpl`](#1-memberqueryserviceimpl)
+        - [2. `TaskQueryServiceImpl`](#2-taskqueryserviceimpl)
+      - [Clients / Ports (Interfaces hacia Infraestructura)](#clients--ports-interfaces-hacia-infraestructura-1)
+        - [1. `IamServiceClient`](#1-iamserviceclient-1)
+        - [2. `GroupsServiceClient`](#2-groupsserviceclient)
     - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-1)
+        - [1. `MemberRepository`](#1-memberrepository)
+        - [2. `TaskRepository`](#2-taskrepository)
+      - [Configuración (Configuration)](#configuración-configuration-1)
+        - [1. `RabbitMQConfig`](#1-rabbitmqconfig-1)
+        - [2. `WebClientConfig`](#2-webclientconfig-1)
+      - [Mensajería (Messaging)](#mensajería-messaging-1)
+    - [Publishers](#publishers-1)
+        - [1. `IamEventPublisher`](#1-iameventpublisher-1)
+        - [2. `GroupEventsPublisher`](#2-groupeventspublisher)
+    - [Listeners (Consumidores)](#listeners-consumidores-1)
+        - [1. `MemberCreatedEventListener`](#1-membercreatedeventlistener)
+        - [2. `InvitationAcceptedEventListener`](#2-invitationacceptedeventlistener)
+        - [3. `MemberRemovedEventListener`](#3-memberremovedeventlistener)
+        - [4. `GroupDeletedEventListener`](#4-groupdeletedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-1)
     - [5.3.5. Bounded Context Software Architecture Component Level Diagrams](#535-bounded-context-software-architecture-component-level-diagrams)
     - [5.3.6. Bounded Context Software Architecture Code Level Diagrams](#536-bounded-context-software-architecture-code-level-diagrams)
-      - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
-      - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
+    - [5.3.6.1 Bounded Context Domain Layer Class Diagrams](#5361-bounded-context-domain-layer-class-diagrams)
+    - [5.3.6.2 Bounded Context Database Design Diagram](#5362-bounded-context-database-design-diagram)
   - [5.4. Bounded Context: Requests](#54-bounded-context-requests)
     - [5.4.1. Domain Layer](#541-domain-layer)
     - [5.4.2. Interface Layer](#542-interface-layer)
@@ -177,22 +310,90 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
     - [5.4.4. Infrastructure Layer](#544-infrastructure-layer)
     - [5.4.5. Bounded Context Software Architecture Component Level Diagrams](#545-bounded-context-software-architecture-component-level-diagrams)
     - [5.4.6. Bounded Context Software Architecture Code Level Diagrams](#546-bounded-context-software-architecture-code-level-diagrams)
-      - [5.4.6.1. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
-      - [5.4.6.2. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
+    - [5.4.7. Bounded Context Domain Layer Class Diagrams](#547-bounded-context-domain-layer-class-diagrams)
+    - [5.4.8. Bounded Context Database Design Diagram](#548-bounded-context-database-design-diagram)
   - [5.5. Bounded Context: Analítica y Reportes](#55-bounded-context-analítica-y-reportes)
     - [5.5.1. Domain Layer](#551-domain-layer)
-    - [5.5.2. Interface Layer](#552-interface-layer)
-    - [5.5.3. Application Layer](#553-application-layer)
-    - [5.5.4. Infrastructure Layer](#554-infrastructure-layer)
-    - [5.5.5. Bounded Context Software Architecture Component Level Diagrams](#555-bounded-context-software-architecture-component-level-diagrams)
-    - [5.5.6. Bounded Context Software Architecture Code Level Diagrams](#556-bounded-context-software-architecture-code-level-diagrams)
-      - [5.5.6.1. Bounded Context Domain Layer Class Diagrams](#5561-bounded-context-domain-layer-class-diagrams)
-      - [5.5.6.2 Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
+      - [**Justificación:**](#justificación)
+      - [**Aggregate: ActivityLog**](#aggregateactivitylog)
+      - [**Aggregate: Report**](#aggregatereport)
+      - [**Value Object: Metric**](#value-objectmetric)
+    - [**5.5.2. Interface Layer**](#552-interface-layer)
+      - [**Controller: ReportController**](#controllerreportcontroller)
+      - [**Atributos**](#atributos-7)
+      - [**Métodos**](#métodos-10)
+    - [**5.5.3. Application Layer**](#553-application-layer)
+      - [**Service: ReportQueryService**](#servicereportqueryservice)
+      - [**Atributos**](#atributos-8)
+      - [**Métodos**](#métodos-11)
+      - [**Service: ReportCommandService**](#servicereportcommandservice)
+      - [**Atributos**](#atributos-9)
+      - [**Métodos**](#métodos-12)
+      - [**Command Handlers**](#command-handlers)
+      - [**Event Handlers**](#event-handlers)
+    - [**5.5.4. Infrastructure Layer**](#554-infrastructure-layer)
+      - [**Repository: ActivityLogRepositoryImpl**](#repositoryactivitylogrepositoryimpl)
+      - [**Repository: ReportRepositoryImpl**](#repositoryreportrepositoryimpl)
+    - [**5.5.5. Bounded Context Software Architecture Component Level Diagrams**](#555-bounded-context-software-architecture-component-level-diagrams)
+    - [**5.5.6. Bounded Context Software Architecture Code Level Diagrams**](#556-bounded-context-software-architecture-code-level-diagrams)
+      - [**5.5.6.1. Bounded Context Domain Layer Class Diagrams**](#5561-bounded-context-domain-layer-class-diagrams)
+    - [5.5.8. Bounded Context Database Design Diagram](#558-bounded-context-database-design-diagram)
   - [5.6. Bounded Context: Notifications](#56-bounded-context-notifications)
     - [5.6.1. Domain Layer](#561-domain-layer)
+      - [Aggregate Root: `Notification`](#aggregate-root-notification)
+        - [Atributos](#atributos-10)
+        - [Métodos](#métodos-13)
+        - [Invariantes de negocio](#invariantes-de-negocio-5)
+      - [Entity: `EmailDeliveryLog`](#entity-emaildeliverylog)
+        - [Atributos](#atributos-11)
+        - [Métodos](#métodos-14)
+        - [Invariantes de negocio](#invariantes-de-negocio-6)
+      - [Value Object: `NotificationStatus`](#value-object-notificationstatus)
+        - [Atributos](#atributos-12)
+        - [Métodos](#métodos-15)
+        - [Invariantes de negocio](#invariantes-de-negocio-7)
+      - [Value Object: `EventType`](#value-object-eventtype)
+        - [Atributos](#atributos-13)
+        - [Métodos](#métodos-16)
+        - [Invariantes de negocio](#invariantes-de-negocio-8)
     - [5.6.2. Interface Layer](#562-interface-layer)
+      - [Recursos de entrada (Request)](#recursos-de-entrada-request-2)
+        - [`CreateNotificationResource`](#createnotificationresource)
+      - [Recursos de salida (Response)](#recursos-de-salida-response-2)
+        - [`NotificationResource`](#notificationresource)
+        - [`NotificationSummaryResource`](#notificationsummaryresource)
+        - [`EmailDeliveryLogResource`](#emaildeliverylogresource)
+        - [`NotificationStatusResource`](#notificationstatusresource)
+      - [Resumen de recursos](#resumen-de-recursos-2)
+      - [Controllers](#controllers-2)
+        - [1. `NotificationController`](#1-notificationcontroller)
+        - [2. `NotificationRetryController`](#2-notificationretrycontroller)
+      - [Resumen de Controllers](#resumen-de-controllers-2)
     - [5.6.3. Application Layer](#563-application-layer)
+      - [Command Services](#command-services-2)
+        - [1. `NotificationCommandServiceImpl`](#1-notificationcommandserviceimpl)
+        - [2. `NotificationDeliveryService` (Infrastructure Service expuesto vía Application Layer)](#2-notificationdeliveryservice-infrastructure-service-expuesto-vía-application-layer)
+      - [Query Services](#query-services-2)
+        - [1. `NotificationQueryServiceImpl`](#1-notificationqueryserviceimpl)
+      - [Resumen de servicios de aplicación](#resumen-de-servicios-de-aplicación)
     - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
+      - [Persistencia (JPA Repositories)](#persistencia-jpa-repositories-2)
+        - [1. `NotificationRepository`](#1-notificationrepository)
+        - [2. `EmailDeliveryLogRepository`](#2-emaildeliverylogrepository)
+      - [Configuración (Configuration)](#configuración-configuration-2)
+        - [1. `SendGridConfig`](#1-sendgridconfig)
+        - [2. `WebClientConfig`](#2-webclientconfig-2)
+        - [3. `SchedulerConfig`](#3-schedulerconfig)
+      - [Clientes HTTP (HTTP Clients)](#clientes-http-http-clients)
+        - [1. `IamServiceClient`](#1-iamserviceclient-2)
+      - [Mensajería (Messaging)](#mensajería-messaging-2)
+        - [Listeners (Consumidores)](#listeners-consumidores-2)
+          - [1. `MemberJoinedEventListener`](#1-memberjoinedeventlistener)
+          - [2. `MemberLeftEventListener`](#2-memberlefteventlistener-1)
+          - [3. `InvitationSentEventListener`](#3-invitationsenteventlistener)
+          - [4. `TaskAssignedEventListener`](#4-taskassignedeventlistener)
+          - [5. `GroupCreatedEventListener`](#5-groupcreatedeventlistener)
+      - [Resumen de la capa de infraestructura](#resumen-de-la-capa-de-infraestructura-2)
     - [5.6.5. Bounded Context Software Architecture Component Level Diagrams](#565-bounded-context-software-architecture-component-level-diagrams)
     - [5.6.6. Bounded Context Software Architecture Code Level Diagrams](#566-bounded-context-software-architecture-code-level-diagrams)
       - [5.6.6.1. Bounded Context Domain Layer Class Diagrams](#5661-bounded-context-domain-layer-class-diagrams)
@@ -214,6 +415,45 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+    - [6.4.3. Applications Mock-ups](#643-applications-mock-ups)
+    - [6.4.4. Applications User Flow Diagrams](#644-applications-user-flow-diagrams)
+  - [6.5. Applications Prototyping](#65-applications-prototyping)
+- [Capítulo VII: Product Implementation, Validation \& Deployment](#capítulo-vii-product-implementation-validation--deployment)
+  - [7.1. Software Configuration Management](#71-software-configuration-management)
+    - [7.1.1. Software Development Environment Configuration](#711-software-development-environment-configuration)
+    - [7.1.2. Source Code Management](#712-source-code-management)
+    - [7.1.3. Source Code Style Guide \& Conventions](#713-source-code-style-guide--conventions)
+    - [7.1.4. Software Deployment Configuration](#714-software-deployment-configuration)
+  - [7.2. Solution Implementation](#72-solution-implementation)
+    - [7.2.1 Sprint 1](#721-sprint-1)
+      - [7.2.1.1. Sprint Planning 1](#7211-sprint-planning-1)
+      - [7.2.1.2. Sprint Backlog 1](#7212-sprint-backlog-1)
+      - [7.2.1.3. Development Evidence for Sprint Review.](#7213-development-evidence-for-sprint-review)
+      - [7.2.1.4.	Testing Suite Evidence for Sprint Review](#7214testing-suite-evidence-for-sprint-review)
+      - [7.2.1.5.	Execution Evidence for Sprint Review](#7215execution-evidence-for-sprint-review)
+      - [7.2.1.6.	Services Documentation Evidence for Sprint Review](#7216services-documentation-evidence-for-sprint-review)
+        - [**Iam:**](#iam)
+        - [**Groups:**](#groups)
+        - [**Tasks:**](#tasks)
+        - [**Requests:**](#requests)
+        - [**Metrics:**](#metrics)
+      - [7.2.1.7.	Software Deployment Evidence for Sprint Review](#7217software-deployment-evidence-for-sprint-review)
+        - [Pasos realizados:](#pasos-realizados)
+        - [Pasos realizados:](#pasos-realizados-1)
+      - [7.2.1.8.	Team Collaboration Insights during Sprint](#7218team-collaboration-insights-during-sprint)
+  - [7.3.	Validation Interviews](#73validation-interviews)
+    - [7.3.1.	Diseño de Entrevistas](#731diseño-de-entrevistas)
+      - [Objetivo de la Entrevista](#objetivo-de-la-entrevista)
+      - [Elementos de Validación](#elementos-de-validación)
+      - [User Flows a Validar](#user-flows-a-validar)
+      - [Formato de Registro de la Entrevista](#formato-de-registro-de-la-entrevista)
+    - [7.3.2.	Registro de Entrevistas](#732registro-de-entrevistas)
+    - [7.3.3.	Evaluaciones según heurísticas](#733evaluaciones-según-heurísticas)
+    - [7.4.	Video About-the-Product](#74video-about-the-product)
+  - [Conclusiones](#conclusiones)
+    - [TB1:](#tb1-1)
+    - [TB2:](#tb2-1)
+    - [TB3:](#tb3-1)
 
 ## Student Outcome
 
@@ -6078,6 +6318,15 @@ Para la gestión del código fuente, utilizamos los siguientes repositorios:
 | ------------------ | ----------------- | ------------------------------------------ |
 | Backend            | Synhub-Microservices-Old | https://github.com/Collabrium-Software-Emergentes/Synhub-Microservices-Old    |
 | Landing Page       | Landing-Page    | https://github.com/Collabrium-Software-Emergentes/Landing-Page    |
+| Api Gateway       | Api-Gateway    | https://github.com/Collabrium-Software-Emergentes/Api-Gateway    |
+| Discovery Server       | Discovery-Server    | https://github.com/Collabrium-Software-Emergentes/Discovery-Server    |
+| Iam     | Iam-Microservice    | https://github.com/Collabrium-Software-Emergentes/Iam-Microservice    |
+| Groups       | Groups-Microservice    | https://github.com/Collabrium-Software-Emergentes/Groups-Microservice    |
+| Tasks       | Tasks-Microservice    | https://github.com/Collabrium-Software-Emergentes/Tasks-Microservice    |
+| Requests      | Requests-Microservice    | https://github.com/Collabrium-Software-Emergentes/Requests-Microservice    |
+| Metrics     | Metrics-Microservice    | https://github.com/Collabrium-Software-Emergentes/Metrics-Microservice    |
+| Members Frontend     | Synhub-for-Members    | https://github.com/Collabrium-Software-Emergentes/Synhub-for-Members    |
+| Leaders Frontend     | Synhub-for-Leaders   | https://github.com/Collabrium-Software-Emergentes/Synhub-for-Leaders   |
 
 **Flujo de trabajo GitFlow**
 
@@ -6294,11 +6543,11 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
   </tr>
   <tr>
     <td colspan="1"><strong>Sprint 1 Velocity</strong></td>
-    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 100 story points</td>
+    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 240 story points</td>
   </tr>
   <tr>
     <td colspan="1"><strong>Sum of Story Points</strong></td>
-    <td colspan="1">La suma de story point atendidos es de 78+ story point.</td>
+    <td colspan="1">La suma de story point atendidos es de 210+ story point.</td>
   </tr>
 </table>
 
@@ -6323,112 +6572,1181 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1"><strong>Assigned To</strong></td>
     <td colspan="1"><strong>Status</strong></td>
   </tr>
+  <!-- US-001 -->
   <tr>
-    <td colspan="1">TS-001</td>
-    <td colspan="1">Obtener un grupo por ID</td>
-    <td colspan="1">T01</td>
-    <td colspan="1">Crear getGroupById</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group/{id}  .</td>
+    <td colspan="1">US-001</td>
+    <td colspan="1">Creación de grupo</td>
+    <td colspan="1">T-001</td>
+    <td colspan="1">Interfaz visual de creación</td>
+    <td colspan="1">Generar un código para el grupo.</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
+   <!-- US-002 -->
   <tr>
-    <td colspan="1">TS-002</td>
-    <td colspan="1">Obtener todos los grupos de un usuario</td>
-    <td colspan="1">T02</td>
-    <td colspan="1">Crear getAllUserGroups</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group/user/{userId}</td>
+    <td colspan="1">US-002</td>
+    <td colspan="1">Envío de invitaciones</td>
+    <td colspan="1">T-002</td>
+    <td colspan="1">Registrar código de grupo</td>
+    <td colspan="1">Al crear un grupo, se debe crear un código para ser utilizado en la unión de miembros al grupo.</td>
     <td colspan="1">0.5</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
+  <!-- US-003  -->
   <tr>
-    <td colspan="1">TS-003</td>
-    <td colspan="1">Registrar un nuevo grupo</td>
-    <td colspan="1">T03</td>
-    <td colspan="1">Crear registerGroup</td>
-    <td colspan="1">Crear endpoint de groups GET /api/v1/group</td>
+    <td colspan="1" rowspan="2">US-003</td>
+    <td colspan="1" rowspan="2">Eliminación de grupo</td>
+    <td colspan="1">T-003</td>
+    <td colspan="1">Eliminar datos de grupo.</td>
+    <td colspan="1">Antes de eliminar grupo, debe eliminar la información vinculada al grupo.</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-004</td>
-    <td colspan="1">Agregar un miembro a un grupo</td>
-    <td colspan="1">T04</td>
-    <td colspan="1">Crear addMemberToGroup</td>
-    <td colspan="1">Crear endpoint de groups POST /api/v1/group/{groupId}/member/{userId}</td>
+    <td colspan="1">T-004</td>
+    <td colspan="1">Eliminar grupo.</td>
+    <td colspan="1">Al no tener información, permitir la eliminación de grupo.</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-001: Gestión de grupos (CRUD) -->
+  <tr>
+    <td colspan="1" rowspan="6">TS-001</td>
+    <td colspan="1" rowspan="6">Gestión de grupos (CRUD)</td>
+    <td colspan="1">T-005</td>
+    <td colspan="1">Crear endpoint POST CreateGroup</td>
+    <td colspan="1">POST /leader/group - Crear un nuevo grupo como líder</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-006</td>
+    <td colspan="1">Crear endpoint PUT UpdateGroup</td>
+    <td colspan="1">PUT /leader/group - Actualizar grupo existente</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-007</td>
+    <td colspan="1">Crear endpoint GET GetGroupById</td>
+    <td colspan="1">GET /groups/{groupId} - Obtener grupo por ID</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-005</td>
-    <td colspan="1">Actualizar un grupo</td>
-    <td colspan="1">T05</td>
-    <td colspan="1">Crear updateGroup</td>
-    <td colspan="1">Crear endpoint de groups PUT/api/v1/group/{id}</td>
+    <td colspan="1">T-008</td>
+    <td colspan="1">Crear endpoint GET GetGroupByCode</td>
+    <td colspan="1">GET /groups/search?code={code} - Buscar grupo por código</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-009</td>
+    <td colspan="1">Crear endpoint DELETE DeleteGroup</td>
+    <td colspan="1">DELETE /leader/group - Eliminar grupo</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-010</td>
+    <td colspan="1">Implementar validaciones de grupo</td>
+    <td colspan="1">Validar campos obligatorios, formato de datos y reglas de negocio para grupos</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-002: Gestión de miembros en grupos -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-002</td>
+    <td colspan="1" rowspan="5">Gestión de miembros en grupos</td>
+    <td colspan="1">T-011</td>
+    <td colspan="1">Crear endpoint GET GetMembersOfMyGroup</td>
+    <td colspan="1">GET /groups/members - Listar miembros del grupo autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-012</td>
+    <td colspan="1">Crear endpoint DELETE RemoveMemberFromGroup</td>
+    <td colspan="1">DELETE /leader/group/members/{memberId} - Eliminar miembro del grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-013</td>
+    <td colspan="1">Crear endpoint GET GetGroupByLeaderId</td>
+    <td colspan="1">GET /groups?leaderId={leaderId} - Obtener grupos de un líder</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-014</td>
+    <td colspan="1">Validar existencia de miembros</td>
+    <td colspan="1">Verificar que el usuario exista antes de operaciones con miembros</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-015</td>
+    <td colspan="1">Validar permisos de líder</td>
+    <td colspan="1">Validar que solo el líder del grupo pueda realizar acciones de eliminación de miembros</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+   <!-- TS-003: Gestión de solicitudes de unión -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-003</td>
+    <td colspan="1" rowspan="5">Gestión de solicitudes de unión</td>
+    <td colspan="1">T-016</td>
+    <td colspan="1">Crear endpoint POST CreateInvitation</td>
+    <td colspan="1">POST /invitations/groups/{groupId} - Crear invitación para unirse a grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-017</td>
+    <td colspan="1">Crear endpoint GET GetAllInvitationsOfMyGroup</td>
+    <td colspan="1">GET /invitations/group - Listar invitaciones del grupo autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-018</td>
+    <td colspan="1">Crear endpoint GET GetMyInvitation</td>
+    <td colspan="1">GET /invitations/member - Obtener invitaciones del miembro autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-019</td>
+    <td colspan="1">Validar invitaciones duplicadas</td>
+    <td colspan="1">Implementar lógica para evitar invitaciones duplicadas a un mismo grupo</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-020</td>
+    <td colspan="1">Validar existencia de grupo y usuario</td>
+    <td colspan="1">Verificar que el grupo y usuario existan al crear invitación</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS-004: Procesamiento de solicitudes -->
+  <tr>
+    <td colspan="1" rowspan="5">TS-004</td>
+    <td colspan="1" rowspan="5">Procesamiento de solicitudes</td>
+    <td colspan="1">T-021</td>
+    <td colspan="1">Crear endpoint PATCH ProcessInvitationByLeaderAuthenticated</td>
+    <td colspan="1">PATCH /group/invitations/{invitationId}?accept={boolean} - Procesar invitación por líder</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-022</td>
+    <td colspan="1">Crear endpoint DELETE DeleteInvitationByMemberAuthenticated</td>
+    <td colspan="1">DELETE /invitations/member - Eliminar invitación del miembro autenticado</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-023</td>
+    <td colspan="1">Validar permisos de procesamiento</td>
+    <td colspan="1">Asegurar que solo el líder pueda procesar invitaciones y cambiar su estado</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-024</td>
+    <td colspan="1">Agregar miembro al grupo tras aceptación</td>
+    <td colspan="1">Al aceptar una invitación, agregar automáticamente el miembro al grupo</td>
     <td colspan="1">2</td>
     <td colspan="1">Miguel Gomez</td>
     <td colspan="1">Done</td>
   </tr>
   <tr>
-    <td colspan="1">TS-006</td>
-    <td colspan="1">Eliminar un grupo</td>
-    <td colspan="1">T06</td>
-    <td colspan="1">Crear deleteGroup</td>
-    <td colspan="1">Crear endpoint de groups DELETE/api/v1/group/{id}</td>
+    <td colspan="1">T-025</td>
+    <td colspan="1">Notificar cambio de estado</td>
+    <td colspan="1">Implementar notificaciones cuando se acepte/rechace una invitación</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Pending</td>
+  </tr>
+   <!-- TS-020: Microservice Groups -->
+  <tr>
+    <td colspan="1" rowspan="6">TS-020</td>
+    <td colspan="1" rowspan="6">Microservice Groups</td>
+    <td colspan="1">T-026</td>
+    <td colspan="1">Configurar microservicio Groups</td>
+    <td colspan="1">Configurar estructura base del microservicio Groups con Spring Boot</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-027</td>
+    <td colspan="1">Implementar endpoints de líder</td>
+    <td colspan="1">GET GetLeaderById y GET GetLeaderDetailsByAuthentication</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-028</td>
+    <td colspan="1">Implementar endpoints de grupo</td>
+    <td colspan="1">GET GetGroupByAuthentication y GET GetTasksOfMyGroup</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-029</td>
+    <td colspan="1">Configurar base de datos</td>
+    <td colspan="1">Configurar conexión y modelos de base de datos para el microservicio</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-030</td>
+    <td colspan="1">Implementar manejo de errores</td>
+    <td colspan="1">Implementar respuestas de error consistentes en el microservicio</td>
     <td colspan="1">1</td>
     <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-031</td>
+    <td colspan="1">Documentación Swagger</td>
+    <td colspan="1">Documentar API del microservicio con Swagger/OpenAPI</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Miguel Gomez</td>
+    <td colspan="1">Done</td>
+  </tr>
+    <tr>
+  <td colspan="1" rowspan="10">TS-019</td>
+  <td colspan="1" rowspan="10">Microservice Requests</td>
+  <td colspan="1">T-032</td>
+  <td colspan="1">Crear updateRequestStatus</td>
+  <td colspan="1">Crear endpoint de requests PUT /api/v1/requests/{requestId}/status</td>
+  <td colspan="1">1</td>
+  <td colspan="1">Max Paitan</td>
+  <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-033</td>
+    <td colspan="1">Crear createRequest</td>
+    <td colspan="1">Crear endpoint de requests POST /api/v1/requests</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-034</td>
+    <td colspan="1">Crear getRequestById</td>
+    <td colspan="1">Crear endpoint de requests GET /api/v1/requests/{requestId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-035</td>
+    <td colspan="1">Crear deleteRequest</td>
+    <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-036</td>
+    <td colspan="1">Crear acceptRequest</td>
+    <td colspan="1">Crear endpoint de requests PATCH /api/v1/group/{groupId}/requests/{requestId}/{status}</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-037</td>
+    <td colspan="1">Crear deleteAcceptedRequest</td>
+    <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-038</td>
+    <td colspan="1">Crear deleteCompletedTaskRequest</td>
+    <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-039</td>
+    <td colspan="1">Crear deleteRejectedTaskRequest</td>
+    <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-040</td>
+    <td colspan="1">Crear deleteExpiredTaskRequest</td>
+    <td colspan="1">Crear endpoint de requests DELETE /api/v1/group/{groupId}/requests/{requestId}</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-041</td>
+    <td colspan="1">Implementar RequestService</td>
+    <td colspan="1">Implementar servicio para gestionar solicitudes de tareas completadas o cambios.</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Max Paitan</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS016 — Microservice IAM -->
+  <tr>
+    <td colspan="1" rowspan="4">TS-016</td>
+    <td colspan="1" rowspan="4">Microservice IAM</td>
+    <td colspan="1">T-042</td>
+    <td colspan="1">Configurar microservicio IAM</td>
+    <td colspan="1">Configurar estructura base del microservicio IAM con Spring Boot</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-043</td>
+    <td colspan="1">Configurar base de datos</td>
+    <td colspan="1">Configurar conexión y modelos de BD para el microservicio</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-044</td>
+    <td colspan="1">Implementar manejo de errores</td>
+    <td colspan="1">Implementar respuestas de error consistentes en el microservicio</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-045</td>
+    <td colspan="1">Documentación Swagger</td>
+    <td colspan="1">Documentar API del microservicio con Swagger/OpenAPI</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS013 — Autenticación (Login) -->
+  <tr>
+    <td colspan="1" rowspan="3">TS-013</td>
+    <td colspan="1" rowspan="3">Autenticación (Login)</td>
+    <td colspan="1">T-046</td>
+    <td colspan="1">Crear endpoint POST Sign-Up</td>
+    <td colspan="1">POST /Iam/ApiVersion/authentication/sign-up — Registro de nuevo usuario con roles</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-047</td>
+    <td colspan="1">Crear endpoint POST Sign-In</td>
+    <td colspan="1">POST /Iam/ApiVersion/authentication/sign-in — Inicio de sesión con JWT</td>
+    <td colspan="1">1.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-048</td>
+    <td colspan="1">Implementar JWT con roles</td>
+    <td colspan="1">Generar token JWT que incluya roles y tiempo de expiración</td>
+    <td colspan="1">2</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS014 — Gestión de usuarios -->
+  <tr>
+    <td colspan="1" rowspan="4">TS-014</td>
+    <td colspan="1" rowspan="4">Gestión de usuarios</td>
+    <td colspan="1">T-049</td>
+    <td colspan="1">Crear endpoint GET GetRoles</td>
+    <td colspan="1">GET /Iam/ApiVersion/roles — Listar roles disponibles del sistema</td>
+    <td colspan="1">0.5</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-050</td>
+    <td colspan="1">Crear endpoint GET GetUserByMemberId</td>
+    <td colspan="1">GET /Iam/ApiVersion/users?memberId={memberId} — Buscar usuario por memberId</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-051</td>
+    <td colspan="1">Crear endpoint GET GetUserById</td>
+    <td colspan="1">GET /Iam/ApiVersion/users/{userId} — Obtener usuario por ID</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-052</td>
+    <td colspan="1">Crear endpoint GET GetUserOnlyById</td>
+    <td colspan="1">GET /Iam/ApiVersion/users/{userId}/domain-profile — Perfil de dominio del usuario</td>
+    <td colspan="1">1</td>
+    <td colspan="1">Diego Acuña</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <!-- TS021 — Microservice Analytics y Reports -->
+  <tr>
+    <td colspan="1" rowspan="3">TS-021</td>
+    <td colspan="1" rowspan="3">Microservice Analytics</td>
+    <td colspan="1">T-053</td>
+    <td colspan="1">Crear getUserUnreadNotifications</td>
+    <td colspan="1">Crear endpoint de Notifications GET /api/notifications/user/{userId}/unread</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-054</td>
+    <td colspan="1">Crear generateReport</td>
+    <td colspan="1">Crear endpoint de Analytics POST /api/reports/generate/{userId}</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
+    <td colspan="1">Done</td>
+  </tr>
+  <tr>
+    <td colspan="1">T-055</td>
+    <td colspan="1">Crear getUserReports</td>
+    <td colspan="1">Crear endpoint de Analytics GET /api/reports/user/{userId}</td>
+    <td colspan="1">2.5</td>
+    <td colspan="1">Jhon Guerrero</td>
     <td colspan="1">Done</td>
   </tr>
 </table>
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
 
+En esta sección se presentan los commits realizados en el repositorio de landing,backend y frontend durante el sprint 1.
 
+**Commits realizados en el repositorio de la Landing Page durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Landing-Page | main | 28bfccc55d8d7e9f4075b6d945df204b51f9797c | feat: add the landing page files |  | 2026-05-09 |
+
+**Commits realizados en los repositorios del Frontend durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Leaders | main | dada750f44d48dfacae12b82fddf3915b3919d81 | feat(tasks): implement task creation and task list views | Implemented the Compose screens for creating a new task and listing the tasks assigned within a group, giving Leaders the primary interface to manage their team's workload. | 2026-06-16 |
+| Synhub-for-Leaders | main | a39237800029c345cbbe823e623a88b2c08cb221 | feat(requests): add GroupRequestList, ValidationView, and EditRequestTask screens | Implemented GroupRequestList, ValidationView, and EditRequestTask, the screens that let a Leader review pending task-completion requests from members, validate or reject them, and edit task details before resolving a request. | 2026-06-16 |
+| Synhub-for-Leaders | main | cb394464ea26b248a79cd8da855e24ee7474d327 | feat(invitations): add invitations screen with accept and reject actions | Implemented the Invitations screen, displaying pending join requests and allowing the Leader to accept or reject them directly from the UI. | 2026-06-16 |
+| Synhub-for-Leaders | main | 2492fc26a0b8a09f7fce500d2f8c768c3da3a7ce | feat(groups): add group creation and management views | Implemented the Compose screens for creating a new group and managing an existing one, including editing group details and viewing the member list. | 2026-06-16 |
+| Synhub-for-Leaders | main | 43c0dae81c1681fcee61859c656bfac568c6e2e4 | feat(analytics): add analytics dashboard view with metrics and charts | Implemented the Analytics Dashboard screen, rendering task distribution, completion time, and rescheduling charts so Leaders can visualize their group's productivity metrics at a glance. | 2026-06-16 |
+| Synhub-for-Leaders | main | 7caa6536e75a32c8e6da3bbee699f06e31f1b4e2 | feat(shared): implement login, register, and home dashboard views | Implemented the Login, Register, and Home Dashboard Composable screens, providing the entry point of the application and the first authenticated view a Leader sees after signing in. | 2026-06-16 |
+| Synhub-for-Leaders | main | a9dfafe5bd25659afcf01eaf28e0db43f0a50a40 | feat(shared): implement Retrofit client and core authentication web services | Configured the Retrofit HTTP client to consume the IAM and Groups REST APIs, and implemented the core authentication web service interfaces for sign-up and sign-in, establishing the networking foundation consumed by all feature modules. | 2026-06-16 |
+| Synhub-for-Leaders | main | bcfd04fc2acc0ae0660533ad14a9d56c660940eb | chore: initialize SynHub base project structure and configuration | Bootstrapped the Synhub-for-Leaders Android project with Gradle, Kotlin, and Jetpack Compose, establishing the base module structure, build configuration, and project-level dependencies. | 2026-06-16 |
+| Synhub-for-Members | main | add06c657b265ecc0ec031e21e1f292cb4dd37b1 | feat(tasks): implement API service and task management UI | Implemented the Tasks API service together with the task management screens, giving Members a Flutter UI to view their assigned tasks and update progress, backed by calls to the Tasks microservice. | 2026-06-16 |
+| Synhub-for-Members | main | a4ded631c49ea3ceda5c8d1a795e68d773b82f24 | feat(statistics): implement API service and dashboard screen | Implemented the Statistics API service and the member dashboard screen, rendering the productivity metrics returned by the Metrics microservice so Members can review their own completion history and workload. | 2026-06-16 |
+| Synhub-for-Members | main | 33183fcd1beee23aab8b0f7b5f8956c3c323ea85 | feat(shared): implement authentication flow and home dashboard UI | Implemented the sign-up/sign-in screens and the Home dashboard UI, providing the entry point of the Member app and the first authenticated view after a successful login. | 2026-06-16 |
+| Synhub-for-Members | main | ea65779c027b6b41108149d39e647d9e4fd80129 | feat(requests): add screens for creating task comments and listing user requests | Implemented the screens that let a Member add a comment to a task and view the list of requests they have submitted, completing the Member-facing UI for the Requests module. | 2026-06-16 |
+| Synhub-for-Members | main | 818773884d15df30f8a7fd963787bca2ff4c5a61 | feat(group): add screens for team overview and group code searching | Implemented the team overview screen, showing the group's members and leader, and the screen that lets a Member search for a group using its invitation code. | 2026-06-16 |
+| Synhub-for-Members | main | 0f8e859d5eff6f1955b6415a1f5bf9b9657b8519 | feat(main): setup application bootstrapping, theme, and global blocs | Wired the application entry point, registering the global BLoC providers (Auth, Member, Group, Request) and the app-wide theme, so every screen shares a single consistent state management and styling setup. | 2026-06-16 |
+| Synhub-for-Members | main | 7946987755c4a6f0d86282c3c7e1434d742abf54 | feat(shared): implement ApiClient and authentication data models | Implemented the shared ApiClient used to call the SynHub backend, along with the authentication data models (user, token, credentials), establishing the networking foundation consumed by every feature module. | 2026-06-16 |
+| Synhub-for-Members | main | 7c7555ee8f50a1054b0d52ea15dc98620095aa50 | chore: setup initial Flutter project environment and lockfile | Initialized the Synhub-for-Members Flutter project, configuring the pubspec.yaml dependencies and lockfile required to start cross-platform development. | 2026-06-16 |
+
+**Commits realizados en los repositorios del Backend durante el sprint 1:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Groups-Microservice | master | db9fcf979708f45ad6ee0105b1ab1168cc5e0a6e | feat(groups): add LeaderController and LeaderGroupController for leader and group API management | Introduced `LeaderController` for handling leader details by ID and `LeaderGroupController` for managing group operations, including creating, updating, retrieving, and deleting groups, as well as managing group members. | 2026-06-08 |
+| Groups-Microservice | master | d63200902c3905b13e3616707c91e044619216d5 | feat(groups): add REST controllers for leader and invitation management | Added `InvitationDetailsController` for managing invitation creation and retrieval, and `LeaderDetailsController` for handling leader details, group members, and tasks. Expanded functionality for group-related API endpoints. | 2026-06-08 |
+| Groups-Microservice | master | a5e6e6c5fdbe5945c667061bfe71a17ac175b8e6 | feat(groups): implement GroupCommandServiceImpl for group command handling | Added `GroupCommandServiceImpl` to provide business logic for group creation, updating, deletion, and membership management, enhancing command handling and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | b26931786f92733dc4b10b12eba9e46342cb5f48 | feat(groups): add InvitationDetailsQueryService and LeaderDetailsQueryService | Implemented `InvitationDetailsQueryService` and `LeaderDetailsQueryService` to handle query operations for invitations and leaders, enhancing query handling and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | 44de9a3288a8748c7cb8a4eeaf93fcf39bd7c491 | feat(groups): implement InvitationCommandServiceImpl and LeaderCommandServiceImpl | Added `InvitationCommandServiceImpl` and `LeaderCommandServiceImpl` to handle invitation and leader-related commands respectively, enhancing domain services and group management functionality. | 2026-06-08 |
+| Groups-Microservice | master | e383bfb18a1df69132a8c736f11502daf673af70 | feat(groups): add Invitation aggregate for invitation management | Introduced `Invitation` aggregate to manage invitation creation and validation logic, including associations with `MemberId` and `Group`. Added checks for null member ID and group during initialization, improving clarity and error handling in group management. | 2026-06-08 |
+| Groups-Microservice | master | 3e48740621c6f27f4f87c87550e502f4fa523424 | feat(groups): add Group aggregate with validation and update logic | Introduced `Group` aggregate to represent group-level domain logic and state. Added validation for creation, member operations, and updates, as well as utility methods for group checks like membership and leadership. | 2026-06-08 |
+| Requests-Microservice | master | 50d5dd335cdfb955492192c207be735ce3568b72 | feat(requests): added request controller, request details controller and group request details controller | -- | 2026-06-14 |
+| Requests-Microservice | master | 2a13d00a1e5ebdcabb956abfa8fabf48b4fc9f28 | feat(requests): add request aggregate | -- | 2026-06-14 |
+| Requests-Microservice | master | 88370c0970fdf628329a35203ec3bc0643918b6f | feat(requests): add request commands | -- | 2026-06-14 |
+| Requests-Microservice | master | 617926b26e69ad4fab0d9a9550e504724b1d3a32 | feat(requests): add request queries | -- | 2026-06-14 |
+| Requests-Microservice | master | 5a025b06aa8ea24628cd2b4981d12592c02c3ff8 | feat(requests): add request repository | -- | 2026-06-14 |
+| Requests-Microservice | master | 15cf8ac85d8efb463f6e2051b28e7c3a7b7ecf8c | feat(requests): add GroupOnlyResource and GroupsFeignClient | -- | 2026-06-14 |
+| Requests-Microservice | master | 765e79a2faebaf377d830ba0395e79baa41bf9d3 | feat(requests): add TaskMemberResource and TaskResource | -- | 2026-06-14 |
+| Iam-Microservice | master | 1b9d9bc6f7f608b5c1b4fb1ea26ddc349f52ca9a | feat(iam): implement user management REST controllers | Added AuthenticationController, UsersController, and RolesController to expose the IAM public API, routing sign-up, sign-in, user lookup, and role listing requests to their corresponding command and query services. | 2026-06-16 |
+| Iam-Microservice | master | 9e708f61c9145ae8256aa0b693259a8f1b298c09 | feat(iam): implement jpa repositories and jwt bearer token service | Implemented UserRepository and RoleRepository with Spring Data JPA for persisting the User aggregate and Role entity, and added TokenServiceImpl to generate and validate JWT access tokens with role and user_id claims. | 2026-06-16 |
+| Iam-Microservice | master | 3acbcf03ee9da69e58c3e40f3cc209d567eb7cc7 | feat(iam): implement bcrypt hashing service and rabbitmq event publisher | Added BCryptHashingService implementing the domain's HashingService interface for irreversible password encryption, and introduced LeaderPublisher/MemberPublisher to emit creation events to RabbitMQ after a successful sign-up. | 2026-06-16 |
+| Iam-Microservice | master | 318b7874135923670348eba880f736acc51b4d49 | feat(iam): implement jwt authorization filter and security pipeline components | Implemented BearerAuthorizationRequestFilter to intercept incoming requests, validate the JWT from the Authorization header, and populate the Spring Security context, completing the stateless authorization pipeline. | 2026-06-16 |
+| Iam-Microservice | master | 0427fe438e53a9a32fecd652834b521c48b2182a | feat(iam): implement spring security configuration and user details models | Configured Spring Security to disable session-based authentication and register the JWT filter chain, and added the UserDetails adapter models required to authenticate against the User aggregate's credentials. | 2026-06-16 |
+| Iam-Microservice | master | 2b8c783b6b75ab3cc93ceb6b1974c2271161a1bf | feat(iam): implement application query services and user details DTO | Implemented UserQueryServiceImpl and RoleQueryServiceImpl to handle GetAllUsersQuery, GetUserByIdQuery, GetUserByUsernameQuery, and GetAllRolesQuery, combining local data with profile details from Groups and Tasks. | 2026-06-16 |
+| Iam-Microservice | master | 3d6e040d485faa62f7bde451cfd6c1773df0f63d | feat(iam): implement application command services and startup event handlers | Implemented UserCommandServiceImpl to handle SignUpCommand and SignInCommand, and RoleCommandServiceImpl to handle SeedRolesCommand on startup, auto-initializing the ROLE_USER, ROLE_LEADER, and ROLE_MEMBER catalog. | 2026-06-16 |
+| Iam-Microservice | master | 64e64cda6d363e78b0838ddb5612bf7b20dd4e40 | feat(iam): implement User aggregate root and Role domain entity | Implemented the User Aggregate Root encapsulating username, credentials, personal data, and role assignments, along with the Role entity, forming the core of the IAM Domain Layer. | 2026-06-16 |
+| Iam-Microservice | master | 1c64d98a775afcceed2f55a7707ac0add1eb0afa | feat(iam): introduce authentication domain value objects for roles and identifiers | Introduced the Roles enumeration (ROLE_USER, ROLE_LEADER, ROLE_MEMBER) and the LeaderId/MemberId value objects, used by the User aggregate to reference external Leader and Member profiles without breaking bounded-context isolation. | 2026-06-16 |
+| Iam-Microservice | master | f4094708f7623c2efe5ee4a8e3f1f90f236aea22 | feat(iam): implement OpenFeign clients for groups and tasks services | Added GroupsServiceClientImpl and TasksServiceClientImpl as OpenFeign clients to synchronously fetch leader and member profile details, enabling UserQueryServiceImpl to return enriched user information. | 2026-06-16 |
+| Metrics-Microservice | master | 013dfdf | feat: fixed getByLeaderId to getByGroupId | - | 2026-06-16 |
+| Metrics-Microservice | master | a98ce2a | feat: added create task endpoint | - | 2026-06-16  |
+| Metrics-Microservice | master | acdb033 | feat: added get all tasks by member id | - | 2026-06-16  |
+| Metrics-Microservice | master | 5edbe4a | feat: added get last next task by member id | - | 2026-06-16  |
+| Metrics-Microservice | master | b8b6057 | feat: added get tasks by id and get tasks by status | - | 2026-06-16  |
+| Metrics-Microservice | master | 42a0507 | feat: added update tasks | - | 2026-06-16  |
+| Metrics-Microservice | master | 942b192 | feat: added endpoints | - | 2026-06-16  |
+| Metrics-Microservice | master | e7294b7 | feat: added delete task and get next task by authenticated | - | 2026-06-16  |
+| Metrics-Microservice | master | 21d816f | feat: added get tasks of group by leader authenticated | - | 2026-06-16  |
+| Metrics-Microservice | master | 3c0babf | feat: update pom.xml with new dependencies and Spring Cloud version. | - | 2026-06-16  |
+| Metrics-Microservice | master | d164af8 | feat: add auditing support with abstract models and OpenAPI configuration. | - | 2026-06-16 |
+| Metrics-Microservice | master | 8579c4f | feat: configure application properties for PostgreSQL and RabbitMQ. | - | 2026-06-16  |
+| Metrics-Microservice | master | 31b6cee | feat(requests): enable JPA auditing and scheduling in the application. | - | 2026-06-16  |
+| Metrics-Microservice | master | 7db7e80 | feat(requests): implement request management commands and queries. | - | 2026-06-16  |
+| Metrics-Microservice | master | 149c275 | feat(requests): integrate task service client and enhance request handling. | - | 22/11 |
+| Metrics-Microservice | master | 2786226 | feat(requests): add method to fetch all tasks by group ID in request's TaskServiceClient. | - | 2026-06-16  |
 
 #### 7.2.1.4.	Testing Suite Evidence for Sprint Review
 
+Para la parte de Testing se realizaron pruebas unitarias de los servicios de cada microservicio. Se utilizó el patrón AAA para mantener un estandar entre los miembros.
+
+**Iam:** En este microservicio se realizaron pruebas unitarias, las cuales se enfocaron en probar la lógica de negocio de los servicios de autenticación y gestión de usuarios, incluyendo la creación de usuarios, generación de tokens JWT, y validación de credenciales.
+
+[![Testing-Iam.png](https://i.postimg.cc/x122hrpw/imagen-2026-06-17-192339854.png)](https://postimg.cc/qzjS6FTw)
+
+
+**Groups:** Esta imagen muestra la evidencia de las 25 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
+
+[![Testing-Groups.png](https://i.postimg.cc/zBhH66qP/Testing-Groups.png)](https://postimg.cc/MMWGjsMy)
+
+**Request:** Acá tenemos la evidencia de las 12 pruebas unitarias realizadas para esta entrega, relacionados con requests:
+
+[![Testing-Requests.png](https://i.ibb.co/hx9fNxfJ/request-Test.png)](https://ibb.co/NgCSqgSd)
+
+**Tasks Bounded Context**
+
+![Tasks Service Diagram](https://res.cloudinary.com/duhtltjmh/image/upload/v1781673331/testTasks_jz3aa3.png)
+
+Para el microservicio de Tasks se ejecutaron 4 pruebas unitarias, la primera es un setUp para el resto de pruebas la cual crea una tarea simple, la segunda es la Creacion de Tarea y verifica que
+se crea un registro de manera correcta, la tercera prueba el cambio de estado de la tarea, es decir pasar de completado a en progreso por ejemplo, y la ultima prueba la actulizacion de un registro y si se guarda de manera correcta
 
 
 #### 7.2.1.5.	Execution Evidence for Sprint Review
 
+En esta sección se presentan las evidencias de la ejecución de la aplicación para el sprint 1.
 
+**Landing Page:**
+
+[![LP-1.png](https://i.postimg.cc/d3SGf7gC/LP-1.png)](https://postimg.cc/jnPWwjxq)
+
+[![LP-2.png](https://i.postimg.cc/504vNqVz/LP-2.png)](https://postimg.cc/B8ztmFtZ)
+
+[![LP-3.png](https://i.postimg.cc/8PJv5zqj/LP-3.png)](https://postimg.cc/6yKqbt6X)
+
+[![LP-4.png](https://i.postimg.cc/G2gBLWz0/LP-4.png)](https://postimg.cc/nj7VTw6T)
+
+[![LP-5.png](https://i.postimg.cc/wj57yyFw/LP-5.png)](https://postimg.cc/zyBJ4fsh)
+
+[![LP-6.png](https://i.postimg.cc/j5150zdb/LP-6.png)](https://postimg.cc/47zZpH9L)
+
+**Frontend Members:**
+
+[![Members-1.png](https://i.postimg.cc/Dy3KHCd5/Members-1.png)](https://postimg.cc/grs56H76)
+
+[![Members-2.png](https://i.postimg.cc/pTMZRnGH/Members-2.png)](https://postimg.cc/KKQL54hq)
+
+[![Members-3.png](https://i.postimg.cc/d3qjTcc4/Members-3.png)](https://postimg.cc/wyGmSPvm)
+
+[![Members-4.png](https://i.postimg.cc/mZ8Q6qG3/Members-4.png)](https://postimg.cc/8sfJ7Zcs)
+
+[![Members-5.png](https://i.postimg.cc/k47bTNYq/Members-5.png)](https://postimg.cc/Z9DnRNhM)
+
+[![Members-6.png](https://i.postimg.cc/pV4dTYQK/Members-6.png)](https://postimg.cc/WtmVYZH4)
+
+[![Members-7.png](https://i.postimg.cc/vZL83JJY/Members-7.png)](https://postimg.cc/DS0KzMfH)
+
+[![Members-8.png](https://i.postimg.cc/fy9DXp7Q/Members-8.png)](https://postimg.cc/4HsDR8FW)
+
+[![Members-9.png](https://i.postimg.cc/mg8kbx88/Members-9.png)](https://postimg.cc/0zKPf4gw)
+
+[![Members-10.png](https://i.postimg.cc/MGLGQ7k5/Members-10.png)](https://postimg.cc/kVx9rtgR)
+
+**Frontend Leaders:**
+
+[![Leaders-1.png](https://i.postimg.cc/gcv7XG86/Leaders-1.png)](https://postimg.cc/mhgjKfdb)
+
+[![Leaders-2.png](https://i.postimg.cc/Nj0CzTVS/Leaders-2.png)](https://postimg.cc/HVftJJT9)
+
+[![Leaders-3.png](https://i.postimg.cc/vZDXzygK/Leaders-3.png)](https://postimg.cc/xXDKfWPG)
+
+[![Leaders-4.png](https://i.postimg.cc/J4zQr8q4/Leaders-4.png)](https://postimg.cc/Cd987WXW)
+
+[![Leaders-5.png](https://i.postimg.cc/L8rk31MP/Leaders-5.png)](https://postimg.cc/NKkrgLFG)
+
+[![Leaders-6.png](https://i.postimg.cc/ZnMvYGbN/Leaders-6.png)](https://postimg.cc/1VD3JYNR)
+
+[![Leaders-7.png](https://i.postimg.cc/fT1SGQqg/Leaders-7.png)](https://postimg.cc/0bdNSFsp)
+
+[![Leaders-8.png](https://i.postimg.cc/PJPN7SmK/Leaders-8.png)](https://postimg.cc/N2vg97Cr)
+
+[![Leaders-9.png](https://i.postimg.cc/DZYw11tC/Leaders-9.png)](https://postimg.cc/mzC4s1ZM)
+
+[![Leaders-10.png](https://i.postimg.cc/bN12fBXw/Leaders-10.png)](https://postimg.cc/4mN3zwND)
+
+[![Leaders-11.png](https://i.postimg.cc/NMy5JN8N/Leaders-11.png)](https://postimg.cc/CBghdsQD)
+
+[![Leaders-12.png](https://i.postimg.cc/Fz31m7B6/Leaders-12.png)](https://postimg.cc/ct1dB4Z7)
+
+**Api Gateway:**
+
+En el caso del apigateway no hay una interfaz interactiva y lo mejor que se puede mostrar es el endpoint de actuator que se encarga de mostrar el estado de la aplicación. Además, se agrega la documentación hecha en APIDOG, un software que permite hacer llamados http como Postman pero con un plan mucho más permisivo.
+
+[![Api-Gateway.png](https://i.postimg.cc/dt1bZzBH/Api-Gateway.png)](https://postimg.cc/nMyR6SNB)
+
+[![Api-Dog-1.png](https://i.postimg.cc/6p7Tcb9H/Api-Dog-1.png)](https://postimg.cc/cvSs4mtY)
+
+[![Apidog-2.png](https://i.postimg.cc/65Pp8Vd6/Apidog-2.png)](https://postimg.cc/qz8TY3bW)
+
+[![Apidog-3.png](https://i.postimg.cc/W4Lpn2YF/Apidog-3.png)](https://postimg.cc/qNwdBdT4)
+
+[![Apidog-4.png](https://i.postimg.cc/JnK1Mjrw/Apidog-4.png)](https://postimg.cc/r00690Rg)
+
+**Discovery Server:**
+
+[![Discovery-Server.png](https://i.postimg.cc/43VkNV5s/Discovery-Server.png)](https://postimg.cc/4KfFWKqS)
+
+**Broker (RabbitAMQP):**
+
+[![Broker.png](https://i.postimg.cc/yds515xh/Broker.png)](https://postimg.cc/TyNQQtrh)
+
+**Backend Iam:**
+
+[![Iam-1.png](https://i.postimg.cc/wvwW6jSK/Iam-1.png)](https://postimg.cc/Vrb9gmf4)
+
+[![Iam-2.png](https://i.postimg.cc/k59wKSCq/Iam-2.png)](https://postimg.cc/3kSgHdWc)
+
+[![Iam-3.png](https://i.postimg.cc/xj7RghQh/Iam-3.png)](https://postimg.cc/QVQ1d6HJ)
+
+**Backend Groups:**
+
+[![Groups-1.png](https://i.postimg.cc/9M0dYtNp/Groups-1.png)](https://postimg.cc/JDwH1J8D)
+
+[![Groups-2.png](https://i.postimg.cc/XNTPXppP/Groups-2.png)](https://postimg.cc/kDvspMNN)
+
+[![Groups-3.png](https://i.postimg.cc/qvrZXScY/Groups-3.png)](https://postimg.cc/svnc3nN9)
+
+[![Groups-4.png](https://i.postimg.cc/43LLG3DW/Groups-4.png)](https://postimg.cc/p9jYYPXj)
+
+**Backend Tasks:**
+
+[![Tasks-1.png](https://i.postimg.cc/bwLL0Jw9/Tasks-1.png)](https://postimg.cc/3k4gY3pk)
+
+[![Tasks-2.png](https://i.postimg.cc/XJB80kcf/Tasks-2.png)](https://postimg.cc/dkvd2df3)
+
+[![Tasks-3.png](https://i.postimg.cc/y69PQnNC/Tasks-3.png)](https://postimg.cc/23kh3Qv0)
+
+[![Tasks-4.png](https://i.postimg.cc/tCjzLP1V/Tasks-4.png)](https://postimg.cc/hh2xmX1S)
+
+**Backend Requests:**
+
+[![Requests-1.png](https://i.postimg.cc/3wdjgF6r/Requests-1.png)](https://postimg.cc/TyvWxgfB)
+
+[![Requests-2.png](https://i.postimg.cc/tRh3tTrn/Requests-2.png)](https://postimg.cc/xq1N90V9)
+
+[![Requests-3.png](https://i.postimg.cc/bvDbGNDz/Requests-3.png)](https://postimg.cc/HJmjRm9K)
+
+**Backend Metrics:**
+
+[![Metrics-1.png](https://i.postimg.cc/MHxjr7sM/Metrics-1.png)](https://postimg.cc/zbtBygY8)
+
+[![Metrics-2.png](https://i.postimg.cc/T2qb5swb/Metrics-2.png)](https://postimg.cc/9z00vJyX)
 
 #### 7.2.1.6.	Services Documentation Evidence for Sprint Review
 
+Esta tabla presenta la documentación de los servicios implementados como evidencia para la revisión del sprint. Detalla los endpoints disponibles, sus métodos HTTP, descripciones breves de su funcionalidad y los parámetros requeridos, organizados por categorías como *Groups*, *Members*, *Tasks* y *Member Tasks*.
 
+##### **Iam:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+|-----|-------|----------|---------|--------------|-------------|--------|----------|
+| **Iam** | POST | `/authentication/sign-up` | Sign up | Register a new user account with the provided personal data, credentials, and role | `signUp` | none | si |
+| **Iam** | POST | `/authentication/sign-in` | Sign in | Authenticate a user with their username and password and return an access token | `signIn` | none | si |
+| **Iam** | GET | `/roles` | Get roles | Retrieve the list of all roles available in the system | `getRoles` | none | no |
+| **Iam** | GET | `/users` | Get user by member id | Retrieve the user associated with a specific member id | `getUserByMemberId` | memberId (query) | no |
+| **Iam** | GET | `/users/{userId}` | Get user by id | Retrieve detailed information about a specific user by their ID | `getUserById` | userId | no |
+| **Iam** | GET | `/users/{userId}/domain-profile` | Get user only by id | Retrieve only the domain profile information of a specific user by their ID | `getUserOnlyById` | userId | no |
+
+##### **Groups:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Groups** | GET | `/leader/{leaderId}` | Get leader by id | Retrieve detailed information about a specific leader by their ID | `getLeaderById` | leaderId | no |
+| **Groups** | GET | `/leader/details` | Get leader details by authentication | Retrieve details of the currently authenticated leader | `getLeaderDetailsByAuthentication` | none | no |
+| **Groups** | POST | `/leader/group` | Create group | Create a new group as a leader | `createGroup` | none | si |
+| **Groups** | PUT | `/leader/group` | Update group | Update an existing group as a leader | `updateGroup` | none | si |
+| **Groups** | GET | `/leader/group` | Get group by authentication | Retrieve the group of the currently authenticated leader | `getGroupByAuthentication` | none | no |
+| **Groups** | DELETE | `/leader/group` | Delete group | Delete the group of the currently authenticated leader | `deleteGroup` | none | no |
+| **Groups** | GET | `/groups/search` | Get group by code | Search for a group by its unique invitation code | `getGroupByCode` | code (query) | no |
+| **Groups** | POST | `/invitations/groups/{groupId}` | Create invitation | Create a new invitation for a user to join a group | `createInvitation` | groupId | no |
+| **Groups** | GET | `/invitations/group` | Get all invitations of my group | Retrieve all invitations for the group of the authenticated leader | `getAllInvitationsOfMyGroup` | none | no |
+| **Groups** | GET | `/invitations/member` | Get my invitation | Retrieve invitations of the authenticated member | `getMyInvitation` | none | no |
+| **Groups** | DELETE | `/invitations/member` | Delete invitation by member authenticated | Delete an invitation by the authenticated member | `deleteInvitationByMemberAuthenticated` | none | no |
+| **Groups** | PATCH | `/group/invitations/{invitationId}` | Process invitation by leader authenticated | Process an invitation (accept or reject) by the authenticated leader | `processInvitationByLeaderAuthenticated` | invitationId, accept (query) | no |
+| **Groups** | GET | `/groups/{groupId}` | Get group by id | Retrieve detailed information about a specific group by its ID | `getGroupById` | groupId | no |
+| **Groups** | GET | `/groups` | Get group by leader id | Retrieve groups associated with a specific leader | `getGroupByLeaderId` | leaderId (query) | no |
+| **Groups** | GET | `/groups/members` | Get members of my group | Retrieve all members of the group of the authenticated leader | `getMembersOfMyGroup` | none | no |
+| **Groups** | GET | `/groups/tasks` | Get tasks of my group | Retrieve all tasks associated with the group of the authenticated leader | `getTasksOfMyGroup` | none | no |
+| **Groups** | DELETE | `/leader/group/members/{memberId}` | Remove member from group | Remove a specific member from the group by the authenticated leader | `removeMemberFromGroup` | memberId | no |
+
+##### **Tasks:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Tasks** | GET | `/member` | Get members by group | Retrieve all members associated with a specific group | `getMembersByGroupId` | groupId (query) | no |
+| **Tasks** | GET | `/member/details` | Get member details by authentication | Retrieve detailed information about the currently authenticated member | `getMemberDetailsByAuthentication` | none | no |
+| **Tasks** | GET | `/member/details/{memberId}` | Get member details by id | Retrieve detailed information about a specific member by their ID | `getMemberDetailsById` | memberId | no |
+| **Tasks** | GET | `/member/{memberId}` | Get member by id | Retrieve basic information about a specific member | `getMemberById` | memberId | no |
+| **Tasks** | GET | `/member/group` | Get group by member authentication | Retrieve the group associated with the authenticated member | `getGroupByMemberAuthentication` | none | no |
+| **Tasks** | GET | `/member/tasks` | Get tasks of authenticated member | Retrieve all tasks assigned to the authenticated member | `getTasksByMemberAuthentication` | none | no |
+| **Tasks** | DELETE | `/member/group/leave` | Leave group | Allow the authenticated member to leave their current group | `leaveGroup` | none | no |
+| **Tasks** | GET | `/member/tasks/next` | Get next task of authenticated member | Retrieve the next pending task of the authenticated member | `getNextTaskByMemberAuthentication` | none | no |
+| **Tasks** | POST | `/members/{memberId}/tasks` | Create task | Create a new task for a specific member | `createTask` | memberId | yes |
+| **Tasks** | GET | `/members/{memberId}/tasks` | Get tasks by member id | Retrieve all tasks assigned to a specific member | `getTasksByMemberId` | memberId | no |
+| **Tasks** | GET | `/members/{memberId}/tasks/next` | Get next task by member id | Retrieve the next pending task of a specific member | `getNextTaskByMemberId` | memberId | no |
+
+##### **Requests:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Request Details** | POST | `/api/v1/tasks/{taskId}/requests` | Create a new request | Create a new request | `createRequest` | taskId | si |
+| **Request Details** | GET | `/api/v1/tasks/{taskId}/requests` | Get requests from a task | Get a list of requests from a task id | `getRequestsByTaskId` | taskId | no |
+| **Request Details** | GET | `/api/v1/tasks/{taskId}/requests/{requestId}` | Get a request by id | Get a request by id | `getRequestById` | taskId, requestId | no |
+| **Request** | PUT | `/api/v1/tasks/{taskId}/requests/{requestId}/status/{status}` | Update a request status | Update the status of a request | `updateRequestStatus` | taskId, requestId, status | no |
+| **Request** | DELETE | `/api/v1/tasks/{taskId}/requests/{requestId}` | Delete a request by id | Delete a request by id | `deleteRequestById` | taskId, requestId | no |
+| **Group Requests** | GET | `/api/v1/member/group/requests` | Get all requests from member | Get all requests from member | `getAllRequestsFromMember` | no | no |
+| **Group Requests** | GET | `/api/v1/leader/group/requests` | Get all requests from a group | Get all requests from a group | `getAllRequestsFromGroup` | no | no |
+
+##### **Metrics:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Notifications** | POST | `/api/notifications/send` | Send notification | Create and send a new notification to a user | `sendNotification` | no | si |
+| **Notifications** | POST | `/api/notifications/mark-as-read/{notificationId}` | Mark notification as read | Update the read status of a specific notification | `markAsRead` | notificationId | no |
+| **Notifications** | GET | `/api/notifications/user/{userId}` | Get user notifications | Retrieve all notifications for a specific user | `getUserNotifications` | userId | no |
+| **Notifications** | GET | `/api/notifications/user/{userId}/unread` | Get user unread notifications | Retrieve all unread notifications for a specific user | `getUserUnreadNotifications` | userId | no |
+| **Analytics** | POST | `/api/reports/generate/{userId}` | Generate report | Create a new analytics report for a specific user | `generateReport` | userId | no |
+| **Analytics** | GET | `/api/reports/user/{userId}` | Get user reports | Retrieve all generated reports for a specific user | `getUserReports` | userId | no |
 
 #### 7.2.1.7.	Software Deployment Evidence for Sprint Review
 
+Para hacer el deployment de la landing page se utilizó GitHub Pages, una plataforma que permite alojar sitios web estáticos de forma gratuita directamente desde un repositorio de GitHub.
 
+**Enlace de la landing page:** [`https://collabrium-software-emergentes.github.io/Landing-Page/`](https://collabrium-software-emergentes.github.io/Landing-Page/)
+
+##### Pasos realizados:
+
+1. **Preparar el repositorio en GitHub**
+   - Crear un repositorio en GitHub con el nombre deseado (público o privado con GitHub Pages habilitado)
+   - Subir los archivos de la landing page (HTML, CSS, JS, assets) al repositorio
+   - Asegurarse de que el archivo principal se llame `index.html`
+
+2. **Acceder a la configuración del repositorio**
+   - Ingresar al sitio web de GitHub
+   - Iniciar sesión con la cuenta correspondiente
+   - Navegar al repositorio de la landing page
+   - Hacer clic en la pestaña **Settings**
+
+3. **Configurar GitHub Pages**
+   - En el menú lateral izquierdo, seleccionar **Pages** (dentro de la sección "Code and automation")
+   - En la sección **Branch**, seleccionar la rama que contiene los archivos (generalmente `main` o `master`)
+   - Seleccionar la carpeta raíz (`/ (root)`) o la carpeta `/docs` según corresponda
+   - Hacer clic en **Save**
+
+4. **Esperar el despliegue**
+   - GitHub automáticamente comenzará a construir y desplegar el sitio
+   - El proceso puede tomar entre 1 y 3 minutos
+
+5. **Verificar el despliegue**
+   - Una vez completado, se generará una URL pública con el formato `https://<usuario>.github.io/<repositorio>/`
+   - Acceder a la URL para verificar que la landing page funcione correctamente
+
+   [![Github-Pages-1.png](https://i.postimg.cc/0Qc0D5GT/Github-Pages-1.png)](https://postimg.cc/XGB50bzL)
+
+Para hacer el deployment de los microservicios se utilizó Render, una plataforma que permite alojar Web Services de forma gratuita directamente desde un repositorio de GitHub.
+
+**Enlace del Discovery-Server:** [`https://discovery-server-1wsw.onrender.com`](https://discovery-server-1wsw.onrender.com)
+
+**Enlace del Api-Gateway:** [`https://api-gateway-pag1.onrender.com`](https://api-gateway-pag1.onrender.com)
+
+**Enlace del Iam-Microservice:** [`https://iam-microservice-1.onrender.com`](https://iam-microservice-1.onrender.com)
+
+**Enlace del Groups-Microservice:** [`https://groups-microservice-1.onrender.com`](https://groups-microservice-1.onrender.com)
+
+**Enlace del Requests-Microservicer:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+
+##### Pasos realizados:
+
+1. **Preparar el repositorio en GitHub**
+
+   * Crear o utilizar un repositorio que contenga el código fuente del microservicio.
+   * Asegurarse de que el proyecto incluya los archivos de configuración necesarios para su ejecución (por ejemplo, `pom.xml` en proyectos Maven o `build.gradle` en proyectos Gradle).
+   * Confirmar que el repositorio esté actualizado con la última versión del código que se desea desplegar.
+
+2. **Acceder a Render**
+
+   * Ingresar al sitio web de Render: `https://render.com`.
+   * Iniciar sesión con la cuenta correspondiente.
+   * En el Dashboard, hacer clic en la opción **New** y seleccionar **Web Service**.
+
+3. **Conectar el repositorio de GitHub**
+
+   * Seleccionar GitHub como proveedor de código fuente.
+   * Autorizar el acceso de Render a los repositorios disponibles (si aún no se ha realizado).
+   * Seleccionar el repositorio que contiene el microservicio a desplegar.
+   * Hacer clic en **Connect** para vincular el proyecto con Render.
+
+4. **Configurar el Web Service**
+
+   * Definir un nombre para el servicio dentro de Render.
+   * Seleccionar la rama del repositorio que se utilizará para el despliegue (generalmente `main`).
+   * Elegir el entorno de ejecución correspondiente (por ejemplo, Docker).
+   * Configurar el comando de compilación (*Build Command*) y el comando de inicio (*Start Command*) según los requisitos del proyecto.
+   * Agregar las variables de entorno necesarias, como credenciales, puertos o configuraciones específicas de cada microservicio.
+
+5. **Realizar el despliegue**
+
+   * Hacer clic en el botón **Create Web Service**.
+   * Render iniciará automáticamente el proceso de construcción del proyecto y su posterior despliegue.
+   * Esperar a que el estado del servicio cambie a **Live**, indicando que la aplicación está disponible en línea.
+
+6. **Verificar el funcionamiento del microservicio**
+
+   * Acceder a la URL pública generada por Render.
+   * Comprobar que el microservicio responde correctamente a las solicitudes HTTP.
+   * Revisar la sección **Logs** en Render en caso de detectar errores durante el inicio o la ejecución del servicio.
+
+[![Render-Deploy.png](https://i.postimg.cc/j5yns4ch/Render-Deploy.png)](https://postimg.cc/47NxPtrK)
+
+> **Nota:** El mismo procedimiento fue aplicado para el despliegue del Discovery Server, Api Gateway, IAM Microservice, Groups Microservice y Requests Microservice, configurando individualmente cada uno como un Web Service independiente dentro de la plataforma Render.
 
 #### 7.2.1.8.	Team Collaboration Insights during Sprint
 
+**Api-Gateway:**
 
+[![Api-Gateway-Insights.png](https://i.postimg.cc/br7yVs4B/Api-Gateway-Insights.png)](https://postimg.cc/1VK1f5mG)
+
+**Discovery-Server:**
+
+[![Discovery-Server-Insights-2.png](https://i.postimg.cc/DwqZDPvb/Discovery-Server-Insights-2.png)](https://postimg.cc/DSwn4sb2)
+
+**Iam:**
+
+[![Iam-Insights.png](https://i.postimg.cc/TPdRs8NC/Iam-Insights.png)](https://postimg.cc/18dhgdQq)
+
+**Groups:**
+
+[![Groups-Insight-2.png](https://i.postimg.cc/mgqwXRgJ/Groups-Insight-2.png)](https://postimg.cc/68rnqkRf)
+
+**Tasks:**
+
+[![Tasks-Insights.png](https://i.postimg.cc/TYn5M6QT/Tasks-Insights.png)](https://postimg.cc/nCchBN6W)
+
+**Requests:**
+
+[![Requests-Insights.png](https://i.postimg.cc/cCwCSRRm/Requests-Insights.png)](https://postimg.cc/dZQwRTSk)
+
+**Metrics:**
+
+[![Metrics-Insights.png](https://i.postimg.cc/1Rw34K6Z/Metrics-Insights.png)](https://postimg.cc/Z0YSMpVf)
+
+**Synhub-Members:**
+
+[![Synhub-Members-Insights.png](https://i.postimg.cc/jjBRSWSK/Synhub-Members-Insights.png)](https://postimg.cc/5H5hP2zk)
+
+**Synhub-Leaders:**
+
+[![Synhub-Leaders-Insights.png](https://i.postimg.cc/gkGmjbmY/Synhub-Leaders-Insights.png)](https://postimg.cc/vD2p2j4j)
 
 ## 7.3.	Validation Interviews
 
-
-
 ### 7.3.1.	Diseño de Entrevistas
 
+#### Objetivo de la Entrevista
 
+Validar la usabilidad y efectividad de la landing page y la aplicación para cada uno de los segmentos de usuarios, asegurando que los flujos de usuario (user flows) sean intuitivos y satisfactorios.
+
+#### Elementos de Validación
+
+- **Landing Page**: Los usuarios interactuarán con la landing page para evaluar la claridad del mensaje, las llamadas a la acción (CTA), la navegación y el diseño.
+- **Aplicación para líderes**: Se guiará a los usuarios a través de flujos principales, como la creación de grupos, aceptar las solicitudes de unión, creación y edición de tareas, vista de métricas de desarrollo, manejo de solicitudes y validaciones, visualización de miembros junto a la creación e inicio de sesión de usuarios.
+- **Aplicación para miembros**: Se guiará a los usuarios a través de flujos principales, como la unión a grupos, la visualización de sus tareas, las solicitudes o validaciones que tiene pendiente y la visualización de sus estadísticas de desempeño.
+
+#### User Flows a Validar
+
+- **Landing Page**:
+
+  - Sección de Características: Listado de las características que SynHub ofrece con respecto a la aplicación.
+  - Sección About Us y Team: Misión y Visión en SynHub, y el listado del equipo de desarrolladores.
+- **Aplicación Móvil para Líderes**:
+
+  - Creación de Grupos: Facilidad para registrar un grupo en la aplicación, proporcionando un código generado para la invitación a miembros.
+  - Gestión de Tareas: Visualizar, crear, modificar y eliminar tareas pertenecientes al grupo.
+  - Generación de Reportes: Generar reportes y visualizar la distribución de tareas en el equipo.
+  - Solicitudes y validaciones: Capacidad de gestionar y validar solicitudes respecto a tareas enviadas por los miembros.
+- **Aplicación Móvil para Miembros**:
+
+  - Unión y Visualización del Grupo: Facilidad para enviar solicitud e unirse a un grupo y ver sus integrantes.
+  - Listado de Tareas: Facilidad para gestionar tareas asignadas.
+  - Visualización de Solicitudes: Visualizar el estado de las solicitudes enviadas.
+  - Desempeño del Miembro: Visualizar el reporte generado a partir del desempeño del miembro.
+
+#### Formato de Registro de la Entrevista
+
+**Landing Page**
+
+- ¿Qué fue lo primero que pensaste o sentiste al ver la landing page?
+- ¿Podrías describir con tus propias palabras qué ofrece esta plataforma?
+- ¿Te quedó claro el propósito de la plataforma con solo ver el título o el eslogan principal? ¿Qué mensaje te transmite?
+- ¿Qué botones o enlaces llamaron más tu atención? ¿Te quedó claro qué sucedería al hacer clic en ellos?
+- ¿Te pareció fácil moverte por la página? ¿Encontraste rápidamente la información que te interesaba?
+- ¿Hubo algo que no supiste dónde buscar o que no encontraste?
+- ¿Hay alguna sección que eliminarías o que no te aporta valor?
+- ¿Qué opinas del diseño general (colores, tipografía, imágenes, distribución)? ¿Te parece profesional y atractivo?
+- ¿Cuánto tiempo te tomó entender de qué trata la plataforma? ¿Te sentiste abrumado con la información o fue clara y concisa?
+- ¿Qué mejorarías en la landing page para que sea más clara, atractiva o útil para nuevos usuarios?
+
+**Segmento Líderes**
+
+- ¿Cómo fue tu experiencia al crear una cuenta e iniciar sesión como líder? ¿Qué tan claro te resultó este proceso?
+- ¿Pudiste crear un grupo sin complicaciones? ¿Hay algo en el proceso que te pareció confuso o innecesario?
+- ¿Cómo fue tu experiencia al revisar y aceptar solicitudes de miembros que querían unirse a tu grupo?
+- ¿La interfaz te facilita diferenciar entre solicitudes pendientes, aceptadas o rechazadas?
+- ¿Qué tan sencillo te resultó crear una tarea y asignarla a un miembro?
+- ¿Pudiste editar una tarea sin dificultad? ¿Hubo algo que te hubiera gustado hacer pero no encontraste cómo?
+- ¿Te fue fácil identificar qué solicitudes o validaciones requerían tu atención? ¿Cómo fue el flujo para gestionarlas?
+- ¿Cómo calificarías la experiencia de visualizar a los miembros de tu grupo? ¿Qué información te resultó útil o faltante?
+- ¿Entendiste fácilmente las métricas que se te presentaron sobre el desempeño del grupo y de los miembros?
+- ¿Qué tan clara te pareció la estructura de la app? ¿Pudiste moverte fácilmente entre las secciones de grupo, tareas, métricas, miembros, etc.?
+- ¿Crees que esta aplicación realmente te facilita liderar y coordinar a tu equipo? ¿Qué funciones destacarías como más útiles?
+
+**Segmento Miembros**
+
+- ¿Cómo fue tu experiencia al registrarte e iniciar sesión en la aplicación? ¿Hubo algo que te confunde o te tomará más tiempo de lo esperado?
+- ¿Lograste unirte a un grupo sin ayuda? ¿Qué tan claro te resultó el proceso y los pasos necesarios?
+- ¿Pudiste encontrar tus tareas fácilmente? ¿Cómo calificarías la claridad de la información mostrada en cada tarea?
+- ¿Entiendes el significado de los diferentes estados o etiquetas de las tareas (por hacer, en progreso, completado, etc.)? ¿Hay algo que cambiarías para mejorar la comprensión?
+- ¿Te fue claro cuando tenías una solicitud o validación pendiente? ¿Qué tan fácil fue gestionarlas?
+- ¿Cómo fue tu experiencia al ver tus métricas de desempeño? ¿La información que se presenta te resulta útil o motivadora?
+- ¿Qué tan fácil te pareció moverse entre secciones dentro de la app? ¿En algún momento te sentiste perdido?
+- ¿Consideras que los textos, iconos y botones son claros y comprensibles? ¿Cambiarías algo en el diseño para hacerlo más intuitivo?
+- ¿Crees que usarías esta aplicación regularmente como miembro de un grupo? ¿Qué aspectos te animan o desmotivan?
 
 ### 7.3.2.	Registro de Entrevistas
 
+Todas las entrevistas se encuentran en el siguiente enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQAu0TXsQucRQrgDyImBfKZyAW5ROGp8Eqr6CobslwPgtW4?e=O2eD30&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
+A continuación se presentan los detalles clave de las entrevistas realizadas a los líderes. 
+
+| **Entrevista 1: Coordinadores o Líderes de Grupo** | |
+|-----|------|
+| Nombre de Entrevistado                             | Diego Alonso Quispe Flores  |
+| Edad   | 24     |
+| Profesión | Local Team Leader   |
+| Distrito  | Villa el Salvador |
+| Duración de la Entrevista  | 15:46  |
+| Minuto de inicio | 00:00   |
+| **Análisis de la Entrevista**| |
+| Creación de Grupos  | Nos comenta que la creacion de grupos fue bastante sencilla e intuitiva. |
+| Gestión de Tareas | Es bastante sencillo la creacion de tareas preferiria que hubiera una leyenda que explique los colores de cada estado de la tarea. |
+| Generación de Reportes                             | Argumento que era la parte mas llamativa,ya que le permite mantenerse actualizado a como va el desempeño del grupo.                |
+| Solicitudes y Validaciones                         | Menciona que esta bien distribuido pero añadiria el color de la solicitud o validacion de fondo para que sea mas clara la idea.    |
+| Navegación General                                 | Considera que la navegacion es un poco extensa para un nuevo usuario pero tiene una curva de aprendizaje corta o sencilla.         |
+
+[![Validation-1.png](https://i.postimg.cc/500M5tc5/Validation-1.png)](https://postimg.cc/06L3PPyr)
 
 ### 7.3.3.	Evaluaciones según heurísticas
 
+En esta sección se presentan las evaluaciones de usabilidad de la landing page y la aplicación mobile de servicios de coordinacion y administracion de grupos, basadas en heurísticas y principios de diseño.
 
+**UX Heuristics & Principles Evaluation** **Usability – Inclusive Design – Information Architecture**
+
+**Información del Proyecto**
+
+* **Carrera:** Ingeniería de Software
+* **Curso:** Arquitectura de Software Emergentes
+* **Auditor:** Collabrium
+* **Cliente:** Collabrium
+* **Site o App a Evaluar:** SynHub
+
+**Tareas a Evaluar** El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+**Para el Segmento Lider:**
+
+1. **Gestión y Navegación del Grupo**: Evaluar la facilidad con la que el líder puede visualizar, navegar y gestionar la información general de su grupo.
+2. **Gestión de Solicitudes y Validaciones**: Evaluar la claridad y eficacia del flujo para aceptar o rechazar solicitudes de unión, tareas o validaciones.
+3. **Supervisión de Tareas del Grupo**: Evaluar si el líder puede entender con rapidez el estado de las tareas, reasignar o modificarlas fácilmente.
+4. **Acceso y Visualización de Reportes/Estadísticas**: Evaluar qué tan útil y comprensible es la información sobre desempeño del grupo para la toma de decisiones.
+
+**Para el Segmento Miembro:**
+
+1. **Unión e Identificación del Grupo**: Evaluar qué tan claro es el proceso para unirse a un grupo y visualizar correctamente los detalles del grupo.
+2. **Visualización y Gestión de Tareas**: Evaluar si las tareas son comprensibles, están bien organizadas y si los colores e iconos ayudan a la interpretación.
+3. **Gestión y Revisión de Solicitudes**: Evaluar si el miembro comprende la diferencia entre tareas asignadas y solicitudes dentro del grupo.
+4. **Visualización de su Desempeño Individual**: Evaluar si el miembro puede visualizar claramente su rendimiento y entender cómo está siendo evaluado.
+
+**Escala de Severidad** Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+<table  cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Problema menor: puede ocurrir con más frecuencia o es más difícil de superar para el usuario. Debería tener una prioridad baja para resolverse en la próxima versión.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Debería tener alta prioridad para corregirse.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Problema muy grave: error que impide al usuario continuar utilizando la herramienta. Debe corregirse antes del lanzamiento.</td>
+    </tr>
+  </tbody>
+</table>
+
+**Tabla Resumen** La tabla de resumen muestra los problemas identificados, su nivel de severidad y el principio heurístico o diseño violado.
+
+<table cellspacing="0" cellpadding="8">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Problema</th>
+      <th>Escala de severidad</th>
+      <th>Heurística/Principio violado</th>
+      <th>Tarea evaluada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Colores de estado de tareas sin leyenda explicativa</td>
+      <td>2</td>
+      <td>Consistencia y estándares</td>
+      <td>Gestión de Tareas</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Navegación extensa al inicio para nuevos usuarios</td>
+      <td>2</td>
+      <td>Minimización de carga cognitiva</td>
+      <td>Navegación General</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Falta de diferenciación visual entre tareas y solicitudes</td>
+      <td>3</td>
+      <td>Reconocer mejor que recordar</td>
+      <td>Visualización de Solicitudes</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Colores de solicitudes similares a otras secciones</td>
+      <td>2</td>
+      <td>Diseño estético y minimalista</td>
+      <td>Listado de Tareas</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Falta de indicación clara para identificar el código del grupo</td>
+      <td>2</td>
+      <td>Ayuda y documentación</td>
+      <td>Unión y Visualización del Grupo</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Variables de desempeño percibidas como incompletas</td>
+      <td>2</td>
+      <td>Visibilidad del estado del sistema</td>
+      <td>Visualización de Desempeño del Miembro</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Fondo de validaciones no resalta lo suficiente</td>
+      <td>2</td>
+      <td>Consistencia y estándares</td>
+      <td>Solicitudes y Validaciones</td>
+    </tr>
+  </tbody>
+</table>
+
+**Descripción de Problemas**
+
+**Problema #1: Colores de estado de tareas sin leyenda explicativa**
+Tarea Evaluada: Gestión de Tareas
+Recomendación: Incluir una leyenda visible que explique el significado de cada color usado en el estado de las tareas. Esto permitirá a los usuarios interpretar rápidamente el estado de avance sin ambigüedades.
+
+**Problema #2: Navegación extensa al inicio para nuevos usuarios**
+Tarea Evaluada: Navegación General
+Recomendación: Simplificar el flujo de navegación para nuevos usuarios con una guía inicial o tour interactivo. Además, se pueden incorporar accesos directos para tareas comunes.
+
+**Problema #3: Falta de diferenciación visual entre tareas y solicitudes**
+Tarea Evaluada: Visualización de Solicitudes
+Recomendación: Utilizar elementos visuales distintivos como íconos, colores o bordes para separar claramente las tareas de las solicitudes y evitar confusiones.
+
+**Problema #4: Colores de solicitudes similares a otras secciones**
+Tarea Evaluada: Listado de Tareas
+Recomendación: Cambiar la paleta de colores para evitar redundancias visuales entre secciones. Cada tipo de información debe tener un estilo visual único y consistente.
+
+**Problema #5: Falta de indicación clara para identificar el código del grupo**
+Tarea Evaluada: Unión y Visualización del Grupo
+Recomendación: Agregar un subtítulo o etiqueta junto al código del grupo que diga explícitamente "Código de Grupo" para que no haya ambigüedad sobre su función.
+
+**Problema #6: Variables de desempeño percibidas como incompletas**
+Tarea Evaluada: Visualización de Desempeño del Miembro
+Recomendación: Incluir variables adicionales para enriquecer el reporte de desempeño, como tiempo de entrega, frecuencia de participación o aportes clave.
+
+**Problema #7: Fondo de validaciones no resalta lo suficiente**
+Tarea Evaluada: Solicitudes y Validaciones
+Recomendación: Utilizar un fondo de color más destacado o efectos visuales (como sombreado o bordes) para resaltar mejor las validaciones y facilitar su identificación inmediata.
 
 ### 7.4.	Video About-the-Product
 
-
-
+| Sección| Descripción|
+|------------------|----------------|
+| **Resumen del video**              | El video presenta una introducción a la aplicación SynHub, destacando sus principales características y beneficios para la gestión de grupos. Se enfoca en cómo la app facilita la organización, asignación de tareas y seguimiento del desempeño para líderes. Se muestran ejemplos prácticos de uso, enfatizando la usabilidad y el diseño intuitivo de la interfaz. |
+| **Cuadro de video Representativo** | [![About-The-Product-1.png](https://i.postimg.cc/yN9Bb17K/About-The-Product-1.png)](https://postimg.cc/LqHrqMqQ)  |
+| **Url de video**                   | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQCXm12r-HHzTquQsGH5Y8-uAbgpSvF7n3bmx8tjAkoe2F0?e=axEV9k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
 
 ## Conclusiones
 
@@ -6462,11 +7780,11 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
 
 ### TB3:
 
-- s
+- Se logró desarrollar e implementar una arquitectura basada en microservicios, integrando siete servicios independientes que permiten una mayor escalabilidad, mantenibilidad y separación de responsabilidades dentro del sistema.
 
-- s
+- Se completó el desarrollo de las dos aplicaciones móviles y la landing page, proporcionando interfaces accesibles y alineadas a los requerimientos funcionales y necesidades identificadas de los usuarios.
 
-- s
+- Se realizó el despliegue y validación de los componentes del sistema en entornos de producción, utilizando servicios como Render y GitHub Pages, garantizando la disponibilidad, comunicación e integración correcta entre los microservicios y las aplicaciones cliente.
 
 Anexo:
 
@@ -6485,6 +7803,17 @@ Anexo:
 
 - TB1 - Vídeo Grupal:
   <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQB_b05rwjo5QaGLdPw1yLh1AXde_eUvygY6fsJVKK0_R8g?e=9bOPov&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D>
+
+- TB2 - About the Product:
+  <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQCXm12r-HHzTquQsGH5Y8-uAbgpSvF7n3bmx8tjAkoe2F0?e=axEV9k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D>
+
+- TB2 - Video Grupal:
+
+
+
+- TB2 - About The Team:
+
+
 
 Bibliografía:
 
