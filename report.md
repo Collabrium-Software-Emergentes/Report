@@ -7350,6 +7350,15 @@ Esta tabla presenta la documentación de los servicios implementados como eviden
 
 ##### **Metrics:**
 
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req. Body |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Notifications** | POST | `/api/notifications/send` | Send notification | Create and send a new notification to a user | `sendNotification` | no | si |
+| **Notifications** | POST | `/api/notifications/mark-as-read/{notificationId}` | Mark notification as read | Update the read status of a specific notification | `markAsRead` | notificationId | no |
+| **Notifications** | GET | `/api/notifications/user/{userId}` | Get user notifications | Retrieve all notifications for a specific user | `getUserNotifications` | userId | no |
+| **Notifications** | GET | `/api/notifications/user/{userId}/unread` | Get user unread notifications | Retrieve all unread notifications for a specific user | `getUserUnreadNotifications` | userId | no |
+| **Analytics** | POST | `/api/reports/generate/{userId}` | Generate report | Create a new analytics report for a specific user | `generateReport` | userId | no |
+| **Analytics** | GET | `/api/reports/user/{userId}` | Get user reports | Retrieve all generated reports for a specific user | `getUserReports` | userId | no |
+
 
 
 #### 7.2.1.7.	Software Deployment Evidence for Sprint Review
