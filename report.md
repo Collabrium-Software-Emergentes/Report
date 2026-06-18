@@ -7089,7 +7089,7 @@ En esta sección se presentan los commits realizados en el repositorio de landin
 
 Para la parte de Testing se realizaron pruebas unitarias de los servicios de cada microservicio. Se utilizó el patrón AAA para mantener un estandar entre los miembros.
 
-**Iam:** En este microservicio se realizaron 9 pruebas unitarias, las cuales se enfocaron en probar la lógica de negocio de los servicios de autenticación y gestión de usuarios, incluyendo la creación de usuarios, generación de tokens JWT, y validación de credenciales.
+**Iam:** En este microservicio se realizaron pruebas unitarias, las cuales se enfocaron en probar la lógica de negocio de los servicios de autenticación y gestión de usuarios, incluyendo la creación de usuarios, generación de tokens JWT, y validación de credenciales.
 
 [![Testing-Iam.png](https://i.postimg.cc/x122hrpw/imagen-2026-06-17-192339854.png)](https://postimg.cc/qzjS6FTw)
 
