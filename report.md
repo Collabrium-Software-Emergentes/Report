@@ -250,6 +250,7 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
         <br> <em>TP</em> <br> Realice la documentacion del bounded context asignado en los plazos asignados y aporte al trabajo colaborativo con la presentacion de Synhub en Canva.
+        <br> <em>TB2</em> <br> Implemente el microservicio de tasks en su totalidad en su repositorio dedicado en la organizacion de Collabrium
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
@@ -288,6 +289,7 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
         <br> <em>TP</em> <br> Desarrolle y documente el bounded context de Tasks y elabore sus correspondientes diagramas de componentes, uml y database
+        <br> <em>TB2</em> <br> Integre 4 pruebas unitarias para el microservicio de tasks y las documente, junto con la documentacion de los endpoints de la misma
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
