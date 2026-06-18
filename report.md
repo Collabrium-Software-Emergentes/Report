@@ -7032,7 +7032,7 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Jhon Guerrero</td>
     <td colspan="1">Done</td>
   </tr>
-     <tr>
+  <tr>
     <td colspan="1">T-054</td>
     <td colspan="1">Crear generateReport</td>
     <td colspan="1">Crear endpoint de Analytics POST /api/reports/generate/{userId}</td>
@@ -7040,7 +7040,7 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Jhon Guerrero</td>
     <td colspan="1">Done</td>
   </tr>
-     <tr>
+  <tr>
     <td colspan="1">T-055</td>
     <td colspan="1">Crear getUserReports</td>
     <td colspan="1">Crear endpoint de Analytics GET /api/reports/user/{userId}</td>
@@ -7048,8 +7048,6 @@ En esta sección se detallan las consideraciones y pasos necesarios para el desp
     <td colspan="1">Jhon Guerrero</td>
     <td colspan="1">Done</td>
   </tr>
-
-
 </table>
 
 #### 7.2.1.3. Development Evidence for Sprint Review.
