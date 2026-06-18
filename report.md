@@ -28,7 +28,7 @@
 | Paitan Pumacahua, Max Anthony | U201314454 |
 | Paiva Quispe, Josue Gonzalo   | U202119095 |
 
-*Abril 2026*
+*Junio 2026*
 
 ## Registro de Versiones del Informe
 
@@ -37,6 +37,7 @@
 | 0.1 | 2026-04-14 | Miguel Gomez | Creación de la primera versión del documento |
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
 | 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 5 <br> - Capítulo 6 hasta 6.4 <br> |
+| 3.0 | 2026-06-17 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 6 finalizado <br> - Capítulo 7 - Sprint 1 <br> |
 
 ## Project Report Collaboration Insights
 
@@ -54,7 +55,7 @@ alt="Network-P1-TB1.png" />](https://postimg.cc/rD16qs5S)
 [<img src="./media/image4.png" style="width:5.83333in;height:2.12783in"
 alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
-### TB2:
+### TP:
 
 [![Insght-TP.png](https://i.postimg.cc/CxLKjF9m/Insght-TP.png)](https://postimg.cc/fJpZshz9)
 
@@ -62,9 +63,16 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
 
 [![insig.png](https://i.postimg.cc/yYn16MWc/insig.png)](https://postimg.cc/3d45nbXx)
 
-### TB3:
+### TB2:
+
+[![TB2-Insight-1.png](https://i.postimg.cc/0NM2qgq7/TB2-Insight-1.png)](https://postimg.cc/wtzdhGMB)
 
 
+Feliz y Felipe son dos cuentas de Jhon Guerrero.
+
+[![TB2-Insight-2.png](https://i.postimg.cc/sf9fz9b5/TB2-Insight-2.png)](https://postimg.cc/RqhxQfS0)
+
+[![TB2-Insights-3.png](https://i.postimg.cc/sX5WsGRW/TB2-Insights-3.png)](https://postimg.cc/tZCJzTJR)
 
 ## Contenido
 
@@ -432,21 +440,10 @@ alt="Network-P2-TB1.png" />](https://postimg.cc/Sj3H8Crp)
       - [7.2.1.4.	Testing Suite Evidence for Sprint Review](#7214testing-suite-evidence-for-sprint-review)
       - [7.2.1.5.	Execution Evidence for Sprint Review](#7215execution-evidence-for-sprint-review)
       - [7.2.1.6.	Services Documentation Evidence for Sprint Review](#7216services-documentation-evidence-for-sprint-review)
-        - [**Iam:**](#iam)
-        - [**Groups:**](#groups)
-        - [**Tasks:**](#tasks)
-        - [**Requests:**](#requests)
-        - [**Metrics:**](#metrics)
       - [7.2.1.7.	Software Deployment Evidence for Sprint Review](#7217software-deployment-evidence-for-sprint-review)
-        - [Pasos realizados:](#pasos-realizados)
-        - [Pasos realizados:](#pasos-realizados-1)
       - [7.2.1.8.	Team Collaboration Insights during Sprint](#7218team-collaboration-insights-during-sprint)
   - [7.3.	Validation Interviews](#73validation-interviews)
     - [7.3.1.	Diseño de Entrevistas](#731diseño-de-entrevistas)
-      - [Objetivo de la Entrevista](#objetivo-de-la-entrevista)
-      - [Elementos de Validación](#elementos-de-validación)
-      - [User Flows a Validar](#user-flows-a-validar)
-      - [Formato de Registro de la Entrevista](#formato-de-registro-de-la-entrevista)
     - [7.3.2.	Registro de Entrevistas](#732registro-de-entrevistas)
     - [7.3.3.	Evaluaciones según heurísticas](#733evaluaciones-según-heurísticas)
     - [7.4.	Video About-the-Product](#74video-about-the-product)
@@ -484,17 +481,21 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Expliqué al profesor y a mis compañeros el avance del proyecto, describiendo objetivos, resultados y conclusiones de manera clara. Además, aclare dudas en cuanto a conceptos de cada capítulo en este entrega y los formato de envíos de la misma.<br>
         <br> <em>TP</em> <br>
-        Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.
-        <br><br>
+        Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.<br>
+        <br> <em>TB2</em> <br>
+        Mantuve el contacto con el profesor para comunicar con mis compañeroes sobre los requerimientos de este entregable. Apoye en la creacion y orquestacion de los microservicios deployados. <br> <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
         <br> <em>TP</em> <br> Realice la documentacion del bounded context asignado en los plazos asignados y aporte al trabajo colaborativo con la presentacion de Synhub en Canva.
+        <br> <em>TB2</em> <br> Implemente el microservicio de tasks en su totalidad en su repositorio dedicado en la organizacion de Collabrium
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
         <br> <em>TP</em> <br> Comuniqué objetivamente los avances y bounded contexts con los integrantes de mi equipo para recibir retroalimentación. Asimismo, coordiné con el líder y mi equipo el impacto de la IA y la división de tareas, adaptando mi mensaje a cada nivel jerárquico para asegurar la entrega.
+        <br><br>
+         <br> <em>TB2</em> <br> Mantuve y me mantuve en constante coordinación con los miembros de mi equipo y así tener en cuenta las actualización en cada microservicio que tenian a cargo ellos y por mi parte permitirme desarrollar correctamente mi propio microservicio
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
@@ -502,17 +503,23 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TP</em> <br>
         Hice coordinaciones con los mis compañeros de grupo para esta entrega, coordinando y dividiendo el trabajo. Realicé las respectivas consultas al líder de grupo, y absolví mis dudas con el grupo, así como apoyé a mis compañeros con sus problemas.
         <br><br>
+        <br> <em>TB2</em> <br> Coordiné con el grupo para la división de tareas y dudas existentes. Ayude a absolver algunas dudas del equipo, así como consulté a mis compañeros ante los problemas que tuve durante la implementación del proyecto.
+        <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.<br>
         <br> <em>TP</em>
         <br>Tuvimos reuniones periódicas para coordinar el trabajo y resolver dudas a través de Meet. En estas reuniones explicamos cada bounded context y la función que cumple dentro del proyecto. Asimismo, nos distribuimos las tareas entre los integrantes del equipo. Además, presentamos y analizamos los diagramas desarrollados, así como el diseño visual y la lógica tanto del landing page como de la aplicación móvil.<br>
+        <br> <em>TB2</em>
+        <br>Tuvimos reuniones periodicas para el avance de los microservicios, pues es necesario que trabajen en conjunto. Estuve a cargo de Iam-Microservice, al avanzar cada endpoint explique en llamadas como funcionaba y como era util para otros microservicios.<br>
       </td>
       <td>
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar oralmente ideas y resultados con claridad, objetividad y seguridad durante la creación del trabajo. La comunicación para pulir mediante softwares emergentes una solución ya sólida permitió la finalización de un primer avance.<br>
         <br> <strong>TP</strong> <br>
-        En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible.
+        En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible. <br>
+        <br> <strong>TB2</strong> <br>
+        En esta entrega nos encargamos del desarrollo de la primera parte del proyecto. La cual se encarga de todas las historias de usuario que no estan relacionadas a las tecnologias emergentes.
       </td>
     </tr>
     <tr>
@@ -522,17 +529,21 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TB1</em> <br>
         Realize el análisis DDD del capítulo 4. Esto abarca desde el EventStorming hasta el Context Mapping. Además, diseñe la infraestructura de nuestro proyecto en los diferentes tipos de diagramas del mismo capítulo. Por último, registre mis entrevistas y documente los resultados del proyyecto.<br>
         <br> <em>TP</em> <br>
-        Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. 
-        <br><br>
+        Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. <br>
+        <br><em>TB2</em> <br>
+        Realizé el deploy de los microservicios, además añadi mejores prácticas a las implementaciones de todos los microservicios, a la vez que corregi vulnerabilidades en las dependencias. Me encargue netamente del microservicio de Groups.  <br> <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
         <br> <em>TP</em> <br> Desarrolle y documente el bounded context de Tasks y elabore sus correspondientes diagramas de componentes, uml y database
+        <br> <em>TB2</em> <br> Integre 4 pruebas unitarias para el microservicio de tasks y las documente, junto con la documentacion de los endpoints de la misma
         <br><br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
         <br> <em>TP</em> <br> Documenté objetivamente la arquitectura y patrones (como CQRS) de los bounded contexts mediante diagramas UML para guiar al equipo técnico. Además, diseñé wireframes para comunicar visualmente el producto a perfiles no técnicos, garantizando su comprensión en diferentes niveles y especialidades.
+        <br><br>
+        <br> <em>TB2</em> <br> Integre varias pruebas unitarias para la la comprobación correcta del funcionamiento de mi microservicio realizado. También las documente cada una y poder garantizar el correcto funcionamiento de los endpoints
         <br><br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
@@ -540,17 +551,23 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TP</em> <br>
         Realicé toda la descomposición del bounded context Requests, considerando los patrones de diseño correspondientes; hice uso de un diagrama de componentes, diagrama de clases, y diagrama de base de datos para una mayor comprensión. Además, realicé el diseño del wireframe y mockup del landing page. 
         <br><br>
+        <br> <em>TB2</em> <br> Realicé todo el código del backend correspondiente al microservicio de Requests. Realicé 12 pruebas unitarias para verificar el correcto funcionamiento de la parte del producto que avancé.
+        <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Realicé el Needfinding junto al análisis de los User Persona<br>
         <br> <em>TP</em>
         <br>Al completar este reporte, procuré utilizar un lenguaje claro y sencillo para que cualquier persona, incluso fuera del mundo del software, pudiera comprenderlo. Asimismo, cada diagrama desarrollado dentro de los *bounded contexts* cuenta con una explicación simple y fácil de entender.<br>
+        <br> <em>TB2</em>
+        <br>Al diseñar como funcionan en conjunto los microservicios, ayude en la creacion de un PDF donde se pueda leer la documentacion del funcionamiento de cada microservicio y que endpoint usara de otro. Asi pudimos facilitar la comprension del sistema, sobretodo mientras creaba Iam-Microservice.<br>
       </td>
       <td>
         <strong>TB1</strong><br>
         Se evidenció la capacidad del grupo para comunicar por escrito ideas y resultados mediante una presentación estructurada, clara y técnicamente adecuada. Se realizaron de manera debido la documentación delos capítulos 1, 2, 3 y 4 para la culminación del primer avance.<br>
         <br> <strong>TP</strong> <br>
-        Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context.
+        Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context. <br>
+        <br> <strong>TB2</strong> <br>
+        En esta entrega nos se realizó el deploy de algunos microservicios que ya se consideraban listos. Además, de investigar todas las tecnologias emergentes que se usarán en las entregas posteriores.
       </td>
     </tr>
   </tbody>
@@ -7809,11 +7826,11 @@ Anexo:
 
 - TB2 - Video Grupal:
 
-
+  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQB4u0FTa25qRo_pLTwwKuB4Abb6XO_uGWUrC9keAjIz2zM?e=QtgY8n&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 - TB2 - About The Team:
 
-
+  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQAXwgoQCXRDSbec0QKmjKW-AasC3aphM8Fsc2Sdk8MPMxk?e=dB6GDS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 Bibliografía:
 
