@@ -7773,11 +7773,11 @@ Recomendación: Utilizar un fondo de color más destacado o efectos visuales (co
 
 ### TB3:
 
-- s
+- Se logró desarrollar e implementar una arquitectura basada en microservicios, integrando siete servicios independientes que permiten una mayor escalabilidad, mantenibilidad y separación de responsabilidades dentro del sistema.
 
-- s
+- Se completó el desarrollo de las dos aplicaciones móviles y la landing page, proporcionando interfaces accesibles y alineadas a los requerimientos funcionales y necesidades identificadas de los usuarios.
 
-- s
+- Se realizó el despliegue y validación de los componentes del sistema en entornos de producción, utilizando servicios como Render y GitHub Pages, garantizando la disponibilidad, comunicación e integración correcta entre los microservicios y las aplicaciones cliente.
 
 Anexo:
 
