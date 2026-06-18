@@ -7446,7 +7446,41 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.1.8.	Team Collaboration Insights during Sprint
 
+**Api-Gateway:**
 
+[![Api-Gateway-Insights.png](https://i.postimg.cc/br7yVs4B/Api-Gateway-Insights.png)](https://postimg.cc/1VK1f5mG)
+
+**Discovery-Server:**
+
+[![Discovery-Server-Insights-2.png](https://i.postimg.cc/DwqZDPvb/Discovery-Server-Insights-2.png)](https://postimg.cc/DSwn4sb2)
+
+**Iam:**
+
+[![Iam-Insights.png](https://i.postimg.cc/TPdRs8NC/Iam-Insights.png)](https://postimg.cc/18dhgdQq)
+
+**Groups:**
+
+[![Groups-Insight-2.png](https://i.postimg.cc/mgqwXRgJ/Groups-Insight-2.png)](https://postimg.cc/68rnqkRf)
+
+**Tasks:**
+
+[![Tasks-Insights.png](https://i.postimg.cc/TYn5M6QT/Tasks-Insights.png)](https://postimg.cc/nCchBN6W)
+
+**Requests:**
+
+[![Requests-Insights.png](https://i.postimg.cc/cCwCSRRm/Requests-Insights.png)](https://postimg.cc/dZQwRTSk)
+
+**Metrics:**
+
+[![Metrics-Insights.png](https://i.postimg.cc/1Rw34K6Z/Metrics-Insights.png)](https://postimg.cc/Z0YSMpVf)
+
+**Synhub-Members:**
+
+[![Synhub-Members-Insights.png](https://i.postimg.cc/jjBRSWSK/Synhub-Members-Insights.png)](https://postimg.cc/5H5hP2zk)
+
+**Synhub-Leaders:**
+
+[![Synhub-Leaders-Insights.png](https://i.postimg.cc/gkGmjbmY/Synhub-Leaders-Insights.png)](https://postimg.cc/vD2p2j4j)
 
 ## 7.3.	Validation Interviews
 
