@@ -492,6 +492,8 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TP</em> <br>
         Hice coordinaciones con los mis compañeros de grupo para esta entrega, coordinando y dividiendo el trabajo. Realicé las respectivas consultas al líder de grupo, y absolví mis dudas con el grupo, así como apoyé a mis compañeros con sus problemas.
         <br><br>
+        <br> <em>TB2</em> <br> Coordiné con el grupo para la división de tareas y dudas existentes. Ayude a absolver algunas dudas del equipo, así como consulté a mis compañeros ante los problemas que tuve durante la implementación del proyecto.
+        <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.<br>
@@ -532,6 +534,8 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.<br>
         <br> <em>TP</em> <br>
         Realicé toda la descomposición del bounded context Requests, considerando los patrones de diseño correspondientes; hice uso de un diagrama de componentes, diagrama de clases, y diagrama de base de datos para una mayor comprensión. Además, realicé el diseño del wireframe y mockup del landing page. 
+        <br><br>
+        <br> <em>TB2</em> <br> Realicé todo el código del backend correspondiente al microservicio de Requests. Realicé 12 pruebas unitarias para verificar el correcto funcionamiento de la parte del producto que avancé.
         <br><br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
