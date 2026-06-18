@@ -7804,6 +7804,17 @@ Anexo:
 - TB1 - Vídeo Grupal:
   <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQB_b05rwjo5QaGLdPw1yLh1AXde_eUvygY6fsJVKK0_R8g?e=9bOPov&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D>
 
+- TB2 - About the Product:
+  <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202220294_upc_edu_pe/IQCXm12r-HHzTquQsGH5Y8-uAbgpSvF7n3bmx8tjAkoe2F0?e=axEV9k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D>
+
+- TB2 - Video Grupal:
+
+
+
+- TB2 - About The Team:
+
+
+
 Bibliografía:
 
 - 5W2H Explained: The Framework for Clear Problem Definition. (2025, 6
