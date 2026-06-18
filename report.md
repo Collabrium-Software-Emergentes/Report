@@ -28,7 +28,7 @@
 | Paitan Pumacahua, Max Anthony | U201314454 |
 | Paiva Quispe, Josue Gonzalo   | U202119095 |
 
-*Abril 2026*
+*Junio 2026*
 
 ## Registro de Versiones del Informe
 
