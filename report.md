@@ -7740,6 +7740,12 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 [![Media-Evidence-Sprint2.png](https://i.postimg.cc/W4r8XZZt/Media-Evidence-Sprint2.png)](https://postimg.cc/Z9b6qCVh)
 
+**Backend - Notifications:**
+
+Notifications no usa endpoints y es netamente usado mediante los eventos transmitidos por el broker.
+
+[![Notifications-Evidence-Sprint2.png](https://i.postimg.cc/Twdbg5qs/Notifications-Evidence-Sprint2.png)](https://postimg.cc/KKW4yzW7)
+
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
