@@ -7682,7 +7682,16 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | --- | --- | --- | --- | --- | --- |
-| Synhub-for-Leaders | main | dada750f44d48dfacae12b82fddf3915b3919d81 | feat(tasks): implement task creation and task list views | Implemented the Compose screens for creating a new task and listing the tasks assigned within a group, giving Leaders the primary interface to manage their team's workload. | 2026-06-16 |
+| Synhub-Microservices-Old | develop | edc809590081f10306447d42b211e331708e8eb7 | feat(config): update application port and logging configuration | Changed default server port to `8088` and updated logging package from `com.example.ai` to `com.collabrium.ai`. Enabled Swagger UI and API documentation paths. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 476d1f66429d55dd4e8bf89ab66b954756989888 | feat(ai): add GroupsAIController for group suggestion endpoint | Introduced `GroupsAIController` to handle AI-powered group suggestion requests. Includes a POST endpoint to generate group suggestions using validated input and transformation assemblers. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 06147d1dd7e54d84855171919a0d439a8e3f670d | feat(ai): add REST resources for group suggestion handling | Introduced `GroupSuggestionResource` and `GenerateGroupSuggestionResource` to define request/response structures for group suggestion functionality with validation. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | eac888efb7593b2c06f714ce55016c428b65bc7f | feat(notifications): update GroupsMailServiceImpl to send emails to all group members | Refactored `handle(SendGroupDeletedEmailCommand)` to iterate over all member emails when sending group deletion notifications. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 025cd0d41c10a51065283b42470fed49652289a4 | feat(notifications): add handling for SendGroupDeletedEmailCommand | Integrated support for processing `SendGroupDeletedEmailCommand` in `GroupsMailService` and its implementation. Simplified command imports and updated the record to remove unused `groupImageUrl`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 425364e9eb880a89b0d617161568c6a43cf16bdf | feat(notifications): add RabbitMQ queue and binding for GroupDeletedEvent | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a78a99a2ed915f10b01ff4db80e070a92cbc29bc | feat(notifications): add support for sending member removal emails, template, and service integration | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 32dc5cc1aef247304108cad949dadd9b7505b927 | refactor(media): use publicId from command in ImageCommandServiceImpl deletion logic | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a318af97cb479a58ea7239c8edcc3664e71162fe | feat(media): include publicId in DeleteGroupImageCommand and related event records | - Updated `DeleteGroupImageCommand`, `GroupDeletedEvent`, and assembler to support `publicId`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 2cf3649d28c63ca34306a67348bf6ac2d4a99bb8 | feat(groups): add publicId to GroupOnlyResource, remove from DeleteGroupImageCommand | -- | 2026-07-04 |
 
 **Commits realizados en el repositorio de frontend Synhub-Leaders:** 
 
