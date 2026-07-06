@@ -7780,7 +7780,17 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Enlace del Groups-Microservice:** [`https://groups-microservice-1.onrender.com`](https://groups-microservice-1.onrender.com)
 
-**Enlace del Requests-Microservicer:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+**Enlace del Requests-Microservice:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+
+**Enlace del Tasks-Microservice:** [`https://tasks-microservice.onrender.com`](https://tasks-microservice.onrender.com)
+
+**Enlace del Metrics-Microservice:** [`https://metrics-microservice-4x2j.onrender.com`](https://metrics-microservice-4x2j.onrender.com)
+
+**Enlace del Media-Microservice:** [`https://media-microservice.onrender.com`](https://media-microservice.onrender.com)
+
+**Enlace del Notifications-Microservice:** [`https://notifications-microservice-0drw.onrender.com`](https://notifications-microservice-0drw.onrender.com)
+
+**Enlace del Ai-Microservice:** [`https://ai-microservice-f0y9.onrender.com`](https://ai-microservice-f0y9.onrender.com)
 
 ##### Pasos realizados:
 
@@ -7826,6 +7836,10 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 [![Render-Deploy.png](https://i.postimg.cc/j5yns4ch/Render-Deploy.png)](https://postimg.cc/47NxPtrK)
 
 #### 7.2.2.8.	Team Collaboration Insights during Sprint
+
+[![Sprint2-Insights1.png](https://i.postimg.cc/yxV8TDd9/Sprint2-Insights1.png)](https://postimg.cc/gXTpzk3k)
+
+[![Sprint2-Insights2.png](https://i.postimg.cc/W1QpHW30/Sprint2-Insights2.png)](https://postimg.cc/SnfpXGcK)
 
 ## 7.3.	Validation Interviews
 
