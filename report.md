@@ -7724,6 +7724,10 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.4.	Testing Suite Evidence for Sprint Review
 
+**Groups:** Esta imagen muestra la evidencia de las 6 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
+
+[![Tests-Groups-Sprint2.png](https://i.postimg.cc/2Sk0jygn/Tests-Groups-Sprint2.png)](https://postimg.cc/mtnY8LLr)
+
 #### 7.2.2.5.	Execution Evidence for Sprint Review
 
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
