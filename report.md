@@ -7519,61 +7519,6 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 <table>
   <tr>
     <td colspan="1"><strong>Sprint #</strong></td>
-    <td colspan="1">2</td>
-  </tr>
-  <tr>
-    <td colspan="2"><strong>Sprint Planning Background</strong></td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Date</strong></td>
-    <td colspan="1">2026-25-06</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Time</strong></td>
-    <td colspan="1">12:00 PM</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Location</strong></td>
-    <td colspan="1">Discord</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Prepared by</strong></td>
-    <td colspan="1">Miguel Gomez</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Attendees (to planning meeting)</strong></td>
-    <td colspan="1">Diego Acuña, Miguel Gomez, Max Paitan, Jhon Guerrero, Josue Paiva</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Sprint n – 2 Review Summary</strong></td>
-    <td colspan="1">Se realizó la implementación de 3 nuevos servicios: Media para las imagenes, Notifications para los emails y AI para la ayuda con IA.</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Sprint n – 2 Retrospective Summary</strong></td>
-    <td colspan="1">Mejorar la comunicacion de artefacos relacionados a mas de un miembro.</td>
-  </tr>
-  <tr>
-    <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Sprint 2 Goal</strong></td>
-    <td colspan="1">Integrar los servicios de Media, Notifications y AI con la lógica de negocio principal, asegurando que las imágenes se almacenen y recuperen correctamente, las notificaciones por email se disparen en eventos clave, y el asistente de IA brinde respuestas útiles dentro de los flujos existentes. Adicionalmente, mejorar la comunicación entre miembros del equipo para evitar inconsistencias en artefactos compartidos.</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Sprint 1 Velocity</strong></td>
-    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 50 story points</td>
-  </tr>
-  <tr>
-    <td colspan="1"><strong>Sum of Story Points</strong></td>
-    <td colspan="1">La suma de story point atendidos es de 40 story point.</td>
-  </tr>
-</table>
-
-#### 7.2.2.2. Sprint Backlog 2
-
-<table>
-  <tr>
-    <td colspan="1"><strong>Sprint #</strong></td>
     <td colspan="7"><strong>Sprint 2</strong></td>
   </tr>
   <tr>
@@ -7674,6 +7619,58 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Miguel Gomez</td>
     <td>To Do</td>
   </tr>
+
+  <!-- TS-030 -->
+  <tr>
+    <td rowspan="6">TS-030</td>
+    <td rowspan="6">Servicio de carga y almacenamiento de imágenes para tareas</td>
+    <td>T-030-01</td>
+    <td>Diseño del endpoint de carga para tareas</td>
+    <td>Definir el contrato REST multipart para creación/actualización de tareas, siguiendo el mismo patrón implementado para grupos.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-030-02</td>
+    <td>Integración con servicio Media</td>
+    <td>Implementar TasksQueryPort, TasksFeignClient y TasksServiceAdapter en Media para permitir la carga, actualización y borrado de imágenes de tareas en Cloudinary.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-030-03</td>
+    <td>Persistencia de imagen en la entidad Task</td>
+    <td>Agregar columnas image_url y public_id a la tabla tasks (migración Flyway) e implementar la lógica de actualización de imagen en el agregado Task.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-030-04</td>
+    <td>Integración en app de líderes (Kotlin)</td>
+    <td>Implementar selector de imagen y envío multipart en la pantalla de creación de tareas de la app de líderes.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-030-05</td>
+    <td>Visualización de imagen en app de miembros (Flutter)</td>
+    <td>Mostrar la imagen de la tarea en la pantalla de detalle de la app de miembros.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-030-06</td>
+    <td>Pruebas de integración end-to-end</td>
+    <td>Validar el flujo completo de carga, actualización y visualización de imágenes de tareas entre los microservicios Tasks y Media.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <tdDone</td>
+  </tr>
 </table>
 
 #### 7.2.2.3. Development Evidence for Sprint Review.
@@ -7712,6 +7709,12 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Commits realizados en el repositorio de backend Tasks:**
 
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Tasks-Microservice | feature/tasks | d474eb0 | feat: added cloudinary image upload support | -- | 2026-07-04 |
+| Tasks-Microservice | feature/tasks | fcbf115 | fix: imports | -- | 2026-07-04 |
+| Tasks-Microservice | feature/tasks | 39f4c48 | fix: updated tasks microservice | -- | 2026-07-04 |
+
 **Commits realizados en el repositorio de backend Requests:** 
 
 **Commits realizados en el repositorio de backend Metrics:** 
@@ -7727,6 +7730,11 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 **Groups:** Esta imagen muestra la evidencia de las 6 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
 
 [![Tests-Groups-Sprint2.png](https://i.postimg.cc/2Sk0jygn/Tests-Groups-Sprint2.png)](https://postimg.cc/mtnY8LLr)
+
+**Tasks:** Presentamos la evidencia de pruebas unitarias de tasks para este sprint, incluyendo la actualizacion de imagen con Cloudinary
+
+[![Tests-Tasks-Sprint2.png](https://res.cloudinary.com/duhtltjmh/image/upload/v1783364095/testSprint2_dt3hfi.png)
+
 
 #### 7.2.2.5.	Execution Evidence for Sprint Review
 
@@ -7750,6 +7758,8 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 
 [![Ai-Evidence-Sprint2.png](https://i.postimg.cc/t4d7kCgB/Ai-Evidence-Sprint2.png)](https://postimg.cc/CR1FL0k8)
 
+
+
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
 ##### **Media:**
@@ -7767,6 +7777,15 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 | Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | **AI Groups** | POST  | `/ai/groups/suggestion` | Generate a group suggestion | Generate a suggested group name and description using artificial intelligence based on the provided input data. | `generateSuggestion` | none   | sí       |
+
+
+##### **Tasks:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **Task** | GET | `/tasks/{taskId}/only` | Get task only by id | Returns minimal task information (id and Cloudinary public ID) for internal service-to-service communication with Media. | `getTaskOnlyById` | `taskId` (path) | no |
+| **Tasks Details** | POST | `/members/{memberId}/tasks` | Create a new task | Creates a new task assigned to a member, with an optional image upload that is stored via the Media service. | `createTask` | `memberId` (path) | sí (`multipart/form-data`) |
+| **Tasks Details** | PUT | `/tasks/{taskId}` | Update task | Updates an existing task's details, with an optional image replacement handled via the Media service. | `updateTask` | `taskId` (path) | sí (`multipart/form-data`) |
 
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
 
