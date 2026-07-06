@@ -7695,6 +7695,15 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Commits realizados en el repositorio de frontend Synhub-Leaders:** 
 
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Leaders | develop | 9e3dad4c8e567764256a2ba3f8ad7d0c46c9215b | feat(utils): add utility to create multipart image | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 52e4fc32f0d210fe7f523db68c30baefab3bd26b | feat(group): add image upload support for group creation | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 32d16247839e4edf9a5bcc1b3258d44170bbd0a8 | feat(group): add delete group functionality with confirmation dialog | -- | 2026-06-29 |
+| Synhub-for-Leaders | develop | 807c575534d8a94db4cf2241d73f284ef6d82f44 | feat(group): add edit group screen and update functionality | - Added `EditGroup` screen with form fields for editing group details. - Integrated group update API in `GroupViewModel`. - Updated navigation to include a route for editing groups. | 2026-06-29 |
+| Synhub-for-Leaders | develop | f534c8a6a052c06c6ca12fc7f38c556e0b47c6d7 | feat(ai): add GenerateGroupRequest and GenerateGroupResponse classes | -- | 2026-07-04 |
+| Synhub-for-Leaders | develop | 3699be6938aae8fd48220a981cf7ad8f6a6636ea | feat(ai): integrate voice-to-AI group creation and update base URL | -- | 2026-07-04 |
+
 **Commits realizados en el repositorio de frontend Synhub-Members:** 
 
 **Commits realizados en el repositorio de backend Groups:** 
