@@ -7762,6 +7762,12 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 | **Media** | PUT   | `/images/tasks/{taskId}`   | Update task image    | Update the image associated with a specific task by uploading a new image file. Returns the updated image information.    | `updateTaskImage`    | `taskId` (path)  | sí (`multipart/form-data`) |
 | **Media** | POST  | `/images/requests`         | Upload request image | Upload a new image file and store it in the system to be used as a request image. Returns the uploaded image information. | `uploadRequestImage` | none             | sí (`multipart/form-data`) |
 
+##### **Ai:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **AI Groups** | POST  | `/ai/groups/suggestion` | Generate a group suggestion | Generate a suggested group name and description using artificial intelligence based on the provided input data. | `generateSuggestion` | none   | sí       |
+
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
 
 #### 7.2.2.8.	Team Collaboration Insights during Sprint
