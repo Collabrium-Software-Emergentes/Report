@@ -7611,6 +7611,25 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.2. Sprint Backlog 2
 
+  <table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="7"><strong>Sprint 2</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>User Story</strong></td>
+    <td colspan="6"><strong>Work-Item/Task</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Description</strong></td>
+    <td><strong>Estimation (Hrs)</strong></td>
+    <td><strong>Assigned To</strong></td>
+    <td><strong>Status</strong></td>
+  </tr>
   <!-- TS-027 -->
   <tr>
     <td rowspan="4">TS-027</td>
@@ -7778,9 +7797,13 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Commits realizados en el repositorio de frontend Synhub-Members:** 
 
-**Commits realizados en el repositorio de backend Groups:** 
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Members | develop | 47440666995003510ab8fbe95236777c98410533 | feat: added image support for task detail | -- | 2026-07-05 |
+| Synhub-for-Members | develop | 156e46b53e28c100d883cf49adfb87eb5e62d8d8 | feat(requests): add image picker UI to request creation screens | -- | 2026-07-05 |
+| Synhub-for-Members | develop | c5da7a0b943b15bc0fc72f51067b989c37952526 | feat(config): add image_picker dependency and update AGP version | Add image_picker and http_parser dependencies. Update Android Gradle Plugin from 8.7.3 to 8.9.1 for AndroidX compatibility. | 2026-07-05 |
+| Synhub-for-Members | develop | 831d5394f5fdcaeca22eb02481b18c731693d8b7 | feat(requests): add image upload support to request service and API client | Add uploadFile method to ApiClient for multipart uploads. Add uploadRequestImage method to RequestService. Update createRequest to accept optional imageUrl. Update CreateRequestEvent and RequestBloc to handle image upload before request creation. Add imageUrl field to Request model. | 2026-07-05 |
 
-**Commits realizados en el repositorio de backend Iam:** 
 
 **Commits realizados en el repositorio de backend Tasks:**
 
@@ -7789,14 +7812,6 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 | Tasks-Microservice | feature/tasks | d474eb0 | feat: added cloudinary image upload support | -- | 2026-07-04 |
 | Tasks-Microservice | feature/tasks | fcbf115 | fix: imports | -- | 2026-07-04 |
 | Tasks-Microservice | feature/tasks | 39f4c48 | fix: updated tasks microservice | -- | 2026-07-04 |
-
-**Commits realizados en el repositorio de backend Requests:** 
-
-**Commits realizados en el repositorio de backend Metrics:** 
-
-**Commits realizados en el repositorio de backend Notifications:** 
-
-**Commits realizados en el repositorio de backend Media:** 
 
 **Commits realizados en el repositorio de backend Ai:** 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
