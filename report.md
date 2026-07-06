@@ -7506,6 +7506,77 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 [![Synhub-Leaders-Insights.png](https://i.postimg.cc/gkGmjbmY/Synhub-Leaders-Insights.png)](https://postimg.cc/vD2p2j4j)
 
+### 7.2.2 Sprint 2
+
+#### 7.2.2.1. Sprint Planning 2
+
+<table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="1">2</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Sprint Planning Background</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Date</strong></td>
+    <td colspan="1">2026-25-06</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Time</strong></td>
+    <td colspan="1">12:00 PM</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Location</strong></td>
+    <td colspan="1">Discord</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Prepared by</strong></td>
+    <td colspan="1">Miguel Gomez</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Attendees (to planning meeting)</strong></td>
+    <td colspan="1">Diego Acuña, Miguel Gomez, Max Paitan, Jhon Guerrero, Josue Paiva</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint n – 2 Review Summary</strong></td>
+    <td colspan="1">Se realizó la implementación de 3 nuevos servicios: Media para las imagenes, Notifications para los emails y AI para la ayuda con IA.</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint n – 2 Retrospective Summary</strong></td>
+    <td colspan="1">Mejorar la comunicacion de artefacos relacionados a mas de un miembro.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint 2 Goal</strong></td>
+    <td colspan="1">Integrar los servicios de Media, Notifications y AI con la lógica de negocio principal, asegurando que las imágenes se almacenen y recuperen correctamente, las notificaciones por email se disparen en eventos clave, y el asistente de IA brinde respuestas útiles dentro de los flujos existentes. Adicionalmente, mejorar la comunicación entre miembros del equipo para evitar inconsistencias en artefactos compartidos.</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sprint 1 Velocity</strong></td>
+    <td colspan="1">Para este sprint nuestro equipo puende aceptar hasta 50 story points</td>
+  </tr>
+  <tr>
+    <td colspan="1"><strong>Sum of Story Points</strong></td>
+    <td colspan="1">La suma de story point atendidos es de 40 story point.</td>
+  </tr>
+</table>
+
+#### 7.2.2.2. Sprint Backlog 2
+
+#### 7.2.2.3. Development Evidence for Sprint Review.
+
+#### 7.2.2.4.	Testing Suite Evidence for Sprint Review
+
+#### 7.2.2.5.	Execution Evidence for Sprint Review
+
+#### 7.2.2.6.	Services Documentation Evidence for Sprint Review
+
+#### 7.2.2.7.	Software Deployment Evidence for Sprint Review
+
+#### 7.2.2.8.	Team Collaboration Insights during Sprint
+
 ## 7.3.	Validation Interviews
 
 ### 7.3.1.	Diseño de Entrevistas
