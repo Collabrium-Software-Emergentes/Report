@@ -7752,6 +7752,16 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
+##### **Media:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **Media** | POST  | `/images/groups`           | Upload group image   | Upload a new image file and store it in the system to be used as a group image. Returns the uploaded image information.   | `uploadGroupImage`   | none             | sí (`multipart/form-data`) |
+| **Media** | PUT   | `/images/groups/{groupId}` | Update group image   | Update the image associated with a specific group by uploading a new image file. Returns the updated image information.   | `updateGroupImage`   | `groupId` (path) | sí (`multipart/form-data`) |
+| **Media** | POST  | `/images/tasks`            | Upload task image    | Upload a new image file and store it in the system to be used as a task image. Returns the uploaded image information.    | `uploadTaskImage`    | none             | sí (`multipart/form-data`) |
+| **Media** | PUT   | `/images/tasks/{taskId}`   | Update task image    | Update the image associated with a specific task by uploading a new image file. Returns the updated image information.    | `updateTaskImage`    | `taskId` (path)  | sí (`multipart/form-data`) |
+| **Media** | POST  | `/images/requests`         | Upload request image | Upload a new image file and store it in the system to be used as a request image. Returns the uploaded image information. | `uploadRequestImage` | none             | sí (`multipart/form-data`) |
+
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
 
 #### 7.2.2.8.	Team Collaboration Insights during Sprint
