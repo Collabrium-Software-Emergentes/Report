@@ -7730,6 +7730,16 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.5.	Execution Evidence for Sprint Review
 
+**Frontend - Leaders:**
+
+[![Groups-Evidence-Sprint2.png](https://i.postimg.cc/d3RgXXTT/Groups-Evidence-Sprint2.png)](https://postimg.cc/D4ZC4x62)
+
+[![Groups-Evidence2-Sprint2.png](https://i.postimg.cc/FFbqhM1D/Groups-Evidence2-Sprint2.png)](https://postimg.cc/Hjx32Pwy)
+
+**Backend - Media:**
+
+[![Media-Evidence-Sprint2.png](https://i.postimg.cc/W4r8XZZt/Media-Evidence-Sprint2.png)](https://postimg.cc/Z9b6qCVh)
+
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
