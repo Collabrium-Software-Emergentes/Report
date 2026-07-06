@@ -38,6 +38,7 @@
 | 1.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 1 <br> - Capítulo 2 <br> - Capítulo 3 <br> - Capítulo 4 |
 | 2.0 | 2026-04-21 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 5 <br> - Capítulo 6 hasta 6.4 <br> |
 | 3.0 | 2026-06-17 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 6 finalizado <br> - Capítulo 7 - Sprint 1 <br> |
+| 4.0 | 2026-07-05 | Miguel Gomez <br> Diego Acuña <br> Jhon Guerrero <br> Max Paitan <br> Josue Paiva | - Capítulo 7 finalizado <br> - Capítulo 7 - Sprint 2 <br> |
 
 ## Project Report Collaboration Insights
 
@@ -483,20 +484,27 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <em>TP</em> <br>
         Realizé consultas al profesor sobre los avances parciales del proyecto antes de la presente entrega. Le hice presente la distribución de bounded contexts y recibi su retroalimentación respecto al enfoque de las tecnologías emergentes del proyecto.<br>
         <br> <em>TB2</em> <br>
-        Mantuve el contacto con el profesor para comunicar con mis compañeroes sobre los requerimientos de este entregable. Apoye en la creacion y orquestacion de los microservicios deployados. <br> <br>
+        Mantuve el contacto con el profesor para comunicar con mis compañeroes sobre los requerimientos de este entregable. Apoye en la creacion y orquestacion de los microservicios deployados. <br>
+        <br> <em>TF</em> <br>
+        Comuniqué al equipo y al docente el proceso de implementación del servicio de carga y almacenamiento de imágenes, explicando la arquitectura utilizada, el flujo de procesamiento de archivos y las decisiones técnicas adoptadas. Asimismo, presenté los resultados obtenidos en las pruebas de integración y atendí consultas relacionadas con la escalabilidad y el despliegue de la solución. <br>
+        <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros para el planteamiento del asistente de IA y su impacto en las US del producto.<br>
         <br> <em>TP</em> <br> Realice la documentacion del bounded context asignado en los plazos asignados y aporte al trabajo colaborativo con la presentacion de Synhub en Canva.
         <br> <em>TB2</em> <br> Implemente el microservicio de tasks en su totalidad en su repositorio dedicado en la organizacion de Collabrium
-        <br><br>
+        <br>
+        <br> <em>TF</em> <br>
+        Expuse a los integrantes del equipo el funcionamiento del sistema de notificaciones por correo electrónico implementado en el proyecto, detallando los eventos que desencadenan el envío de mensajes, la estructura de las plantillas utilizadas y las estrategias aplicadas para garantizar la correcta entrega de las notificaciones. Además, participé activamente en la resolución de dudas y en la validación de la funcionalidad desarrollada. <br> <br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         Aporte en la organización y ejecución de las actividades del equipo, asegurando que el trabajo avanzara de manera ordenada y estructurada. Esta participación permitió que las tareas se desarrollaran con claridad y consistencia, facilitando la coordinación y el progreso del proyecto frente a diferentes públicos y niveles jerárquicos.<br>
         <br> <em>TP</em> <br> Comuniqué objetivamente los avances y bounded contexts con los integrantes de mi equipo para recibir retroalimentación. Asimismo, coordiné con el líder y mi equipo el impacto de la IA y la división de tareas, adaptando mi mensaje a cada nivel jerárquico para asegurar la entrega.
         <br><br>
          <br> <em>TB2</em> <br> Mantuve y me mantuve en constante coordinación con los miembros de mi equipo y así tener en cuenta las actualización en cada microservicio que tenian a cargo ellos y por mi parte permitirme desarrollar correctamente mi propio microservicio
-        <br><br>
+        <br>
+        <br> <em>TF</em> <br>
+        Presenté los avances relacionados con la integración entre los microservicios encargados de la gestión de imágenes y las notificaciones por correo electrónico, explicando de manera objetiva los mecanismos de comunicación implementados y los resultados obtenidos durante las pruebas funcionales. Asimismo, coordiné con el equipo la adaptación de los requerimientos técnicos para asegurar la correcta interoperabilidad de los servicios. <br> <br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
         Mantuve comunicación activa con mis compañeros de grupo, coordinando el avance y la división del trabajo. Además, participé activamente brindando mis puntos de vista, mis dudas y recomendaciones en el trabajo, específicamente en la sección de competidores y entrevistas.<br>
@@ -504,7 +512,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         Hice coordinaciones con los mis compañeros de grupo para esta entrega, coordinando y dividiendo el trabajo. Realicé las respectivas consultas al líder de grupo, y absolví mis dudas con el grupo, así como apoyé a mis compañeros con sus problemas.
         <br><br>
         <br> <em>TB2</em> <br> Coordiné con el grupo para la división de tareas y dudas existentes. Ayude a absolver algunas dudas del equipo, así como consulté a mis compañeros ante los problemas que tuve durante la implementación del proyecto.
-        <br><br>
+        <br>
+        <br> <em>TF</em> <br>
+        Mantuve una comunicación constante con los miembros del equipo para reportar el progreso de la implementación de las funcionalidades de carga de imágenes y envío de correos electrónicos. Durante las reuniones de seguimiento, expliqué las dificultades encontradas, las soluciones aplicadas y el impacto de estas funcionalidades en la experiencia del usuario y en el cumplimiento de los requerimientos del proyecto. <br> <br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Para asegurar una comunicación clara y directa, nos pusimos de acuerdo y realizamos una reunión virtual en la que explicamos de qué trata el trabajo, cuáles son los objetivos de la startup y las características del producto. Además, si alguien tenía alguna duda, podíamos resolverla fácilmente. También realizamos reuniones presenciales al final de cada clase para reforzar la coordinación del equipo.<br>
@@ -512,6 +522,8 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br>Tuvimos reuniones periódicas para coordinar el trabajo y resolver dudas a través de Meet. En estas reuniones explicamos cada bounded context y la función que cumple dentro del proyecto. Asimismo, nos distribuimos las tareas entre los integrantes del equipo. Además, presentamos y analizamos los diagramas desarrollados, así como el diseño visual y la lógica tanto del landing page como de la aplicación móvil.<br>
         <br> <em>TB2</em>
         <br>Tuvimos reuniones periodicas para el avance de los microservicios, pues es necesario que trabajen en conjunto. Estuve a cargo de Iam-Microservice, al avanzar cada endpoint explique en llamadas como funcionaba y como era util para otros microservicios.<br>
+         <br> <em>TF</em> <br>
+        Realicé presentaciones periódicas al equipo sobre el avance de la implementación de los endpoints relacionados con la gestión de imágenes y el sistema de notificaciones por correo electrónico. Expliqué el funcionamiento técnico de cada componente, la interacción con otros microservicios y los resultados obtenidos en las pruebas realizadas, facilitando la comprensión de la solución por parte de los diferentes integrantes del proyecto. <br> <br>
       </td>
       <td>
         <strong>TB1</strong><br>
@@ -519,7 +531,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br> <strong>TP</strong> <br>
         En esta entrega presentamos una mejora al momento de p´resentar los entregables parciales para medir los avances de cada participante. Se presentó un modelo de ejemplo para que se guiarán y que el entendimiento del formato del reporte sea lo más uniforme posible. <br>
         <br> <strong>TB2</strong> <br>
-        En esta entrega nos encargamos del desarrollo de la primera parte del proyecto. La cual se encarga de todas las historias de usuario que no estan relacionadas a las tecnologias emergentes.
+        En esta entrega nos encargamos del desarrollo de la primera parte del proyecto. La cual se encarga de todas las historias de usuario que no estan relacionadas a las tecnologias emergentes. <br> <br>
+        <strong>TF</strong><br>
+        A lo largo de las diferentes entregas, el equipo demostró la capacidad de comunicar oralmente ideas, avances y resultados de manera clara, objetiva y adaptada a distintos niveles de responsabilidad dentro del proyecto. La coordinación constante entre los integrantes y la interacción con el docente permitieron fortalecer la comprensión de los requerimientos, optimizar la distribución de tareas y mejorar progresivamente la calidad de los entregables. Durante la implementación de la primera etapa del sistema, incluyendo funcionalidades como la gestión de imágenes y las notificaciones por correo electrónico, se evidenció una comunicación efectiva para la explicación de decisiones técnicas, la resolución de problemas y la integración de componentes, contribuyendo al cumplimiento de los objetivos planteados para el proyecto de ingeniería.
       </td>
     </tr>
     <tr>
@@ -532,19 +546,26 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         Realize la descomposicion de dos bounded context, siendo Notification y Groups. Los desglose enfocandome en patrones de diseño como Clean Architecture y CQRS. <br>
         <br><em>TB2</em> <br>
         Realizé el deploy de los microservicios, además añadi mejores prácticas a las implementaciones de todos los microservicios, a la vez que corregi vulnerabilidades en las dependencias. Me encargue netamente del microservicio de Groups.  <br> <br>
+        <br><em>TF</em> <br>
+        Elaboré documentación técnica relacionada con la implementación del servicio de carga de imágenes, describiendo de manera objetiva la arquitectura utilizada, los endpoints desarrollados, el flujo de almacenamiento y las pruebas realizadas. Asimismo, registré las decisiones técnicas adoptadas para facilitar la comprensión del sistema por parte del equipo y del docente. <br> <br>
         <strong>Paiva Quispe, Josue Gonzalo</strong>
         <br> <em>TB1</em> <br>
         Desarrollé la épica nueva de agente de IA, además de sus US y TS respectivas. Elaboré impact mapping y To-be scenario mapping.<br>
         <br> <em>TP</em> <br> Desarrolle y documente el bounded context de Tasks y elabore sus correspondientes diagramas de componentes, uml y database
         <br> <em>TB2</em> <br> Integre 4 pruebas unitarias para el microservicio de tasks y las documente, junto con la documentacion de los endpoints de la misma
-        <br><br>
+        <br>
+         <br><em>TF</em> <br>
+        Documenté el funcionamiento del sistema de notificaciones por correo electrónico, detallando los eventos de activación, la configuración del servicio y los resultados obtenidos durante las pruebas. La documentación fue redactada con un enfoque técnico y estructurado, permitiendo su comprensión por integrantes con diferentes niveles de especialización. <br> <br>
         <strong>Guerrero Vasquez, Jhon Danny</strong>
         <br> <em>TB1</em> <br>
         En el desarrollo del proyecto, mi aporte se centró en la elaboración del Capítulo I, donde comuniqué de manera escrita y objetiva las ideas y resultados iniciales. Presenté el perfil de la startup y del producto, describí la problemática y los antecedentes, y estructuré el proceso Lean UX con sus supuestos e hipótesis, asegurando que la información se transmitiera con claridad y coherencia. Esta participación permitió que los avances se documentaran de forma organizada y comprensible para públicos de diferentes especialidades y niveles jerárquicos, facilitando la coordinación y el entendimiento del proyecto en su etapa inicial.<br>
         <br> <em>TP</em> <br> Documenté objetivamente la arquitectura y patrones (como CQRS) de los bounded contexts mediante diagramas UML para guiar al equipo técnico. Además, diseñé wireframes para comunicar visualmente el producto a perfiles no técnicos, garantizando su comprensión en diferentes niveles y especialidades.
         <br><br>
         <br> <em>TB2</em> <br> Integre varias pruebas unitarias para la la comprobación correcta del funcionamiento de mi microservicio realizado. También las documente cada una y poder garantizar el correcto funcionamiento de los endpoints
-        <br><br>
+        <br>
+        <br><em>TF</em> <br>
+        Desarrollé reportes escritos sobre la integración de los microservicios implementados, describiendo objetivamente la comunicación entre servicios, los mecanismos de autenticación y las estrategias de interoperabilidad utilizadas. Esta documentación facilitó el seguimiento del avance y la validación técnica del proyecto.
+        <br> <br>
         <strong>Paitan Pumacahua, Max Anthony</strong>
         <br> <em>TB1</em> <br>
         Realicé la primera parte del capítulo 2, el análisis de competidores, las preguntas de las entrevistas. Además, colaboré en la realización del Architectural Design Decisions, Quality Attribute Scenario Refinements, Architectural Drivers Backlog y los Constraints.<br>
@@ -552,7 +573,10 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         Realicé toda la descomposición del bounded context Requests, considerando los patrones de diseño correspondientes; hice uso de un diagrama de componentes, diagrama de clases, y diagrama de base de datos para una mayor comprensión. Además, realicé el diseño del wireframe y mockup del landing page. 
         <br><br>
         <br> <em>TB2</em> <br> Realicé todo el código del backend correspondiente al microservicio de Requests. Realicé 12 pruebas unitarias para verificar el correcto funcionamiento de la parte del producto que avancé.
-        <br><br>
+        <br>
+        <br><em>TF</em> <br>
+        Participé en la elaboración de la documentación del proyecto registrando el desarrollo de las funcionalidades implementadas, incluyendo la gestión de imágenes y las notificaciones por correo electrónico. Además, redacté reportes de incidencias y soluciones aplicadas durante el proceso de implementación, contribuyendo a la trazabilidad del proyecto.
+        <br> <br>
         <strong>Acuña Tomas, Diego Rolin</strong>
         <br> <em>TB1</em> <br>
         Realicé el Needfinding junto al análisis de los User Persona<br>
@@ -560,6 +584,9 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         <br>Al completar este reporte, procuré utilizar un lenguaje claro y sencillo para que cualquier persona, incluso fuera del mundo del software, pudiera comprenderlo. Asimismo, cada diagrama desarrollado dentro de los *bounded contexts* cuenta con una explicación simple y fácil de entender.<br>
         <br> <em>TB2</em>
         <br>Al diseñar como funcionan en conjunto los microservicios, ayude en la creacion de un PDF donde se pueda leer la documentacion del funcionamiento de cada microservicio y que endpoint usara de otro. Asi pudimos facilitar la comprension del sistema, sobretodo mientras creaba Iam-Microservice.<br>
+        <br><em>TF</em> <br>
+        Documenté el desarrollo e implementación de los endpoints y servicios asociados a la gestión de usuarios, imágenes y notificaciones, describiendo su funcionamiento, dependencias e integración con otros microservicios. Asimismo, elaboré explicaciones técnicas orientadas a facilitar la comprensión y mantenimiento del sistema.
+        <br>
       </td>
       <td>
         <strong>TB1</strong><br>
@@ -568,6 +595,8 @@ alcanzado el logro del ABET – EAC - Student Outcome 3.
         Se completo de manera satisfactoria los capitulos 5 y el capitulo 6 hasta el punto 6.4. El formato de compartio a lo largo de la estructura del capitulo 5 con los bounded context. <br>
         <br> <strong>TB2</strong> <br>
         En esta entrega nos se realizó el deploy de algunos microservicios que ya se consideraban listos. Además, de investigar todas las tecnologias emergentes que se usarán en las entregas posteriores.
+        <br> <strong>TF</strong> <br> <br>
+        Durante el desarrollo del proyecto, el equipo evidenció la capacidad de comunicar por escrito ideas, procedimientos y resultados de manera objetiva, clara y estructurada. La elaboración de documentación técnica, reportes de avance y descripciones de las funcionalidades implementadas permitió mantener una comunicación efectiva entre los integrantes del equipo y con el docente. Asimismo, la documentación asociada a la implementación de los microservicios, la gestión de imágenes y las notificaciones por correo electrónico facilitó la comprensión, validación e integración de los componentes desarrollados, contribuyendo al cumplimiento de los objetivos del proyecto de ingeniería.
       </td>
     </tr>
   </tbody>
@@ -1422,6 +1451,9 @@ inteligente de asistencia:
 | US-031 | Priorización inteligente de tareas | Como miembro, quiero que el sistema ordene mis tareas automáticamente según prioridad para trabajar de forma más eficiente. | Escenario 1: Priorización automática: Given múltiples tareas, When accedo a mi lista, Then se ordenan por urgencia e importancia. Escenario 2: Actualización dinámica: Given cambios en tareas, When se actualiza el estado, Then la prioridad se recalcula. | EP-007 |
 | US-032 | Detección de sobrecarga de trabajo | Como líder, quiero que el sistema detecte miembros sobrecargados para redistribuir tareas. | Escenario 1: Sobrecarga detectada: Given un miembro con muchas tareas, When el sistema analiza carga, Then lo marca como sobrecargado. Escenario 2: Balance adecuado: Given carga equilibrada, When el sistema analiza, Then no genera alerta. | EP-007 |
 | US-033 | Recomendación de reprogramación | Como líder, quiero que el sistema sugiera nuevas fechas cuando detecta retrasos para mejorar la planificación. | Escenario 1: Recomendación de nueva fecha: Given una tarea en riesgo, When el sistema analiza, Then sugiere nueva fecha límite. Escenario 2: Sin necesidad: Given tarea en tiempo, When analiza, Then no sugiere cambios. | EP-007 |
+| US-034 | Adjuntar imagen de evidencia en solicitud | Como miembro, quiero adjuntar opcionalmente una imagen como evidencia al crear una solicitud para que el líder pueda validar mi trabajo visualmente. | Escenario 1: Con imagen: Given el miembro selecciona una imagen, When crea la solicitud, Then la imagen se sube a Cloudinary y la URL se guarda en la solicitud. Escenario 2: Sin imagen: Given el miembro no selecciona imagen, When crea la solicitud, Then se crea correctamente sin imageUrl. | EP-005 |
+| US-035 | Notificación por correo al líder por nueva solicitud | Como líder, quiero recibir un correo electrónico cuando un miembro de mi grupo crea una solicitud para poder revisarla oportunamente. | Escenario 1: Notificación enviada: Given un miembro crea una solicitud, When se guarda exitosamente, Then el líder del grupo recibe un correo con los datos del miembro, tarea, descripción y tipo de solicitud. Escenario 2: Con imagen: Given la solicitud incluye imagen, When se envía el correo, Then el correo muestra la imagen adjunta. | EP-005 |
+| US-036 | Visualizar imagen de evidencia en validaciónn | Como líder, quiero ver la imagen de evidencia adjunta en la pantalla de validación de solicitudes para tomar una decisión informada. | Escenario 1: Con imagen: Given una solicitud tiene imageUrl, When el líder abre la validación, Then se muestra la imagen. Escenario 2: Sin imagen: Given una solicitud no tiene imageUrl, When el líder abre la validación, Then no se muestra sección de imagen. | EP-005 |
 | TS-001 | Gestión de grupos (CRUD) | Como developer, quiero gestionar grupos para crear, actualizar, consultar y eliminar equipos. | Escenario 1: CRUD exitoso → operaciones GET/POST/PATCH/DELETE responden correctamente (200/201). Escenario 2: Error → IDs inválidos retornan 404 o 400. | EP-001 |
 | TS-002 | Gestión de miembros en grupos | Como developer, quiero agregar, listar y obtener miembros de grupos. | Escenario 1: Miembro agregado → POST exitoso (200). Escenario 2: Miembro inexistente → error 404. | EP-001 |
 | TS-003 | Gestión de solicitudes de unión | Como developer, quiero manejar solicitudes para unirse a grupos. | Escenario 1: Crear solicitud → POST exitoso (200). Escenario 2: Duplicada → error 409. | EP-001 |
@@ -1448,6 +1480,12 @@ inteligente de asistencia:
 | TS-024 | Motor de recomendaciones de reprogramación | Como developer, quiero sugerir nuevas fechas para tareas en riesgo. | Escenario 1: Recomendación generada → Given tarea con retraso, When se analiza, Then sugiere nueva fecha. Escenario 2: Tarea en tiempo → Then no sugiere cambios. | EP-007 |
 | TS-025 | Integración con modelo de IA externo | Como developer, quiero integrar un servicio de IA (API) para procesar datos. | Escenario 1: Integración exitosa → Given request válido, When se envía a la API, Then devuelve respuesta procesada (200). Escenario 2: Error de API → Then maneja fallback o error controlado. | EP-007 |
 | TS-026 | Servicio de análisis de métricas para IA | Como developer, quiero consumir datos de métricas para alimentar el agente inteligente. | Escenario 1: Datos disponibles → Given métricas existentes, When se consultan, Then se devuelven correctamente (200). Escenario 2: Sin datos → Then devuelve estructura vacía. | EP-007 |
+| TS-027 | Servicio de carga y almacenamiento de imágenes para grupos | Como developer, quiero implementar un endpoint que permita subir y almacenar la imagen de perfil de un grupo utilizando el servicio Media. | **Escenario 1: Carga exitosa** → Given imagen válida (JPG/PNG, <5MB), When se envía al endpoint, Then se almacena y retorna URL pública (201). **Escenario 2: Formato inválido** → Given imagen en formato no soportado, When se envía, Then retorna error 400 con mensaje descriptivo. **Escenario 3: Tamaño excedido** → Given imagen >5MB, When se envía, Then retorna error 413. | EP-001 |
+| TS-028 | Servicio de notificaciones por email para eventos de grupos | Como developer, quiero enviar notificaciones informativas por email al crear un grupo y al invitar miembros. | **Escenario 1: Notificación al crear grupo** → Given grupo creado exitosamente, When se completa la creación, Then se envía email informativo al creador con detalles del grupo (nombre, fecha, miembros). **Escenario 2: Notificación al invitar** → Given invitación enviada a usuario, When se completa el envío, Then se envía email informativo al invitado notificando que ha sido agregado al grupo. **Escenario 3: Error en envío** → Given fallo en servicio de notificaciones, When se intenta enviar, Then se registra error en logs y no bloquea la creación/invitación (fire-and-forget). | EP-001 |
+| TS-029 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | **Escenario 1: Sugerencia de nombre** → Given datos del grupo (propósito, miembros sugeridos, área/temática), When se consulta a IA, Then retorna sugerencias de nombre y descripción para el grupo. **Escenario 2: Sugerencia de configuración** → Given tipo de grupo y propósito, When se consulta a IA, Then retorna recomendaciones de configuración (nivel de privacidad, etiquetas, etc.). **Escenario 3: Fallo en IA** → Given servicio AI no disponible, When se consulta, Then retorna fallback con sugerencias genéricas predefinidas o mensaje controlado (503). | EP-007 |
+| TS-030 | Endpoint de subida de imágenes para solicitudes | Como developer, quiero un endpoint en media service para subir imágenes de solicitudes a Cloudinary. | **Escenario 1: Subida exitosa** → Given un archivo válido, When se envía POST /api/v1/images/requests, Then retorna imageUrl y publicId (200). **Escenario 2: Archivo inválido** → Given un archivo corrupto o no soportado, When se envía el POST, Then retorna error (400). | EP-005 |
+| TS-031 | Evento RabbitMQ para solicitud creada | Como developer, quiero publicar un evento por RabbitMQ cuando se crea una solicitud para que notifications service lo consuma y envíe el correo. | **Escenario 1: Publicación exitosa** → Given una solicitud creada exitosamente, When se guarda en la base de datos, Then se publica un evento en requests.exchange con routing key request.created. **Escenario 2: Consumo exitoso** → Given un evento publicado en la cola, When notifications service lo consume, Then se envía el correo al líder del grupo. | EP-003 |
+
 
 ## 3.3. Impact Mapping
 
@@ -1495,6 +1533,10 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 5 | US-016 | Solicitud de extensión de plazo | Como miembro, quiero pedir más tiempo para una tarea. | 2 |
 | 5 | US-017 | Histórico de validaciones | Como líder, quiero ver historial de aprobaciones. | 2 |
 | 5 | US-018 | Notificaciones de cambio de estado | Como miembro, quiero recibir alertas de cambios. | 2 |
+| 5 | US-034 | Adjuntar imagen de evidencia en solicitud | Como miembro, quiero adjuntar opcionalmente una imagen como evidencia al crear una solicitud. | 3 |
+| 5 | US-035 | Notificación por correo al líder por nueva solicitud | Como líder, quiero recibir un correo electrónico cuando un miembro crea una solicitud. | 2 |
+| 5 | US-036 | Visualización de imagen de evidencia en validación | Como líder, quiero ver la imagen de evidencia adjunta en la pantalla de validación. | 2 |
+| 5 | TS-034 | Evento RabbitMQ para solicitud creada | Como developer, quiero publicar un evento por RabbitMQ cuando se crea una solicitud. | 3 |
 | 6 | TS-015 | Cambio de contraseña | Como developer, quiero permitir actualizar contraseña. | 2 |
 | 6 | TS-016 | Microservice IAM | Como developer, quiero gestionar autenticación centralizada. | 3 |
 | 7 | US-029 | Recomendación de asignación de tareas | Como líder, quiero que el sistema sugiera asignaciones. | 5 |
@@ -1508,6 +1550,10 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 7 | TS-024 | Motor de recomendaciones de reprogramación | Como developer, quiero sugerir nuevas fechas. | 3 |
 | 7 | TS-025 | Integración con modelo de IA externo | Como developer, quiero integrar un servicio de IA. | 5 |
 | 7 | TS-026 | Servicio de análisis de métricas para IA | Como developer, quiero consumir métricas para IA. | 3 |
+| 8 | TS-027 | Servicio de carga y almacenamiento de imágenes para grupos | Como developer, quiero implementar un endpoint que permita subir y almacenar la imagen de perfil de un grupo utilizando el servicio Media. | 3 |
+| 8 | TS-032 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | 5 |
+| 8 | TS-028 | Servicio de notificaciones por email para eventos de grupos | Como developer, quiero enviar notificaciones informativas por email al crear un grupo y al invitar miembros. | 2 |
+| 8 | TS-033 | Endpoint de subida de imágenes para solicitudes | Como developer, quiero implementar un endpoint en media service para subir imágenes de evidencia de solicitudes a Cloudinary. | 2 |
 
 # 4. Capítulo IV: Strategic-Level Software Design
 
@@ -7565,17 +7611,405 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.2. Sprint Backlog 2
 
+  <table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="7"><strong>Sprint 2</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>User Story</strong></td>
+    <td colspan="6"><strong>Work-Item/Task</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Description</strong></td>
+    <td><strong>Estimation (Hrs)</strong></td>
+    <td><strong>Assigned To</strong></td>
+    <td><strong>Status</strong></td>
+  </tr>
+  <!-- TS-027 -->
+  <tr>
+    <td rowspan="4">TS-027</td>
+    <td rowspan="4">Servicio de carga y almacenamiento de imágenes para grupos</td>
+    <td>T-027-01</td>
+    <td>Diseño del endpoint de carga</td>
+    <td>Definir el contrato REST, validaciones y estructura de respuesta para la carga de imágenes.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-02</td>
+    <td>Integración con servicio Media</td>
+    <td>Implementar la conexión con el servicio Media para almacenar imágenes y obtener la URL pública.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-03</td>
+    <td>Validación de formato y tamaño</td>
+    <td>Agregar validaciones para formatos JPG/PNG y límite máximo de 5 MB.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-04</td>
+    <td>Pruebas unitarias e integración</td>
+    <td>Desarrollar pruebas para carga exitosa, formato inválido y tamaño excedido.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-028 -->
+  <tr>
+    <td rowspan="3">TS-028</td>
+    <td rowspan="3">Servicio de notificaciones por email para eventos de grupos</td>
+    <td>T-028-01</td>
+    <td>Configuración del servicio de email</td>
+    <td>Configurar el proveedor de correo y las plantillas base para notificaciones.</td>
+    <td>0,5</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-028-02</td>
+    <td>Notificación de creación de grupo</td>
+    <td>Implementar el envío de email al creador con los datos del grupo.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-028-03</td>
+    <td>Notificación de invitación</td>
+    <td>Implementar el envío de email informativo al usuario invitado.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-029 -->
+  <tr>
+    <td rowspan="2">TS-029</td>
+    <td rowspan="2">Asistente IA para sugerencias al crear grupo</td>
+    <td>T-029-01</td>
+    <td>Diseño de integración con IA</td>
+    <td>Definir el contrato y la arquitectura de integración con el servicio de inteligencia artificial.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-029-02</td>
+    <td>Sugerencias de nombre y descripción</td>
+    <td>Implementar la consulta al servicio IA para generar nombres y descripciones sugeridas.</td>
+    <td>0,5</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-030 -->
+<tr>
+  <td rowspan="1">TS-030</td>
+  <td rowspan="1">Endpoint de subida de imágenes para solicitudes</td>
+  <td>T-030-01</td>
+  <td>Endpoint POST /api/v1/images/requests</td>
+  <td>Crear el command, handler en ImageCommandService y endpoint en ImageController para subir imágenes a Cloudinary en synhub/requests.</td>
+  <td>2</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+
+<!-- TS-031 -->
+<tr>
+  <td rowspan="2">TS-031</td>
+  <td rowspan="2">Evento RabbitMQ para solicitud creada</td>
+  <td>T-031-01</td>
+  <td>Infraestructura de mensajería en requests y notifications</td>
+  <td>Configurar exchanges, queues, routing keys y bindings en RabbitMQConfiguration de ambos microservicios.</td>
+  <td>1</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+<tr>
+  <td>T-031-02</td>
+  <td>Resolución de email del líder y publicación del evento</td>
+  <td>Agregar getGroupOnlyByGroupId en GroupsQueryPort, resolver el email del líder y publicar el evento desde RequestDetailsCommandService.</td>
+  <td>2</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+
+  <!-- TS-032 -->
+  <tr>
+    <td rowspan="6">TS-032</td>
+    <td rowspan="6">Servicio de carga y almacenamiento de imágenes para tareas</td>
+    <td>T-032-01</td>
+    <td>Diseño del endpoint de carga para tareas</td>
+    <td>Definir el contrato REST multipart para creación/actualización de tareas, siguiendo el mismo patrón implementado para grupos.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-032-02</td>
+    <td>Integración con servicio Media</td>
+    <td>Implementar TasksQueryPort, TasksFeignClient y TasksServiceAdapter en Media para permitir la carga, actualización y borrado de imágenes de tareas en Cloudinary.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-032-03</td>
+    <td>Persistencia de imagen en la entidad Task</td>
+    <td>Agregar columnas image_url y public_id a la tabla tasks (migración Flyway) e implementar la lógica de actualización de imagen en el agregado Task.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-032-04</td>
+    <td>Integración en app de líderes (Kotlin)</td>
+    <td>Implementar selector de imagen y envío multipart en la pantalla de creación de tareas de la app de líderes.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-032-05</td>
+    <td>Visualización de imagen en app de miembros (Flutter)</td>
+    <td>Mostrar la imagen de la tarea en la pantalla de detalle de la app de miembros.</td>
+    <td>1</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+  <tr>
+    <td>T-032-06</td>
+    <td>Pruebas de integración end-to-end</td>
+    <td>Validar el flujo completo de carga, actualización y visualización de imágenes de tareas entre los microservicios Tasks y Media.</td>
+    <td>2</td>
+    <td>Josue Paiva</td>
+    <td>Done</td>
+  </tr>
+
+
+
+</table>
+
 #### 7.2.2.3. Development Evidence for Sprint Review.
+
+**Commits realizados en el repositorio de desarrollo conjunto del backend (Synhub-Microservices-Old):**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-Microservices-Old | develop | edc809590081f10306447d42b211e331708e8eb7 | feat(config): update application port and logging configuration | Changed default server port to `8088` and updated logging package from `com.example.ai` to `com.collabrium.ai`. Enabled Swagger UI and API documentation paths. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 476d1f66429d55dd4e8bf89ab66b954756989888 | feat(ai): add GroupsAIController for group suggestion endpoint | Introduced `GroupsAIController` to handle AI-powered group suggestion requests. Includes a POST endpoint to generate group suggestions using validated input and transformation assemblers. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 06147d1dd7e54d84855171919a0d439a8e3f670d | feat(ai): add REST resources for group suggestion handling | Introduced `GroupSuggestionResource` and `GenerateGroupSuggestionResource` to define request/response structures for group suggestion functionality with validation. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | eac888efb7593b2c06f714ce55016c428b65bc7f | feat(notifications): update GroupsMailServiceImpl to send emails to all group members | Refactored `handle(SendGroupDeletedEmailCommand)` to iterate over all member emails when sending group deletion notifications. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 025cd0d41c10a51065283b42470fed49652289a4 | feat(notifications): add handling for SendGroupDeletedEmailCommand | Integrated support for processing `SendGroupDeletedEmailCommand` in `GroupsMailService` and its implementation. Simplified command imports and updated the record to remove unused `groupImageUrl`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 425364e9eb880a89b0d617161568c6a43cf16bdf | feat(notifications): add RabbitMQ queue and binding for GroupDeletedEvent | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a78a99a2ed915f10b01ff4db80e070a92cbc29bc | feat(notifications): add support for sending member removal emails, template, and service integration | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 32dc5cc1aef247304108cad949dadd9b7505b927 | refactor(media): use publicId from command in ImageCommandServiceImpl deletion logic | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a318af97cb479a58ea7239c8edcc3664e71162fe | feat(media): include publicId in DeleteGroupImageCommand and related event records | - Updated `DeleteGroupImageCommand`, `GroupDeletedEvent`, and assembler to support `publicId`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 2cf3649d28c63ca34306a67348bf6ac2d4a99bb8 | feat(groups): add publicId to GroupOnlyResource, remove from DeleteGroupImageCommand | -- | 2026-07-04 |
+
+**Commits realizados en el repositorio de frontend Synhub-Leaders:** 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Leaders | develop | 9e3dad4c8e567764256a2ba3f8ad7d0c46c9215b | feat(utils): add utility to create multipart image | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 52e4fc32f0d210fe7f523db68c30baefab3bd26b | feat(group): add image upload support for group creation | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 32d16247839e4edf9a5bcc1b3258d44170bbd0a8 | feat(group): add delete group functionality with confirmation dialog | -- | 2026-06-29 |
+| Synhub-for-Leaders | develop | 807c575534d8a94db4cf2241d73f284ef6d82f44 | feat(group): add edit group screen and update functionality | - Added `EditGroup` screen with form fields for editing group details. - Integrated group update API in `GroupViewModel`. - Updated navigation to include a route for editing groups. | 2026-06-29 |
+| Synhub-for-Leaders | develop | f534c8a6a052c06c6ca12fc7f38c556e0b47c6d7 | feat(ai): add GenerateGroupRequest and GenerateGroupResponse classes | -- | 2026-07-04 |
+| Synhub-for-Leaders | develop | 3699be6938aae8fd48220a981cf7ad8f6a6636ea | feat(ai): integrate voice-to-AI group creation and update base URL | -- | 2026-07-04 |
+
+**Commits realizados en el repositorio de frontend Synhub-Members:** 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Members | develop | 47440666995003510ab8fbe95236777c98410533 | feat: added image support for task detail | -- | 2026-07-05 |
+| Synhub-for-Members | develop | 156e46b53e28c100d883cf49adfb87eb5e62d8d8 | feat(requests): add image picker UI to request creation screens | -- | 2026-07-05 |
+| Synhub-for-Members | develop | c5da7a0b943b15bc0fc72f51067b989c37952526 | feat(config): add image_picker dependency and update AGP version | Add image_picker and http_parser dependencies. Update Android Gradle Plugin from 8.7.3 to 8.9.1 for AndroidX compatibility. | 2026-07-05 |
+| Synhub-for-Members | develop | 831d5394f5fdcaeca22eb02481b18c731693d8b7 | feat(requests): add image upload support to request service and API client | Add uploadFile method to ApiClient for multipart uploads. Add uploadRequestImage method to RequestService. Update createRequest to accept optional imageUrl. Update CreateRequestEvent and RequestBloc to handle image upload before request creation. Add imageUrl field to Request model. | 2026-07-05 |
+
+
+**Commits realizados en el repositorio de backend Tasks:**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Tasks-Microservice | feature/tasks | d474eb0 | feat: added cloudinary image upload support | -- | 2026-07-04 |
+| Tasks-Microservice | feature/tasks | fcbf115 | fix: imports | -- | 2026-07-04 |
+| Tasks-Microservice | feature/tasks | 39f4c48 | fix: updated tasks microservice | -- | 2026-07-04 |
+
+**Commits realizados en el repositorio de backend Ai:** 
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Members | develop | 47440666995003510ab8fbe95236777c98410533 | feat: added image support for task detail | -- | 2026-07-05 |
+| Synhub-for-Members | develop | 156e46b53e28c100d883cf49adfb87eb5e62d8d8 | feat(requests): add image picker UI to request creation screens | -- | 2026-07-05 |
+| Synhub-for-Members | develop | c5da7a0b943b15bc0fc72f51067b989c37952526 | feat(config): add image_picker dependency and update AGP version | Add image_picker and http_parser dependencies. Update Android Gradle Plugin from 8.7.3 to 8.9.1 for AndroidX compatibility. | 2026-07-05 |
+| Synhub-for-Members | develop | 831d5394f5fdcaeca22eb02481b18c731693d8b7 | feat(requests): add image upload support to request service and API client | Add uploadFile method to ApiClient for multipart uploads. Add uploadRequestImage method to RequestService. Update createRequest to accept optional imageUrl. Update CreateRequestEvent and RequestBloc to handle image upload before request creation. Add imageUrl field to Request model. | 2026-07-05 |
 
 #### 7.2.2.4.	Testing Suite Evidence for Sprint Review
 
+**Groups:** Esta imagen muestra la evidencia de las 6 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
+
+[![Tests-Groups-Sprint2.png](https://i.postimg.cc/2Sk0jygn/Tests-Groups-Sprint2.png)](https://postimg.cc/mtnY8LLr)
+
+**Tasks:** Presentamos la evidencia de pruebas unitarias de tasks para este sprint, incluyendo la actualizacion de imagen con Cloudinary
+
+[![Tests-Tasks-Sprint2.png](https://res.cloudinary.com/duhtltjmh/image/upload/v1783364095/testSprint2_dt3hfi.png)
+
+
 #### 7.2.2.5.	Execution Evidence for Sprint Review
+
+**Frontend - Leaders:**
+
+[![Groups-Evidence-Sprint2.png](https://i.postimg.cc/d3RgXXTT/Groups-Evidence-Sprint2.png)](https://postimg.cc/D4ZC4x62)
+
+[![Groups-Evidence2-Sprint2.png](https://i.postimg.cc/FFbqhM1D/Groups-Evidence2-Sprint2.png)](https://postimg.cc/Hjx32Pwy)
+
+**Metrics**
+[![Captura-de-pantalla-2026-07-06-a-las-17-14-06.png](https://i.postimg.cc/jjsH20Bp/Captura-de-pantalla-2026-07-06-a-las-17-14-06.png)](https://postimg.cc/NKz9CVsD)
+
+[![Captura-de-pantalla-2026-07-06-a-las-17-14-11.png](https://i.postimg.cc/tTd7xYP3/Captura-de-pantalla-2026-07-06-a-las-17-14-11.png)](https://postimg.cc/S2sy0QgR)
+
+**Backend - Media:**
+
+[![Media-Evidence-Sprint2.png](https://i.postimg.cc/W4r8XZZt/Media-Evidence-Sprint2.png)](https://postimg.cc/Z9b6qCVh)
+
+**Backend - Notifications:**
+
+Notifications no usa endpoints y es netamente usado mediante los eventos transmitidos por el broker.
+
+[![Notifications-Evidence-Sprint2.png](https://i.postimg.cc/Twdbg5qs/Notifications-Evidence-Sprint2.png)](https://postimg.cc/KKW4yzW7)
+
+**Backend - Ai:**
+
+[![Ai-Evidence-Sprint2.png](https://i.postimg.cc/t4d7kCgB/Ai-Evidence-Sprint2.png)](https://postimg.cc/CR1FL0k8)
+
+
+**Backend - Tasks:**
+
+[![image.png](https://i.postimg.cc/yN2J0m2c/image.png)](https://postimg.cc/rdCFkrVw)
+
+**Backend - Requests:**
+
+[![image.png](https://i.postimg.cc/RZFq8pBw/image.png)](https://postimg.cc/4mDJH5n3)
+
+[![image.png](https://i.postimg.cc/9MGfTvdC/image.png)](https://postimg.cc/2bSmN99K)
+
+**Backend - Iam:**
+
+[![image.png](https://i.postimg.cc/zBRgQtT7/image.png)](https://postimg.cc/DJn0Jcj4)
+
+[![execution.png](https://i.postimg.cc/26P48RzR/execution.png)](https://postimg.cc/KkDKJWkJ)
 
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
+##### **Media:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **Media** | POST  | `/images/groups`           | Upload group image   | Upload a new image file and store it in the system to be used as a group image. Returns the uploaded image information.   | `uploadGroupImage`   | none             | sí (`multipart/form-data`) |
+| **Media** | PUT   | `/images/groups/{groupId}` | Update group image   | Update the image associated with a specific group by uploading a new image file. Returns the updated image information.   | `updateGroupImage`   | `groupId` (path) | sí (`multipart/form-data`) |
+| **Media** | POST  | `/images/tasks`            | Upload task image    | Upload a new image file and store it in the system to be used as a task image. Returns the uploaded image information.    | `uploadTaskImage`    | none             | sí (`multipart/form-data`) |
+| **Media** | PUT   | `/images/tasks/{taskId}`   | Update task image    | Update the image associated with a specific task by uploading a new image file. Returns the updated image information.    | `updateTaskImage`    | `taskId` (path)  | sí (`multipart/form-data`) |
+| **Media** | POST  | `/images/requests`         | Upload request image | Upload a new image file and store it in the system to be used as a request image. Returns the uploaded image information. | `uploadRequestImage` | none             | sí (`multipart/form-data`) |
+
+##### **Ai:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **AI Groups** | POST  | `/ai/groups/suggestion` | Generate a group suggestion | Generate a suggested group name and description using artificial intelligence based on the provided input data. | `generateSuggestion` | none   | sí       |
+
+
+##### **Tasks:**
+
+| Tag | Verbo | Endpoint | Summary | Description | OperationId | Params | Req Body |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| **Task** | GET | `/tasks/{taskId}/only` | Get task only by id | Returns minimal task information (id and Cloudinary public ID) for internal service-to-service communication with Media. | `getTaskOnlyById` | `taskId` (path) | no |
+| **Tasks Details** | POST | `/members/{memberId}/tasks` | Create a new task | Creates a new task assigned to a member, with an optional image upload that is stored via the Media service. | `createTask` | `memberId` (path) | sí (`multipart/form-data`) |
+| **Tasks Details** | PUT | `/tasks/{taskId}` | Update task | Updates an existing task's details, with an optional image replacement handled via the Media service. | `updateTask` | `taskId` (path) | sí (`multipart/form-data`) |
+
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
 
+Para hacer el deployment de los microservicios se utilizó Render, una plataforma que permite alojar Web Services de forma gratuita directamente desde un repositorio de GitHub.
+
+**Enlace del Discovery-Server:** [`https://discovery-server-1wsw.onrender.com`](https://discovery-server-1wsw.onrender.com)
+
+**Enlace del Api-Gateway:** [`https://api-gateway-pag1.onrender.com`](https://api-gateway-pag1.onrender.com)
+
+**Enlace del Iam-Microservice:** [`https://iam-microservice-1.onrender.com`](https://iam-microservice-1.onrender.com)
+
+**Enlace del Groups-Microservice:** [`https://groups-microservice-1.onrender.com`](https://groups-microservice-1.onrender.com)
+
+**Enlace del Requests-Microservice:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+
+**Enlace del Tasks-Microservice:** [`https://tasks-microservice.onrender.com`](https://tasks-microservice.onrender.com)
+
+**Enlace del Metrics-Microservice:** [`https://metrics-microservice-4x2j.onrender.com`](https://metrics-microservice-4x2j.onrender.com)
+
+**Enlace del Media-Microservice:** [`https://media-microservice.onrender.com`](https://media-microservice.onrender.com)
+
+**Enlace del Notifications-Microservice:** [`https://notifications-microservice-0drw.onrender.com`](https://notifications-microservice-0drw.onrender.com)
+
+**Enlace del Ai-Microservice:** [`https://ai-microservice-f0y9.onrender.com`](https://ai-microservice-f0y9.onrender.com)
+
+##### Pasos realizados:
+
+1. **Preparar el repositorio en GitHub**
+
+   * Crear o utilizar un repositorio que contenga el código fuente del microservicio.
+   * Asegurarse de que el proyecto incluya los archivos de configuración necesarios para su ejecución (por ejemplo, `pom.xml` en proyectos Maven o `build.gradle` en proyectos Gradle).
+   * Confirmar que el repositorio esté actualizado con la última versión del código que se desea desplegar.
+
+2. **Acceder a Render**
+
+   * Ingresar al sitio web de Render: `https://render.com`.
+   * Iniciar sesión con la cuenta correspondiente.
+   * En el Dashboard, hacer clic en la opción **New** y seleccionar **Web Service**.
+
+3. **Conectar el repositorio de GitHub**
+
+   * Seleccionar GitHub como proveedor de código fuente.
+   * Autorizar el acceso de Render a los repositorios disponibles (si aún no se ha realizado).
+   * Seleccionar el repositorio que contiene el microservicio a desplegar.
+   * Hacer clic en **Connect** para vincular el proyecto con Render.
+
+4. **Configurar el Web Service**
+
+   * Definir un nombre para el servicio dentro de Render.
+   * Seleccionar la rama del repositorio que se utilizará para el despliegue (generalmente `main`).
+   * Elegir el entorno de ejecución correspondiente (por ejemplo, Docker).
+   * Configurar el comando de compilación (*Build Command*) y el comando de inicio (*Start Command*) según los requisitos del proyecto.
+   * Agregar las variables de entorno necesarias, como credenciales, puertos o configuraciones específicas de cada microservicio.
+
+5. **Realizar el despliegue**
+
+   * Hacer clic en el botón **Create Web Service**.
+   * Render iniciará automáticamente el proceso de construcción del proyecto y su posterior despliegue.
+   * Esperar a que el estado del servicio cambie a **Live**, indicando que la aplicación está disponible en línea.
+
+6. **Verificar el funcionamiento del microservicio**
+
+   * Acceder a la URL pública generada por Render.
+   * Comprobar que el microservicio responde correctamente a las solicitudes HTTP.
+   * Revisar la sección **Logs** en Render en caso de detectar errores durante el inicio o la ejecución del servicio.
+
+[![Render-Deploy.png](https://i.postimg.cc/j5yns4ch/Render-Deploy.png)](https://postimg.cc/47NxPtrK)
+
 #### 7.2.2.8.	Team Collaboration Insights during Sprint
+
+[![Sprint2-Insights1.png](https://i.postimg.cc/yxV8TDd9/Sprint2-Insights1.png)](https://postimg.cc/gXTpzk3k)
+
+[![Sprint2-Insights2.png](https://i.postimg.cc/W1QpHW30/Sprint2-Insights2.png)](https://postimg.cc/SnfpXGcK)
 
 ## 7.3.	Validation Interviews
 
