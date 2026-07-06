@@ -7715,10 +7715,42 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
   </tr>
 
   <!-- TS-030 -->
+<tr>
+  <td rowspan="1">TS-030</td>
+  <td rowspan="1">Endpoint de subida de imágenes para solicitudes</td>
+  <td>T-030-01</td>
+  <td>Endpoint POST /api/v1/images/requests</td>
+  <td>Crear el command, handler en ImageCommandService y endpoint en ImageController para subir imágenes a Cloudinary en synhub/requests.</td>
+  <td>2</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+
+<!-- TS-031 -->
+<tr>
+  <td rowspan="2">TS-031</td>
+  <td rowspan="2">Evento RabbitMQ para solicitud creada</td>
+  <td>T-031-01</td>
+  <td>Infraestructura de mensajería en requests y notifications</td>
+  <td>Configurar exchanges, queues, routing keys y bindings en RabbitMQConfiguration de ambos microservicios.</td>
+  <td>1</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+<tr>
+  <td>T-031-02</td>
+  <td>Resolución de email del líder y publicación del evento</td>
+  <td>Agregar getGroupOnlyByGroupId en GroupsQueryPort, resolver el email del líder y publicar el evento desde RequestDetailsCommandService.</td>
+  <td>2</td>
+  <td>Max Paitan</td>
+  <td>Done</td>
+</tr>
+
+  <!-- TS-032 -->
   <tr>
-    <td rowspan="6">TS-030</td>
+    <td rowspan="6">TS-032</td>
     <td rowspan="6">Servicio de carga y almacenamiento de imágenes para tareas</td>
-    <td>T-030-01</td>
+    <td>T-032-01</td>
     <td>Diseño del endpoint de carga para tareas</td>
     <td>Definir el contrato REST multipart para creación/actualización de tareas, siguiendo el mismo patrón implementado para grupos.</td>
     <td>1</td>
@@ -7726,7 +7758,7 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
   <tr>
-    <td>T-030-02</td>
+    <td>T-032-02</td>
     <td>Integración con servicio Media</td>
     <td>Implementar TasksQueryPort, TasksFeignClient y TasksServiceAdapter en Media para permitir la carga, actualización y borrado de imágenes de tareas en Cloudinary.</td>
     <td>2</td>
@@ -7734,7 +7766,7 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
   <tr>
-    <td>T-030-03</td>
+    <td>T-032-03</td>
     <td>Persistencia de imagen en la entidad Task</td>
     <td>Agregar columnas image_url y public_id a la tabla tasks (migración Flyway) e implementar la lógica de actualización de imagen en el agregado Task.</td>
     <td>1</td>
@@ -7742,7 +7774,7 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
   <tr>
-    <td>T-030-04</td>
+    <td>T-032-04</td>
     <td>Integración en app de líderes (Kotlin)</td>
     <td>Implementar selector de imagen y envío multipart en la pantalla de creación de tareas de la app de líderes.</td>
     <td>2</td>
@@ -7750,7 +7782,7 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
   <tr>
-    <td>T-030-05</td>
+    <td>T-032-05</td>
     <td>Visualización de imagen en app de miembros (Flutter)</td>
     <td>Mostrar la imagen de la tarea en la pantalla de detalle de la app de miembros.</td>
     <td>1</td>
@@ -7758,13 +7790,16 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
   <tr>
-    <td>T-030-06</td>
+    <td>T-032-06</td>
     <td>Pruebas de integración end-to-end</td>
     <td>Validar el flujo completo de carga, actualización y visualización de imágenes de tareas entre los microservicios Tasks y Media.</td>
     <td>2</td>
     <td>Josue Paiva</td>
-    <tdDone</td>
+    <td>Done</td>
   </tr>
+
+
+
 </table>
 
 #### 7.2.2.3. Development Evidence for Sprint Review.
