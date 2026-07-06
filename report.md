@@ -7864,7 +7864,7 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Tasks:** Presentamos la evidencia de pruebas unitarias de tasks para este sprint, incluyendo la actualizacion de imagen con Cloudinary
 
-[![Tests-Tasks-Sprint2.png](https://res.cloudinary.com/duhtltjmh/image/upload/v1783364095/testSprint2_dt3hfi.png)
+![Tests-Tasks-Sprint2.png](https://res.cloudinary.com/duhtltjmh/image/upload/v1783364095/testSprint2_dt3hfi.png)
 
 
 #### 7.2.2.5.	Execution Evidence for Sprint Review
