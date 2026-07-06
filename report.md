@@ -7875,6 +7875,11 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 [![Groups-Evidence2-Sprint2.png](https://i.postimg.cc/FFbqhM1D/Groups-Evidence2-Sprint2.png)](https://postimg.cc/Hjx32Pwy)
 
+**Metrics**
+[![Captura-de-pantalla-2026-07-06-a-las-17-14-06.png](https://i.postimg.cc/jjsH20Bp/Captura-de-pantalla-2026-07-06-a-las-17-14-06.png)](https://postimg.cc/NKz9CVsD)
+
+[![Captura-de-pantalla-2026-07-06-a-las-17-14-11.png](https://i.postimg.cc/tTd7xYP3/Captura-de-pantalla-2026-07-06-a-las-17-14-11.png)](https://postimg.cc/S2sy0QgR)
+
 **Backend - Media:**
 
 [![Media-Evidence-Sprint2.png](https://i.postimg.cc/W4r8XZZt/Media-Evidence-Sprint2.png)](https://postimg.cc/Z9b6qCVh)
