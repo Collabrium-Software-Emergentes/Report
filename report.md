@@ -1504,6 +1504,10 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 5 | US-016 | Solicitud de extensión de plazo | Como miembro, quiero pedir más tiempo para una tarea. | 2 |
 | 5 | US-017 | Histórico de validaciones | Como líder, quiero ver historial de aprobaciones. | 2 |
 | 5 | US-018 | Notificaciones de cambio de estado | Como miembro, quiero recibir alertas de cambios. | 2 |
+| 5 | US-034 | Adjuntar imagen de evidencia en solicitud | Como miembro, quiero adjuntar opcionalmente una imagen como evidencia al crear una solicitud. | 3 |
+| 5 | US-035 | Notificación por correo al líder por nueva solicitud | Como líder, quiero recibir un correo electrónico cuando un miembro crea una solicitud. | 2 |
+| 5 | US-036 | Visualización de imagen de evidencia en validación | Como líder, quiero ver la imagen de evidencia adjunta en la pantalla de validación. | 2 |
+| 5 | TS-034 | Evento RabbitMQ para solicitud creada | Como developer, quiero publicar un evento por RabbitMQ cuando se crea una solicitud. | 3 |
 | 6 | TS-015 | Cambio de contraseña | Como developer, quiero permitir actualizar contraseña. | 2 |
 | 6 | TS-016 | Microservice IAM | Como developer, quiero gestionar autenticación centralizada. | 3 |
 | 7 | US-029 | Recomendación de asignación de tareas | Como líder, quiero que el sistema sugiera asignaciones. | 5 |
@@ -1520,6 +1524,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 8 | TS-027 | Servicio de carga y almacenamiento de imágenes para grupos | Como developer, quiero implementar un endpoint que permita subir y almacenar la imagen de perfil de un grupo utilizando el servicio Media. | 3 |
 | 8 | TS-032 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | 5 |
 | 8 | TS-028 | Servicio de notificaciones por email para eventos de grupos | Como developer, quiero enviar notificaciones informativas por email al crear un grupo y al invitar miembros. | 2 |
+| 8 | TS-033 | Endpoint de subida de imágenes para solicitudes | Como developer, quiero implementar un endpoint en media service para subir imágenes de evidencia de solicitudes a Cloudinary. | 2 |
 
 # 4. Capítulo IV: Strategic-Level Software Design
 
