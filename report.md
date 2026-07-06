@@ -1515,7 +1515,6 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 8 | TS-032 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | 5 |
 | 8 | TS-028 | Servicio de notificaciones por email para eventos de grupos | Como developer, quiero enviar notificaciones informativas por email al crear un grupo y al invitar miembros. | 2 |
 
-
 # 4. Capítulo IV: Strategic-Level Software Design
 
 ## 4.1. Strategic-Level Attribute-Driven Design
@@ -7571,6 +7570,111 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 </table>
 
 #### 7.2.2.2. Sprint Backlog 2
+
+<table>
+  <tr>
+    <td colspan="1"><strong>Sprint #</strong></td>
+    <td colspan="7"><strong>Sprint 2</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>User Story</strong></td>
+    <td colspan="6"><strong>Work-Item/Task</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Id</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Description</strong></td>
+    <td><strong>Estimation (Hrs)</strong></td>
+    <td><strong>Assigned To</strong></td>
+    <td><strong>Status</strong></td>
+  </tr>
+
+  <!-- TS-027 -->
+  <tr>
+    <td rowspan="4">TS-027</td>
+    <td rowspan="4">Servicio de carga y almacenamiento de imágenes para grupos</td>
+    <td>T-027-01</td>
+    <td>Diseño del endpoint de carga</td>
+    <td>Definir el contrato REST, validaciones y estructura de respuesta para la carga de imágenes.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-02</td>
+    <td>Integración con servicio Media</td>
+    <td>Implementar la conexión con el servicio Media para almacenar imágenes y obtener la URL pública.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-03</td>
+    <td>Validación de formato y tamaño</td>
+    <td>Agregar validaciones para formatos JPG/PNG y límite máximo de 5 MB.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-027-04</td>
+    <td>Pruebas unitarias e integración</td>
+    <td>Desarrollar pruebas para carga exitosa, formato inválido y tamaño excedido.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-028 -->
+  <tr>
+    <td rowspan="3">TS-028</td>
+    <td rowspan="3">Servicio de notificaciones por email para eventos de grupos</td>
+    <td>T-028-01</td>
+    <td>Configuración del servicio de email</td>
+    <td>Configurar el proveedor de correo y las plantillas base para notificaciones.</td>
+    <td>0,5</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-028-02</td>
+    <td>Notificación de creación de grupo</td>
+    <td>Implementar el envío de email al creador con los datos del grupo.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-028-03</td>
+    <td>Notificación de invitación</td>
+    <td>Implementar el envío de email informativo al usuario invitado.</td>
+    <td>1</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-029 -->
+  <tr>
+    <td rowspan="2">TS-029</td>
+    <td rowspan="2">Asistente IA para sugerencias al crear grupo</td>
+    <td>T-029-01</td>
+    <td>Diseño de integración con IA</td>
+    <td>Definir el contrato y la arquitectura de integración con el servicio de inteligencia artificial.</td>
+    <td>2</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-029-02</td>
+    <td>Sugerencias de nombre y descripción</td>
+    <td>Implementar la consulta al servicio IA para generar nombres y descripciones sugeridas.</td>
+    <td>0,5</td>
+    <td>Miguel Gomez</td>
+    <td>To Do</td>
+  </tr>
+</table>
 
 #### 7.2.2.3. Development Evidence for Sprint Review.
 
