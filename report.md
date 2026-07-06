@@ -75,6 +75,10 @@ Feliz y Felipe son dos cuentas de Jhon Guerrero.
 
 [![TB2-Insights-3.png](https://i.postimg.cc/sX5WsGRW/TB2-Insights-3.png)](https://postimg.cc/tZCJzTJR)
 
+### TF:
+
+[![image.png](https://i.postimg.cc/0NFHwNxd/image.png)](https://postimg.cc/yJhPqsDk)
+
 ## Contenido
 
 - [Universidad Peruana de Ciencias Aplicadas](#universidad-peruana-de-ciencias-aplicadas)
