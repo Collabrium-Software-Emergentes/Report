@@ -7678,6 +7678,32 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.3. Development Evidence for Sprint Review.
 
+**Commits realizados en el repositorio de desarrollo conjunto del backend (Synhub-Microservices-Old):**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Leaders | main | dada750f44d48dfacae12b82fddf3915b3919d81 | feat(tasks): implement task creation and task list views | Implemented the Compose screens for creating a new task and listing the tasks assigned within a group, giving Leaders the primary interface to manage their team's workload. | 2026-06-16 |
+
+**Commits realizados en el repositorio de frontend Synhub-Leaders:** 
+
+**Commits realizados en el repositorio de frontend Synhub-Members:** 
+
+**Commits realizados en el repositorio de backend Groups:** 
+
+**Commits realizados en el repositorio de backend Iam:** 
+
+**Commits realizados en el repositorio de backend Tasks:**
+
+**Commits realizados en el repositorio de backend Requests:** 
+
+**Commits realizados en el repositorio de backend Metrics:** 
+
+**Commits realizados en el repositorio de backend Notifications:** 
+
+**Commits realizados en el repositorio de backend Media:** 
+
+**Commits realizados en el repositorio de backend Ai:** 
+
 #### 7.2.2.4.	Testing Suite Evidence for Sprint Review
 
 #### 7.2.2.5.	Execution Evidence for Sprint Review
