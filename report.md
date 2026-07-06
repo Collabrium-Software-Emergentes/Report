@@ -7678,7 +7678,55 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 #### 7.2.2.3. Development Evidence for Sprint Review.
 
+**Commits realizados en el repositorio de desarrollo conjunto del backend (Synhub-Microservices-Old):**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-Microservices-Old | develop | edc809590081f10306447d42b211e331708e8eb7 | feat(config): update application port and logging configuration | Changed default server port to `8088` and updated logging package from `com.example.ai` to `com.collabrium.ai`. Enabled Swagger UI and API documentation paths. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 476d1f66429d55dd4e8bf89ab66b954756989888 | feat(ai): add GroupsAIController for group suggestion endpoint | Introduced `GroupsAIController` to handle AI-powered group suggestion requests. Includes a POST endpoint to generate group suggestions using validated input and transformation assemblers. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 06147d1dd7e54d84855171919a0d439a8e3f670d | feat(ai): add REST resources for group suggestion handling | Introduced `GroupSuggestionResource` and `GenerateGroupSuggestionResource` to define request/response structures for group suggestion functionality with validation. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | eac888efb7593b2c06f714ce55016c428b65bc7f | feat(notifications): update GroupsMailServiceImpl to send emails to all group members | Refactored `handle(SendGroupDeletedEmailCommand)` to iterate over all member emails when sending group deletion notifications. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 025cd0d41c10a51065283b42470fed49652289a4 | feat(notifications): add handling for SendGroupDeletedEmailCommand | Integrated support for processing `SendGroupDeletedEmailCommand` in `GroupsMailService` and its implementation. Simplified command imports and updated the record to remove unused `groupImageUrl`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 425364e9eb880a89b0d617161568c6a43cf16bdf | feat(notifications): add RabbitMQ queue and binding for GroupDeletedEvent | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a78a99a2ed915f10b01ff4db80e070a92cbc29bc | feat(notifications): add support for sending member removal emails, template, and service integration | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 32dc5cc1aef247304108cad949dadd9b7505b927 | refactor(media): use publicId from command in ImageCommandServiceImpl deletion logic | -- | 2026-07-04 |
+| Synhub-Microservices-Old | develop | a318af97cb479a58ea7239c8edcc3664e71162fe | feat(media): include publicId in DeleteGroupImageCommand and related event records | - Updated `DeleteGroupImageCommand`, `GroupDeletedEvent`, and assembler to support `publicId`. | 2026-07-04 |
+| Synhub-Microservices-Old | develop | 2cf3649d28c63ca34306a67348bf6ac2d4a99bb8 | feat(groups): add publicId to GroupOnlyResource, remove from DeleteGroupImageCommand | -- | 2026-07-04 |
+
+**Commits realizados en el repositorio de frontend Synhub-Leaders:** 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Leaders | develop | 9e3dad4c8e567764256a2ba3f8ad7d0c46c9215b | feat(utils): add utility to create multipart image | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 52e4fc32f0d210fe7f523db68c30baefab3bd26b | feat(group): add image upload support for group creation | -- | 2026-06-27 |
+| Synhub-for-Leaders | develop | 32d16247839e4edf9a5bcc1b3258d44170bbd0a8 | feat(group): add delete group functionality with confirmation dialog | -- | 2026-06-29 |
+| Synhub-for-Leaders | develop | 807c575534d8a94db4cf2241d73f284ef6d82f44 | feat(group): add edit group screen and update functionality | - Added `EditGroup` screen with form fields for editing group details. - Integrated group update API in `GroupViewModel`. - Updated navigation to include a route for editing groups. | 2026-06-29 |
+| Synhub-for-Leaders | develop | f534c8a6a052c06c6ca12fc7f38c556e0b47c6d7 | feat(ai): add GenerateGroupRequest and GenerateGroupResponse classes | -- | 2026-07-04 |
+| Synhub-for-Leaders | develop | 3699be6938aae8fd48220a981cf7ad8f6a6636ea | feat(ai): integrate voice-to-AI group creation and update base URL | -- | 2026-07-04 |
+
+**Commits realizados en el repositorio de frontend Synhub-Members:** 
+
+**Commits realizados en el repositorio de backend Groups:** 
+
+**Commits realizados en el repositorio de backend Iam:** 
+
+**Commits realizados en el repositorio de backend Tasks:**
+
+**Commits realizados en el repositorio de backend Requests:** 
+
+**Commits realizados en el repositorio de backend Metrics:** 
+
+**Commits realizados en el repositorio de backend Notifications:** 
+
+**Commits realizados en el repositorio de backend Media:** 
+
+**Commits realizados en el repositorio de backend Ai:** 
+
 #### 7.2.2.4.	Testing Suite Evidence for Sprint Review
+
+**Groups:** Esta imagen muestra la evidencia de las 6 pruebas unitarias realizadas para esta entrega. Al ser un proyecto SpringBoot con maven se utilizó el comando `mvn test` para ejecutar las pruebas:
+
+[![Tests-Groups-Sprint2.png](https://i.postimg.cc/2Sk0jygn/Tests-Groups-Sprint2.png)](https://postimg.cc/mtnY8LLr)
 
 #### 7.2.2.5.	Execution Evidence for Sprint Review
 
