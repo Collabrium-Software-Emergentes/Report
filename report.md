@@ -7706,21 +7706,12 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Commits realizados en el repositorio de frontend Synhub-Members:** 
 
-**Commits realizados en el repositorio de backend Groups:** 
-
-**Commits realizados en el repositorio de backend Iam:** 
-
-**Commits realizados en el repositorio de backend Tasks:**
-
-**Commits realizados en el repositorio de backend Requests:** 
-
-**Commits realizados en el repositorio de backend Metrics:** 
-
-**Commits realizados en el repositorio de backend Notifications:** 
-
-**Commits realizados en el repositorio de backend Media:** 
-
-**Commits realizados en el repositorio de backend Ai:** 
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| Synhub-for-Members | develop | 47440666995003510ab8fbe95236777c98410533 | feat: added image support for task detail | -- | 2026-07-05 |
+| Synhub-for-Members | develop | 156e46b53e28c100d883cf49adfb87eb5e62d8d8 | feat(requests): add image picker UI to request creation screens | -- | 2026-07-05 |
+| Synhub-for-Members | develop | c5da7a0b943b15bc0fc72f51067b989c37952526 | feat(config): add image_picker dependency and update AGP version | Add image_picker and http_parser dependencies. Update Android Gradle Plugin from 8.7.3 to 8.9.1 for AndroidX compatibility. | 2026-07-05 |
+| Synhub-for-Members | develop | 831d5394f5fdcaeca22eb02481b18c731693d8b7 | feat(requests): add image upload support to request service and API client | Add uploadFile method to ApiClient for multipart uploads. Add uploadRequestImage method to RequestService. Update createRequest to accept optional imageUrl. Update CreateRequestEvent and RequestBloc to handle image upload before request creation. Add imageUrl field to Request model. | 2026-07-05 |
 
 #### 7.2.2.4.	Testing Suite Evidence for Sprint Review
 
@@ -7749,6 +7740,22 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 **Backend - Ai:**
 
 [![Ai-Evidence-Sprint2.png](https://i.postimg.cc/t4d7kCgB/Ai-Evidence-Sprint2.png)](https://postimg.cc/CR1FL0k8)
+
+**Backend - Tasks:**
+
+[![image.png](https://i.postimg.cc/yN2J0m2c/image.png)](https://postimg.cc/rdCFkrVw)
+
+**Backend - Requests:**
+
+[![image.png](https://i.postimg.cc/RZFq8pBw/image.png)](https://postimg.cc/4mDJH5n3)
+
+[![image.png](https://i.postimg.cc/9MGfTvdC/image.png)](https://postimg.cc/2bSmN99K)
+
+**Backend - Iam:**
+
+[![image.png](https://i.postimg.cc/zBRgQtT7/image.png)](https://postimg.cc/DJn0Jcj4)
+
+[![execution.png](https://i.postimg.cc/26P48RzR/execution.png)](https://postimg.cc/KkDKJWkJ)
 
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
@@ -7780,7 +7787,17 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 
 **Enlace del Groups-Microservice:** [`https://groups-microservice-1.onrender.com`](https://groups-microservice-1.onrender.com)
 
-**Enlace del Requests-Microservicer:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+**Enlace del Requests-Microservice:** [`https://requests-microservice-zxvc.onrender.com`](https://requests-microservice-zxvc.onrender.com)
+
+**Enlace del Tasks-Microservice:** [`https://tasks-microservice.onrender.com`](https://tasks-microservice.onrender.com)
+
+**Enlace del Metrics-Microservice:** [`https://metrics-microservice-4x2j.onrender.com`](https://metrics-microservice-4x2j.onrender.com)
+
+**Enlace del Media-Microservice:** [`https://media-microservice.onrender.com`](https://media-microservice.onrender.com)
+
+**Enlace del Notifications-Microservice:** [`https://notifications-microservice-0drw.onrender.com`](https://notifications-microservice-0drw.onrender.com)
+
+**Enlace del Ai-Microservice:** [`https://ai-microservice-f0y9.onrender.com`](https://ai-microservice-f0y9.onrender.com)
 
 ##### Pasos realizados:
 
@@ -7826,6 +7843,10 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
 [![Render-Deploy.png](https://i.postimg.cc/j5yns4ch/Render-Deploy.png)](https://postimg.cc/47NxPtrK)
 
 #### 7.2.2.8.	Team Collaboration Insights during Sprint
+
+[![Sprint2-Insights1.png](https://i.postimg.cc/yxV8TDd9/Sprint2-Insights1.png)](https://postimg.cc/gXTpzk3k)
+
+[![Sprint2-Insights2.png](https://i.postimg.cc/W1QpHW30/Sprint2-Insights2.png)](https://postimg.cc/SnfpXGcK)
 
 ## 7.3.	Validation Interviews
 
