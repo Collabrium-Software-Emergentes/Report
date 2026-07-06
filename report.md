@@ -7746,6 +7746,10 @@ Notifications no usa endpoints y es netamente usado mediante los eventos transmi
 
 [![Notifications-Evidence-Sprint2.png](https://i.postimg.cc/Twdbg5qs/Notifications-Evidence-Sprint2.png)](https://postimg.cc/KKW4yzW7)
 
+**Backend - Ai:**
+
+[![Ai-Evidence-Sprint2.png](https://i.postimg.cc/t4d7kCgB/Ai-Evidence-Sprint2.png)](https://postimg.cc/CR1FL0k8)
+
 #### 7.2.2.6.	Services Documentation Evidence for Sprint Review
 
 #### 7.2.2.7.	Software Deployment Evidence for Sprint Review
