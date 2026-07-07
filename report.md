@@ -93,8 +93,9 @@ Feliz y Felipe son dos cuentas de Jhon Guerrero.
   - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
   - [Project Report Collaboration Insights](#project-report-collaboration-insights)
     - [TB1:](#tb1)
+    - [TP:](#tp)
     - [TB2:](#tb2)
-    - [TB3:](#tb3)
+    - [TF:](#tf)
   - [Contenido](#contenido)
   - [Student Outcome](#student-outcome)
   - [**1.1. Startup Profile**](#11-startup-profile)
@@ -445,17 +446,41 @@ Feliz y Felipe son dos cuentas de Jhon Guerrero.
       - [7.2.1.4.	Testing Suite Evidence for Sprint Review](#7214testing-suite-evidence-for-sprint-review)
       - [7.2.1.5.	Execution Evidence for Sprint Review](#7215execution-evidence-for-sprint-review)
       - [7.2.1.6.	Services Documentation Evidence for Sprint Review](#7216services-documentation-evidence-for-sprint-review)
+        - [**Iam:**](#iam)
+        - [**Groups:**](#groups)
+        - [**Tasks:**](#tasks)
+        - [**Requests:**](#requests)
+        - [**Metrics:**](#metrics)
       - [7.2.1.7.	Software Deployment Evidence for Sprint Review](#7217software-deployment-evidence-for-sprint-review)
+        - [Pasos realizados:](#pasos-realizados)
+        - [Pasos realizados:](#pasos-realizados-1)
       - [7.2.1.8.	Team Collaboration Insights during Sprint](#7218team-collaboration-insights-during-sprint)
+    - [7.2.2 Sprint 2](#722-sprint-2)
+      - [7.2.2.1. Sprint Planning 2](#7221-sprint-planning-2)
+      - [7.2.2.2. Sprint Backlog 2](#7222-sprint-backlog-2)
+      - [7.2.2.3. Development Evidence for Sprint Review.](#7223-development-evidence-for-sprint-review)
+      - [7.2.2.4.	Testing Suite Evidence for Sprint Review](#7224testing-suite-evidence-for-sprint-review)
+      - [7.2.2.5.	Execution Evidence for Sprint Review](#7225execution-evidence-for-sprint-review)
+      - [7.2.2.6.	Services Documentation Evidence for Sprint Review](#7226services-documentation-evidence-for-sprint-review)
+        - [**Media:**](#media)
+        - [**Ai:**](#ai)
+        - [**Tasks:**](#tasks-1)
+      - [7.2.2.7.	Software Deployment Evidence for Sprint Review](#7227software-deployment-evidence-for-sprint-review)
+        - [Pasos realizados:](#pasos-realizados-2)
+      - [7.2.2.8.	Team Collaboration Insights during Sprint](#7228team-collaboration-insights-during-sprint)
   - [7.3.	Validation Interviews](#73validation-interviews)
     - [7.3.1.	Diseño de Entrevistas](#731diseño-de-entrevistas)
+      - [Objetivo de la Entrevista](#objetivo-de-la-entrevista)
+      - [Elementos de Validación](#elementos-de-validación)
+      - [User Flows a Validar](#user-flows-a-validar)
+      - [Formato de Registro de la Entrevista](#formato-de-registro-de-la-entrevista)
     - [7.3.2.	Registro de Entrevistas](#732registro-de-entrevistas)
     - [7.3.3.	Evaluaciones según heurísticas](#733evaluaciones-según-heurísticas)
     - [7.4.	Video About-the-Product](#74video-about-the-product)
   - [Conclusiones](#conclusiones)
     - [TB1:](#tb1-1)
     - [TB2:](#tb2-1)
-    - [TB3:](#tb3-1)
+    - [TB3:](#tb3)
 
 ## Student Outcome
 
@@ -1489,7 +1514,11 @@ inteligente de asistencia:
 | TS-029 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | **Escenario 1: Sugerencia de nombre** → Given datos del grupo (propósito, miembros sugeridos, área/temática), When se consulta a IA, Then retorna sugerencias de nombre y descripción para el grupo. **Escenario 2: Sugerencia de configuración** → Given tipo de grupo y propósito, When se consulta a IA, Then retorna recomendaciones de configuración (nivel de privacidad, etiquetas, etc.). **Escenario 3: Fallo en IA** → Given servicio AI no disponible, When se consulta, Then retorna fallback con sugerencias genéricas predefinidas o mensaje controlado (503). | EP-007 |
 | TS-030 | Endpoint de subida de imágenes para solicitudes | Como developer, quiero un endpoint en media service para subir imágenes de solicitudes a Cloudinary. | **Escenario 1: Subida exitosa** → Given un archivo válido, When se envía POST /api/v1/images/requests, Then retorna imageUrl y publicId (200). **Escenario 2: Archivo inválido** → Given un archivo corrupto o no soportado, When se envía el POST, Then retorna error (400). | EP-005 |
 | TS-031 | Evento RabbitMQ para solicitud creada | Como developer, quiero publicar un evento por RabbitMQ cuando se crea una solicitud para que notifications service lo consuma y envíe el correo. | **Escenario 1: Publicación exitosa** → Given una solicitud creada exitosamente, When se guarda en la base de datos, Then se publica un evento en requests.exchange con routing key request.created. **Escenario 2: Consumo exitoso** → Given un evento publicado en la cola, When notifications service lo consume, Then se envía el correo al líder del grupo. | EP-003 |
-
+| TS-032 | Endpoint de Registro (Sign-Up) con usuario no verificado | Como developer, quiero implementar el endpoint de registro en AuthenticationController para procesar la creación de un usuario con estado inicial no verificado (verified = false). | **Escenario 1: Registro exitoso** → Given que las validaciones de username y email son correctas y no existen en la BD, When se envía un POST /sign-up con el SignUpResource, Then se guarda el usuario con la contraseña hasheada, el atributo verified = false y retorna un estado 201 Created. | EP-006 |
+| TS-033 | Generación de Token y Enlace de Verificación | Como developer, quiero generar un token JWT único mediante el TokenService al registrar un usuario para construir el link dinámico de verificación de cuenta. | **Escenario 1: Creación correcta del enlace** → Given un usuario recién persistido en la BD de forma no verificada, When se procesa la lógica en UserCommandServiceImpl, Then se genera un token JWT basado en el username y se concatena a la propiedad baseUrl para configurar el enlace de verificación completo. | EP-006 |
+| TS-034 | Envío de Correo de Verificación por Brevo SMTP | Como developer, quiero integrar EmailServiceImpl con Brevo SMTP y Thymeleaf para enviar la plantilla HTML de confirmación de correo electrónico. | **Escenario 1: Envío exitoso de correo** → Given un enlace de verificación generado correctamente, When se llama a emailService.sendVerificationEmail, Then se envía un correo usando las credenciales del .env.dev con el subject "Verify your email" y el botón renderizado con la plantilla email-verification.html. | EP-006 |
+| TS-035 | Procesamiento del Enlace de Activación de Cuenta | Como developer, quiero crear el controlador VerificationPageController para interceptar la validación del token y activar de forma definitiva la cuenta del usuario. | **Escenario 1: Validación y activación exitosa** → Given un token JWT válido enviado como parámetro de consulta en GET /verification/complete, When TokenService.validateToken confirma su validez y se ejecuta user.markAsVerified(), Then el campo de la base de datos cambia a verified = true y se redirige a la vista verification-success.html. | EP-006 |
+| TS-036 | Publicación de Eventos de Dominio vía RabbitMQ post-verificación | Como developer, quiero publicar eventos de integración en RabbitMQ una vez que la cuenta se marque como verificada para notificar a los demás microservicios del sistema. | **Escenario 1: Publicación de Evento de Líder** → Given un usuario que acaba de cambiar exitosamente su estado a verificado, When el sistema detecta que el usuario posee el rol de Líder, Then se publica el evento UserLeaderCreatedEvent en el exchange correspondiente de RabbitMQ. **Escenario 2: Publicación de Evento de Miembro** → Given un usuario que acaba de cambiar exitosamente su estado a verificado, When el sistema detecta que el usuario posee el rol de Miembro, Then se publica el evento UserMemberCreatedEvent en el exchange correspondiente de RabbitMQ. | EP-006 |
 
 ## 3.3. Impact Mapping
 
@@ -1508,6 +1537,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 1 | TS-013 | Autenticación (Login) | Como developer, quiero autenticar usuarios mediante JWT. | 5 |
 | 1 | TS-020 | Microservice Groups | Como developer, quiero gestionar grupos desde un servicio independiente. | 3 |
 | 1 | TS-017 | Microservice Tasks | Como developer, quiero gestionar tareas de forma desacoplada. | 3 |
+| 1 | TS-032 | Endpoint de Registro (Sign-Up) con usuario no verificado | Como developer, quiero implementar el endpoint de registro en AuthenticationController para procesar la creación de un usuario con estado inicial no verificado (verified = false). | 3 |
 | 2 | US-002 | Envío de invitaciones | Como líder, quiero invitar miembros a mi grupo para conformar el equipo. | 5 |
 | 2 | US-007 | Actualización de estado | Como miembro, quiero actualizar el estado de mis tareas para reflejar mi progreso. | 3 |
 | 2 | US-021 | Visualización de tareas asignadas | Como miembro, quiero ver las tareas que me han sido asignadas para gestionar mi trabajo. | 3 |
@@ -1516,6 +1546,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 2 | TS-006 | Asignación y consulta de tareas | Como developer, quiero asignar tareas y consultarlas por miembro o grupo. | 3 |
 | 2 | TS-007 | Gestión de estados de tareas | Como developer, quiero actualizar estados de tareas. | 3 |
 | 2 | TS-014 | Gestión de usuarios | Como developer, quiero crear, editar y obtener usuarios. | 3 |
+| 2 | TS-033 | Generación de Token y Enlace de Verificación | Como developer, quiero generar un token JWT único mediante el TokenService al registrar un usuario para construir el link dinámico de verificación de cuenta. | 2 |
 | 3 | US-008 | Reprogramación de tareas | Como líder, quiero cambiar fechas límite cuando surgen imprevistos. | 2 |
 | 3 | US-022 | Comentario en tareas | Como miembro, quiero comentar en las tareas para comunicarme con el líder. | 2 |
 | 3 | US-009 | Notificaciones multicanal | Como miembro, quiero recibir notificaciones tanto en la plataforma como por email. | 3 |
@@ -1524,6 +1555,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 3 | TS-010 | Gestión de notificaciones | Como developer, quiero enviar y consultar notificaciones. | 3 |
 | 3 | TS-011 | Gestión de estado de notificaciones | Como developer, quiero marcar notificaciones como leídas. | 2 |
 | 3 | TS-019 | Microservice Requests | Como developer, quiero gestionar solicitudes del sistema. | 3 |
+| 3 | TS-034 | Envío de Correo de Verificación por Brevo SMTP | Como developer, quiero integrar EmailServiceImpl con Brevo SMTP y Thymeleaf para enviar la plantilla HTML de confirmación de correo electrónico. | 3 |
 | 4 | US-010 | Gráfico de distribución de tareas | Como líder, quiero ver un gráfico pastel con la distribución de tareas. | 3 |
 | 4 | US-011 | Gráfico de estados de tareas | Como líder, quiero ver un gráfico de barras con el estado de tareas. | 3 |
 | 4 | US-012 | Reporte de reprogramaciones | Como líder, quiero ver un gráfico de líneas de tareas reprogramadas. | 2 |
@@ -1532,6 +1564,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 4 | US-026 | Reporte de cumplimiento de plazos | Como líder, quiero evaluar la eficiencia del equipo. | 1 |
 | 4 | TS-012 | Generación de reportes | Como developer, quiero generar y consultar reportes de métricas. | 5 |
 | 4 | TS-018 | Microservice Metrics | Como developer, quiero generar métricas de tareas. | 3 |
+| 4 | TS-035 | Procesamiento del Enlace de Activación de Cuenta | Como developer, quiero crear el controlador VerificationPageController para interceptar la validación del token y activar de forma definitiva la cuenta del usuario. | 5 |
 | 5 | US-014 | Solicitud de aprobación de tarea | Como miembro, quiero enviar tareas completadas para validación. | 3 |
 | 5 | US-015 | Validación de tareas | Como líder, quiero aprobar o rechazar tareas completadas. | 3 |
 | 5 | US-016 | Solicitud de extensión de plazo | Como miembro, quiero pedir más tiempo para una tarea. | 2 |
@@ -1541,6 +1574,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 5 | US-035 | Notificación por correo al líder por nueva solicitud | Como líder, quiero recibir un correo electrónico cuando un miembro crea una solicitud. | 2 |
 | 5 | US-036 | Visualización de imagen de evidencia en validación | Como líder, quiero ver la imagen de evidencia adjunta en la pantalla de validación. | 2 |
 | 5 | TS-034 | Evento RabbitMQ para solicitud creada | Como developer, quiero publicar un evento por RabbitMQ cuando se crea una solicitud. | 3 |
+| 5 | TS-036 | Publicación de Eventos de Dominio vía RabbitMQ post-verificación | Como developer, quiero publicar eventos de integración en RabbitMQ una vez que la cuenta se marque como verificada para notificar a los demás microservicios del sistema. | 3 |
 | 6 | TS-015 | Cambio de contraseña | Como developer, quiero permitir actualizar contraseña. | 2 |
 | 6 | TS-016 | Microservice IAM | Como developer, quiero gestionar autenticación centralizada. | 3 |
 | 7 | US-029 | Recomendación de asignación de tareas | Como líder, quiero que el sistema sugiera asignaciones. | 5 |
@@ -1558,6 +1592,7 @@ usuario y tareas técnicas priorizadas para el desarrollo de Synhub
 | 8 | TS-032 | Asistente IA para sugerencias al crear grupo | Como developer, quiero integrar el servicio AI para proporcionar sugerencias inteligentes durante la creación del grupo. | 5 |
 | 8 | TS-028 | Servicio de notificaciones por email para eventos de grupos | Como developer, quiero enviar notificaciones informativas por email al crear un grupo y al invitar miembros. | 2 |
 | 8 | TS-033 | Endpoint de subida de imágenes para solicitudes | Como developer, quiero implementar un endpoint en media service para subir imágenes de evidencia de solicitudes a Cloudinary. | 2 |
+
 
 # 4. Capítulo IV: Strategic-Level Software Design
 
@@ -7802,6 +7837,111 @@ Para hacer el deployment de los microservicios se utilizó Render, una plataform
     <td>Done</td>
   </tr>
 
+  <!-- TS-033 -->
+
+  <tr>
+    <td rowspan="2">TS-033</td>
+    <td rowspan="2">Generación de Token y Enlace de Verificación</td>
+    <td>T-033-01</td>
+    <td>Generación de JWT para verificación</td>
+    <td>Implementar lógica en TokenService para generar un token único basado en el username.</td>
+    <td>2</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-033-02</td>
+    <td>Construcción del enlace dinámico</td>
+    <td>Concatenar la baseUrl y el token generado dentro del flujo de UserCommandServiceImpl.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-034 -->
+
+  <tr>
+    <td rowspan="3">TS-034</td>
+    <td rowspan="3">Envío de Correo de Verificación por Brevo SMTP</td>
+    <td>T-034-01</td>
+    <td>Configuración de Brevo SMTP</td>
+    <td>Configurar credenciales en .env.dev e integrarlas en EmailServiceImpl.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-034-02</td>
+    <td>Creación de plantilla HTML</td>
+    <td>Desarrollar la plantilla Thymeleaf (email-verification.html) con el botón y estilos.</td>
+    <td>2</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-034-03</td>
+    <td>Integración de envío de email</td>
+    <td>Invocar emailService.sendVerificationEmail de forma asíncrona tras el registro.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-035 -->
+  <tr>
+    <td rowspan="3">TS-035</td>
+    <td rowspan="3">Procesamiento del Enlace de Activación de Cuenta</td>
+    <td>T-035-01</td>
+    <td>Creación del VerificationPageController</td>
+    <td>Exponer endpoint GET /verification/complete para recibir el token.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-035-02</td>
+    <td>Lógica de activación de cuenta</td>
+    <td>Validar token, cargar usuario y ejecutar user.markAsVerified() para actualizar BD.</td>
+    <td>2</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-035-03</td>
+    <td>Vista de confirmación exitosa</td>
+    <td>Crear y renderizar la página verification-success.html tras la activación.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+
+  <!-- TS-036 -->
+  <tr>
+    <td rowspan="3">TS-036</td>
+    <td rowspan="3">Publicación de Eventos de Dominio vía RabbitMQ post-verificación</td>
+    <td>T-036-01</td>
+    <td>Definición de Eventos de Dominio</td>
+    <td>Crear las clases UserLeaderCreatedEvent y UserMemberCreatedEvent con su payload.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-036-02</td>
+    <td>Publicación en RabbitMQ</td>
+    <td>Implementar la lógica para disparar el evento correspondiente según el rol del usuario activado.</td>
+    <td>2</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
+  <tr>
+    <td>T-036-03</td>
+    <td>Pruebas de integración de mensajería</td>
+    <td>Verificar que los mensajes se publiquen correctamente en el exchange correspondiente.</td>
+    <td>1</td>
+    <td>Diego Acuña</td>
+    <td>To Do</td>
+  </tr>
 
 
 </table>
